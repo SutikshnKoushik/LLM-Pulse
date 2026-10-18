@@ -1,0 +1,1372 @@
+{
+  "app": {
+    "title": "LLM Pulse — AI Usage Intelligence",
+    "eyebrow": "LLM Pulse",
+    "heading": "Rajat ja tokenit"
+  },
+  "actions": {
+    "refresh": "Päivitä",
+    "settings": "Asetukset",
+    "close": "Sulje"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "password": "Salasana",
+    "signIn": "Kirjaudu sisään",
+    "loginFailed": "Kirjautuminen epäonnistui"
+  },
+  "filter": {
+    "showAll": "Näytä kaikki",
+    "showActive": "Vain aktiiviset",
+    "hideInactive": "Piilota passiiviset palveluntarjoajat",
+    "showInactiveCount": "Näytä {count} passiivista palveluntarjoajaa",
+    "allVisible": "Kaikki palveluntarjoajat ovat näkyvissä",
+    "showAllNoticeTitle": "Kaikkien palveluntarjoajien näkymä",
+    "showAllNoticeBody": "Passiiviset, tyhjät, vain määritetyt ja historialliset palveluntarjoajakortit näkyvät. Vain aktiiviset on normaali näkymä."
+  },
+  "layout": {
+    "edit": "Edit layout",
+    "done": "Done",
+    "reset": "Default order",
+    "resetDone": "Default dashboard order restored.",
+    "dragHandle": "Move {name}",
+    "grabbed": "Moving {name}. Use arrow keys to move, Enter or Space to drop, Escape to cancel.",
+    "moved": "{name} moved to position {position} of {total}.",
+    "dropped": "{name} dropped at position {position} of {total}.",
+    "cancelled": "Move cancelled."
+  },
+  "summary": {
+    "ariaLabel": "Yleiskatsaus",
+    "fiveHourOpen": "5h quota free",
+    "weeklyOpen": "Week quota free",
+    "tokensToday": "Logged tokens today",
+    "tokensTotal": "Lokitetut tokenit yhteensä",
+    "recordDayLabel": "Ennätyspäivä",
+    "recordDay": "Ennätyspäivä: {date} · {tokens}",
+    "quotaWindowNote": "Provider quota window",
+    "tokensRange": "Logged tokens: {range}",
+    "todayLogNote": "Calendar day from local logs, not provider quota limits. {providers}",
+    "totalLogNote": "All local log history, not provider quota limits. {providers}",
+    "providerTokenDetail": "{provider}: {tokens}",
+    "providerBreakdownMore": "{providers} + {count} more",
+    "providerBreakdownEmpty": "No provider log tokens.",
+    "rangeNotes": {
+      "h24": "Rolling 24-hour total; chart bars are day-grained.",
+      "today": "Calendar day in local time.",
+      "week": "Last 7 days from local logs.",
+      "month": "Last 30 calendar days from local logs."
+    }
+  },
+  "chart": {
+    "eyebrow": "Local capture",
+    "heading": "Tokenhistoria lokeista",
+    "sourceTotalsAria": "Kokonaiskäyttö palveluntarjoittain",
+    "legendAria": "Selite",
+    "sourceTotalTitle": "Kokonaiskäyttö",
+    "svgAria": "Tokenhistoria",
+    "costSummary": {
+      "title": "Cost summary",
+      "apiEquivalent": "API equivalent",
+      "paid": "Subscription fixed cost",
+      "saved": "Delta vs API",
+      "quote": "API difference",
+      "quality": "Data quality",
+      "qualityComplete": "Covered",
+      "qualityPartial": "Partially estimated",
+      "qualityUnavailable": "Unavailable",
+      "missingSubscriptions": "Subscription history or a reliable fixed-cost source is missing for this range.",
+      "estimatedSources": "Estimated providers: {providers}.",
+      "missingSources": "Not included: {providers}.",
+      "unsupportedCurrencies": "Unsupported currencies: {currencies}."
+    },
+    "costs": {
+      "svgAria": "Cost history",
+      "noData": "No cost data for the selected range."
+    },
+    "filters": {
+      "h24": "Last 24 hours",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all": "All Time"
+    },
+    "headingCosts": "Cost History from Logs",
+    "mode": {
+      "tokens": "Tokens",
+      "costs": "Costs"
+    },
+    "modeToggleAria": "Chart mode",
+    "filterBarAria": "Time range",
+    "insights": {
+      "ariaLabel": "Selected range statistics",
+      "total": "Total",
+      "selectedRange": "Selected range",
+      "avgActiveDay": "Ø active day",
+      "avgActiveDayDetail": "Based on {days} active days",
+      "activeDays": "Active days",
+      "activeDaysValue": "{active}/{days}",
+      "activeDaysDetail": "Days with usage",
+      "peakDay": "Peak day",
+      "noData": "No activity in the selected range.",
+      "selectedRangeDetail": "{range} shown with the selected range semantics."
+    },
+    "models": {
+      "heading": "Models used",
+      "range": "{range} model mix",
+      "topTokens": "Top by tokens: {model} · {tokens}",
+      "topCost": "Top by API-equivalent cost: {model} · {cost}",
+      "costUnknown": "API-equivalent cost unavailable for these models.",
+      "unknown": "Tuntematon malli"
+    },
+    "breakdown": {
+      "total": "Yhteensä",
+      "provider": "Palveluntarjoaja",
+      "model": "Malli",
+      "device": "Asennus",
+      "account": "Tili"
+    },
+    "breakdownToggleAria": "Tokenien erittely",
+    "overviewAria": "Compact token history by provider",
+    "breakdownSummary": {
+      "totalTitle": "Total window",
+      "providerTitle": "Provider share",
+      "modelTitle": "Model share",
+      "topProvider": "Top provider",
+      "topModel": "Top model",
+      "coverage": "Coverage",
+      "providerCount": "{count} providers",
+      "modelCount": "{count} models",
+      "noProvider": "No provider breakdown",
+      "noModel": "No model breakdown"
+    },
+    "providers": {
+      "heading": "Providers used",
+      "range": "{range} provider mix",
+      "topTokens": "Top by tokens: {provider} · {tokens}",
+      "topModel": "Top model: {model} · {tokens}",
+      "noModel": "No model details",
+      "columns": {
+        "provider": "Provider",
+        "tokens": "Tokens",
+        "share": "Share",
+        "topModel": "Top model"
+      }
+    },
+    "totalBreakdown": {
+      "heading": "Total summary",
+      "range": "{range} aggregate"
+    },
+    "attribution": {
+      "groupBy": "Ryhmittele",
+      "unknownAccount": "Tuntematon tili",
+      "unknownDevice": "Tuntematon asennus",
+      "sharedDevice": "Havaittu useissa asennuksissa",
+      "sharedDeviceHelp": "Laskettu kerran; alkuperäinen asennus on epäselvä.",
+      "observed": "Havaittu paikallisissa lokeissa",
+      "observedOn": "Havaittu asennuksissa",
+      "evidence": "Kohdistus",
+      "observedHelp": "Asennukset näyttävät, mistä lokit löytyivät. Kopioidut tapahtumat lasketaan kerran; alkuperäinen tietokone voi olla tuntematon.",
+      "accountHelp": "Tili kohdistetaan vain, jos se on kirjattu käyttötietoihin. Muut tokenit jäävät Tuntematon tili -kohtaan."
+    }
+  },
+  "tokenMix": {
+    "eyebrow": "Token Mix",
+    "heading": "Lokitettu tokenkäsittely"
+  },
+  "liveMetrics": {
+    "ariaLabel": "Live system usage",
+    "eyebrow": "Live",
+    "heading": "Live Load",
+    "updated": "Updated {time}",
+    "notAvailable": "Not available",
+    "error": "Error",
+    "unavailable": "Not available",
+    "unavailableShort": "N/A",
+    "percentScale": "0-100%",
+    "cpu": "CPU",
+    "ram": "Memory",
+    "ramSub": "{used}/{total} GB used",
+    "aiLoad": "AI Load",
+    "aiLoadSub": "Heuristic",
+    "aiLoadHelp": "Estimated from CPU, memory, and token throughput. Not an exact measurement.",
+    "tokensPerMinute": "Tokens/min",
+    "noTokenWindow": "No measured window yet",
+    "noTokenBreakdown": "No reliable breakdown",
+    "historyHeading": "Trend",
+    "historyAria": "Live load trend",
+    "legendAria": "Live trend legend",
+    "historyLoading": "Collecting live data...",
+    "historyNoSeries": "No active series.",
+    "quality": {
+      "measured": "Measured",
+      "calculated": "From logs",
+      "estimated": "Estimated",
+      "unavailable": "Not available"
+    },
+    "series": {
+      "cpu": "CPU",
+      "ram": "Memory",
+      "aiLoad": "AI Load",
+      "tokensTotal": "Tokens/min",
+      "tokensInput": "Input",
+      "tokensOutput": "Output",
+      "tokensCached": "Cached",
+      "aiCpu": "AI CPU",
+      "aiMemory": "AI Memory",
+      "swap": "Swap"
+    },
+    "errors": {
+      "load": "Could not load live system metrics."
+    },
+    "tokensPerMinuteHelp": "Calculated from local Claude Code, Codex, Gemini, Copilot, and Ollama logs in the local aggregate. Multica Claude/Codex runs are included through those logs; API-only OpenAI/Anthropic billing is excluded to avoid double counting. Gemini agents may be missing when the Gemini CLI does not write token metadata.",
+    "systemCpu": "System CPU",
+    "systemRam": "System Memory",
+    "aiCpu": "AI CPU",
+    "aiCpuSub": "{count} AI processes",
+    "aiCpuHelp": "Aggregated CPU share of recognized local AI process groups. Commands and paths are not exposed.",
+    "aiMemory": "AI Memory",
+    "aiMemorySub": "{used} GB RSS",
+    "aiMemoryHelp": "Aggregated resident memory of recognized local AI process groups. Shared Electron and browser memory is approximate.",
+    "swap": "Swap",
+    "swapSub": "{used}/{total} GB used",
+    "swapHelp": "System swap usage. High swap can slow the Mac even when AI process memory is only part of the total.",
+    "noAiProcesses": "No AI process group found",
+    "processBreakdownHeading": "Running AI groups",
+    "processBreakdownHelp": "Safe aggregate view: running AI process groups and load shares without command lines, prompts, or paths.",
+    "processTotal": "AI total: {cpu} CPU · {memory} · {memoryShare} RAM · {count} running processes",
+    "processBreakdownUnavailable": "Process grouping is not available on this platform/runtime.",
+    "processBreakdownEmpty": "No recognized AI process group is currently running for the dashboard.",
+    "processColumns": {
+      "group": "Group",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "memoryShare": "RAM %",
+      "count": "Processes"
+    },
+    "recentRateWindow": "Live-nopeus, liukuva 60 s"
+  },
+  "pricing": {
+    "eyebrow": "API-kustannukset",
+    "heading": "Mitä tokenisi olisivat maksaneet API:n kautta",
+    "meta": "Luettelo {catalogVersion} · {modelCount} mallia · EUR ECB:n kautta {fxDate} · API-hinnat {pricingDate} · Arena Text {scoreDate}",
+    "modelFilter": {
+      "label": "Suodata mallin nimellä",
+      "placeholder": "Esimerkiksi Sol, 6.1 tai Claude",
+      "empty": "Tällä nimellä ei löytynyt malleja."
+    },
+    "qualityScoreTitle": "Arena Text {scoreDate}: {score} Elo",
+    "chinaBadge": "Kiina",
+    "unknown": "Tuntematon",
+    "notPriced": "Ei hinnoiteltu",
+    "aliases": "Aliakset: {aliases}",
+    "limitSummary": "konteksti {context} · tuloste {output}",
+    "sourceReviewed": "Tarkistettu {date}",
+    "regions": {
+      "apiDiscount": "API-alennus"
+    },
+    "columns": {
+      "model": "Malli",
+      "score": "Pisteet",
+      "region": "Alue",
+      "limits": "Rajat",
+      "input": "Syöte",
+      "cache": "Välimuisti",
+      "output": "Tuloste",
+      "today": "Last 24h",
+      "total": "Yhteensä",
+      "status": "Tila",
+      "source": "Lähde"
+    },
+    "priceStatus": {
+      "official": "Virallinen hinta",
+      "estimated": "Arvioitu hinta",
+      "unknown": "Hinta tuntematon",
+      "mixed": "Sekahinnat"
+    },
+    "availability": {
+      "ga": "Yleisesti saatavilla",
+      "preview": "Esikatselu",
+      "deprecated": "Vanhentunut",
+      "unknown": "Saatavuus tuntematon"
+    },
+    "limitStatus": {
+      "official": "Viralliset rajat",
+      "estimated": "Arvioidut rajat",
+      "unknown": "Rajat tuntemattomat"
+    },
+    "viewToggleAria": "Cost view",
+    "aliasesSummary": "{count} aliases",
+    "views": {
+      "api": "API equivalent",
+      "models": "Used models",
+      "subscriptions": "Fixed costs"
+    },
+    "usedModels": {
+      "heading": "Used models in {range}",
+      "description": "Actual logged model usage matched to the local pricing catalog where possible.",
+      "empty": "No model-level token data is available for the selected range.",
+      "totalLabel": "API-kustannukset yhteensä",
+      "totalComplete": "Täydellinen",
+      "totalPartial": "Osittainen",
+      "totalUnknown": "Tuntematon",
+      "totalMixed": "Useita valuuttoja",
+      "totalPartialNote": "Osalta näytetyistä riveistä puuttuu luotettava API-hinta, joten summa on osittainen.",
+      "totalUnknownNote": "Yhdelläkään näytetyllä rivillä ei ole luotettavaa API-hintaa.",
+      "totalMixedNote": "Näytetyt rivit käyttävät useita valuuttoja; summaa ei lasketa.",
+      "totalRow": "API-kustannukset yhteensä"
+    },
+    "subscriptions": {
+      "heading": "Subscription and fixed costs in {range}",
+      "description": "Shows monthly fixed costs only when safely detected locally or saved as fallback estimates. Missing data is not treated as real cost.",
+      "empty": "No subscription or fixed-cost data is available yet.",
+      "previous": "Previous cost",
+      "delta": "Change"
+    }
+  },
+  "providers": {
+    "codex": {
+      "kicker": "Codex"
+    },
+    "codexSpark": {
+      "kicker": "Codex Spark"
+    },
+    "claudeCode": {
+      "kicker": "Claude Code"
+    },
+    "anthropic": {
+      "kicker": "API-käyttö"
+    },
+    "openai": {
+      "kicker": "API ja krediitit"
+    },
+    "gemini": {
+      "kicker": "Gemini"
+    },
+    "glm": {
+      "kicker": "OpenAI-compatible import"
+    },
+    "ollama": {
+      "kicker": "Ollama"
+    },
+    "local": {
+      "name": "Local capture"
+    },
+    "gridAria": "Palveluntarjoajat",
+    "messages": {
+      "sparkTokens24h": "Spark-tokenit 24h",
+      "logTokens24h": "Lokitokenit 24h",
+      "missingBackendKey": "Backend-avain puuttuu",
+      "sevenDays": "7 päivää",
+      "noCodexSparkEvents": "Codex 5.3 Spark -tapahtumia ei löytynyt.",
+      "noGeminiLogs": "Paikallisia Gemini-käyttölokeja ei löytynyt.",
+      "glmImportTokens": "GLM/Z.AI tokens from local imports.",
+      "glmQuotaUnavailable": "Official quota through OpenCode is not available.",
+      "noGlmEvents": "No local GLM/Z.AI usage events found.",
+      "ollamaLogTokens": "Paikalliset Ollama-tokenit lokeista",
+      "noOllamaLogs": "Paikallisia Ollama-lokeja ei löytynyt.",
+      "copilotLogTokens": "Copilot CLI tokens 24h",
+      "noCopilotSessionMetrics": "No local Copilot CLI session metrics found.",
+      "claudeStatuslineNoQuotas": "Claude is sending data, but not official Pro/Max limit values yet.",
+      "claudeStatuslineMissing": "Claude-statuslinea ei ole määritetty. Ota dashboardin statusline-komento käyttöön Pro/Max-livekiintiöille.",
+      "claudeLiveLimitsMissing": "Claude live limits are not available from local telemetry yet.",
+      "claudeLimitsStale": "Claude live limits are out of date. Open Claude Code once to refresh them.",
+      "claudeOauthUnavailable": "Claude CLI/OAuth quota unavailable: {reason}.",
+      "claudeBrowserLoginHint": "Log in to Claude.ai in your browser to enable credit tracking.",
+      "glmQuotaAvailable": "Official GLM Coding Plan quota from OpenCode.",
+      "glmQuotaUnavailableReason": "Official GLM Coding Plan quota unavailable: {reason}.",
+      "noOpenCodeGptEvents": "No local OpenAI/GPT usage events found in OpenCode."
+    },
+    "emptyState": {
+      "eyebrow": "Palveluntarjoaja",
+      "heading": "Ei aktiivista käyttöä",
+      "status": "Tyhjä",
+      "message": "Yhdelläkään palveluntarjoajalla ei tällä hetkellä ole lokitettuja tokeneita tai rajatietoja.",
+      "visible": "Näkyvissä",
+      "hidden": "Piilotettu",
+      "all": "Kaikki"
+    },
+    "copilot": {
+      "kicker": "Copilot CLI"
+    },
+    "updateDelayHints": {
+      "default": "This provider has not produced a fresh local signal for more than {minutes} minutes. Some sources only update when their CLI or app writes new usage data.",
+      "codex": "Codex limits normally update through the local app-server. If this stays old, the app-server may be unavailable or Codex has not produced fresh live limit data.",
+      "codexSpark": "Codex Spark limits normally update through the local Codex app-server. If this stays old, Spark live limit data may not be exposed yet.",
+      "claudeCode": "This Claude Code card combines statusline, local logs, and Claude.ai billing or usage data. Updates can lag when Claude Code is closed, the statusline has not run, or Claude.ai cookies/API access are unavailable.",
+      "copilot": "GitHub Copilot CLI usage is written after sessions shut down, and live quota probing depends on the local Copilot CLI. The timestamp can lag while a session is still open or the probe is unavailable.",
+      "gemini": "Gemini local usage updates only when local log files contain new usage metadata.",
+      "glm": "GLM/Z.AI updates when local JSON, JSONL, or CSV usage imports contain OpenAI-compatible GLM token counts.",
+      "ollama": "Ollama usage updates only when requests pass through the dashboard's local proxy/log file."
+    },
+    "freshness": {
+      "ariaLabel": "Palveluntarjoajan datan aika",
+      "usage": "Käyttö {time}",
+      "limits": "Rajat {time}",
+      "prices": "Hinnat {time}",
+      "catalog": "Katalogi {date}",
+      "unknown": "Data-aika tuntematon"
+    },
+    "openCode": {
+      "kicker": "OpenCode GPT logs"
+    },
+    "kimi": {
+      "kicker": "Kimi Code"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "empty": "Tyhjä",
+    "not_configured": "Asetus",
+    "error": "Virhe"
+  },
+  "labels": {
+    "today": "Tänään",
+    "fiveHourUsed": "5h käytetty",
+    "weekUsed": "Viikko käytetty",
+    "fiveHourLeft": "5 h jäljellä",
+    "weekLeft": "Viikko jäljellä",
+    "since": "Alkaen",
+    "updated": "Päivitetty",
+    "plan": "Tilaukset",
+    "fiveHourTokens": "5h tokenit",
+    "total": "Yhteensä",
+    "cost": "Kustannus",
+    "tokens7d": "Tokenit 7 päivää",
+    "cost7d": "Kustannus 7 päivää",
+    "limits": "Rajat",
+    "updatedHelp": "Why this timestamp may be delayed",
+    "subscription": "Subscription",
+    "last24h": "Last 24h"
+  },
+  "credits": {
+    "title": "Krediitit",
+    "monthlySpend": "Käyttökrediitit",
+    "monthlyLimit": "Kuukausiraja",
+    "currentCredit": "Nykyinen krediitti",
+    "autoTopUp": "Automaattinen lisäys",
+    "default": "Krediitit",
+    "on": "Päällä",
+    "off": "Pois"
+  },
+  "limits": {
+    "recentPace": {
+      "timeToLimit": "Aikaa rajaan: {duration}",
+      "title": "Viimeaikainen tahti",
+      "measured": "+{percent} prosenttiyksikköä ajassa {duration}",
+      "collecting": "Tälle ajanjaksolle ei ole vielä riittävästi mittauksia.",
+      "flat": "Ei mitattavaa kasvua tällä ajanjaksolla.",
+      "stale": "Viimeisin kiintiötieto on liian vanha.",
+      "changed": "Lukemat muuttuivat; ennustetta ei ole.",
+      "possible": "Raja voi täyttyä ennen nollausta; arvio on epävarma.",
+      "note": "Arvio pyöristetyistä prosenteista tasaisen tahdin oletuksella."
+    },
+    "fiveHour": "5h",
+    "weekly": "Viikko",
+    "currentSession": "Nykyinen istunto",
+    "allModels": "Kaikki mallit",
+    "claudeDesign": "Claude Design",
+    "sonnetOnly": "Vain Sonnet",
+    "default": "Raja",
+    "resetPrefix": "Nollaus {time}",
+    "usedValue": "{percent}% käytetty",
+    "leftValue": "{percent}% jäljellä",
+    "freeLabel": "{label} käytettävissä",
+    "limitGroups": "{count} rajaryhmää",
+    "noModelLimits": "Ei mallirajoja",
+    "remainingShort": "{days}d {hours}h {minutes}m",
+    "fullTitle": "Limit full",
+    "fullDescription": "{limit} is full.",
+    "fullTokenDetail": "{tokens} tokens in {period}",
+    "fullPremiumRequestsDetail": "{requests} premium requests from local session logs",
+    "fullResetDetail": "Reset {time}",
+    "period5h": "5h",
+    "period7d": "7d",
+    "period24h": "24h",
+    "fullQuotaDetail": "{usage} used",
+    "status": {
+      "ok": "On track",
+      "risk": "Nopea tahti",
+      "full": "Limit reached",
+      "unknown": "Unknown"
+    },
+    "pace": {
+      "remaining": "Nykyisella tahdilla nollauksessa jaa noin {percent}%.",
+      "shortfall": "Nykyisella tahdilla nollauksessa puuttuu noin {percent}%.",
+      "hitBeforeReset": "Nykyisella tahdilla raja tayttyy noin {duration} ennen nollausta. ({time})",
+      "fullWithReset": "Raja tayttynyt; nollaus {time}.",
+      "fullNoReset": "Raja tayttynyt; nollausaikaa ei saatavilla.",
+      "unavailable": {
+        "noUsage": "Tahti ei saatavilla: tama lahde ei anna kayttoprosenttia.",
+        "noWindow": "Tahti ei saatavilla: tama lahde ei anna ikkunan pituutta tai nollausaikaa.",
+        "notStarted": "Tahti ei saatavilla: tama kiintioikkuna ei ole viela alkanut.",
+        "staleReset": "Tahti ei saatavilla: nollausaika on vanhentunut; paivita lahde."
+      }
+    },
+    "duration": {
+      "daysHours": "{days} pv {hours} h",
+      "hoursMinutes": "{hours} h {minutes} min",
+      "minutes": "{minutes} min"
+    },
+    "gauge": {
+      "title": "Nykyinen käyttö",
+      "projectedValue": "{percent}% ennuste",
+      "unavailable": "Ennuste ei ole saatavilla",
+      "aria": "Kohteen {label} ennustettu loppukäyttö"
+    },
+    "viewToggleAria": "Nykyisen käytön visualisointi",
+    "view": {
+      "tachometer": "Mittari",
+      "bar": "Palkki"
+    },
+    "remainingUntilReset": "Resets in {remaining} · Reset {time}",
+    "glmFiveHourTokens": "5h tokens",
+    "glmWeekly": "Weekly quota",
+    "glmMcpMonthly": "Monthly MCP"
+  },
+  "tokens": {
+    "input": "Syöte",
+    "cacheCreation": "Välimuistin luonti",
+    "cachedInput": "Välimuistissa oleva syöte",
+    "output": "Tuloste",
+    "reasoningOutput": "Reasoning-tuloste",
+    "total": "Yhteensä"
+  },
+  "format": {
+    "billion": "mrd",
+    "million": "milj.",
+    "thousand": "tuh.",
+    "lessThanSharePercent": "<0,1%",
+    "lessThanCent": "< 0,01 EUR",
+    "usdPerMillion": "{value} $/M",
+    "cacheReadWrite": "{read} luku / {write} kirjoitus",
+    "cacheSameAsInput": "kuten syöte",
+    "perMonth": "{amount}/mo",
+    "fromPerMonth": "alkaen {amount}/kk"
+  },
+  "settings": {
+    "heading": "Asetukset",
+    "language": {
+      "label": "Kieli"
+    },
+    "theme": {
+      "label": "Teema",
+      "system": "Järjestelmä",
+      "light": "Vaalea",
+      "dark": "Tumma"
+    },
+    "notifications": {
+      "title": "Limits & warnings",
+      "description": "Warnings use real 5-hour and weekly provider windows plus projections; they are separate from monthly subscription/API cost comparisons.",
+      "enabled": "Enable notifications",
+      "pacingLabel": "Pacing warning at projected provider-window usage (%)",
+      "hardLimitLabel": "Hard warning at measured provider-window usage (%)",
+      "save": "Save",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "diagTitle": "Notification diagnostics",
+      "diagLastCheck": "Last check",
+      "diagDuration": "Duration",
+      "diagAlerts": "Alerts found",
+      "diagLastShown": "Last notification sent",
+      "diagSkipped": "Skip reason",
+      "diagError": "Last error",
+      "diagSupported": "Notifications supported",
+      "diagNone": "None",
+      "diagNever": "Never",
+      "diagYes": "Yes",
+      "diagNo": "No",
+      "testBtn": "Send test notification",
+      "testQueued": "Test requested. If no real system banner appears, open system notifications, allow LLM Pulse, restart the app, then run the test again.",
+      "testError": "Could not send test notification.",
+      "testResultLabel": "Last test result",
+      "testResultAt": "At",
+      "testResultOutcome": "Outcome",
+      "testResult_shown": "Reported as shown by an older build",
+      "testResult_not_supported": "Not supported on this system",
+      "testResult_error": "Error",
+      "diagPermission": "Browser permission (not a macOS banner guarantee)",
+      "permission_granted": "Granted for browser API",
+      "permission_default": "Not asked yet",
+      "permission_denied": "Denied",
+      "permission_unsupported": "Unsupported",
+      "permission_unknown": "Unknown",
+      "permission_error": "Permission check failed",
+      "permissionNotGranted": "Notification permission was not granted. System notification settings were opened; allow LLM Pulse, restart the app, then run the test again.",
+      "permissionUnsupported": "This app runtime does not expose desktop notification permission.",
+      "testResult_sent": "Queued with Electron (banner not confirmed)",
+      "testQueuedRendererError": "Native macOS notification queued, but the immediate browser notification failed: {error}",
+      "testTitle": "LLM Pulse - Test",
+      "testBody": "Desktop notifications are working correctly.",
+      "inAppTestTitle": "In-app test notification",
+      "inAppTestErrorTitle": "Notification test needs attention",
+      "inAppTestBody": "This in-app fallback confirms the test ran. It is not a system banner; native banners may require system notification permission, a fresh app restart, and a properly signed build.",
+      "diagNativeDelivery": "Native system delivery",
+      "nativeDelivery_ready": "Signed app: native banners should be available",
+      "nativeDelivery_ad_hoc": "Ad-hoc build: native banners may not appear",
+      "nativeDelivery_gatekeeper_rejected": "Gatekeeper rejected: native banners may not appear",
+      "nativeDelivery_unverified": "Unverified",
+      "nativeDelivery_not_applicable": "Not applicable on this platform",
+      "nativeDelivery_unknown": "Unknown",
+      "openSettingsBtn": "Open system notification settings",
+      "openSettingsQueued": "System notification settings opened. Allow notifications for LLM Pulse, restart the app if you just changed the setting, then run the test again.",
+      "openSettingsError": "Could not open system notification settings from this runtime.",
+      "systemGuideTitle": "System notifications need attention",
+      "systemGuideDefault": "Allow notifications for LLM Pulse in system settings, restart the app if you just changed the setting, then run the test again.",
+      "systemGuidePermission": "This app does not yet have notification permission. System settings were opened; allow notifications for LLM Pulse there.",
+      "systemGuideUnsupported": "This runtime cannot read browser notification permission. Open system notification settings and allow notifications for LLM Pulse there.",
+      "systemGuideNativeUnverified": "Native banners are not reliably confirmed with this build. Check system notifications, allow LLM Pulse, then test again after restarting the app.",
+      "systemGuideTestFailed": "The last native notification attempt reported a failure. Check system notifications, restart the app, then run the test again.",
+      "systemGuideAfterTest": "If no real system banner appeared, check system notifications, allow LLM Pulse, restart the app, then send the test again.",
+      "thresholdsHelp": "Pacing uses the current consumption rate; hard warning uses measured consumption in the relevant 5h or weekly provider window.",
+      "nativeAlertTitle": "Rajoitusvaroitus: {window}",
+      "nativeUsedPercent": "{percent}% käytetty.",
+      "nativeHardLimit": "Raja on lähes käytetty.",
+      "nativePacingProjected": "{usedPercent}% käytetty; nykyinen tahti ennustaa {projectedPercent}%.",
+      "nativeEstimatedExhaustion": "Arvioitu loppuminen {time} kuluttua.",
+      "nativeDurationHoursMinutes": "{hours} h {minutes} min",
+      "nativeDurationHours": "{hours} h",
+      "nativeDurationMinutes": "{minutes} min",
+      "nativeWindowFiveHour": "5 tunnin ikkuna",
+      "nativeWindowWeekly": "Viikkoraja",
+      "nativeWindowSonnetOnly": "Vain Sonnet -raja",
+      "nativeWindowClaudeDesign": "Claude Design -raja",
+      "nativeWindowGeneric": "Raja"
+    },
+    "subscriptions": {
+      "title": "Subscription costs",
+      "planLabel": "Plan",
+      "monthlyCostLabel": "Monthly cost (EUR)",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "description": "Detected plans and costs come from safe local signals. Missing data is not counted as real cost.",
+      "detectedOnly": "Manual values are not normal setup. Use Advanced only as a fallback estimate when local detection is unavailable.",
+      "advancedTitle": "Advanced fallback estimates",
+      "advancedDescription": "These values are saved fallback estimates. Cards and cost views label them as estimates, not automatically detected costs."
+    },
+    "sources": {
+      "title": "Data sources & diagnostics",
+      "description": "Manage connected sources, recheck access, and copy ACL commands for other local users.",
+      "recheck": "Recheck access",
+      "recheckOne": "Recheck access",
+      "recheckPending": "Checking...",
+      "rechecked": "Source diagnostics refreshed.",
+      "recheckError": "Could not refresh source diagnostics.",
+      "currentUser": "current user",
+      "summaryStatus": "Status: {status}",
+      "summaryCounts": "{connected} usable · {candidates} additional candidates",
+      "connectedTitle": "Usable sources",
+      "candidatesTitle": "Additional detected sources",
+      "connectedEmpty": "No usable sources detected yet.",
+      "candidatesEmpty": "No additional source candidates detected right now.",
+      "owner": "Owner: {owner}",
+      "discovery": "Discovery: {method} · confidence {confidence}",
+      "access": {
+        "readable": "Readable",
+        "mixed": "Partially readable",
+        "denied": "Access denied",
+        "missing": "Missing",
+        "process_only": "Process only",
+        "service_only": "Service only"
+      },
+      "permissions": {
+        "readable": "Readable",
+        "denied": "Denied",
+        "missing": "Missing",
+        "unknown": "Unknown",
+        "optionalMissing": "Optional missing"
+      },
+      "roles": {
+        "sessions": "Sessions",
+        "archived_sessions": "Archived sessions",
+        "projects": "Projects",
+        "session_state": "Session state",
+        "telemetry": "Telemetry",
+        "chats": "Chats",
+        "tmp": "Temporary files",
+        "usage_file": "Usage file",
+        "home": "Home"
+      },
+      "noPaths": "No direct filesystem path available.",
+      "connect": "Connect",
+      "connectPending": "Connecting...",
+      "connectSuccess": "Source connected. Running a fresh diagnostics pass now.",
+      "connectError": "Could not connect source.",
+      "disable": "Disable",
+      "disablePending": "Disabling...",
+      "disableSuccess": "Source disabled. Usage totals were refreshed.",
+      "disableError": "Could not disable source.",
+      "grantCommands": "Grant commands",
+      "revokeCommands": "Revoke commands",
+      "copyGrant": "Copy grant commands",
+      "copyRevoke": "Copy revoke commands",
+      "copyGrantSuccess": "Grant commands copied to the clipboard.",
+      "copyRevokeSuccess": "Revoke commands copied to the clipboard.",
+      "copyError": "Could not copy commands to the clipboard.",
+      "automatic": "used automatically"
+    },
+    "supportReport": {
+      "title": "Support report",
+      "description": "Generate a redacted support report for Multica or WhatsApp when local sources are missing or usage does not appear.",
+      "privacyNote": "The report contains only metadata and redacted paths, no raw logs, prompts, secrets, or provider payloads.",
+      "downloadJson": "Save JSON report",
+      "copySummary": "Copy summary",
+      "summaryLabel": "Compact summary",
+      "emptySummary": "Generate a report to preview the compact support summary.",
+      "preparing": "Preparing support report...",
+      "downloaded": "Support report saved.",
+      "copied": "Support summary copied to the clipboard.",
+      "generateError": "Could not generate support report: {message}",
+      "copyError": "Could not copy support summary to the clipboard."
+    },
+    "updates": {
+      "title": "App updates",
+      "description": "Automatic update checks are always active for supported packaged desktop builds; only preview releases are optional.",
+      "enabled": "Automatic update checks are always active",
+      "allowPrerelease": "Include preview releases",
+      "saved": "Saved.",
+      "saveError": "Could not save update settings.",
+      "diagTitle": "Update diagnostics",
+      "diagState": "State",
+      "diagSupport": "Support",
+      "diagLastCheck": "Last check",
+      "diagVersion": "App version",
+      "diagAvailable": "Available version",
+      "diagError": "Last error",
+      "diagNone": "None",
+      "checkNow": "Check now",
+      "checkQueued": "Update check queued.",
+      "checkError": "Could not request update check.",
+      "noticeTitle": "Update attention needed",
+      "noticeMacSigning": "macOS automatic updates require a signed app. This unsigned build can run after manual approval, but the updater will stay disabled until Developer ID signing and notarization are configured.",
+      "noticeDevelopment": "Automatic updates run only from a packaged desktop app, not from the development runtime.",
+      "noticeUnsupported": "Automatic updates are not supported on this platform/package.",
+      "noticeGatekeeper": "The app is signed, but Gatekeeper did not fully accept it. If updates behave oddly, reinstall a notarized build.",
+      "noticeDownloaded": "An update has been downloaded. Restart the app to install it.",
+      "noticeError": "The last update check failed. Check the error line, network access, and release assets.",
+      "state_unknown": "Unknown",
+      "state_disabled": "Disabled",
+      "state_checking": "Checking",
+      "state_available": "Update available",
+      "state_downloading": "Downloading",
+      "state_up_to_date": "Up to date",
+      "state_downloaded": "Downloaded",
+      "state_error": "Error",
+      "state_not_electron": "Not running in desktop app",
+      "state_development_build": "Development build",
+      "state_macos_signing_required": "macOS signing required",
+      "state_unsupported_platform": "Unsupported platform",
+      "support_ready": "Ready",
+      "support_development_build": "Development build",
+      "support_macos_signing_required": "macOS signing required",
+      "support_macos_gatekeeper_warning": "Signed, but Gatekeeper warning",
+      "support_unsupported_platform": "Unsupported platform",
+      "support_electron_updater_missing": "Updater package missing",
+      "support_unknown": "Unknown",
+      "state_electron_updater_missing": "Updater package missing",
+      "alwaysOn": "Automatic update checks are always active."
+    },
+    "saving": "Saving..."
+  },
+  "errors": {
+    "loadUsage": "Virhe"
+  },
+  "diagnostics": {
+    "ariaLabel": "Source diagnostics",
+    "eyebrow": "Local sources",
+    "heading": "Diagnostics & connection",
+    "recheck": "Recheck access",
+    "loading": "Loading source diagnostics...",
+    "meta": "User {user} · Checked {checkedAt} · {platform} · {support}",
+    "support": {
+      "full": "full host discovery",
+      "partial_container": "limited container discovery",
+      "stub": "platform check unavailable",
+      "unsupported": "unsupported platform"
+    },
+    "supportShort": {
+      "full": "Full",
+      "partial_container": "Limited",
+      "stub": "Unavailable",
+      "unsupported": "Unavailable"
+    },
+    "supportDescriptions": {
+      "full": "Host file access, process hints, and permissions are measured on this machine.",
+      "partial_container": "Container discovery can miss host users, services, and homes; mounted logs can still be read.",
+      "stub": "Host source discovery is not available on this platform build; current-user configured logs may still be read.",
+      "unsupported": "Host source discovery is unavailable here; use Settings or a supported host build for source setup."
+    },
+    "quality": {
+      "measured": "Measured",
+      "configured": "Configured",
+      "detected": "Detected",
+      "limited": "Limited",
+      "unavailable": "Unavailable"
+    },
+    "facets": {
+      "logs": {
+        "title": "Readable log sources",
+        "available": "The app can read at least one local usage source.",
+        "empty": "No readable token log source was found in this scan."
+      },
+      "savedSources": {
+        "title": "Saved extra sources",
+        "available": "These are additional sources saved in Settings.",
+        "empty": "Zero saved sources is OK: current-user log history can still appear below."
+      },
+      "permissions": {
+        "title": "Permission fixes",
+        "blocked": "At least one plausible source exists, but this app cannot read it yet.",
+        "clear": "No denied source path was found in this scan."
+      },
+      "runtimeHints": {
+        "title": "Process/service hints",
+        "available": "A supported tool is visible only as a process or service, not as readable logs.",
+        "empty": "No process-only or service-only source hints were found."
+      },
+      "platform": {
+        "title": "Platform coverage"
+      }
+    },
+    "errors": {
+      "load": "Could not load source diagnostics: {message}"
+    },
+    "statuses": {
+      "connected_live": {
+        "title": "Local data is available",
+        "body": "Readable local sources are available. Saved extra-source counts only track sources you connected manually."
+      },
+      "current_user_empty": {
+        "title": "Current-user logs empty",
+        "body": "The current desktop user was scanned, but no local usage files with token data were found yet."
+      },
+      "candidates_readable_empty": {
+        "title": "Readable candidates found",
+        "body": "Known tool folders are readable, but they currently look empty or are not saved as extra sources."
+      },
+      "candidates_denied": {
+        "title": "Permission action needed",
+        "body": "A plausible source was found, but this app cannot read it with the current account."
+      },
+      "runtime_hints_only": {
+        "title": "Tool seen without readable logs",
+        "body": "A supported tool process or service was detected, but no readable log folder was found for it yet."
+      },
+      "no_tools_found": {
+        "title": "No local tools found",
+        "body": "No supported local tool folders, related processes, or service hints were detected on this machine."
+      },
+      "other_dashboard_found": {
+        "title": "Other dashboard instance found",
+        "body": "Another local LLM Pulse instance is running and may already be reading local usage data."
+      },
+      "partial_unsupported": {
+        "title": "Discovery is limited here",
+        "body": "This runtime can only do limited source discovery, so some users, services, or homes may stay invisible."
+      },
+      "discovery_error": {
+        "title": "Discovery error",
+        "body": "Source discovery did not finish cleanly."
+      }
+    },
+    "nextActions": {
+      "connected_live": "No action is needed; local data below can come from default current-user logs even with zero saved extra sources.",
+      "current_user_empty": "No action is needed unless you expected history; start a supported tool or inspect sources in Settings.",
+      "candidates_readable_empty": "Open Settings > Local sources if you want to save one of these readable sources.",
+      "candidates_denied": "Open Settings > Local sources, copy the ACL command for the denied source, run it as an admin, then recheck.",
+      "runtime_hints_only": "Wait for the tool to write usage logs, or configure the readable source in Settings and recheck.",
+      "no_tools_found": "Start a supported local tool or add a source in Settings, then recheck.",
+      "other_dashboard_found": "Use the already running dashboard window or stop it before checking this instance again.",
+      "partial_unsupported": "Run the desktop app on the host OS for fuller discovery; mounted local logs can still be shown below.",
+      "discovery_error": "Recheck access. If it fails again, check the backend error and source settings."
+    },
+    "recheckResults": {
+      "checking": "Checking...",
+      "ready": "Recheck complete: {status}",
+      "action": "Action needed: {status}",
+      "error": "Recheck failed: {message}",
+      "empty": "Recheck did not return diagnostics."
+    },
+    "instances": {
+      "title": "Other dashboard instances",
+      "item": "{user} has another dashboard instance running."
+    }
+  },
+  "subscriptions": {
+    "plan": "Plan: {plan}",
+    "planUnknown": "Plan unknown",
+    "costUnknown": "Cost unknown",
+    "source": "Source: {source}",
+    "updated": "Updated {time}",
+    "qualityLabel": "Cost quality",
+    "sourceLabel": "Source",
+    "quality": {
+      "automatic": "Automatically detected",
+      "manual": "Saved fallback estimate",
+      "estimated": "Estimated / partial",
+      "unknown": "Unknown",
+      "catalog": "Katalogiarvo",
+      "official": "Virallinen listahinta",
+      "officialStarting": "Virallinen alkaen-listahinta"
+    },
+    "sources": {
+      "local_settings": "saved fallback",
+      "account": "tilin/laskutuksen lähde",
+      "codex_app_server": "Codex local app-server",
+      "codex_local_logs": "Codex local logs",
+      "claude_statusline": "Claude Code statusline",
+      "claude_auth_status": "Claude CLI auth status",
+      "claudeCode_local_signal": "Claude Code local signal",
+      "codex_local_signal": "Codex local signal",
+      "copilot_local_signal": "Copilot local signal",
+      "gemini_local_signal": "Gemini local signal",
+      "openai_api": "OpenAI API metadata",
+      "anthropic_api": "Anthropic API metadata",
+      "unknown": "unknown",
+      "openai_public_catalog": "OpenAI:n julkinen tilausluettelo",
+      "anthropic_public_catalog": "Anthropicin julkinen tilausluettelo",
+      "claude_browser_sync": "Claude-selaimen/tilin synkronointi",
+      "claude_api": "Claude-tilin kaytto-API",
+      "browser": "selaintilin lahde",
+      "official_pricing_page": "virallinen hinnastosivu",
+      "cached_official_snapshot": "välimuistissa oleva virallinen vedos",
+      "bundled_catalog": "mukana toimitettu katalogi",
+      "account_billing": "tili-/laskutuslähde"
+    },
+    "catalogReviewed": "Katalogi tarkistettu {date}",
+    "costReasons": {
+      "catalogMissing": "Luotettava katalogi- tai tilihinta ei vastaa tata havaittua pakettia.",
+      "catalogMissingCodexAppServer": "Paikallinen Codex app-server naytti paketin, mutta ei kuukausihintaa; luotettavaa katalogihintaa ei loytynyt.",
+      "catalogMissingClaudeStatusline": "Claude-statusline naytti paketin, mutta ei kuukausihintaa; selain-/tilitiedot puuttuvat tai eivat nayta hintaa.",
+      "catalogMissingClaudeAuth": "Claude CLI -todennus naytti paketin, mutta ei kuukausihintaa; selain-/tilitiedot puuttuvat tai eivat nayta hintaa.",
+      "catalogMissingClaudeBrowser": "{source} tarkistettiin, mutta se ei nayta paketin kuukausihintaa."
+    },
+    "costActions": {
+      "addFallback": "Päivitä katalogi-/tililähde tai lisää varmistusarvio Advanced-osiossa."
+    },
+    "planSource": "Paketti/rajat lähteestä {source}",
+    "planSourceLabel": "Paketin/rajojen lähde",
+    "catalogFallbackNote": "Kuukausihinta on katalogin varaarvo; vain luku -tilassa olevat sovellus-/tililähteet antavat paketti-, raja- tai saldotietoja, mutta eivät luotettua kuukausihintaa.",
+    "sourceAudit": {
+      "heading": "Vain luku -hintalähteet",
+      "safePriceDetected": "luotettava kuukausihinta havaittu",
+      "planOnlyNoPrice": "vain tilaus/rajat; kuukausihintaa ei näy",
+      "browserNoPrice": "tarkistettu; luotettavaa kuukausihintaa ei näy",
+      "catalogFallback": "luettelon varahinta",
+      "notConfigured": "ei mukana tässä ajossa",
+      "notAvailable": "turvallista vain luku -hintalähdettä ei ole",
+      "notUsed": "ei käytössä",
+      "officialListPrice": "virallinen listahinta",
+      "accountSourceExpired": "tililähde on vanhentunut",
+      "accountSourceUnavailable": "tililähde ei ole käytettävissä"
+    },
+    "officialListPriceNote": "Virallinen listahinta; todellinen laskutus voi poiketa ALV:n/verojen, vuosialennusten, käyttäjäpaikkojen, kuponkien, aluehintojen tai Enterprise-sopimusten vuoksi.",
+    "fetched": "Haettu {time}",
+    "sourceUrl": "URL: {url}",
+    "planKey": "Paketin avain: {key}",
+    "parserStatus": "Jäsennin: {status}",
+    "priceSourceTypeLabel": "Hintalähteen tyyppi",
+    "sourceUrlLabel": "Lähde-URL",
+    "fetchedLabel": "Haku-/data-aika",
+    "planKeyLabel": "Paketin avain",
+    "parserStatusLabel": "Jäsentimen tila",
+    "parserStatuses": {
+      "parsed": "jäsennetty",
+      "parse_failed": "jäsennys epäonnistui",
+      "cached_after_fetch_error": "välimuisti hakuvirheen jälkeen",
+      "bundled": "mukana oleva varavaihtoehto",
+      "missing": "puuttuu",
+      "unknown": "tuntematon"
+    },
+    "officialStartingListPriceNote": "Virallinen alkaen-listahinta; tilin todellista laskua ei luettu ja se voi poiketa tason, ALV:n/verojen, vuosialennusten, käyttäjäpaikkojen, kuponkien, aluehintojen, lisäosien tai enterprise-sopimusten vuoksi.",
+    "tierVariant": "Taso/variantti: {variant}",
+    "actualBilling": "Todellinen laskutus tiedossa: {status}",
+    "tierVariantLabel": "Taso/variantti",
+    "actualBillingKnownLabel": "Todellinen laskutus tiedossa",
+    "priceVariants": {
+      "from": "vähintään / alkaen",
+      "pro_5x": "Pro 5x",
+      "pro_5x_20x": "Pro 5x/20x",
+      "pro_20x": "Pro 20x",
+      "max_5x": "Claude Max 5x",
+      "max_5x_20x": "Claude Max 5x/20x",
+      "max_20x": "Claude Max 20x",
+      "unknown": "tuntematon"
+    },
+    "actualBillingKnown": {
+      "yes": "kyllä",
+      "no": "ei"
+    },
+    "connectionActions": {
+      "refresh": "Päivitä",
+      "claudeLogin": "Kirjaudu Claudeen ja lue tilaus",
+      "claudeRefresh": "Lue Claude-tilaus uudelleen",
+      "chatgptLogin": "Kirjaudu ChatGPT:hen ja lue tilaus",
+      "chatgptRefresh": "Lue ChatGPT-tilaus uudelleen",
+      "rereadPlan": "Lue tilaus nyt"
+    },
+    "connectionStatus": {
+      "refreshRequired": "Yhteys on päivitettävä",
+      "claudeLoginRequired": "Claude-kirjautuminen vaaditaan",
+      "claudeRefreshRequired": "Päivitä Claude-yhteys",
+      "chatgptLoginRequired": "ChatGPT-kirjautuminen vaaditaan",
+      "chatgptRefreshRequired": "Päivitä ChatGPT Billing -yhteys",
+      "claudeConflict": "Claude Max: ristiriitaiset lähteet ({details})"
+    },
+    "connectionHelp": "Avaa palveluntarjoajan sivu, kirjaudu tarvittaessa sisään ja palaa tänne. Sovellus lukee tilauksen uudelleen, kun se saa fokuksen, tai käytä painiketta."
+  },
+  "gptAccounts": {
+    "ariaLabel": "GPT accounts",
+    "eyebrow": "Local account registry",
+    "heading": "GPT accounts",
+    "recheck": "Re-scan accounts",
+    "checking": "Scanning Codex and OpenCode accounts…",
+    "rechecked": "Account scan complete.",
+    "recheckError": "Account scan failed: {message}",
+    "recheckErrorFallback": "Unknown error",
+    "summary": "{active} active of {count} known accounts · scanned {time}",
+    "notScanned": "Accounts have not been scanned yet.",
+    "empty": "No ChatGPT account found yet",
+    "guidance": "Sign in with Codex or OpenCode, then re-scan. Accounts seen previously remain in this list as history.",
+    "active": "Active",
+    "historical": "Previous",
+    "lifetimeTokens": "Codex lifetime tokens",
+    "limit": "Limit",
+    "lastSeen": "Last seen {time}",
+    "activeSourceCount": "{count} active sources",
+    "attributionNote": "OpenCode tokens are measured for OpenCode as a whole because its message database does not record which account produced each message.",
+    "sources": {
+      "codex": "Codex",
+      "openCode": "OpenCode"
+    },
+    "activeSourceCountOne": "1 active source",
+    "add": "Lisää GPT-tili",
+    "signIn": "Kirjaudu OpenAI-palveluun",
+    "removeLogin": "Poista tallennettu kirjautuminen",
+    "login": {
+      "waiting": "Viimeistele OpenAI-kirjautuminen. Valitse haluamasi tili selaimessa.",
+      "complete": "Tili yhdistetty.",
+      "failed": "Kirjautuminen ei ole saatavilla. Asenna Codex CLI tai yritä uudelleen."
+    },
+    "connectionHelp": "Olemassa olevat Codex- ja OpenCode-kirjautumiset tunnistetaan automaattisesti. Lisää GPT-tilejä korvaamatta niitä.",
+    "loginPrivacy": "Kirjautuminen viestii OpenAI:n kanssa. Tunnukset pysyvät erillisessä paikallisessa profiilissa, eikä niitä lähetetä kehittäjälle tai yhdistetyille laitteille."
+  },
+  "codexResets": {
+    "title": "Codex · Nollaushistoria",
+    "period": "Ajanjakso",
+    "last10": "Viimeiset 10 jaksoa",
+    "last30": "Viimeiset 30 jaksoa",
+    "all": "Kaikki jaksot",
+    "credits": "Nollauskrediittejä saatavilla",
+    "earlyCount": "Aikaiset nollaukset",
+    "averageDuration": "Keskimääräinen kesto ≈",
+    "averageUsage": "Keskimääräinen käyttö",
+    "days": "{value} päivää",
+    "windows": "yhteensä {count} jaksosta",
+    "maximum": "Suurin havaittu käyttö",
+    "start": "Alku ≈",
+    "plannedReset": "Ilmoitettu nollaus",
+    "end": "Loppu ≈",
+    "duration": "Kesto ≈",
+    "usage": "Enimmäiskäyttö",
+    "result": "Nollauksen näyttö",
+    "early": "Aikainen",
+    "regular": "Ajastettu",
+    "uncertain": "Epävarma",
+    "estimated": "Rekonstruoitu",
+    "confirmed": "Krediitti käytetty: vahvistettu",
+    "inferred": "Krediitti käytetty: päätelty",
+    "live": "Tallennus käynnissä",
+    "stale": "Tallennus vanhentunut",
+    "unavailable": "Reaaliaikaisia tietoja ei saatavilla",
+    "loading": "Ladataan historiaa…",
+    "empty": "Päättyneitä jaksoja ei vielä havaittu.",
+    "note": "Vanhat lokit rekonstruoivat jaksoja ilman tilin tunnistusta. Kesto ja loppu ovat arvioita; käyttö on suurin havaittu arvo. Tallennus jatkuu sovelluksen ollessa käynnissä. Henkilöitä ja laitteita ei voida tunnistaa.",
+    "durationBasis": "{count} kelvollista jaksoa · odotettu: 7 päivää",
+    "recordingSince": "Tallennus alkaen {time}",
+    "redemptions": "Krediitit: {confirmed} vahvistettua · {inferred} pääteltyä käyttöä",
+    "expires": "Vanhenee {time}",
+    "coverage": "{uncertain} epävarmaa jaksoa · {gaps} tallennusaukkoa",
+    "current": "Nykyinen: nollaus {time} · enintään {percent} %",
+    "events": "Krediittitapahtumat · viimeiset 30",
+    "granted": "Krediitti myönnetty",
+    "expired": "Krediitti vanhentunut",
+    "creditUnknown": "Krediittimuutos: epäselvä",
+    "cause": "Nollauksen syy",
+    "causeManual": "Manuaalinen · kuponki",
+    "causeProvider": "OpenAI · päätelty",
+    "causeScheduled": "Ajastettu",
+    "causeUnknown": "Tuntematon",
+    "causeMissing": "Kupongin tai siirtymän näyttö puuttuu",
+    "causeNoCredit": "Ennenaikainen ilman havaittua kupongin käyttöä",
+    "causeConfirmed": "Vahvistettu",
+    "causeInferred": "Päätelty",
+    "causeSummary": "Syyt: {manual} kuponki · {provider} OpenAI (päätelty) · {scheduled} ajastettu · {unknown} tuntematon",
+    "causeNote": "Ennenaikainen ajankohta ei osoita syytä. OpenAI päätellään vain, kun täydellinen kuponkiluettelo pysyy samana tarkasti havaitussa kiintiön nollauksessa. Vanhat lokit eivät erota manuaalisia ja OpenAI-nollauksia. Nollauksen käynnistänyt henkilö on tuntematon."
+  },
+  "deviceSync": {
+    "heading": "Yhdistä omat laitteesi",
+    "enabled": "Ota suora synkronointi käyttöön",
+    "name": "Laitteen nimi",
+    "invite": "Luo pariliitoskoodi",
+    "code": "Pariliitoskoodi",
+    "copy": "Kopioi koodi",
+    "join": "Yhdistä laite",
+    "forget": "Katkaise laitteen yhteys",
+    "view": "Laitteet",
+    "local": "Tämä laite",
+    "all": "Kaikki yhdistetyt laitteet",
+    "copied": "Koodi kopioitu.",
+    "working": "Yhdistetään…",
+    "ready": "Valmis.",
+    "inviteReady": "Koodi vanhenee viiden minuutin kuluttua. Liitä se toisella laitteellasi.",
+    "errors": {
+      "default": "Yhteys ei ole saatavilla. Aiemmin vastaanotetut tiedot säilyvät tässä laitteessa.",
+      "peer_unreachable": "Yhteys ei ole saatavilla. Aiemmin vastaanotetut tiedot säilyvät tässä laitteessa.",
+      "invalid_pairing_code": "Yhteys ei ole saatavilla. Aiemmin vastaanotetut tiedot säilyvät tässä laitteessa.",
+      "network_unavailable": "Yhteys ei ole saatavilla. Aiemmin vastaanotetut tiedot säilyvät tässä laitteessa.",
+      "sync_disabled": "Yhteys ei ole saatavilla. Aiemmin vastaanotetut tiedot säilyvät tässä laitteessa.",
+      "capture_failed": "Yhteys ei ole saatavilla. Aiemmin vastaanotetut tiedot säilyvät tässä laitteessa.",
+      "storage_unavailable": "Yhteys ei ole saatavilla. Aiemmin vastaanotetut tiedot säilyvät tässä laitteessa.",
+      "discovery_unavailable": "Yhteys ei ole saatavilla. Aiemmin vastaanotetut tiedot säilyvät tässä laitteessa."
+    },
+    "privacy": "Käyttötietoja ja tunnuksia ei lähetetä kehittäjälle. Vain salattuja mittauksia jaetaan erikseen yhdistetyille laitteille. Yhteyden katkaisu ei poista vastaanotettuja kopioita.",
+    "networkLimit": "Suorat yhteydet käyttävät lähiverkkoa tai olemassa olevaa yksityistä VPN:ää ilman välityspalvelinta, löytöpalvelinta tai reititinmuutoksia. Estävät verkot estävät automaattisen synkronoinnin.",
+    "coverage": "{count} yksilöllistä tietuetta · {duplicates} kaksoiskappaletta poistettu · {excluded} tietuetta säilyy paikallisena ilman luotettavaa tunnistetta. Tilien rajat pidetään erillään; API-summia ei lisätä."
+  },
+  "connections": {
+    "accounts": "Tilit",
+    "installations": "Asennukset",
+    "general": "Yleiset",
+    "advanced": "Lisäasetukset",
+    "addAccount": "Lisää tili",
+    "chooseProvider": "Valitse palveluntarjoaja",
+    "detectedDetails": "Havaitut GPT-tilit ja tiedot",
+    "back": "Takaisin",
+    "accountLabel": "Nimi (valinnainen)",
+    "apiKey": "API-avain",
+    "adminKey": "Ylläpitäjän API-avain",
+    "region": "Alue",
+    "global": "Kansainvälinen",
+    "china": "Kiina",
+    "setupHelp": "Asennusohjeet",
+    "connect": "Yhdistä",
+    "openSignIn": "Avaa kirjautuminen",
+    "connectInstallation": "Yhdistä asennus",
+    "haveCode": "Minulla on koodi",
+    "syncOptions": "Synkronointi ja tietosuoja",
+    "remove": "Poista",
+    "automatic": "Havaittu automaattisesti",
+    "empty": "Yhtään tiliä ei ole vielä yhdistetty.",
+    "apiAccount": "API-tili",
+    "subscription": "Tilaus / ohjelmointipaketti",
+    "thisInstallation": "Tämä asennus",
+    "syncOn": "Synkronointi käytössä",
+    "syncOff": "Synkronointi pois käytöstä",
+    "local": "Paikallinen",
+    "waitingSync": "Odotetaan ensimmäistä synkronointia",
+    "viaPeer": "Paritetun asennuksen kautta",
+    "balance": "Saldo",
+    "privacy": "Kirjautumistiedot pysyvät tällä laitteella. Käyttötietoja ei lähetetä kehittäjälle.",
+    "installationsHelp": "Yhdistä omat asennuksesi nähdäksesi niiden käytön yhdessä.",
+    "pairHelp": "Avaa Asennukset toisella laitteella. Luo koodi tässä tai liitä sen koodi. Laitteiden on oltava suoraan tavoitettavissa.",
+    "adminKeyHelp": "Käyttöraportit edellyttävät organisaation ylläpitäjän API-avainta, erillään chat-tilauksesta.",
+    "glmHelp": "Käytä GLM Coding Plan -avainta ja valitse sen alue.",
+    "browserHelp": "Jatka palveluntarjoajan virallisen kirjautumisen kautta.",
+    "keyPrivacy": "Avain tallennetaan paikallisesti ja sitä käytetään vain tämän palveluntarjoajan pyyntöihin.",
+    "needsSetup": "Asenna ensin palveluntarjoajan virallinen CLI ja päivitä luettelo.",
+    "claudeHelp": "Claude Code hoitaa kirjautumisen tällä laitteella. Claude Code CLI on asennettava.",
+    "kimiHelp": "Käytä virallista Kimi Code -kirjautumista tai Kimi Code -paketin avainta.",
+    "moonshotHelp": "Käytä Moonshot API -avainta API-saldon lukemiseen, erillään Kimi Codesta.",
+    "loginWaiting": "Viimeistele palveluntarjoajan kirjautuminen. Pidä tämä ikkuna avoinna.",
+    "loginComplete": "Tili yhdistetty. Mittaukset päivittyvät automaattisesti.",
+    "claudeSignIn": "Yhdistä Claude Codella",
+    "providers": {
+      "gpt": "ChatGPT / Codex",
+      "claude": "Claude / Anthropic",
+      "kimi": "Kimi Code",
+      "glm": "GLM / Z.AI",
+      "openai": "OpenAI API",
+      "anthropic": "Anthropic API",
+      "moonshot": "Moonshot API"
+    },
+    "browser": "Kirjaudu sisään",
+    "failed": "Kirjautuminen epäonnistui",
+    "checking": "Yhdistetään…",
+    "installation": "Asennukset",
+    "status": {
+      "connected": "Aktiivinen",
+      "detected": "Havaittu",
+      "historical": "Aiempi",
+      "auth_required": "Kirjautuminen vaaditaan",
+      "error": "Virhe",
+      "unavailable": "Ei saatavilla",
+      "unknown": "Ei saatavilla"
+    },
+    "errors": {
+      "invalid_account": "Tiliä ei löytynyt. Päivitä tililuettelo.",
+      "invalid_key": "Avain hylättiin. Tarkista avain ja valittu palveluntarjoaja.",
+      "permission_denied": "Avaimella ei ole pääsyä käyttöraportteihin. Käytä avainta, jolla on tarvittavat oikeudet.",
+      "unsupported_key": "Tämä avaintyyppi ei voi lukea käyttöä. Noudata palveluntarjoajan asennusohjeita.",
+      "account_limit": "Tilien enimmäismäärä on saavutettu. Poista ensin käyttämätön tili.",
+      "connection_unavailable": "Palveluntarjoajaa ei tavoitettu. Tarkista yhteys ja yritä uudelleen.",
+      "account_storage_unavailable": "Paikallinen tilitallennus ei ole käytettävissä. Tarkista sovelluksen tiedosto-oikeudet.",
+      "profile_remove_failed": "Tallennettua kirjautumista ei voitu poistaa. Sulje kirjautumisikkuna ja yritä uudelleen.",
+      "unsupported_platform": "Selainkirjautuminen ei ole käytettävissä tällä alustalla. Käytä saatavilla olevaa avainmenetelmää."
+    },
+    "kimiHelperHelp": "Ensimmäisellä kirjautumisella sovellus lataa virallisen Kimi-apuohjelman suoraan Kimiltä. Se toimii paikallisesti; hallintapaneeli ei lähetä telemetriaa.",
+    "lastSeen": "Viimeksi nähty {time}"
+  },
+  "history": {
+    "refreshing": "Tallennettu historia · {time}. Päivitetään taustalla."
+  },
+  "quotaIntegrity": {
+    "title": "Kiintiöiden eheys",
+    "period": "Aikaväli",
+    "range24h": "Viimeiset 24 tuntia",
+    "range7d": "Viimeiset 7 päivää",
+    "range30d": "Viimeiset 30 päivää",
+    "loading": "Ladataan kiintiöiden eheyttä…",
+    "unavailable": "Kiintiöiden eheystiedot eivät ole saatavilla.",
+    "intro": "Epätavalliset kiintiöhavainnot, kuinka hyvin data kattaa ne ja voiko paikallinen token-toiminta selittää ne. Epätavallinen havainto on syytä tutkia, mutta se ei todista ongelmaa palveluntarjoajan päässä.",
+    "status": {
+      "attention": "Vaatii huomiota",
+      "no_anomaly_detected": "Poikkeamia ei havaittu",
+      "insufficient_data": "Dataa ei vielä riittävästi"
+    },
+    "collector": "Codexin reaaliaikainen keräin",
+    "noData": "Ei dataa",
+    "lastSample": "Viimeisin näyte {time}",
+    "noSample": "Ei reaaliaikaista näytettä",
+    "findings": "Havainnot",
+    "findingsDetail": "{warnings} varoitusta · {info} tiedotetta",
+    "observations": "Havainnot",
+    "observationsDetail": "{samples} näytettä · {events} historiamerkintää",
+    "localData": "Paikallisen toiminnan data",
+    "localDataDetail": "{slots} aikaväliä · päivitetty {time}",
+    "neverRefreshed": "ei vielä tallennettu",
+    "gaps": "Keruuaukot",
+    "gapsDetail": "{count} tällä aikavälillä",
+    "measured": "Mitattu",
+    "estimate": "Arvio",
+    "hypothesis": "Hypoteesi",
+    "confidence": "Luotettavuus: {level}",
+    "level": {
+      "medium": "keskitaso",
+      "low": "matala"
+    },
+    "confidenceWord": {
+      "confirmed": "vahvistettu",
+      "inferred": "pääteltu",
+      "possible": "mahdollinen"
+    },
+    "chartTitle": "Codexin viikkokäyttö ajan yli",
+    "chartAria": "Viivakaavio Codexin viikkokiintiön käytöstä prosentteina: {points} tallennettua pistettä, {findings} merkittyä havaintoa.",
+    "chartEmpty": "Codexin viikkokiintiössä ei tallennettu muutoksia tällä aikavälillä.",
+    "legendWarning": "Varoitus",
+    "legendInfo": "Tiedote",
+    "legendGap": "Keruuaukko",
+    "types": {
+      "usage_rolled_back": "Ilmoitettu käyttö väheni",
+      "reset_deadline_changed_early": "Nollausaika muuttui ennenaikaisesti",
+      "usage_increase_without_local_activity": "Käyttö kasvoi ilman paikallista toimintaa",
+      "collector_gap": "Keräin ei ole käytettävissä",
+      "observation_gap": "Ei havaintoja",
+      "account_changed": "Tilin laajuus muuttui",
+      "stale_codex_snapshot": "Reaaliaikainen data on vanhentunutta",
+      "no_live_codex_samples": "Ei reaaliaikaista Codex-dataa"
+    },
+    "fact": {
+      "usageChange": "Käytetty kiintiö {from} % → {to} % ({delta} pistettä)",
+      "between": "Havaittu välillä {from}–{to}",
+      "deadlineShift": "Nollausaika siirtyi {minutes} minuuttia: {from} → {to}",
+      "noActivity": "Paikallista token-toimintaa ei ole tallennettu {minutes} minuuttiin ({basis})",
+      "basisPlateau": "edellisen arvon ensimmäisestä havaitsemisesta lähtien",
+      "basisWindow": "kiintiöikkunan alusta lähtien",
+      "localCounts": "Paikalliset tapahtumat: {events} · paikalliset tokenit: {tokens}",
+      "gapSpan": "Ei dataa {minutes} minuuttiin ({from} → {to})",
+      "gapOngoing": "Ei dataa {minutes} minuuttiin, alkaen {from} (jatkuu)",
+      "failures": "Tallennettu {count} epäonnistunutta keruuyritystä",
+      "staleAge": "Viimeisin reaaliaikainen näyte oli {minutes} minuuttia sitten"
+    },
+    "evidence": {
+      "heading": "Viitteet datassa",
+      "credit": "Nollausluotto lunastettiin näiden havaintojen välillä ({confidence}).",
+      "account": "Reaaliaikainen tilannekuva vaihtui toiseen tiliin suunnilleen tällöin (mahdollinen).",
+      "resetNoCredit": "Ennenaikainen nollaus ilman käytettyä luottoa (pääteltu)."
+    },
+    "hypothesesHeading": "Mahdolliset selitykset (hypoteeseja, ei havaintoja)",
+    "hypotheses": {
+      "other_device_or_surface": "Käyttö toisella laitteella, verkkosovelluksessa, IDE-laajennuksessa tai pilvitehtävissä, joita paikalliset lokit eivät näe",
+      "other_account_or_profile": "Toisen tilin tai profiilin käyttö, joka jakaa tämän kiintiön",
+      "provider_accounting_or_adjustment": "Palveluntarjoajan kirjauksen viive, pyöristys tai oikaisu",
+      "local_logs_incomplete": "Paikalliset lokit ovat puutteellisia, kierrätettyjä tai niitä ei kerätä",
+      "ledger_not_account_scoped": "Tämä kiintiöhistoria ei ole sidottu yhteen tiliin",
+      "reset_credit_or_plan_change": "Nollausluotto, tilausmuutos tai muu kiintiön oikaisu",
+      "inconsistent_source_data": "Ristiriitaista dataa kiintiön lähteestä"
+    },
+    "noFindings": "Ei havaintoja tällä aikavälillä.",
+    "stepStatus": {
+      "activity_present": "Paikallista toimintaa on",
+      "shared_source_activity": "Vain toinen paikallinen agentti",
+      "no_local_activity": "Paikallista toimintaa ei tallennettu",
+      "not_assessable": "Ei arvioitavissa"
+    },
+    "reason": {
+      "history_start": "Historia alkaa tästä kohdasta",
+      "no_local_history": "Ei paikallista lokihistoriaa",
+      "before_local_history": "Paikalliset lokit alkavat myöhemmin",
+      "ingest_pending": "Paikallisia lokeja ei ole vielä luettu uudelleen"
+    },
+    "steps": {
+      "heading": "Kiintiön kasvut verrattuna paikalliseen toimintaan",
+      "summary": "{present} paikallisen toiminnan kanssa · {shared} vain toinen paikallinen agentti · {none} ilman · {unknown} ei arvioitavissa",
+      "note": "Jokainen rivi on ilmoitetun käytön kasvu. Paikalliset tokenimäärät tulevat vain tämän tietokoneen lokeista, eivätkä ne ole kiintiön muunnos.",
+      "empty": "Ei käytön kasvuja tällä aikavälillä."
+    },
+    "estimateText": "Vertailukelpoisissa vaiheissa mediaani oli {median} paikallista tokenia kiintiöpistettä kohden (keskimmäinen puolisko {low}–{high}, {samples} vaihetta). Palveluntarjoajat painottavat malleja ja välimuistissa olevaa syötettä eri tavoin, joten tämä on karkea mittakaava, ei muunnos.",
+    "localValue": "{events} tapahtumaa · {tokens} tokenia",
+    "colTime": "Aika",
+    "colChange": "Käytetty kiintiö",
+    "colLocal": "Paikallinen toiminta",
+    "colTokens": "Tapahtumat · tokenit",
+    "colWindow": "Ikkuna",
+    "colUsed": "Käytetty",
+    "colResets": "Nollaus",
+    "colLastChange": "Viimeisin muutos",
+    "gapKind": {
+      "collector_unavailable": "Keräin ei ole käytettävissä",
+      "no_observations": "Ei havaintoja (sovellus oli suljettu tai tietokone lepotilassa)"
+    },
+    "ongoing": "jatkuu",
+    "minutes": "{value} min",
+    "gapsEmpty": "Ei keruuaukkoja tällä aikavälillä.",
+    "windows": {
+      "heading": "Havaitut kiintiöikkunat",
+      "note": "Kiintiöhistoria tallentaa vain muutokset, joten hiljainen jakso ei ole aukko.",
+      "empty": "Kiintiöikkunoita ei tallennettu tällä aikavälillä."
+    },
+    "privacyNote": "Vain kiintiöiden ajankohtia ja tokenimääriä analysoidaan. Kehotteita, litteroituja keskusteluja, tunnisteita tai tiedostopolkuja ei koskaan sisällytetä."
+  },
+  "workspace": {
+    "openPalette": "Open command palette",
+    "paletteShortcut": "Command palette · Ctrl+K",
+    "focusMode": "Toggle focus mode",
+    "focusShortcut": "Focus mode · Alt+Shift+F",
+    "compactMode": "Toggle compact layout",
+    "paletteTitle": "Command palette",
+    "paletteSearch": "Search actions or jump to a section…",
+    "paletteClose": "Close command palette",
+    "focusOn": "Focus mode enabled",
+    "focusOff": "Focus mode disabled",
+    "compactOn": "Compact layout enabled",
+    "compactOff": "Comfortable layout enabled",
+    "glassOn": "Glass effect enabled",
+    "glassOff": "Glass effect disabled",
+    "motionOn": "Reduced motion enabled",
+    "motionOff": "Full motion enabled"
+  }
+}

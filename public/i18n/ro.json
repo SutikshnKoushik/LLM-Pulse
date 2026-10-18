@@ -1,0 +1,1372 @@
+{
+  "app": {
+    "title": "LLM Pulse — AI Usage Intelligence",
+    "eyebrow": "LLM Pulse",
+    "heading": "Limite și tokeni"
+  },
+  "actions": {
+    "refresh": "Reîmprospătează",
+    "settings": "Setări",
+    "close": "Închide"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "password": "Parolă",
+    "signIn": "Autentificare",
+    "loginFailed": "Autentificarea a eșuat"
+  },
+  "filter": {
+    "showAll": "Afișează tot",
+    "showActive": "Doar active",
+    "hideInactive": "Ascunde furnizorii inactivi",
+    "showInactiveCount": "Afișează {count} furnizori inactivi",
+    "allVisible": "Toți furnizorii sunt vizibili",
+    "showAllNoticeTitle": "Vizualizarea tuturor furnizorilor",
+    "showAllNoticeBody": "Sunt vizibile cardurile furnizorilor inactivi, goi, doar configurați și istorici. Doar active este vizualizarea normală."
+  },
+  "layout": {
+    "edit": "Edit layout",
+    "done": "Done",
+    "reset": "Default order",
+    "resetDone": "Default dashboard order restored.",
+    "dragHandle": "Move {name}",
+    "grabbed": "Moving {name}. Use arrow keys to move, Enter or Space to drop, Escape to cancel.",
+    "moved": "{name} moved to position {position} of {total}.",
+    "dropped": "{name} dropped at position {position} of {total}.",
+    "cancelled": "Move cancelled."
+  },
+  "summary": {
+    "ariaLabel": "Prezentare generală",
+    "fiveHourOpen": "5h quota free",
+    "weeklyOpen": "Week quota free",
+    "tokensToday": "Logged tokens today",
+    "tokensTotal": "Total tokeni înregistrați",
+    "recordDayLabel": "Zi record",
+    "recordDay": "Zi record: {date} · {tokens}",
+    "quotaWindowNote": "Provider quota window",
+    "tokensRange": "Logged tokens: {range}",
+    "todayLogNote": "Calendar day from local logs, not provider quota limits. {providers}",
+    "totalLogNote": "All local log history, not provider quota limits. {providers}",
+    "providerTokenDetail": "{provider}: {tokens}",
+    "providerBreakdownMore": "{providers} + {count} more",
+    "providerBreakdownEmpty": "No provider log tokens.",
+    "rangeNotes": {
+      "h24": "Rolling 24-hour total; chart bars are day-grained.",
+      "today": "Calendar day in local time.",
+      "week": "Last 7 days from local logs.",
+      "month": "Last 30 calendar days from local logs."
+    }
+  },
+  "chart": {
+    "eyebrow": "Local capture",
+    "heading": "Istoricul tokenilor din jurnale",
+    "sourceTotalsAria": "Utilizare totală pe furnizor",
+    "legendAria": "Legendă",
+    "sourceTotalTitle": "Utilizare totală",
+    "svgAria": "Istoricul tokenilor",
+    "costSummary": {
+      "title": "Cost summary",
+      "apiEquivalent": "API equivalent",
+      "paid": "Subscription fixed cost",
+      "saved": "Delta vs API",
+      "quote": "API difference",
+      "quality": "Data quality",
+      "qualityComplete": "Covered",
+      "qualityPartial": "Partially estimated",
+      "qualityUnavailable": "Unavailable",
+      "missingSubscriptions": "Subscription history or a reliable fixed-cost source is missing for this range.",
+      "estimatedSources": "Estimated providers: {providers}.",
+      "missingSources": "Not included: {providers}.",
+      "unsupportedCurrencies": "Unsupported currencies: {currencies}."
+    },
+    "costs": {
+      "svgAria": "Cost history",
+      "noData": "No cost data for the selected range."
+    },
+    "filters": {
+      "h24": "Last 24 hours",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all": "All Time"
+    },
+    "headingCosts": "Cost History from Logs",
+    "mode": {
+      "tokens": "Tokens",
+      "costs": "Costs"
+    },
+    "modeToggleAria": "Chart mode",
+    "filterBarAria": "Time range",
+    "insights": {
+      "ariaLabel": "Selected range statistics",
+      "total": "Total",
+      "selectedRange": "Selected range",
+      "avgActiveDay": "Ø active day",
+      "avgActiveDayDetail": "Based on {days} active days",
+      "activeDays": "Active days",
+      "activeDaysValue": "{active}/{days}",
+      "activeDaysDetail": "Days with usage",
+      "peakDay": "Peak day",
+      "noData": "No activity in the selected range.",
+      "selectedRangeDetail": "{range} shown with the selected range semantics."
+    },
+    "models": {
+      "heading": "Models used",
+      "range": "{range} model mix",
+      "topTokens": "Top by tokens: {model} · {tokens}",
+      "topCost": "Top by API-equivalent cost: {model} · {cost}",
+      "costUnknown": "API-equivalent cost unavailable for these models.",
+      "unknown": "Model necunoscut"
+    },
+    "breakdown": {
+      "total": "Sumă",
+      "provider": "Furnizor",
+      "model": "Modele",
+      "device": "Instalare",
+      "account": "Cont"
+    },
+    "breakdownToggleAria": "Defalcare tokenuri",
+    "overviewAria": "Compact token history by provider",
+    "breakdownSummary": {
+      "totalTitle": "Total window",
+      "providerTitle": "Provider share",
+      "modelTitle": "Model share",
+      "topProvider": "Top provider",
+      "topModel": "Top model",
+      "coverage": "Coverage",
+      "providerCount": "{count} providers",
+      "modelCount": "{count} models",
+      "noProvider": "No provider breakdown",
+      "noModel": "No model breakdown"
+    },
+    "providers": {
+      "heading": "Providers used",
+      "range": "{range} provider mix",
+      "topTokens": "Top by tokens: {provider} · {tokens}",
+      "topModel": "Top model: {model} · {tokens}",
+      "noModel": "No model details",
+      "columns": {
+        "provider": "Provider",
+        "tokens": "Tokens",
+        "share": "Share",
+        "topModel": "Top model"
+      }
+    },
+    "totalBreakdown": {
+      "heading": "Total summary",
+      "range": "{range} aggregate"
+    },
+    "attribution": {
+      "groupBy": "Grupează după",
+      "unknownAccount": "Cont necunoscut",
+      "unknownDevice": "Instalare necunoscută",
+      "sharedDevice": "Detectat pe mai multe instalări",
+      "sharedDeviceHelp": "Numărat o dată; instalarea inițială este neclară.",
+      "observed": "Detectat în jurnalele locale",
+      "observedOn": "Detectat pe instalări",
+      "evidence": "Atribuire",
+      "observedHelp": "Instalările arată unde au fost găsite jurnalele. Evenimentele copiate sunt numărate o dată; computerul inițial poate fi necunoscut.",
+      "accountHelp": "Un cont este atribuit doar dacă apare în dovezile de utilizare. Celelalte tokenuri rămân la Cont necunoscut."
+    }
+  },
+  "tokenMix": {
+    "eyebrow": "Token Mix",
+    "heading": "Procesare tokeni înregistrată"
+  },
+  "liveMetrics": {
+    "ariaLabel": "Live system usage",
+    "eyebrow": "Live",
+    "heading": "Live Load",
+    "updated": "Updated {time}",
+    "notAvailable": "Not available",
+    "error": "Error",
+    "unavailable": "Not available",
+    "unavailableShort": "N/A",
+    "percentScale": "0-100%",
+    "cpu": "CPU",
+    "ram": "Memory",
+    "ramSub": "{used}/{total} GB used",
+    "aiLoad": "AI Load",
+    "aiLoadSub": "Heuristic",
+    "aiLoadHelp": "Estimated from CPU, memory, and token throughput. Not an exact measurement.",
+    "tokensPerMinute": "Tokens/min",
+    "noTokenWindow": "No measured window yet",
+    "noTokenBreakdown": "No reliable breakdown",
+    "historyHeading": "Trend",
+    "historyAria": "Live load trend",
+    "legendAria": "Live trend legend",
+    "historyLoading": "Collecting live data...",
+    "historyNoSeries": "No active series.",
+    "quality": {
+      "measured": "Measured",
+      "calculated": "From logs",
+      "estimated": "Estimated",
+      "unavailable": "Not available"
+    },
+    "series": {
+      "cpu": "CPU",
+      "ram": "Memory",
+      "aiLoad": "AI Load",
+      "tokensTotal": "Tokens/min",
+      "tokensInput": "Input",
+      "tokensOutput": "Output",
+      "tokensCached": "Cached",
+      "aiCpu": "AI CPU",
+      "aiMemory": "AI Memory",
+      "swap": "Swap"
+    },
+    "errors": {
+      "load": "Could not load live system metrics."
+    },
+    "tokensPerMinuteHelp": "Calculated from local Claude Code, Codex, Gemini, Copilot, and Ollama logs in the local aggregate. Multica Claude/Codex runs are included through those logs; API-only OpenAI/Anthropic billing is excluded to avoid double counting. Gemini agents may be missing when the Gemini CLI does not write token metadata.",
+    "systemCpu": "System CPU",
+    "systemRam": "System Memory",
+    "aiCpu": "AI CPU",
+    "aiCpuSub": "{count} AI processes",
+    "aiCpuHelp": "Aggregated CPU share of recognized local AI process groups. Commands and paths are not exposed.",
+    "aiMemory": "AI Memory",
+    "aiMemorySub": "{used} GB RSS",
+    "aiMemoryHelp": "Aggregated resident memory of recognized local AI process groups. Shared Electron and browser memory is approximate.",
+    "swap": "Swap",
+    "swapSub": "{used}/{total} GB used",
+    "swapHelp": "System swap usage. High swap can slow the Mac even when AI process memory is only part of the total.",
+    "noAiProcesses": "No AI process group found",
+    "processBreakdownHeading": "Running AI groups",
+    "processBreakdownHelp": "Safe aggregate view: running AI process groups and load shares without command lines, prompts, or paths.",
+    "processTotal": "AI total: {cpu} CPU · {memory} · {memoryShare} RAM · {count} running processes",
+    "processBreakdownUnavailable": "Process grouping is not available on this platform/runtime.",
+    "processBreakdownEmpty": "No recognized AI process group is currently running for the dashboard.",
+    "processColumns": {
+      "group": "Group",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "memoryShare": "RAM %",
+      "count": "Processes"
+    },
+    "recentRateWindow": "Rată live pe 60 s glisant"
+  },
+  "pricing": {
+    "eyebrow": "Costuri API",
+    "heading": "Cât ar fi costat tokenurile tale prin API",
+    "meta": "Catalog {catalogVersion} · {modelCount} modele · EUR prin BCE {fxDate} · prețuri API {pricingDate} · Arena Text {scoreDate}",
+    "modelFilter": {
+      "label": "Filtrează după numele modelului",
+      "placeholder": "De exemplu Sol, 6.1 sau Claude",
+      "empty": "Nu s-au găsit modele cu acest nume."
+    },
+    "qualityScoreTitle": "Arena Text {scoreDate}: {score} Elo",
+    "chinaBadge": "China",
+    "unknown": "Necunoscut",
+    "notPriced": "Fără preț",
+    "aliases": "Aliasuri: {aliases}",
+    "limitSummary": "context {context} · ieșire {output}",
+    "sourceReviewed": "Revizuit {date}",
+    "regions": {
+      "apiDiscount": "Reducere API"
+    },
+    "columns": {
+      "model": "Model",
+      "score": "Scor",
+      "region": "Regiune",
+      "limits": "Limite",
+      "input": "Intrare",
+      "cache": "Cache",
+      "output": "Ieșire",
+      "today": "Last 24h",
+      "total": "Total",
+      "status": "Stare",
+      "source": "Sursă"
+    },
+    "priceStatus": {
+      "official": "Preț oficial",
+      "estimated": "Preț estimat",
+      "unknown": "Preț necunoscut",
+      "mixed": "Prețuri mixte"
+    },
+    "availability": {
+      "ga": "Disponibil general",
+      "preview": "Previzualizare",
+      "deprecated": "Depreciat",
+      "unknown": "Disponibilitate necunoscută"
+    },
+    "limitStatus": {
+      "official": "Limite oficiale",
+      "estimated": "Limite estimate",
+      "unknown": "Limite necunoscute"
+    },
+    "viewToggleAria": "Cost view",
+    "aliasesSummary": "{count} aliases",
+    "views": {
+      "api": "API equivalent",
+      "models": "Used models",
+      "subscriptions": "Fixed costs"
+    },
+    "usedModels": {
+      "heading": "Used models in {range}",
+      "description": "Actual logged model usage matched to the local pricing catalog where possible.",
+      "empty": "No model-level token data is available for the selected range.",
+      "totalLabel": "Cost API total",
+      "totalComplete": "Complet",
+      "totalPartial": "Parțial",
+      "totalUnknown": "Necunoscut",
+      "totalMixed": "Valute mixte",
+      "totalPartialNote": "Unele rânduri afișate nu au un preț API de încredere, deci totalul este parțial.",
+      "totalUnknownNote": "Niciun rând afișat nu are un preț API de încredere.",
+      "totalMixedNote": "Rândurile afișate folosesc mai multe valute; nu se calculează niciun total.",
+      "totalRow": "Cost API total"
+    },
+    "subscriptions": {
+      "heading": "Subscription and fixed costs in {range}",
+      "description": "Shows monthly fixed costs only when safely detected locally or saved as fallback estimates. Missing data is not treated as real cost.",
+      "empty": "No subscription or fixed-cost data is available yet.",
+      "previous": "Previous cost",
+      "delta": "Change"
+    }
+  },
+  "providers": {
+    "codex": {
+      "kicker": "Codex"
+    },
+    "codexSpark": {
+      "kicker": "Codex Spark"
+    },
+    "claudeCode": {
+      "kicker": "Claude Code"
+    },
+    "anthropic": {
+      "kicker": "Utilizare API"
+    },
+    "openai": {
+      "kicker": "API și credite"
+    },
+    "gemini": {
+      "kicker": "Gemini"
+    },
+    "glm": {
+      "kicker": "OpenAI-compatible import"
+    },
+    "ollama": {
+      "kicker": "Ollama"
+    },
+    "local": {
+      "name": "Local capture"
+    },
+    "gridAria": "Furnizori",
+    "messages": {
+      "sparkTokens24h": "Tokeni Spark 24h",
+      "logTokens24h": "Tokeni din jurnale 24h",
+      "missingBackendKey": "Lipsește cheia backend",
+      "sevenDays": "7 zile",
+      "noCodexSparkEvents": "Nu s-au găsit evenimente Codex 5.3 Spark.",
+      "noGeminiLogs": "Nu s-au găsit jurnale locale de utilizare Gemini.",
+      "glmImportTokens": "GLM/Z.AI tokens from local imports.",
+      "glmQuotaUnavailable": "Official quota through OpenCode is not available.",
+      "noGlmEvents": "No local GLM/Z.AI usage events found.",
+      "ollamaLogTokens": "Tokeni Ollama locali din jurnale",
+      "noOllamaLogs": "Nu s-au găsit jurnale Ollama locale.",
+      "copilotLogTokens": "Copilot CLI tokens 24h",
+      "noCopilotSessionMetrics": "No local Copilot CLI session metrics found.",
+      "claudeStatuslineNoQuotas": "Claude is sending data, but not official Pro/Max limit values yet.",
+      "claudeStatuslineMissing": "Statusline Claude nu este configurat. Activează comanda statusline a dashboardului pentru cote Pro/Max live.",
+      "claudeLiveLimitsMissing": "Claude live limits are not available from local telemetry yet.",
+      "claudeLimitsStale": "Claude live limits are out of date. Open Claude Code once to refresh them.",
+      "claudeOauthUnavailable": "Claude CLI/OAuth quota unavailable: {reason}.",
+      "claudeBrowserLoginHint": "Log in to Claude.ai in your browser to enable credit tracking.",
+      "glmQuotaAvailable": "Official GLM Coding Plan quota from OpenCode.",
+      "glmQuotaUnavailableReason": "Official GLM Coding Plan quota unavailable: {reason}.",
+      "noOpenCodeGptEvents": "No local OpenAI/GPT usage events found in OpenCode."
+    },
+    "emptyState": {
+      "eyebrow": "Furnizor",
+      "heading": "Nicio utilizare activă",
+      "status": "Gol",
+      "message": "Momentan niciun furnizor nu are tokeni înregistrați sau date despre limite.",
+      "visible": "Vizibil",
+      "hidden": "Ascuns",
+      "all": "Toate"
+    },
+    "copilot": {
+      "kicker": "Copilot CLI"
+    },
+    "updateDelayHints": {
+      "default": "This provider has not produced a fresh local signal for more than {minutes} minutes. Some sources only update when their CLI or app writes new usage data.",
+      "codex": "Codex limits normally update through the local app-server. If this stays old, the app-server may be unavailable or Codex has not produced fresh live limit data.",
+      "codexSpark": "Codex Spark limits normally update through the local Codex app-server. If this stays old, Spark live limit data may not be exposed yet.",
+      "claudeCode": "This Claude Code card combines statusline, local logs, and Claude.ai billing or usage data. Updates can lag when Claude Code is closed, the statusline has not run, or Claude.ai cookies/API access are unavailable.",
+      "copilot": "GitHub Copilot CLI usage is written after sessions shut down, and live quota probing depends on the local Copilot CLI. The timestamp can lag while a session is still open or the probe is unavailable.",
+      "gemini": "Gemini local usage updates only when local log files contain new usage metadata.",
+      "glm": "GLM/Z.AI updates when local JSON, JSONL, or CSV usage imports contain OpenAI-compatible GLM token counts.",
+      "ollama": "Ollama usage updates only when requests pass through the dashboard's local proxy/log file."
+    },
+    "freshness": {
+      "ariaLabel": "Ora datelor furnizorului",
+      "usage": "Utilizare {time}",
+      "limits": "Limite {time}",
+      "prices": "Prețuri {time}",
+      "catalog": "Catalog {date}",
+      "unknown": "Ora datelor necunoscută"
+    },
+    "openCode": {
+      "kicker": "OpenCode GPT logs"
+    },
+    "kimi": {
+      "kicker": "Kimi Code"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "empty": "Gol",
+    "not_configured": "Configurare",
+    "error": "Eroare"
+  },
+  "labels": {
+    "today": "Azi",
+    "fiveHourUsed": "5h utilizate",
+    "weekUsed": "Săptămână utilizată",
+    "fiveHourLeft": "5 h rămase",
+    "weekLeft": "Săptămână rămasă",
+    "since": "Din",
+    "updated": "Actualizat",
+    "plan": "Plan",
+    "fiveHourTokens": "Tokeni 5h",
+    "total": "Total",
+    "cost": "Cost",
+    "tokens7d": "Tokeni 7 zile",
+    "cost7d": "Cost 7 zile",
+    "limits": "Limite",
+    "updatedHelp": "Why this timestamp may be delayed",
+    "subscription": "Subscription",
+    "last24h": "Last 24h"
+  },
+  "credits": {
+    "title": "Credite",
+    "monthlySpend": "Credite de utilizare",
+    "monthlyLimit": "Limită lunară",
+    "currentCredit": "Credit curent",
+    "autoTopUp": "Reîncărcare automată",
+    "default": "Credite",
+    "on": "Pornit",
+    "off": "Oprit"
+  },
+  "limits": {
+    "recentPace": {
+      "timeToLimit": "Timp până la limită: {duration}",
+      "title": "Ritm recent",
+      "measured": "+{percent} puncte procentuale în {duration}",
+      "collecting": "Nu sunt încă suficiente măsurători pentru această perioadă.",
+      "flat": "Nicio creștere măsurabilă în această perioadă.",
+      "stale": "Ultima citire a cotei este prea veche.",
+      "changed": "Citirile s-au schimbat; nu există prognoză.",
+      "possible": "Limita ar putea fi atinsă înainte de resetare; estimarea este incertă.",
+      "note": "Estimare din procente rotunjite, presupunând un ritm constant."
+    },
+    "fiveHour": "5h",
+    "weekly": "Săptămână",
+    "currentSession": "Sesiune curentă",
+    "allModels": "Toate modelele",
+    "claudeDesign": "Claude Design",
+    "sonnetOnly": "Doar Sonnet",
+    "default": "Limită",
+    "resetPrefix": "Resetare {time}",
+    "usedValue": "{percent}% utilizat",
+    "leftValue": "{percent}% rămas",
+    "freeLabel": "{label} disponibil",
+    "limitGroups": "{count} grupuri de limite",
+    "noModelLimits": "Fără limite de model",
+    "remainingShort": "{days}d {hours}h {minutes}m",
+    "fullTitle": "Limit full",
+    "fullDescription": "{limit} is full.",
+    "fullTokenDetail": "{tokens} tokens in {period}",
+    "fullPremiumRequestsDetail": "{requests} premium requests from local session logs",
+    "fullResetDetail": "Reset {time}",
+    "period5h": "5h",
+    "period7d": "7d",
+    "period24h": "24h",
+    "fullQuotaDetail": "{usage} used",
+    "status": {
+      "ok": "On track",
+      "risk": "Ritm ridicat",
+      "full": "Limit reached",
+      "unknown": "Unknown"
+    },
+    "pace": {
+      "remaining": "La ritmul actual raman aproximativ {percent}% la resetare.",
+      "shortfall": "La ritmul actual lipsesc aproximativ {percent}% la resetare.",
+      "hitBeforeReset": "La ritmul actual limita va fi atinsa cu aproximativ {duration} inainte de resetare. ({time})",
+      "fullWithReset": "Limita atinsa; resetare {time}.",
+      "fullNoReset": "Limita atinsa; ora resetarii nu este disponibila.",
+      "unavailable": {
+        "noUsage": "Ritm indisponibil: aceasta sursa nu ofera procent de utilizare.",
+        "noWindow": "Ritm indisponibil: aceasta sursa nu ofera durata ferestrei sau ora resetarii.",
+        "notStarted": "Ritm indisponibil: aceasta fereastra de cota nu a inceput inca.",
+        "staleReset": "Ritm indisponibil: ora resetarii este invechita; reimprospatati sursa."
+      }
+    },
+    "duration": {
+      "daysHours": "{days} z {hours} h",
+      "hoursMinutes": "{hours} h {minutes} min",
+      "minutes": "{minutes} min"
+    },
+    "gauge": {
+      "title": "Utilizare curentă",
+      "projectedValue": "{percent}% proiectat",
+      "unavailable": "Proiecția nu este disponibilă",
+      "aria": "Utilizarea finală proiectată pentru {label}"
+    },
+    "viewToggleAria": "Vizualizarea utilizării curente",
+    "view": {
+      "tachometer": "Indicator",
+      "bar": "Bară"
+    },
+    "remainingUntilReset": "Resets in {remaining} · Reset {time}",
+    "glmFiveHourTokens": "5h tokens",
+    "glmWeekly": "Weekly quota",
+    "glmMcpMonthly": "Monthly MCP"
+  },
+  "tokens": {
+    "input": "Intrare",
+    "cacheCreation": "Creare cache",
+    "cachedInput": "Intrare cache-uită",
+    "output": "Ieșire",
+    "reasoningOutput": "Ieșire reasoning",
+    "total": "Total"
+  },
+  "format": {
+    "billion": "mld.",
+    "million": "mil.",
+    "thousand": "mii",
+    "lessThanSharePercent": "<0,1%",
+    "lessThanCent": "< 0,01 EUR",
+    "usdPerMillion": "{value} $/M",
+    "cacheReadWrite": "{read} citire / {write} scriere",
+    "cacheSameAsInput": "ca intrarea",
+    "perMonth": "{amount}/mo",
+    "fromPerMonth": "de la {amount}/lună"
+  },
+  "settings": {
+    "heading": "Setări",
+    "language": {
+      "label": "Limbă"
+    },
+    "theme": {
+      "label": "Temă",
+      "system": "Sistem",
+      "light": "Luminos",
+      "dark": "Întunecat"
+    },
+    "notifications": {
+      "title": "Limits & warnings",
+      "description": "Warnings use real 5-hour and weekly provider windows plus projections; they are separate from monthly subscription/API cost comparisons.",
+      "enabled": "Enable notifications",
+      "pacingLabel": "Pacing warning at projected provider-window usage (%)",
+      "hardLimitLabel": "Hard warning at measured provider-window usage (%)",
+      "save": "Save",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "diagTitle": "Notification diagnostics",
+      "diagLastCheck": "Last check",
+      "diagDuration": "Duration",
+      "diagAlerts": "Alerts found",
+      "diagLastShown": "Last notification sent",
+      "diagSkipped": "Skip reason",
+      "diagError": "Last error",
+      "diagSupported": "Notifications supported",
+      "diagNone": "None",
+      "diagNever": "Never",
+      "diagYes": "Yes",
+      "diagNo": "No",
+      "testBtn": "Send test notification",
+      "testQueued": "Test requested. If no real system banner appears, open system notifications, allow LLM Pulse, restart the app, then run the test again.",
+      "testError": "Could not send test notification.",
+      "testResultLabel": "Last test result",
+      "testResultAt": "At",
+      "testResultOutcome": "Outcome",
+      "testResult_shown": "Reported as shown by an older build",
+      "testResult_not_supported": "Not supported on this system",
+      "testResult_error": "Error",
+      "diagPermission": "Browser permission (not a macOS banner guarantee)",
+      "permission_granted": "Granted for browser API",
+      "permission_default": "Not asked yet",
+      "permission_denied": "Denied",
+      "permission_unsupported": "Unsupported",
+      "permission_unknown": "Unknown",
+      "permission_error": "Permission check failed",
+      "permissionNotGranted": "Notification permission was not granted. System notification settings were opened; allow LLM Pulse, restart the app, then run the test again.",
+      "permissionUnsupported": "This app runtime does not expose desktop notification permission.",
+      "testResult_sent": "Queued with Electron (banner not confirmed)",
+      "testQueuedRendererError": "Native macOS notification queued, but the immediate browser notification failed: {error}",
+      "testTitle": "LLM Pulse - Test",
+      "testBody": "Desktop notifications are working correctly.",
+      "inAppTestTitle": "In-app test notification",
+      "inAppTestErrorTitle": "Notification test needs attention",
+      "inAppTestBody": "This in-app fallback confirms the test ran. It is not a system banner; native banners may require system notification permission, a fresh app restart, and a properly signed build.",
+      "diagNativeDelivery": "Native system delivery",
+      "nativeDelivery_ready": "Signed app: native banners should be available",
+      "nativeDelivery_ad_hoc": "Ad-hoc build: native banners may not appear",
+      "nativeDelivery_gatekeeper_rejected": "Gatekeeper rejected: native banners may not appear",
+      "nativeDelivery_unverified": "Unverified",
+      "nativeDelivery_not_applicable": "Not applicable on this platform",
+      "nativeDelivery_unknown": "Unknown",
+      "openSettingsBtn": "Open system notification settings",
+      "openSettingsQueued": "System notification settings opened. Allow notifications for LLM Pulse, restart the app if you just changed the setting, then run the test again.",
+      "openSettingsError": "Could not open system notification settings from this runtime.",
+      "systemGuideTitle": "System notifications need attention",
+      "systemGuideDefault": "Allow notifications for LLM Pulse in system settings, restart the app if you just changed the setting, then run the test again.",
+      "systemGuidePermission": "This app does not yet have notification permission. System settings were opened; allow notifications for LLM Pulse there.",
+      "systemGuideUnsupported": "This runtime cannot read browser notification permission. Open system notification settings and allow notifications for LLM Pulse there.",
+      "systemGuideNativeUnverified": "Native banners are not reliably confirmed with this build. Check system notifications, allow LLM Pulse, then test again after restarting the app.",
+      "systemGuideTestFailed": "The last native notification attempt reported a failure. Check system notifications, restart the app, then run the test again.",
+      "systemGuideAfterTest": "If no real system banner appeared, check system notifications, allow LLM Pulse, restart the app, then send the test again.",
+      "thresholdsHelp": "Pacing uses the current consumption rate; hard warning uses measured consumption in the relevant 5h or weekly provider window.",
+      "nativeAlertTitle": "Avertizare de limită: {window}",
+      "nativeUsedPercent": "{percent}% utilizat.",
+      "nativeHardLimit": "Limita este aproape epuizată.",
+      "nativePacingProjected": "{usedPercent}% utilizat; ritmul curent proiectează {projectedPercent}%.",
+      "nativeEstimatedExhaustion": "Epuizare estimată în {time}.",
+      "nativeDurationHoursMinutes": "{hours} h {minutes} min",
+      "nativeDurationHours": "{hours} h",
+      "nativeDurationMinutes": "{minutes} min",
+      "nativeWindowFiveHour": "Fereastră de 5 ore",
+      "nativeWindowWeekly": "Limită săptămânală",
+      "nativeWindowSonnetOnly": "Limită doar Sonnet",
+      "nativeWindowClaudeDesign": "Limită Claude Design",
+      "nativeWindowGeneric": "Limită"
+    },
+    "subscriptions": {
+      "title": "Subscription costs",
+      "planLabel": "Plan",
+      "monthlyCostLabel": "Monthly cost (EUR)",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "description": "Detected plans and costs come from safe local signals. Missing data is not counted as real cost.",
+      "detectedOnly": "Manual values are not normal setup. Use Advanced only as a fallback estimate when local detection is unavailable.",
+      "advancedTitle": "Advanced fallback estimates",
+      "advancedDescription": "These values are saved fallback estimates. Cards and cost views label them as estimates, not automatically detected costs."
+    },
+    "sources": {
+      "title": "Data sources & diagnostics",
+      "description": "Manage connected sources, recheck access, and copy ACL commands for other local users.",
+      "recheck": "Recheck access",
+      "recheckOne": "Recheck access",
+      "recheckPending": "Checking...",
+      "rechecked": "Source diagnostics refreshed.",
+      "recheckError": "Could not refresh source diagnostics.",
+      "currentUser": "current user",
+      "summaryStatus": "Status: {status}",
+      "summaryCounts": "{connected} usable · {candidates} additional candidates",
+      "connectedTitle": "Usable sources",
+      "candidatesTitle": "Additional detected sources",
+      "connectedEmpty": "No usable sources detected yet.",
+      "candidatesEmpty": "No additional source candidates detected right now.",
+      "owner": "Owner: {owner}",
+      "discovery": "Discovery: {method} · confidence {confidence}",
+      "access": {
+        "readable": "Readable",
+        "mixed": "Partially readable",
+        "denied": "Access denied",
+        "missing": "Missing",
+        "process_only": "Process only",
+        "service_only": "Service only"
+      },
+      "permissions": {
+        "readable": "Readable",
+        "denied": "Denied",
+        "missing": "Missing",
+        "unknown": "Unknown",
+        "optionalMissing": "Optional missing"
+      },
+      "roles": {
+        "sessions": "Sessions",
+        "archived_sessions": "Archived sessions",
+        "projects": "Projects",
+        "session_state": "Session state",
+        "telemetry": "Telemetry",
+        "chats": "Chats",
+        "tmp": "Temporary files",
+        "usage_file": "Usage file",
+        "home": "Home"
+      },
+      "noPaths": "No direct filesystem path available.",
+      "connect": "Connect",
+      "connectPending": "Connecting...",
+      "connectSuccess": "Source connected. Running a fresh diagnostics pass now.",
+      "connectError": "Could not connect source.",
+      "disable": "Disable",
+      "disablePending": "Disabling...",
+      "disableSuccess": "Source disabled. Usage totals were refreshed.",
+      "disableError": "Could not disable source.",
+      "grantCommands": "Grant commands",
+      "revokeCommands": "Revoke commands",
+      "copyGrant": "Copy grant commands",
+      "copyRevoke": "Copy revoke commands",
+      "copyGrantSuccess": "Grant commands copied to the clipboard.",
+      "copyRevokeSuccess": "Revoke commands copied to the clipboard.",
+      "copyError": "Could not copy commands to the clipboard.",
+      "automatic": "used automatically"
+    },
+    "supportReport": {
+      "title": "Support report",
+      "description": "Generate a redacted support report for Multica or WhatsApp when local sources are missing or usage does not appear.",
+      "privacyNote": "The report contains only metadata and redacted paths, no raw logs, prompts, secrets, or provider payloads.",
+      "downloadJson": "Save JSON report",
+      "copySummary": "Copy summary",
+      "summaryLabel": "Compact summary",
+      "emptySummary": "Generate a report to preview the compact support summary.",
+      "preparing": "Preparing support report...",
+      "downloaded": "Support report saved.",
+      "copied": "Support summary copied to the clipboard.",
+      "generateError": "Could not generate support report: {message}",
+      "copyError": "Could not copy support summary to the clipboard."
+    },
+    "updates": {
+      "title": "App updates",
+      "description": "Automatic update checks are always active for supported packaged desktop builds; only preview releases are optional.",
+      "enabled": "Automatic update checks are always active",
+      "allowPrerelease": "Include preview releases",
+      "saved": "Saved.",
+      "saveError": "Could not save update settings.",
+      "diagTitle": "Update diagnostics",
+      "diagState": "State",
+      "diagSupport": "Support",
+      "diagLastCheck": "Last check",
+      "diagVersion": "App version",
+      "diagAvailable": "Available version",
+      "diagError": "Last error",
+      "diagNone": "None",
+      "checkNow": "Check now",
+      "checkQueued": "Update check queued.",
+      "checkError": "Could not request update check.",
+      "noticeTitle": "Update attention needed",
+      "noticeMacSigning": "macOS automatic updates require a signed app. This unsigned build can run after manual approval, but the updater will stay disabled until Developer ID signing and notarization are configured.",
+      "noticeDevelopment": "Automatic updates run only from a packaged desktop app, not from the development runtime.",
+      "noticeUnsupported": "Automatic updates are not supported on this platform/package.",
+      "noticeGatekeeper": "The app is signed, but Gatekeeper did not fully accept it. If updates behave oddly, reinstall a notarized build.",
+      "noticeDownloaded": "An update has been downloaded. Restart the app to install it.",
+      "noticeError": "The last update check failed. Check the error line, network access, and release assets.",
+      "state_unknown": "Unknown",
+      "state_disabled": "Disabled",
+      "state_checking": "Checking",
+      "state_available": "Update available",
+      "state_downloading": "Downloading",
+      "state_up_to_date": "Up to date",
+      "state_downloaded": "Downloaded",
+      "state_error": "Error",
+      "state_not_electron": "Not running in desktop app",
+      "state_development_build": "Development build",
+      "state_macos_signing_required": "macOS signing required",
+      "state_unsupported_platform": "Unsupported platform",
+      "support_ready": "Ready",
+      "support_development_build": "Development build",
+      "support_macos_signing_required": "macOS signing required",
+      "support_macos_gatekeeper_warning": "Signed, but Gatekeeper warning",
+      "support_unsupported_platform": "Unsupported platform",
+      "support_electron_updater_missing": "Updater package missing",
+      "support_unknown": "Unknown",
+      "state_electron_updater_missing": "Updater package missing",
+      "alwaysOn": "Automatic update checks are always active."
+    },
+    "saving": "Saving..."
+  },
+  "errors": {
+    "loadUsage": "Eroare"
+  },
+  "diagnostics": {
+    "ariaLabel": "Source diagnostics",
+    "eyebrow": "Local sources",
+    "heading": "Diagnostics & connection",
+    "recheck": "Recheck access",
+    "loading": "Loading source diagnostics...",
+    "meta": "User {user} · Checked {checkedAt} · {platform} · {support}",
+    "support": {
+      "full": "full host discovery",
+      "partial_container": "limited container discovery",
+      "stub": "platform check unavailable",
+      "unsupported": "unsupported platform"
+    },
+    "supportShort": {
+      "full": "Full",
+      "partial_container": "Limited",
+      "stub": "Unavailable",
+      "unsupported": "Unavailable"
+    },
+    "supportDescriptions": {
+      "full": "Host file access, process hints, and permissions are measured on this machine.",
+      "partial_container": "Container discovery can miss host users, services, and homes; mounted logs can still be read.",
+      "stub": "Host source discovery is not available on this platform build; current-user configured logs may still be read.",
+      "unsupported": "Host source discovery is unavailable here; use Settings or a supported host build for source setup."
+    },
+    "quality": {
+      "measured": "Measured",
+      "configured": "Configured",
+      "detected": "Detected",
+      "limited": "Limited",
+      "unavailable": "Unavailable"
+    },
+    "facets": {
+      "logs": {
+        "title": "Readable log sources",
+        "available": "The app can read at least one local usage source.",
+        "empty": "No readable token log source was found in this scan."
+      },
+      "savedSources": {
+        "title": "Saved extra sources",
+        "available": "These are additional sources saved in Settings.",
+        "empty": "Zero saved sources is OK: current-user log history can still appear below."
+      },
+      "permissions": {
+        "title": "Permission fixes",
+        "blocked": "At least one plausible source exists, but this app cannot read it yet.",
+        "clear": "No denied source path was found in this scan."
+      },
+      "runtimeHints": {
+        "title": "Process/service hints",
+        "available": "A supported tool is visible only as a process or service, not as readable logs.",
+        "empty": "No process-only or service-only source hints were found."
+      },
+      "platform": {
+        "title": "Platform coverage"
+      }
+    },
+    "errors": {
+      "load": "Could not load source diagnostics: {message}"
+    },
+    "statuses": {
+      "connected_live": {
+        "title": "Local data is available",
+        "body": "Readable local sources are available. Saved extra-source counts only track sources you connected manually."
+      },
+      "current_user_empty": {
+        "title": "Current-user logs empty",
+        "body": "The current desktop user was scanned, but no local usage files with token data were found yet."
+      },
+      "candidates_readable_empty": {
+        "title": "Readable candidates found",
+        "body": "Known tool folders are readable, but they currently look empty or are not saved as extra sources."
+      },
+      "candidates_denied": {
+        "title": "Permission action needed",
+        "body": "A plausible source was found, but this app cannot read it with the current account."
+      },
+      "runtime_hints_only": {
+        "title": "Tool seen without readable logs",
+        "body": "A supported tool process or service was detected, but no readable log folder was found for it yet."
+      },
+      "no_tools_found": {
+        "title": "No local tools found",
+        "body": "No supported local tool folders, related processes, or service hints were detected on this machine."
+      },
+      "other_dashboard_found": {
+        "title": "Other dashboard instance found",
+        "body": "Another local LLM Pulse instance is running and may already be reading local usage data."
+      },
+      "partial_unsupported": {
+        "title": "Discovery is limited here",
+        "body": "This runtime can only do limited source discovery, so some users, services, or homes may stay invisible."
+      },
+      "discovery_error": {
+        "title": "Discovery error",
+        "body": "Source discovery did not finish cleanly."
+      }
+    },
+    "nextActions": {
+      "connected_live": "No action is needed; local data below can come from default current-user logs even with zero saved extra sources.",
+      "current_user_empty": "No action is needed unless you expected history; start a supported tool or inspect sources in Settings.",
+      "candidates_readable_empty": "Open Settings > Local sources if you want to save one of these readable sources.",
+      "candidates_denied": "Open Settings > Local sources, copy the ACL command for the denied source, run it as an admin, then recheck.",
+      "runtime_hints_only": "Wait for the tool to write usage logs, or configure the readable source in Settings and recheck.",
+      "no_tools_found": "Start a supported local tool or add a source in Settings, then recheck.",
+      "other_dashboard_found": "Use the already running dashboard window or stop it before checking this instance again.",
+      "partial_unsupported": "Run the desktop app on the host OS for fuller discovery; mounted local logs can still be shown below.",
+      "discovery_error": "Recheck access. If it fails again, check the backend error and source settings."
+    },
+    "recheckResults": {
+      "checking": "Checking...",
+      "ready": "Recheck complete: {status}",
+      "action": "Action needed: {status}",
+      "error": "Recheck failed: {message}",
+      "empty": "Recheck did not return diagnostics."
+    },
+    "instances": {
+      "title": "Other dashboard instances",
+      "item": "{user} has another dashboard instance running."
+    }
+  },
+  "subscriptions": {
+    "plan": "Plan: {plan}",
+    "planUnknown": "Plan unknown",
+    "costUnknown": "Cost unknown",
+    "source": "Source: {source}",
+    "updated": "Updated {time}",
+    "qualityLabel": "Cost quality",
+    "sourceLabel": "Source",
+    "quality": {
+      "automatic": "Automatically detected",
+      "manual": "Saved fallback estimate",
+      "estimated": "Estimated / partial",
+      "unknown": "Unknown",
+      "catalog": "Valoare din catalog",
+      "official": "Preț oficial de listă",
+      "officialStarting": "Preț oficial de listă de pornire"
+    },
+    "sources": {
+      "local_settings": "saved fallback",
+      "account": "sursă cont/facturare",
+      "codex_app_server": "Codex local app-server",
+      "codex_local_logs": "Codex local logs",
+      "claude_statusline": "Claude Code statusline",
+      "claude_auth_status": "Claude CLI auth status",
+      "claudeCode_local_signal": "Claude Code local signal",
+      "codex_local_signal": "Codex local signal",
+      "copilot_local_signal": "Copilot local signal",
+      "gemini_local_signal": "Gemini local signal",
+      "openai_api": "OpenAI API metadata",
+      "anthropic_api": "Anthropic API metadata",
+      "unknown": "unknown",
+      "openai_public_catalog": "catalogul public de abonamente OpenAI",
+      "anthropic_public_catalog": "catalogul public de abonamente Anthropic",
+      "claude_browser_sync": "sincronizare browser/cont Claude",
+      "claude_api": "API utilizare cont Claude",
+      "browser": "sursa cont browser",
+      "official_pricing_page": "pagină oficială de prețuri",
+      "cached_official_snapshot": "snapshot oficial în cache",
+      "bundled_catalog": "catalog inclus",
+      "account_billing": "sursă de cont/facturare"
+    },
+    "catalogReviewed": "Catalog verificat la {date}",
+    "costReasons": {
+      "catalogMissing": "Niciun pret de catalog sau cont de incredere nu corespunde acestui plan detectat.",
+      "catalogMissingCodexAppServer": "Serverul local Codex a expus planul, dar nu pretul lunar; niciun pret de catalog de incredere nu corespunde.",
+      "catalogMissingClaudeStatusline": "Statusline Claude a expus planul, dar nu pretul lunar; datele browser/cont lipsesc sau nu expun pretul.",
+      "catalogMissingClaudeAuth": "Autentificarea CLI Claude a expus planul, dar nu pretul lunar; datele browser/cont lipsesc sau nu expun pretul.",
+      "catalogMissingClaudeBrowser": "{source} a fost verificata, dar nu expune un pret lunar al planului."
+    },
+    "costActions": {
+      "addFallback": "Actualizează sursa catalogului/contului sau adaugă o estimare de rezervă în Advanced."
+    },
+    "planSource": "Plan/limite din {source}",
+    "planSourceLabel": "Sursă plan/limite",
+    "catalogFallbackNote": "Prețul lunar este o valoare de rezervă din catalog; sursele aplicației/contului doar citire oferă plan, limite sau credite, dar nu un preț lunar de încredere.",
+    "sourceAudit": {
+      "heading": "Surse de preț doar pentru citire",
+      "safePriceDetected": "preț lunar de încredere detectat",
+      "planOnlyNoPrice": "doar plan/limite; nu este expus preț lunar",
+      "browserNoPrice": "verificat; nu este expus preț lunar de încredere",
+      "catalogFallback": "preț de rezervă din catalog",
+      "notConfigured": "nu este prezent în această rulare",
+      "notAvailable": "nu există sursă sigură de preț doar pentru citire",
+      "notUsed": "neutilizat",
+      "officialListPrice": "preț oficial de listă",
+      "accountSourceExpired": "sursa contului a expirat",
+      "accountSourceUnavailable": "sursa contului nu este disponibilă"
+    },
+    "officialListPriceNote": "Preț oficial de listă; factura reală poate diferi din cauza TVA/taxelor, reducerilor anuale, locurilor, cupoanelor, prețurilor regionale sau contractelor Enterprise.",
+    "fetched": "Preluat {time}",
+    "sourceUrl": "URL: {url}",
+    "planKey": "Cheie plan: {key}",
+    "parserStatus": "Parser: {status}",
+    "priceSourceTypeLabel": "Tip sursă preț",
+    "sourceUrlLabel": "URL sursă",
+    "fetchedLabel": "Ora preluării/datelor",
+    "planKeyLabel": "Cheie plan",
+    "parserStatusLabel": "Stare parser",
+    "parserStatuses": {
+      "parsed": "analizat",
+      "parse_failed": "analiza a eșuat",
+      "cached_after_fetch_error": "cache după eroare de preluare",
+      "bundled": "fallback inclus",
+      "missing": "lipsește",
+      "unknown": "necunoscut"
+    },
+    "officialStartingListPriceNote": "Preț oficial de listă de pornire; factura reală a contului nu a fost citită și poate diferi din cauza nivelului, TVA/taxelor, reducerilor anuale, locurilor, cupoanelor, prețurilor regionale, suplimentelor sau contractelor enterprise.",
+    "tierVariant": "Nivel/variantă: {variant}",
+    "actualBilling": "Facturarea reală cunoscută: {status}",
+    "tierVariantLabel": "Nivel/variantă",
+    "actualBillingKnownLabel": "Facturarea reală cunoscută",
+    "priceVariants": {
+      "from": "minimum / de la",
+      "pro_5x": "Pro 5x",
+      "pro_5x_20x": "Pro 5x/20x",
+      "pro_20x": "Pro 20x",
+      "max_5x": "Claude Max 5x",
+      "max_5x_20x": "Claude Max 5x/20x",
+      "max_20x": "Claude Max 20x",
+      "unknown": "necunoscut"
+    },
+    "actualBillingKnown": {
+      "yes": "da",
+      "no": "nu"
+    },
+    "connectionActions": {
+      "refresh": "Actualizează",
+      "claudeLogin": "Autentifică-te în Claude și citește planul",
+      "claudeRefresh": "Recitește planul Claude",
+      "chatgptLogin": "Autentifică-te în ChatGPT și citește planul",
+      "chatgptRefresh": "Recitește planul ChatGPT",
+      "rereadPlan": "Citește planul acum"
+    },
+    "connectionStatus": {
+      "refreshRequired": "Este necesară actualizarea conexiunii",
+      "claudeLoginRequired": "Este necesară autentificarea în Claude",
+      "claudeRefreshRequired": "Actualizează conexiunea Claude",
+      "chatgptLoginRequired": "Este necesară autentificarea în ChatGPT",
+      "chatgptRefreshRequired": "Actualizează conexiunea ChatGPT Billing",
+      "claudeConflict": "Claude Max: surse contradictorii ({details})"
+    },
+    "connectionHelp": "Deschide pagina furnizorului, autentifică-te dacă este necesar și revino aici. Aplicația recitește planul când primește focus sau folosește butonul."
+  },
+  "gptAccounts": {
+    "ariaLabel": "GPT accounts",
+    "eyebrow": "Local account registry",
+    "heading": "GPT accounts",
+    "recheck": "Re-scan accounts",
+    "checking": "Scanning Codex and OpenCode accounts…",
+    "rechecked": "Account scan complete.",
+    "recheckError": "Account scan failed: {message}",
+    "recheckErrorFallback": "Unknown error",
+    "summary": "{active} active of {count} known accounts · scanned {time}",
+    "notScanned": "Accounts have not been scanned yet.",
+    "empty": "No ChatGPT account found yet",
+    "guidance": "Sign in with Codex or OpenCode, then re-scan. Accounts seen previously remain in this list as history.",
+    "active": "Active",
+    "historical": "Previous",
+    "lifetimeTokens": "Codex lifetime tokens",
+    "limit": "Limit",
+    "lastSeen": "Last seen {time}",
+    "activeSourceCount": "{count} active sources",
+    "attributionNote": "OpenCode tokens are measured for OpenCode as a whole because its message database does not record which account produced each message.",
+    "sources": {
+      "codex": "Codex",
+      "openCode": "OpenCode"
+    },
+    "activeSourceCountOne": "1 active source",
+    "add": "Adaugă cont GPT",
+    "signIn": "Autentificare la OpenAI",
+    "removeLogin": "Elimină autentificarea salvată",
+    "login": {
+      "waiting": "Finalizează autentificarea la OpenAI. Alege contul dorit în browser.",
+      "complete": "Cont conectat.",
+      "failed": "Autentificarea nu este disponibilă. Instalează Codex CLI sau încearcă din nou."
+    },
+    "connectionHelp": "Autentificările Codex și OpenCode existente sunt detectate automat. Adaugă conturi GPT fără a le înlocui.",
+    "loginPrivacy": "Autentificarea comunică cu OpenAI. Datele de autentificare rămân într-un profil local separat și nu sunt trimise dezvoltatorului sau dispozitivelor asociate."
+  },
+  "codexResets": {
+    "title": "Codex · Istoricul resetărilor",
+    "period": "Perioadă",
+    "last10": "Ultimele 10 ferestre",
+    "last30": "Ultimele 30 de ferestre",
+    "all": "Toate ferestrele",
+    "credits": "Credite de resetare disponibile",
+    "earlyCount": "Resetări anticipate",
+    "averageDuration": "Durată medie ≈",
+    "averageUsage": "Utilizare medie",
+    "days": "{value} zile",
+    "windows": "din {count} ferestre",
+    "maximum": "Cea mai mare utilizare observată",
+    "start": "Început ≈",
+    "plannedReset": "Resetare anunțată",
+    "end": "Sfârșit ≈",
+    "duration": "Durată ≈",
+    "usage": "Utilizare max.",
+    "result": "Dovada resetării",
+    "early": "Anticipată",
+    "regular": "Programată",
+    "uncertain": "Incertă",
+    "estimated": "Reconstruită",
+    "confirmed": "Credit utilizat: confirmat",
+    "inferred": "Credit utilizat: dedus",
+    "live": "Înregistrare activă",
+    "stale": "Înregistrare învechită",
+    "unavailable": "Date live indisponibile",
+    "loading": "Se încarcă istoricul…",
+    "empty": "Nu au fost observate încă ferestre încheiate.",
+    "note": "Jurnalele vechi reconstruiesc ferestre fără atribuirea contului. Durata și sfârșitul sunt estimări; utilizarea este maximul observat. Înregistrarea continuă cât timp aplicația rulează. Persoanele și dispozitivele nu pot fi identificate.",
+    "durationBasis": "{count} ferestre utilizabile · așteptat: 7 zile",
+    "recordingSince": "Înregistrare din {time}",
+    "redemptions": "Credite: {confirmed} utilizări confirmate · {inferred} deduse",
+    "expires": "Expiră la {time}",
+    "coverage": "{uncertain} ferestre incerte · {gaps} lacune",
+    "current": "Curent: resetare {time} · max. {percent} %",
+    "events": "Evenimente de credit · ultimele 30",
+    "granted": "Credit acordat",
+    "expired": "Credit expirat",
+    "creditUnknown": "Schimbare de credit: neclară",
+    "cause": "Cauza resetării",
+    "causeManual": "Manuală · cupon",
+    "causeProvider": "OpenAI · dedusă",
+    "causeScheduled": "Programată",
+    "causeUnknown": "Necunoscută",
+    "causeMissing": "Lipsesc dovezi despre cupon sau tranziție",
+    "causeNoCredit": "Anticipată fără utilizare observată a cuponului",
+    "causeConfirmed": "Confirmată",
+    "causeInferred": "Dedusă",
+    "causeSummary": "Cauze: {manual} cupon · {provider} OpenAI (dedusă) · {scheduled} programate · {unknown} necunoscute",
+    "causeNote": "O resetare anticipată nu identifică cauza. OpenAI este dedusă numai când inventarul complet de cupoane rămâne neschimbat la o resetare a cotei observată atent. Jurnalele vechi nu separă resetările manuale de OpenAI. Persoana care a inițiat resetarea este necunoscută."
+  },
+  "deviceSync": {
+    "heading": "Conectează dispozitivele proprii",
+    "enabled": "Activează sincronizarea directă",
+    "name": "Numele dispozitivului",
+    "invite": "Creează cod de asociere",
+    "code": "Cod de asociere",
+    "copy": "Copiază codul",
+    "join": "Conectează dispozitivul",
+    "forget": "Deconectează dispozitivul",
+    "view": "Dispozitive",
+    "local": "Acest dispozitiv",
+    "all": "Toate dispozitivele conectate",
+    "copied": "Cod copiat.",
+    "working": "Se conectează…",
+    "ready": "Gata.",
+    "inviteReady": "Codul expiră în cinci minute. Lipește-l pe celălalt dispozitiv.",
+    "errors": {
+      "default": "Conexiunea nu este disponibilă. Datele primite anterior rămân pe acest dispozitiv.",
+      "peer_unreachable": "Conexiunea nu este disponibilă. Datele primite anterior rămân pe acest dispozitiv.",
+      "invalid_pairing_code": "Conexiunea nu este disponibilă. Datele primite anterior rămân pe acest dispozitiv.",
+      "network_unavailable": "Conexiunea nu este disponibilă. Datele primite anterior rămân pe acest dispozitiv.",
+      "sync_disabled": "Conexiunea nu este disponibilă. Datele primite anterior rămân pe acest dispozitiv.",
+      "capture_failed": "Conexiunea nu este disponibilă. Datele primite anterior rămân pe acest dispozitiv.",
+      "storage_unavailable": "Conexiunea nu este disponibilă. Datele primite anterior rămân pe acest dispozitiv.",
+      "discovery_unavailable": "Conexiunea nu este disponibilă. Datele primite anterior rămân pe acest dispozitiv."
+    },
+    "privacy": "Datele de utilizare și de autentificare nu sunt trimise dezvoltatorului. Numai măsurătorile criptate sunt partajate cu dispozitive asociate explicit. Deconectarea nu șterge copiile primite.",
+    "networkLimit": "Conexiunile directe folosesc rețeaua locală sau un VPN privat existent, fără releu, server de descoperire ori modificări ale routerului. Rețelele care le blochează împiedică sincronizarea automată.",
+    "coverage": "{count} înregistrări unice · {duplicates} duplicate eliminate · {excluded} înregistrări rămân locale fără identificator sigur. Limitele conturilor rămân separate; totalurile API nu se adaugă."
+  },
+  "connections": {
+    "accounts": "Conturi",
+    "installations": "Instalări",
+    "general": "General",
+    "advanced": "Avansat",
+    "addAccount": "Adaugă cont",
+    "chooseProvider": "Alege un furnizor",
+    "detectedDetails": "Conturi GPT detectate și detalii",
+    "back": "Înapoi",
+    "accountLabel": "Nume (opțional)",
+    "apiKey": "Cheie API",
+    "adminKey": "Cheie API de administrator",
+    "region": "Regiune",
+    "global": "Internațional",
+    "china": "China",
+    "setupHelp": "Instrucțiuni de configurare",
+    "connect": "Conectează",
+    "openSignIn": "Deschide autentificarea",
+    "connectInstallation": "Conectează instalarea",
+    "haveCode": "Am un cod",
+    "syncOptions": "Sincronizare și confidențialitate",
+    "remove": "Elimină",
+    "automatic": "Detectat automat",
+    "empty": "Nu există conturi conectate încă.",
+    "apiAccount": "Cont API",
+    "subscription": "Abonament / plan de programare",
+    "thisInstallation": "Această instalare",
+    "syncOn": "Sincronizare activată",
+    "syncOff": "Sincronizare dezactivată",
+    "local": "Local",
+    "waitingSync": "Se așteaptă prima sincronizare",
+    "viaPeer": "Printr-o instalare asociată",
+    "balance": "Sold",
+    "privacy": "Datele de autentificare rămân pe acest dispozitiv. Utilizarea nu este trimisă dezvoltatorului.",
+    "installationsHelp": "Conectează instalările proprii pentru a vedea utilizarea împreună.",
+    "pairHelp": "Deschide Instalări pe celălalt dispozitiv. Creează un cod aici sau lipește codul lui. Dispozitivele trebuie să fie accesibile direct.",
+    "adminKeyHelp": "Rapoartele necesită o cheie API de administrator a organizației, separată de abonamentul de chat.",
+    "glmHelp": "Folosește cheia GLM Coding Plan și selectează regiunea sa.",
+    "browserHelp": "Continuă prin autentificarea oficială a furnizorului.",
+    "keyPrivacy": "Cheia este stocată local și folosită numai pentru cereri către acest furnizor.",
+    "needsSetup": "Instalează mai întâi CLI-ul oficial al furnizorului și reîmprospătează lista.",
+    "claudeHelp": "Claude Code gestionează autentificarea pe acest dispozitiv. Este necesar CLI-ul Claude Code instalat.",
+    "kimiHelp": "Folosește autentificarea oficială Kimi Code sau o cheie a planului Kimi Code.",
+    "moonshotHelp": "Folosește o cheie Moonshot API pentru soldul API, separat de Kimi Code.",
+    "loginWaiting": "Finalizează autentificarea furnizorului. Păstrează această fereastră deschisă.",
+    "loginComplete": "Cont conectat. Măsurătorile se actualizează automat.",
+    "claudeSignIn": "Conectează prin Claude Code",
+    "providers": {
+      "gpt": "ChatGPT / Codex",
+      "claude": "Claude / Anthropic",
+      "kimi": "Kimi Code",
+      "glm": "GLM / Z.AI",
+      "openai": "OpenAI API",
+      "anthropic": "Anthropic API",
+      "moonshot": "Moonshot API"
+    },
+    "browser": "Autentificare",
+    "failed": "Autentificarea a eșuat",
+    "checking": "Se conectează…",
+    "installation": "Instalări",
+    "status": {
+      "connected": "Activ",
+      "detected": "Detectat",
+      "historical": "Anterior",
+      "auth_required": "Autentificare necesară",
+      "error": "Eroare",
+      "unavailable": "Indisponibil",
+      "unknown": "Indisponibil"
+    },
+    "errors": {
+      "invalid_account": "Contul nu a fost găsit. Reîmprospătează lista de conturi.",
+      "invalid_key": "Cheia a fost respinsă. Verifică cheia și furnizorul selectat.",
+      "permission_denied": "Cheia nu are acces la rapoartele de utilizare. Folosește o cheie cu permisiunile necesare.",
+      "unsupported_key": "Acest tip de cheie nu poate citi utilizarea. Urmează instrucțiunile furnizorului.",
+      "account_limit": "S-a atins limita de conturi. Elimină mai întâi un cont nefolosit.",
+      "connection_unavailable": "Furnizorul nu este accesibil. Verifică conexiunea și încearcă din nou.",
+      "account_storage_unavailable": "Stocarea locală a conturilor nu este disponibilă. Verifică permisiunile de fișiere ale aplicației.",
+      "profile_remove_failed": "Autentificarea salvată nu a putut fi eliminată. Închide fereastra de autentificare și încearcă din nou.",
+      "unsupported_platform": "Autentificarea în browser nu este disponibilă pe această platformă. Folosește o metodă disponibilă cu cheie."
+    },
+    "kimiHelperHelp": "La prima autentificare, aplicația descarcă instrumentul oficial Kimi direct de la Kimi. Rulează local; panoul nu trimite telemetrie.",
+    "lastSeen": "Văzut ultima dată {time}"
+  },
+  "history": {
+    "refreshing": "Istoric salvat · {time}. Actualizare în fundal."
+  },
+  "quotaIntegrity": {
+    "title": "Integritatea cotelor",
+    "period": "Interval",
+    "range24h": "Ultimele 24 de ore",
+    "range7d": "Ultimele 7 zile",
+    "range30d": "Ultimele 30 de zile",
+    "loading": "Se încarcă integritatea cotelor…",
+    "unavailable": "Datele despre integritatea cotelor nu sunt disponibile.",
+    "intro": "Observații neobișnuite ale cotelor, cât de bine sunt acoperite de date și dacă activitatea locală de tokeni le poate explica. O observație neobișnuită trebuie investigată, nu este dovada unei probleme la furnizor.",
+    "status": {
+      "attention": "Necesită atenție",
+      "no_anomaly_detected": "Nicio anomalie detectată",
+      "insufficient_data": "Încă nu sunt suficiente date"
+    },
+    "collector": "Colector Codex în direct",
+    "noData": "Fără date",
+    "lastSample": "Ultima probă {time}",
+    "noSample": "Nicio probă în direct",
+    "findings": "Constatări",
+    "findingsDetail": "{warnings} avertismente · {info} informări",
+    "observations": "Observații",
+    "observationsDetail": "{samples} instantanee · {events} intrări din istoric",
+    "localData": "Date de activitate locală",
+    "localDataDetail": "{slots} intervale · actualizat {time}",
+    "neverRefreshed": "încă neînregistrat",
+    "gaps": "Goluri de colectare",
+    "gapsDetail": "{count} în acest interval",
+    "measured": "Măsurat",
+    "estimate": "Estimare",
+    "hypothesis": "Ipoteză",
+    "confidence": "Încredere: {level}",
+    "level": {
+      "medium": "medie",
+      "low": "scăzută"
+    },
+    "confidenceWord": {
+      "confirmed": "confirmat",
+      "inferred": "dedus",
+      "possible": "posibil"
+    },
+    "chartTitle": "Utilizarea săptămânală Codex în timp",
+    "chartAria": "Grafic liniar al utilizării cotei săptămânale Codex în procente: {points} puncte înregistrate, {findings} constatări marcate.",
+    "chartEmpty": "Nu au fost înregistrate modificări ale cotei săptămânale Codex în acest interval.",
+    "legendWarning": "Avertisment",
+    "legendInfo": "Informație",
+    "legendGap": "Gol de colectare",
+    "types": {
+      "usage_rolled_back": "Utilizarea raportată a scăzut",
+      "reset_deadline_changed_early": "Ora de resetare s-a schimbat prematur",
+      "usage_increase_without_local_activity": "Utilizarea a crescut fără activitate locală",
+      "collector_gap": "Colector indisponibil",
+      "observation_gap": "Fără observații",
+      "account_changed": "Domeniul contului s-a schimbat",
+      "stale_codex_snapshot": "Datele în direct sunt depășite",
+      "no_live_codex_samples": "Fără date Codex în direct"
+    },
+    "fact": {
+      "usageChange": "Cotă utilizată {from}% → {to}% ({delta} puncte)",
+      "between": "Observat între {from} și {to}",
+      "deadlineShift": "Ora de resetare s-a mutat cu {minutes} minute: {from} → {to}",
+      "noActivity": "Nicio activitate locală de tokeni înregistrată de {minutes} minute ({basis})",
+      "basisPlateau": "de când a fost văzută prima dată valoarea anterioară",
+      "basisWindow": "de la începutul ferestrei cotei",
+      "localCounts": "Evenimente locale: {events} · tokeni locali: {tokens}",
+      "gapSpan": "Fără date timp de {minutes} minute ({from} → {to})",
+      "gapOngoing": "Fără date de {minutes} minute, din {from} (în curs)",
+      "failures": "{count} încercări de colectare eșuate înregistrate",
+      "staleAge": "Ultima probă în direct a fost acum {minutes} minute"
+    },
+    "evidence": {
+      "heading": "Indicii în date",
+      "credit": "Un credit de resetare a fost folosit între aceste observații ({confidence}).",
+      "account": "Instantaneul în direct a trecut la alt cont în jurul acestui moment (posibil).",
+      "resetNoCredit": "Resetare anticipată fără credit folosit (dedus)."
+    },
+    "hypothesesHeading": "Explicații posibile (ipoteze, nu constatări)",
+    "hypotheses": {
+      "other_device_or_surface": "Utilizare pe alt dispozitiv, în aplicația web, într-o extensie IDE sau în sarcini cloud pe care jurnalele locale nu le văd",
+      "other_account_or_profile": "Utilizare de către alt cont sau profil care partajează această cotă",
+      "provider_accounting_or_adjustment": "O întârziere de contabilizare, rotunjire sau ajustare la furnizor",
+      "local_logs_incomplete": "Jurnale locale incomplete, rotite sau necolectate",
+      "ledger_not_account_scoped": "Acest istoric al cotei nu este legat de un singur cont",
+      "reset_credit_or_plan_change": "Un credit de resetare, schimbare de plan sau altă ajustare a cotei",
+      "inconsistent_source_data": "Date inconsistente de la sursa cotei"
+    },
+    "noFindings": "Nicio constatare în acest interval.",
+    "stepStatus": {
+      "activity_present": "Activitate locală prezentă",
+      "shared_source_activity": "Doar alt agent local",
+      "no_local_activity": "Nicio activitate locală înregistrată",
+      "not_assessable": "Nu poate fi evaluat"
+    },
+    "reason": {
+      "history_start": "Istoricul începe în acest punct",
+      "no_local_history": "Fără istoric al jurnalelor locale",
+      "before_local_history": "Jurnalele locale încep mai târziu",
+      "ingest_pending": "Jurnalele locale încă nu au fost recitite"
+    },
+    "steps": {
+      "heading": "Creșteri ale cotei comparate cu activitatea locală",
+      "summary": "{present} cu activitate locală · {shared} doar alt agent local · {none} fără · {unknown} care nu pot fi evaluate",
+      "note": "Fiecare rând este o creștere a utilizării raportate. Numărul de tokeni locali provine doar din jurnalele acestui computer și nu este o conversie a cotei.",
+      "empty": "Nicio creștere a utilizării în acest interval."
+    },
+    "estimateText": "Pașii comparabili au înregistrat o mediană de {median} tokeni locali per punct de cotă (jumătatea centrală {low}–{high}, {samples} pași). Furnizorii ponderează diferit modelele și intrările din cache, deci este o scară orientativă, nu o conversie.",
+    "localValue": "{events} evenimente · {tokens} tokeni",
+    "colTime": "Ora",
+    "colChange": "Cotă utilizată",
+    "colLocal": "Activitate locală",
+    "colTokens": "Evenimente · tokeni",
+    "colWindow": "Fereastră",
+    "colUsed": "Utilizat",
+    "colResets": "Resetare",
+    "colLastChange": "Ultima modificare",
+    "gapKind": {
+      "collector_unavailable": "Colector indisponibil",
+      "no_observations": "Fără observații (aplicație închisă sau computer în repaus)"
+    },
+    "ongoing": "în curs",
+    "minutes": "{value} min",
+    "gapsEmpty": "Niciun gol de colectare în acest interval.",
+    "windows": {
+      "heading": "Ferestre de cotă observate",
+      "note": "Istoricul cotelor înregistrează doar modificările, deci o perioadă liniștită nu este un gol.",
+      "empty": "Nicio fereastră de cotă înregistrată în acest interval."
+    },
+    "privacyNote": "Se analizează doar momentele cotelor și numărul de tokeni. Prompturile, transcrierile, identificatorii de cont și căile fișierelor nu sunt incluse niciodată."
+  },
+  "workspace": {
+    "openPalette": "Open command palette",
+    "paletteShortcut": "Command palette · Ctrl+K",
+    "focusMode": "Toggle focus mode",
+    "focusShortcut": "Focus mode · Alt+Shift+F",
+    "compactMode": "Toggle compact layout",
+    "paletteTitle": "Command palette",
+    "paletteSearch": "Search actions or jump to a section…",
+    "paletteClose": "Close command palette",
+    "focusOn": "Focus mode enabled",
+    "focusOff": "Focus mode disabled",
+    "compactOn": "Compact layout enabled",
+    "compactOff": "Comfortable layout enabled",
+    "glassOn": "Glass effect enabled",
+    "glassOff": "Glass effect disabled",
+    "motionOn": "Reduced motion enabled",
+    "motionOff": "Full motion enabled"
+  }
+}

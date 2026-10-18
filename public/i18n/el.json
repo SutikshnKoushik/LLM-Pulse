@@ -1,0 +1,1372 @@
+{
+  "app": {
+    "title": "LLM Pulse — AI Usage Intelligence",
+    "eyebrow": "LLM Pulse",
+    "heading": "Όρια και tokens"
+  },
+  "actions": {
+    "refresh": "Ανανέωση",
+    "settings": "Ρυθμίσεις",
+    "close": "Κλείσιμο"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "password": "Κωδικός πρόσβασης",
+    "signIn": "Σύνδεση",
+    "loginFailed": "Η σύνδεση απέτυχε"
+  },
+  "filter": {
+    "showAll": "Εμφάνιση όλων",
+    "showActive": "Μόνο ενεργά",
+    "hideInactive": "Απόκρυψη ανενεργών παρόχων",
+    "showInactiveCount": "Εμφάνιση {count} ανενεργών παρόχων",
+    "allVisible": "Όλοι οι πάροχοι είναι ορατοί",
+    "showAllNoticeTitle": "Προβολή όλων των παρόχων",
+    "showAllNoticeBody": "Εμφανίζονται ανενεργές, κενές, μόνο ρυθμισμένες και ιστορικές κάρτες παρόχων. Η κανονική προβολή είναι Μόνο ενεργά."
+  },
+  "layout": {
+    "edit": "Edit layout",
+    "done": "Done",
+    "reset": "Default order",
+    "resetDone": "Default dashboard order restored.",
+    "dragHandle": "Move {name}",
+    "grabbed": "Moving {name}. Use arrow keys to move, Enter or Space to drop, Escape to cancel.",
+    "moved": "{name} moved to position {position} of {total}.",
+    "dropped": "{name} dropped at position {position} of {total}.",
+    "cancelled": "Move cancelled."
+  },
+  "summary": {
+    "ariaLabel": "Επισκόπηση",
+    "fiveHourOpen": "5h quota free",
+    "weeklyOpen": "Week quota free",
+    "tokensToday": "Logged tokens today",
+    "tokensTotal": "Σύνολο καταγεγραμμένων tokens",
+    "recordDayLabel": "Ημέρα ρεκόρ",
+    "recordDay": "Ημέρα ρεκόρ: {date} · {tokens}",
+    "quotaWindowNote": "Provider quota window",
+    "tokensRange": "Logged tokens: {range}",
+    "todayLogNote": "Calendar day from local logs, not provider quota limits. {providers}",
+    "totalLogNote": "All local log history, not provider quota limits. {providers}",
+    "providerTokenDetail": "{provider}: {tokens}",
+    "providerBreakdownMore": "{providers} + {count} more",
+    "providerBreakdownEmpty": "No provider log tokens.",
+    "rangeNotes": {
+      "h24": "Rolling 24-hour total; chart bars are day-grained.",
+      "today": "Calendar day in local time.",
+      "week": "Last 7 days from local logs.",
+      "month": "Last 30 calendar days from local logs."
+    }
+  },
+  "chart": {
+    "eyebrow": "Local capture",
+    "heading": "Ιστορικό tokens από logs",
+    "sourceTotalsAria": "Συνολική χρήση ανά πάροχο",
+    "legendAria": "Υπόμνημα",
+    "sourceTotalTitle": "Συνολική χρήση",
+    "svgAria": "Ιστορικό tokens",
+    "costSummary": {
+      "title": "Cost summary",
+      "apiEquivalent": "API equivalent",
+      "paid": "Subscription fixed cost",
+      "saved": "Delta vs API",
+      "quote": "API difference",
+      "quality": "Data quality",
+      "qualityComplete": "Covered",
+      "qualityPartial": "Partially estimated",
+      "qualityUnavailable": "Unavailable",
+      "missingSubscriptions": "Subscription history or a reliable fixed-cost source is missing for this range.",
+      "estimatedSources": "Estimated providers: {providers}.",
+      "missingSources": "Not included: {providers}.",
+      "unsupportedCurrencies": "Unsupported currencies: {currencies}."
+    },
+    "costs": {
+      "svgAria": "Cost history",
+      "noData": "No cost data for the selected range."
+    },
+    "filters": {
+      "h24": "Last 24 hours",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all": "All Time"
+    },
+    "headingCosts": "Cost History from Logs",
+    "mode": {
+      "tokens": "Tokens",
+      "costs": "Costs"
+    },
+    "modeToggleAria": "Chart mode",
+    "filterBarAria": "Time range",
+    "insights": {
+      "ariaLabel": "Selected range statistics",
+      "total": "Total",
+      "selectedRange": "Selected range",
+      "avgActiveDay": "Ø active day",
+      "avgActiveDayDetail": "Based on {days} active days",
+      "activeDays": "Active days",
+      "activeDaysValue": "{active}/{days}",
+      "activeDaysDetail": "Days with usage",
+      "peakDay": "Peak day",
+      "noData": "No activity in the selected range.",
+      "selectedRangeDetail": "{range} shown with the selected range semantics."
+    },
+    "models": {
+      "heading": "Models used",
+      "range": "{range} model mix",
+      "topTokens": "Top by tokens: {model} · {tokens}",
+      "topCost": "Top by API-equivalent cost: {model} · {cost}",
+      "costUnknown": "API-equivalent cost unavailable for these models.",
+      "unknown": "Άγνωστο μοντέλο"
+    },
+    "breakdown": {
+      "total": "Σύνολο",
+      "provider": "Πάροχος",
+      "model": "Μοντέλο",
+      "device": "Εγκατάσταση",
+      "account": "Λογαριασμό"
+    },
+    "breakdownToggleAria": "Ανάλυση token",
+    "overviewAria": "Compact token history by provider",
+    "breakdownSummary": {
+      "totalTitle": "Total window",
+      "providerTitle": "Provider share",
+      "modelTitle": "Model share",
+      "topProvider": "Top provider",
+      "topModel": "Top model",
+      "coverage": "Coverage",
+      "providerCount": "{count} providers",
+      "modelCount": "{count} models",
+      "noProvider": "No provider breakdown",
+      "noModel": "No model breakdown"
+    },
+    "providers": {
+      "heading": "Providers used",
+      "range": "{range} provider mix",
+      "topTokens": "Top by tokens: {provider} · {tokens}",
+      "topModel": "Top model: {model} · {tokens}",
+      "noModel": "No model details",
+      "columns": {
+        "provider": "Provider",
+        "tokens": "Tokens",
+        "share": "Share",
+        "topModel": "Top model"
+      }
+    },
+    "totalBreakdown": {
+      "heading": "Total summary",
+      "range": "{range} aggregate"
+    },
+    "attribution": {
+      "groupBy": "Ομαδοποίηση κατά",
+      "unknownAccount": "Άγνωστος λογαριασμός",
+      "unknownDevice": "Άγνωστη εγκατάσταση",
+      "sharedDevice": "Εντοπίστηκε σε πολλές εγκαταστάσεις",
+      "sharedDeviceHelp": "Μετράται μία φορά· η αρχική εγκατάσταση είναι ασαφής.",
+      "observed": "Εντοπίστηκε σε τοπικά αρχεία καταγραφής",
+      "observedOn": "Εντοπίστηκε σε εγκαταστάσεις",
+      "evidence": "Αντιστοίχιση",
+      "observedHelp": "Οι εγκαταστάσεις δείχνουν πού βρέθηκαν οι καταγραφές. Τα αντιγραμμένα συμβάντα μετρώνται μία φορά· ο αρχικός υπολογιστής μπορεί να είναι άγνωστος.",
+      "accountHelp": "Λογαριασμός αντιστοιχίζεται μόνο όταν τεκμηριώνεται στα δεδομένα χρήσης. Τα υπόλοιπα tokens παραμένουν στον Άγνωστο λογαριασμό."
+    }
+  },
+  "tokenMix": {
+    "eyebrow": "Token Mix",
+    "heading": "Καταγεγραμμένη επεξεργασία tokens"
+  },
+  "liveMetrics": {
+    "ariaLabel": "Live system usage",
+    "eyebrow": "Live",
+    "heading": "Live Load",
+    "updated": "Updated {time}",
+    "notAvailable": "Not available",
+    "error": "Error",
+    "unavailable": "Not available",
+    "unavailableShort": "N/A",
+    "percentScale": "0-100%",
+    "cpu": "CPU",
+    "ram": "Memory",
+    "ramSub": "{used}/{total} GB used",
+    "aiLoad": "AI Load",
+    "aiLoadSub": "Heuristic",
+    "aiLoadHelp": "Estimated from CPU, memory, and token throughput. Not an exact measurement.",
+    "tokensPerMinute": "Tokens/min",
+    "noTokenWindow": "No measured window yet",
+    "noTokenBreakdown": "No reliable breakdown",
+    "historyHeading": "Trend",
+    "historyAria": "Live load trend",
+    "legendAria": "Live trend legend",
+    "historyLoading": "Collecting live data...",
+    "historyNoSeries": "No active series.",
+    "quality": {
+      "measured": "Measured",
+      "calculated": "From logs",
+      "estimated": "Estimated",
+      "unavailable": "Not available"
+    },
+    "series": {
+      "cpu": "CPU",
+      "ram": "Memory",
+      "aiLoad": "AI Load",
+      "tokensTotal": "Tokens/min",
+      "tokensInput": "Input",
+      "tokensOutput": "Output",
+      "tokensCached": "Cached",
+      "aiCpu": "AI CPU",
+      "aiMemory": "AI Memory",
+      "swap": "Swap"
+    },
+    "errors": {
+      "load": "Could not load live system metrics."
+    },
+    "tokensPerMinuteHelp": "Calculated from local Claude Code, Codex, Gemini, Copilot, and Ollama logs in the local aggregate. Multica Claude/Codex runs are included through those logs; API-only OpenAI/Anthropic billing is excluded to avoid double counting. Gemini agents may be missing when the Gemini CLI does not write token metadata.",
+    "systemCpu": "System CPU",
+    "systemRam": "System Memory",
+    "aiCpu": "AI CPU",
+    "aiCpuSub": "{count} AI processes",
+    "aiCpuHelp": "Aggregated CPU share of recognized local AI process groups. Commands and paths are not exposed.",
+    "aiMemory": "AI Memory",
+    "aiMemorySub": "{used} GB RSS",
+    "aiMemoryHelp": "Aggregated resident memory of recognized local AI process groups. Shared Electron and browser memory is approximate.",
+    "swap": "Swap",
+    "swapSub": "{used}/{total} GB used",
+    "swapHelp": "System swap usage. High swap can slow the Mac even when AI process memory is only part of the total.",
+    "noAiProcesses": "No AI process group found",
+    "processBreakdownHeading": "Running AI groups",
+    "processBreakdownHelp": "Safe aggregate view: running AI process groups and load shares without command lines, prompts, or paths.",
+    "processTotal": "AI total: {cpu} CPU · {memory} · {memoryShare} RAM · {count} running processes",
+    "processBreakdownUnavailable": "Process grouping is not available on this platform/runtime.",
+    "processBreakdownEmpty": "No recognized AI process group is currently running for the dashboard.",
+    "processColumns": {
+      "group": "Group",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "memoryShare": "RAM %",
+      "count": "Processes"
+    },
+    "recentRateWindow": "Ζωντανός ρυθμός κυλιόμενων 60 s"
+  },
+  "pricing": {
+    "eyebrow": "Κόστος API",
+    "heading": "Τι θα κόστιζαν τα token σου μέσω API",
+    "meta": "Κατάλογος {catalogVersion} · {modelCount} μοντέλα · EUR μέσω ECB {fxDate} · τιμές API {pricingDate} · Arena Text {scoreDate}",
+    "modelFilter": {
+      "label": "Φιλτράρισμα κατά όνομα μοντέλου",
+      "placeholder": "Για παράδειγμα Sol, 6.1 ή Claude",
+      "empty": "Δεν βρέθηκαν μοντέλα με αυτό το όνομα."
+    },
+    "qualityScoreTitle": "Arena Text {scoreDate}: {score} Elo",
+    "chinaBadge": "Κίνα",
+    "unknown": "Άγνωστο",
+    "notPriced": "Χωρίς τιμή",
+    "aliases": "Ψευδώνυμα: {aliases}",
+    "limitSummary": "περιβάλλον {context} · έξοδος {output}",
+    "sourceReviewed": "Ελέγχθηκε {date}",
+    "regions": {
+      "apiDiscount": "Έκπτωση API"
+    },
+    "columns": {
+      "model": "Μοντέλο",
+      "score": "Βαθμολογία",
+      "region": "Περιοχή",
+      "limits": "Όρια",
+      "input": "Είσοδος",
+      "cache": "Cache",
+      "output": "Έξοδος",
+      "today": "Last 24h",
+      "total": "Σύνολο",
+      "status": "Κατάσταση",
+      "source": "Πηγή"
+    },
+    "priceStatus": {
+      "official": "Επίσημη τιμή",
+      "estimated": "Εκτιμώμενη τιμή",
+      "unknown": "Άγνωστη τιμή",
+      "mixed": "Μικτές τιμές"
+    },
+    "availability": {
+      "ga": "Γενικά διαθέσιμο",
+      "preview": "Προεπισκόπηση",
+      "deprecated": "Καταργημένο",
+      "unknown": "Άγνωστη διαθεσιμότητα"
+    },
+    "limitStatus": {
+      "official": "Επίσημα όρια",
+      "estimated": "Εκτιμώμενα όρια",
+      "unknown": "Άγνωστα όρια"
+    },
+    "viewToggleAria": "Cost view",
+    "aliasesSummary": "{count} aliases",
+    "views": {
+      "api": "API equivalent",
+      "models": "Used models",
+      "subscriptions": "Fixed costs"
+    },
+    "usedModels": {
+      "heading": "Used models in {range}",
+      "description": "Actual logged model usage matched to the local pricing catalog where possible.",
+      "empty": "No model-level token data is available for the selected range.",
+      "totalLabel": "Σύνολο κόστους API",
+      "totalComplete": "Πλήρες",
+      "totalPartial": "Μερικό",
+      "totalUnknown": "Άγνωστο",
+      "totalMixed": "Μικτά νομίσματα",
+      "totalPartialNote": "Ορισμένες εμφανιζόμενες γραμμές δεν έχουν αξιόπιστη τιμή API, επομένως το σύνολο είναι μερικό.",
+      "totalUnknownNote": "Καμία εμφανιζόμενη γραμμή δεν έχει αξιόπιστη τιμή API.",
+      "totalMixedNote": "Οι εμφανιζόμενες γραμμές χρησιμοποιούν πολλά νομίσματα· δεν υπολογίζεται σύνολο.",
+      "totalRow": "Σύνολο κόστους API"
+    },
+    "subscriptions": {
+      "heading": "Subscription and fixed costs in {range}",
+      "description": "Shows monthly fixed costs only when safely detected locally or saved as fallback estimates. Missing data is not treated as real cost.",
+      "empty": "No subscription or fixed-cost data is available yet.",
+      "previous": "Previous cost",
+      "delta": "Change"
+    }
+  },
+  "providers": {
+    "codex": {
+      "kicker": "Codex"
+    },
+    "codexSpark": {
+      "kicker": "Codex Spark"
+    },
+    "claudeCode": {
+      "kicker": "Claude Code"
+    },
+    "anthropic": {
+      "kicker": "Χρήση API"
+    },
+    "openai": {
+      "kicker": "API και πιστώσεις"
+    },
+    "gemini": {
+      "kicker": "Gemini"
+    },
+    "glm": {
+      "kicker": "OpenAI-compatible import"
+    },
+    "ollama": {
+      "kicker": "Ollama"
+    },
+    "local": {
+      "name": "Local capture"
+    },
+    "gridAria": "Πάροχοι",
+    "messages": {
+      "sparkTokens24h": "Spark tokens 24h",
+      "logTokens24h": "Log tokens 24h",
+      "missingBackendKey": "Λείπει backend key",
+      "sevenDays": "7 ημέρες",
+      "noCodexSparkEvents": "Δεν βρέθηκαν συμβάντα Codex 5.3 Spark.",
+      "noGeminiLogs": "Δεν βρέθηκαν τοπικά Gemini usage logs.",
+      "glmImportTokens": "GLM/Z.AI tokens from local imports.",
+      "glmQuotaUnavailable": "Official quota through OpenCode is not available.",
+      "noGlmEvents": "No local GLM/Z.AI usage events found.",
+      "ollamaLogTokens": "Τοπικά Ollama tokens από logs",
+      "noOllamaLogs": "Δεν βρέθηκαν τοπικά Ollama logs.",
+      "copilotLogTokens": "Copilot CLI tokens 24h",
+      "noCopilotSessionMetrics": "No local Copilot CLI session metrics found.",
+      "claudeStatuslineNoQuotas": "Claude is sending data, but not official Pro/Max limit values yet.",
+      "claudeStatuslineMissing": "Η γραμμή κατάστασης Claude δεν έχει ρυθμιστεί. Ενεργοποιήστε την εντολή statusline του dashboard για ζωντανά Pro/Max quota.",
+      "claudeLiveLimitsMissing": "Claude live limits are not available from local telemetry yet.",
+      "claudeLimitsStale": "Claude live limits are out of date. Open Claude Code once to refresh them.",
+      "claudeOauthUnavailable": "Claude CLI/OAuth quota unavailable: {reason}.",
+      "claudeBrowserLoginHint": "Log in to Claude.ai in your browser to enable credit tracking.",
+      "glmQuotaAvailable": "Official GLM Coding Plan quota from OpenCode.",
+      "glmQuotaUnavailableReason": "Official GLM Coding Plan quota unavailable: {reason}.",
+      "noOpenCodeGptEvents": "No local OpenAI/GPT usage events found in OpenCode."
+    },
+    "emptyState": {
+      "eyebrow": "Πάροχος",
+      "heading": "Καμία ενεργή χρήση",
+      "status": "Κενό",
+      "message": "Κανένας πάροχος δεν έχει αυτή τη στιγμή καταγεγραμμένα tokens ή δεδομένα ορίων.",
+      "visible": "Ορατά",
+      "hidden": "Κρυφά",
+      "all": "Όλα"
+    },
+    "copilot": {
+      "kicker": "Copilot CLI"
+    },
+    "updateDelayHints": {
+      "default": "This provider has not produced a fresh local signal for more than {minutes} minutes. Some sources only update when their CLI or app writes new usage data.",
+      "codex": "Codex limits normally update through the local app-server. If this stays old, the app-server may be unavailable or Codex has not produced fresh live limit data.",
+      "codexSpark": "Codex Spark limits normally update through the local Codex app-server. If this stays old, Spark live limit data may not be exposed yet.",
+      "claudeCode": "This Claude Code card combines statusline, local logs, and Claude.ai billing or usage data. Updates can lag when Claude Code is closed, the statusline has not run, or Claude.ai cookies/API access are unavailable.",
+      "copilot": "GitHub Copilot CLI usage is written after sessions shut down, and live quota probing depends on the local Copilot CLI. The timestamp can lag while a session is still open or the probe is unavailable.",
+      "gemini": "Gemini local usage updates only when local log files contain new usage metadata.",
+      "glm": "GLM/Z.AI updates when local JSON, JSONL, or CSV usage imports contain OpenAI-compatible GLM token counts.",
+      "ollama": "Ollama usage updates only when requests pass through the dashboard's local proxy/log file."
+    },
+    "freshness": {
+      "ariaLabel": "Χρόνος δεδομένων παρόχου",
+      "usage": "Χρήση {time}",
+      "limits": "Όρια {time}",
+      "prices": "Τιμές {time}",
+      "catalog": "Κατάλογος {date}",
+      "unknown": "Άγνωστος χρόνος δεδομένων"
+    },
+    "openCode": {
+      "kicker": "OpenCode GPT logs"
+    },
+    "kimi": {
+      "kicker": "Kimi Code"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "empty": "Κενό",
+    "not_configured": "Ρύθμιση",
+    "error": "Σφάλμα"
+  },
+  "labels": {
+    "today": "Σήμερα",
+    "fiveHourUsed": "5h χρησιμοποιήθηκαν",
+    "weekUsed": "Εβδομάδα χρησιμοποιήθηκε",
+    "fiveHourLeft": "5ω απομένουν",
+    "weekLeft": "Εβδομάδα απομένει",
+    "since": "Από",
+    "updated": "Ενημερώθηκε",
+    "plan": "Πλάνο",
+    "fiveHourTokens": "5h tokens",
+    "total": "Σύνολο",
+    "cost": "Κόστος",
+    "tokens7d": "Tokens 7 ημέρες",
+    "cost7d": "Κόστος 7 ημέρες",
+    "limits": "Όρια",
+    "updatedHelp": "Why this timestamp may be delayed",
+    "subscription": "Subscription",
+    "last24h": "Last 24h"
+  },
+  "credits": {
+    "title": "Πιστώσεις",
+    "monthlySpend": "Πιστώσεις χρήσης",
+    "monthlyLimit": "Μηνιαίο όριο",
+    "currentCredit": "Τρέχουσα πίστωση",
+    "autoTopUp": "Αυτόματη ανανέωση",
+    "default": "Πιστώσεις",
+    "on": "Ενεργό",
+    "off": "Ανενεργό"
+  },
+  "limits": {
+    "recentPace": {
+      "timeToLimit": "Χρόνος μέχρι το όριο: {duration}",
+      "title": "Πρόσφατος ρυθμός",
+      "measured": "+{percent} ποσοστιαίες μονάδες σε {duration}",
+      "collecting": "Δεν υπάρχουν ακόμη αρκετές μετρήσεις για αυτή την περίοδο.",
+      "flat": "Καμία μετρήσιμη αύξηση σε αυτή την περίοδο.",
+      "stale": "Η τελευταία μέτρηση ορίου είναι παλιά.",
+      "changed": "Οι μετρήσεις άλλαξαν· δεν υπάρχει πρόβλεψη.",
+      "possible": "Το όριο ίσως εξαντληθεί πριν την επαναφορά· η εκτίμηση είναι αβέβαιη.",
+      "note": "Εκτίμηση από στρογγυλεμένα ποσοστά με σταθερό ρυθμό."
+    },
+    "fiveHour": "5h",
+    "weekly": "Εβδομάδα",
+    "currentSession": "Τρέχουσα συνεδρία",
+    "allModels": "Όλα τα μοντέλα",
+    "claudeDesign": "Claude Design",
+    "sonnetOnly": "Μόνο Sonnet",
+    "default": "Όριο",
+    "resetPrefix": "Reset {time}",
+    "usedValue": "{percent}% χρησιμοποιήθηκε",
+    "leftValue": "{percent}% απομένει",
+    "freeLabel": "{label} διαθέσιμο",
+    "limitGroups": "{count} ομάδες ορίων",
+    "noModelLimits": "Δεν υπάρχουν όρια μοντέλων",
+    "remainingShort": "{days}d {hours}h {minutes}m",
+    "fullTitle": "Limit full",
+    "fullDescription": "{limit} is full.",
+    "fullTokenDetail": "{tokens} tokens in {period}",
+    "fullPremiumRequestsDetail": "{requests} premium requests from local session logs",
+    "fullResetDetail": "Reset {time}",
+    "period5h": "5h",
+    "period7d": "7d",
+    "period24h": "24h",
+    "fullQuotaDetail": "{usage} used",
+    "status": {
+      "ok": "On track",
+      "risk": "Υψηλος ρυθμος",
+      "full": "Limit reached",
+      "unknown": "Unknown"
+    },
+    "pace": {
+      "remaining": "Με τον τρεχοντα ρυθμο θα μεινει περιπου {percent}% στην επαναφορα.",
+      "shortfall": "Με τον τρεχοντα ρυθμο θα λειπει περιπου {percent}% στην επαναφορα.",
+      "hitBeforeReset": "Με τον τρεχοντα ρυθμο το οριο θα φτασει περιπου {duration} πριν την επαναφορα. ({time})",
+      "fullWithReset": "Το οριο επιτευχθηκε· επαναφορα {time}.",
+      "fullNoReset": "Το οριο επιτευχθηκε· η ωρα επαναφορας δεν ειναι διαθεσιμη.",
+      "unavailable": {
+        "noUsage": "Ο ρυθμος δεν ειναι διαθεσιμος: η πηγη δεν δινει ποσοστο χρησης.",
+        "noWindow": "Ο ρυθμος δεν ειναι διαθεσιμος: η πηγη δεν δινει διαρκεια παραθυρου ή ωρα επαναφορας.",
+        "notStarted": "Ο ρυθμος δεν ειναι διαθεσιμος: το παραθυρο quota δεν εχει αρχισει.",
+        "staleReset": "Ο ρυθμος δεν ειναι διαθεσιμος: η ωρα επαναφορας ειναι παλια· ανανεωστε την πηγη."
+      }
+    },
+    "duration": {
+      "daysHours": "{days} η {hours} ω",
+      "hoursMinutes": "{hours} ω {minutes} λ",
+      "minutes": "{minutes} λ"
+    },
+    "gauge": {
+      "title": "Τρέχουσα χρήση",
+      "projectedValue": "{percent}% προβολή",
+      "unavailable": "Η προβολή δεν είναι διαθέσιμη",
+      "aria": "Προβλεπόμενη τελική χρήση για {label}"
+    },
+    "viewToggleAria": "Οπτικοποίηση τρέχουσας χρήσης",
+    "view": {
+      "tachometer": "Μετρητής",
+      "bar": "Γραμμή"
+    },
+    "remainingUntilReset": "Resets in {remaining} · Reset {time}",
+    "glmFiveHourTokens": "5h tokens",
+    "glmWeekly": "Weekly quota",
+    "glmMcpMonthly": "Monthly MCP"
+  },
+  "tokens": {
+    "input": "Είσοδος",
+    "cacheCreation": "Δημιουργία cache",
+    "cachedInput": "Cached είσοδος",
+    "output": "Έξοδος",
+    "reasoningOutput": "Έξοδος reasoning",
+    "total": "Σύνολο"
+  },
+  "format": {
+    "billion": "δισ.",
+    "million": "εκατ.",
+    "thousand": "χιλ.",
+    "lessThanSharePercent": "<0,1%",
+    "lessThanCent": "< 0,01 EUR",
+    "usdPerMillion": "{value} $/M",
+    "cacheReadWrite": "{read} ανάγνωση / {write} εγγραφή",
+    "cacheSameAsInput": "όπως η είσοδος",
+    "perMonth": "{amount}/mo",
+    "fromPerMonth": "από {amount}/μήνα"
+  },
+  "settings": {
+    "heading": "Ρυθμίσεις",
+    "language": {
+      "label": "Γλώσσα"
+    },
+    "theme": {
+      "label": "Θέμα",
+      "system": "Σύστημα",
+      "light": "Φωτεινό",
+      "dark": "Σκοτεινό"
+    },
+    "notifications": {
+      "title": "Limits & warnings",
+      "description": "Warnings use real 5-hour and weekly provider windows plus projections; they are separate from monthly subscription/API cost comparisons.",
+      "enabled": "Enable notifications",
+      "pacingLabel": "Pacing warning at projected provider-window usage (%)",
+      "hardLimitLabel": "Hard warning at measured provider-window usage (%)",
+      "save": "Save",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "diagTitle": "Notification diagnostics",
+      "diagLastCheck": "Last check",
+      "diagDuration": "Duration",
+      "diagAlerts": "Alerts found",
+      "diagLastShown": "Last notification sent",
+      "diagSkipped": "Skip reason",
+      "diagError": "Last error",
+      "diagSupported": "Notifications supported",
+      "diagNone": "None",
+      "diagNever": "Never",
+      "diagYes": "Yes",
+      "diagNo": "No",
+      "testBtn": "Send test notification",
+      "testQueued": "Test requested. If no real system banner appears, open system notifications, allow LLM Pulse, restart the app, then run the test again.",
+      "testError": "Could not send test notification.",
+      "testResultLabel": "Last test result",
+      "testResultAt": "At",
+      "testResultOutcome": "Outcome",
+      "testResult_shown": "Reported as shown by an older build",
+      "testResult_not_supported": "Not supported on this system",
+      "testResult_error": "Error",
+      "diagPermission": "Browser permission (not a macOS banner guarantee)",
+      "permission_granted": "Granted for browser API",
+      "permission_default": "Not asked yet",
+      "permission_denied": "Denied",
+      "permission_unsupported": "Unsupported",
+      "permission_unknown": "Unknown",
+      "permission_error": "Permission check failed",
+      "permissionNotGranted": "Notification permission was not granted. System notification settings were opened; allow LLM Pulse, restart the app, then run the test again.",
+      "permissionUnsupported": "This app runtime does not expose desktop notification permission.",
+      "testResult_sent": "Queued with Electron (banner not confirmed)",
+      "testQueuedRendererError": "Native macOS notification queued, but the immediate browser notification failed: {error}",
+      "testTitle": "LLM Pulse - Test",
+      "testBody": "Desktop notifications are working correctly.",
+      "inAppTestTitle": "In-app test notification",
+      "inAppTestErrorTitle": "Notification test needs attention",
+      "inAppTestBody": "This in-app fallback confirms the test ran. It is not a system banner; native banners may require system notification permission, a fresh app restart, and a properly signed build.",
+      "diagNativeDelivery": "Native system delivery",
+      "nativeDelivery_ready": "Signed app: native banners should be available",
+      "nativeDelivery_ad_hoc": "Ad-hoc build: native banners may not appear",
+      "nativeDelivery_gatekeeper_rejected": "Gatekeeper rejected: native banners may not appear",
+      "nativeDelivery_unverified": "Unverified",
+      "nativeDelivery_not_applicable": "Not applicable on this platform",
+      "nativeDelivery_unknown": "Unknown",
+      "openSettingsBtn": "Open system notification settings",
+      "openSettingsQueued": "System notification settings opened. Allow notifications for LLM Pulse, restart the app if you just changed the setting, then run the test again.",
+      "openSettingsError": "Could not open system notification settings from this runtime.",
+      "systemGuideTitle": "System notifications need attention",
+      "systemGuideDefault": "Allow notifications for LLM Pulse in system settings, restart the app if you just changed the setting, then run the test again.",
+      "systemGuidePermission": "This app does not yet have notification permission. System settings were opened; allow notifications for LLM Pulse there.",
+      "systemGuideUnsupported": "This runtime cannot read browser notification permission. Open system notification settings and allow notifications for LLM Pulse there.",
+      "systemGuideNativeUnverified": "Native banners are not reliably confirmed with this build. Check system notifications, allow LLM Pulse, then test again after restarting the app.",
+      "systemGuideTestFailed": "The last native notification attempt reported a failure. Check system notifications, restart the app, then run the test again.",
+      "systemGuideAfterTest": "If no real system banner appeared, check system notifications, allow LLM Pulse, restart the app, then send the test again.",
+      "thresholdsHelp": "Pacing uses the current consumption rate; hard warning uses measured consumption in the relevant 5h or weekly provider window.",
+      "nativeAlertTitle": "Προειδοποίηση ορίου: {window}",
+      "nativeUsedPercent": "Χρησιμοποιήθηκε {percent}%.",
+      "nativeHardLimit": "Το όριο έχει σχεδόν εξαντληθεί.",
+      "nativePacingProjected": "Χρησιμοποιήθηκε {usedPercent}%; ο τρέχων ρυθμός προβλέπει {projectedPercent}%.",
+      "nativeEstimatedExhaustion": "Εκτιμώμενη εξάντληση σε {time}.",
+      "nativeDurationHoursMinutes": "{hours} ώ {minutes} λ",
+      "nativeDurationHours": "{hours} ώ",
+      "nativeDurationMinutes": "{minutes} λ",
+      "nativeWindowFiveHour": "Παράθυρο 5 ωρών",
+      "nativeWindowWeekly": "Εβδομαδιαίο όριο",
+      "nativeWindowSonnetOnly": "Όριο μόνο Sonnet",
+      "nativeWindowClaudeDesign": "Όριο Claude Design",
+      "nativeWindowGeneric": "Όριο"
+    },
+    "subscriptions": {
+      "title": "Subscription costs",
+      "planLabel": "Plan",
+      "monthlyCostLabel": "Monthly cost (EUR)",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "description": "Detected plans and costs come from safe local signals. Missing data is not counted as real cost.",
+      "detectedOnly": "Manual values are not normal setup. Use Advanced only as a fallback estimate when local detection is unavailable.",
+      "advancedTitle": "Advanced fallback estimates",
+      "advancedDescription": "These values are saved fallback estimates. Cards and cost views label them as estimates, not automatically detected costs."
+    },
+    "sources": {
+      "title": "Data sources & diagnostics",
+      "description": "Manage connected sources, recheck access, and copy ACL commands for other local users.",
+      "recheck": "Recheck access",
+      "recheckOne": "Recheck access",
+      "recheckPending": "Checking...",
+      "rechecked": "Source diagnostics refreshed.",
+      "recheckError": "Could not refresh source diagnostics.",
+      "currentUser": "current user",
+      "summaryStatus": "Status: {status}",
+      "summaryCounts": "{connected} usable · {candidates} additional candidates",
+      "connectedTitle": "Usable sources",
+      "candidatesTitle": "Additional detected sources",
+      "connectedEmpty": "No usable sources detected yet.",
+      "candidatesEmpty": "No additional source candidates detected right now.",
+      "owner": "Owner: {owner}",
+      "discovery": "Discovery: {method} · confidence {confidence}",
+      "access": {
+        "readable": "Readable",
+        "mixed": "Partially readable",
+        "denied": "Access denied",
+        "missing": "Missing",
+        "process_only": "Process only",
+        "service_only": "Service only"
+      },
+      "permissions": {
+        "readable": "Readable",
+        "denied": "Denied",
+        "missing": "Missing",
+        "unknown": "Unknown",
+        "optionalMissing": "Optional missing"
+      },
+      "roles": {
+        "sessions": "Sessions",
+        "archived_sessions": "Archived sessions",
+        "projects": "Projects",
+        "session_state": "Session state",
+        "telemetry": "Telemetry",
+        "chats": "Chats",
+        "tmp": "Temporary files",
+        "usage_file": "Usage file",
+        "home": "Home"
+      },
+      "noPaths": "No direct filesystem path available.",
+      "connect": "Connect",
+      "connectPending": "Connecting...",
+      "connectSuccess": "Source connected. Running a fresh diagnostics pass now.",
+      "connectError": "Could not connect source.",
+      "disable": "Disable",
+      "disablePending": "Disabling...",
+      "disableSuccess": "Source disabled. Usage totals were refreshed.",
+      "disableError": "Could not disable source.",
+      "grantCommands": "Grant commands",
+      "revokeCommands": "Revoke commands",
+      "copyGrant": "Copy grant commands",
+      "copyRevoke": "Copy revoke commands",
+      "copyGrantSuccess": "Grant commands copied to the clipboard.",
+      "copyRevokeSuccess": "Revoke commands copied to the clipboard.",
+      "copyError": "Could not copy commands to the clipboard.",
+      "automatic": "used automatically"
+    },
+    "supportReport": {
+      "title": "Support report",
+      "description": "Generate a redacted support report for Multica or WhatsApp when local sources are missing or usage does not appear.",
+      "privacyNote": "The report contains only metadata and redacted paths, no raw logs, prompts, secrets, or provider payloads.",
+      "downloadJson": "Save JSON report",
+      "copySummary": "Copy summary",
+      "summaryLabel": "Compact summary",
+      "emptySummary": "Generate a report to preview the compact support summary.",
+      "preparing": "Preparing support report...",
+      "downloaded": "Support report saved.",
+      "copied": "Support summary copied to the clipboard.",
+      "generateError": "Could not generate support report: {message}",
+      "copyError": "Could not copy support summary to the clipboard."
+    },
+    "updates": {
+      "title": "App updates",
+      "description": "Automatic update checks are always active for supported packaged desktop builds; only preview releases are optional.",
+      "enabled": "Automatic update checks are always active",
+      "allowPrerelease": "Include preview releases",
+      "saved": "Saved.",
+      "saveError": "Could not save update settings.",
+      "diagTitle": "Update diagnostics",
+      "diagState": "State",
+      "diagSupport": "Support",
+      "diagLastCheck": "Last check",
+      "diagVersion": "App version",
+      "diagAvailable": "Available version",
+      "diagError": "Last error",
+      "diagNone": "None",
+      "checkNow": "Check now",
+      "checkQueued": "Update check queued.",
+      "checkError": "Could not request update check.",
+      "noticeTitle": "Update attention needed",
+      "noticeMacSigning": "macOS automatic updates require a signed app. This unsigned build can run after manual approval, but the updater will stay disabled until Developer ID signing and notarization are configured.",
+      "noticeDevelopment": "Automatic updates run only from a packaged desktop app, not from the development runtime.",
+      "noticeUnsupported": "Automatic updates are not supported on this platform/package.",
+      "noticeGatekeeper": "The app is signed, but Gatekeeper did not fully accept it. If updates behave oddly, reinstall a notarized build.",
+      "noticeDownloaded": "An update has been downloaded. Restart the app to install it.",
+      "noticeError": "The last update check failed. Check the error line, network access, and release assets.",
+      "state_unknown": "Unknown",
+      "state_disabled": "Disabled",
+      "state_checking": "Checking",
+      "state_available": "Update available",
+      "state_downloading": "Downloading",
+      "state_up_to_date": "Up to date",
+      "state_downloaded": "Downloaded",
+      "state_error": "Error",
+      "state_not_electron": "Not running in desktop app",
+      "state_development_build": "Development build",
+      "state_macos_signing_required": "macOS signing required",
+      "state_unsupported_platform": "Unsupported platform",
+      "support_ready": "Ready",
+      "support_development_build": "Development build",
+      "support_macos_signing_required": "macOS signing required",
+      "support_macos_gatekeeper_warning": "Signed, but Gatekeeper warning",
+      "support_unsupported_platform": "Unsupported platform",
+      "support_electron_updater_missing": "Updater package missing",
+      "support_unknown": "Unknown",
+      "state_electron_updater_missing": "Updater package missing",
+      "alwaysOn": "Automatic update checks are always active."
+    },
+    "saving": "Saving..."
+  },
+  "errors": {
+    "loadUsage": "Σφάλμα"
+  },
+  "diagnostics": {
+    "ariaLabel": "Source diagnostics",
+    "eyebrow": "Local sources",
+    "heading": "Diagnostics & connection",
+    "recheck": "Recheck access",
+    "loading": "Loading source diagnostics...",
+    "meta": "User {user} · Checked {checkedAt} · {platform} · {support}",
+    "support": {
+      "full": "full host discovery",
+      "partial_container": "limited container discovery",
+      "stub": "platform check unavailable",
+      "unsupported": "unsupported platform"
+    },
+    "supportShort": {
+      "full": "Full",
+      "partial_container": "Limited",
+      "stub": "Unavailable",
+      "unsupported": "Unavailable"
+    },
+    "supportDescriptions": {
+      "full": "Host file access, process hints, and permissions are measured on this machine.",
+      "partial_container": "Container discovery can miss host users, services, and homes; mounted logs can still be read.",
+      "stub": "Host source discovery is not available on this platform build; current-user configured logs may still be read.",
+      "unsupported": "Host source discovery is unavailable here; use Settings or a supported host build for source setup."
+    },
+    "quality": {
+      "measured": "Measured",
+      "configured": "Configured",
+      "detected": "Detected",
+      "limited": "Limited",
+      "unavailable": "Unavailable"
+    },
+    "facets": {
+      "logs": {
+        "title": "Readable log sources",
+        "available": "The app can read at least one local usage source.",
+        "empty": "No readable token log source was found in this scan."
+      },
+      "savedSources": {
+        "title": "Saved extra sources",
+        "available": "These are additional sources saved in Settings.",
+        "empty": "Zero saved sources is OK: current-user log history can still appear below."
+      },
+      "permissions": {
+        "title": "Permission fixes",
+        "blocked": "At least one plausible source exists, but this app cannot read it yet.",
+        "clear": "No denied source path was found in this scan."
+      },
+      "runtimeHints": {
+        "title": "Process/service hints",
+        "available": "A supported tool is visible only as a process or service, not as readable logs.",
+        "empty": "No process-only or service-only source hints were found."
+      },
+      "platform": {
+        "title": "Platform coverage"
+      }
+    },
+    "errors": {
+      "load": "Could not load source diagnostics: {message}"
+    },
+    "statuses": {
+      "connected_live": {
+        "title": "Local data is available",
+        "body": "Readable local sources are available. Saved extra-source counts only track sources you connected manually."
+      },
+      "current_user_empty": {
+        "title": "Current-user logs empty",
+        "body": "The current desktop user was scanned, but no local usage files with token data were found yet."
+      },
+      "candidates_readable_empty": {
+        "title": "Readable candidates found",
+        "body": "Known tool folders are readable, but they currently look empty or are not saved as extra sources."
+      },
+      "candidates_denied": {
+        "title": "Permission action needed",
+        "body": "A plausible source was found, but this app cannot read it with the current account."
+      },
+      "runtime_hints_only": {
+        "title": "Tool seen without readable logs",
+        "body": "A supported tool process or service was detected, but no readable log folder was found for it yet."
+      },
+      "no_tools_found": {
+        "title": "No local tools found",
+        "body": "No supported local tool folders, related processes, or service hints were detected on this machine."
+      },
+      "other_dashboard_found": {
+        "title": "Other dashboard instance found",
+        "body": "Another local LLM Pulse instance is running and may already be reading local usage data."
+      },
+      "partial_unsupported": {
+        "title": "Discovery is limited here",
+        "body": "This runtime can only do limited source discovery, so some users, services, or homes may stay invisible."
+      },
+      "discovery_error": {
+        "title": "Discovery error",
+        "body": "Source discovery did not finish cleanly."
+      }
+    },
+    "nextActions": {
+      "connected_live": "No action is needed; local data below can come from default current-user logs even with zero saved extra sources.",
+      "current_user_empty": "No action is needed unless you expected history; start a supported tool or inspect sources in Settings.",
+      "candidates_readable_empty": "Open Settings > Local sources if you want to save one of these readable sources.",
+      "candidates_denied": "Open Settings > Local sources, copy the ACL command for the denied source, run it as an admin, then recheck.",
+      "runtime_hints_only": "Wait for the tool to write usage logs, or configure the readable source in Settings and recheck.",
+      "no_tools_found": "Start a supported local tool or add a source in Settings, then recheck.",
+      "other_dashboard_found": "Use the already running dashboard window or stop it before checking this instance again.",
+      "partial_unsupported": "Run the desktop app on the host OS for fuller discovery; mounted local logs can still be shown below.",
+      "discovery_error": "Recheck access. If it fails again, check the backend error and source settings."
+    },
+    "recheckResults": {
+      "checking": "Checking...",
+      "ready": "Recheck complete: {status}",
+      "action": "Action needed: {status}",
+      "error": "Recheck failed: {message}",
+      "empty": "Recheck did not return diagnostics."
+    },
+    "instances": {
+      "title": "Other dashboard instances",
+      "item": "{user} has another dashboard instance running."
+    }
+  },
+  "subscriptions": {
+    "plan": "Plan: {plan}",
+    "planUnknown": "Plan unknown",
+    "costUnknown": "Cost unknown",
+    "source": "Source: {source}",
+    "updated": "Updated {time}",
+    "qualityLabel": "Cost quality",
+    "sourceLabel": "Source",
+    "quality": {
+      "automatic": "Automatically detected",
+      "manual": "Saved fallback estimate",
+      "estimated": "Estimated / partial",
+      "unknown": "Unknown",
+      "catalog": "Τιμή καταλόγου",
+      "official": "Επίσημη τιμή καταλόγου",
+      "officialStarting": "Επίσημη αρχική τιμή καταλόγου"
+    },
+    "sources": {
+      "local_settings": "saved fallback",
+      "account": "πηγή λογαριασμού/χρέωσης",
+      "codex_app_server": "Codex local app-server",
+      "codex_local_logs": "Codex local logs",
+      "claude_statusline": "Claude Code statusline",
+      "claude_auth_status": "Claude CLI auth status",
+      "claudeCode_local_signal": "Claude Code local signal",
+      "codex_local_signal": "Codex local signal",
+      "copilot_local_signal": "Copilot local signal",
+      "gemini_local_signal": "Gemini local signal",
+      "openai_api": "OpenAI API metadata",
+      "anthropic_api": "Anthropic API metadata",
+      "unknown": "unknown",
+      "openai_public_catalog": "δημόσιος κατάλογος συνδρομών OpenAI",
+      "anthropic_public_catalog": "δημόσιος κατάλογος συνδρομών Anthropic",
+      "claude_browser_sync": "συγχρονισμος browser/λογαριασμου Claude",
+      "claude_api": "API χρησης λογαριασμου Claude",
+      "browser": "πηγη λογαριασμου browser",
+      "official_pricing_page": "επίσημη σελίδα τιμών",
+      "cached_official_snapshot": "αποθηκευμένο επίσημο στιγμιότυπο",
+      "bundled_catalog": "ενσωματωμένος κατάλογος",
+      "account_billing": "πηγή λογαριασμού/χρέωσης"
+    },
+    "catalogReviewed": "Ο κατάλογος ελέγχθηκε στις {date}",
+    "costReasons": {
+      "catalogMissing": "Δεν βρεθηκε αξιοπιστη τιμη καταλογου ή λογαριασμου για αυτο το πλανο.",
+      "catalogMissingCodexAppServer": "Ο τοπικος Codex app-server εδωσε το πλανο, αλλα οχι μηνιαια τιμη· δεν ταιριαξε αξιοπιστη τιμη καταλογου.",
+      "catalogMissingClaudeStatusline": "Το Claude statusline εδωσε το πλανο, αλλα οχι μηνιαια τιμη· λειπουν δεδομενα browser/λογαριασμου ή δεν δινουν τιμη.",
+      "catalogMissingClaudeAuth": "Το Claude CLI auth εδωσε το πλανο, αλλα οχι μηνιαια τιμη· λειπουν δεδομενα browser/λογαριασμου ή δεν δινουν τιμη.",
+      "catalogMissingClaudeBrowser": "Ελεγχθηκε το {source}, αλλα δεν δινει μηνιαια τιμη πλανου."
+    },
+    "costActions": {
+      "addFallback": "Ενημερώστε την πηγή καταλόγου/λογαριασμού ή προσθέστε εφεδρική εκτίμηση στο Advanced."
+    },
+    "planSource": "Πλάνο/όρια από {source}",
+    "planSourceLabel": "Πηγή πλάνου/ορίων",
+    "catalogFallbackNote": "Η μηνιαία τιμή είναι εφεδρική τιμή καταλόγου· οι read-only πηγές εφαρμογής/λογαριασμού παρέχουν πλάνο, όρια ή credits, αλλά όχι αξιόπιστη μηνιαία τιμή.",
+    "sourceAudit": {
+      "heading": "Πηγές τιμής μόνο για ανάγνωση",
+      "safePriceDetected": "εντοπίστηκε αξιόπιστη μηνιαία τιμή",
+      "planOnlyNoPrice": "μόνο πρόγραμμα/όρια· δεν εκτίθεται μηνιαία τιμή",
+      "browserNoPrice": "ελέγχθηκε· δεν εκτίθεται αξιόπιστη μηνιαία τιμή",
+      "catalogFallback": "εφεδρική τιμή καταλόγου",
+      "notConfigured": "δεν υπάρχει σε αυτήν την εκτέλεση",
+      "notAvailable": "δεν υπάρχει ασφαλής πηγή τιμής μόνο για ανάγνωση",
+      "notUsed": "δεν χρησιμοποιείται",
+      "officialListPrice": "επίσημη τιμή καταλόγου",
+      "accountSourceExpired": "η πηγή λογαριασμού έληξε",
+      "accountSourceUnavailable": "η πηγή λογαριασμού δεν είναι διαθέσιμη"
+    },
+    "officialListPriceNote": "Επίσημη τιμή καταλόγου· η πραγματική χρέωση μπορεί να διαφέρει λόγω ΦΠΑ/φόρων, ετήσιων εκπτώσεων, θέσεων, κουπονιών, περιφερειακών τιμών ή εταιρικών συμβάσεων.",
+    "fetched": "Ανακτήθηκε {time}",
+    "sourceUrl": "URL: {url}",
+    "planKey": "Κλειδί πλάνου: {key}",
+    "parserStatus": "Parser: {status}",
+    "priceSourceTypeLabel": "Τύπος πηγής τιμής",
+    "sourceUrlLabel": "URL πηγής",
+    "fetchedLabel": "Χρόνος ανάκτησης/δεδομένων",
+    "planKeyLabel": "Κλειδί πλάνου",
+    "parserStatusLabel": "Κατάσταση parser",
+    "parserStatuses": {
+      "parsed": "αναλύθηκε",
+      "parse_failed": "αποτυχία ανάλυσης",
+      "cached_after_fetch_error": "cache μετά από σφάλμα ανάκτησης",
+      "bundled": "ενσωματωμένο fallback",
+      "missing": "λείπει",
+      "unknown": "άγνωστο"
+    },
+    "officialStartingListPriceNote": "Επίσημη αρχική τιμή καταλόγου· ο πραγματικός λογαριασμός δεν διαβάστηκε και μπορεί να διαφέρει λόγω βαθμίδας, ΦΠΑ/φόρων, ετήσιων εκπτώσεων, θέσεων, κουπονιών, περιφερειακών τιμών, πρόσθετων ή εταιρικών συμβάσεων.",
+    "tierVariant": "Βαθμίδα/παραλλαγή: {variant}",
+    "actualBilling": "Γνωστή πραγματική χρέωση: {status}",
+    "tierVariantLabel": "Βαθμίδα/παραλλαγή",
+    "actualBillingKnownLabel": "Γνωστή πραγματική χρέωση",
+    "priceVariants": {
+      "from": "ελάχιστο / από",
+      "pro_5x": "Pro 5x",
+      "pro_5x_20x": "Pro 5x/20x",
+      "pro_20x": "Pro 20x",
+      "max_5x": "Claude Max 5x",
+      "max_5x_20x": "Claude Max 5x/20x",
+      "max_20x": "Claude Max 20x",
+      "unknown": "άγνωστο"
+    },
+    "actualBillingKnown": {
+      "yes": "ναι",
+      "no": "όχι"
+    },
+    "connectionActions": {
+      "refresh": "Ανανέωση",
+      "claudeLogin": "Σύνδεση στο Claude και ανάγνωση πλάνου",
+      "claudeRefresh": "Επανάγνωση πλάνου Claude",
+      "chatgptLogin": "Σύνδεση στο ChatGPT και ανάγνωση πλάνου",
+      "chatgptRefresh": "Επανάγνωση πλάνου ChatGPT",
+      "rereadPlan": "Ανάγνωση πλάνου τώρα"
+    },
+    "connectionStatus": {
+      "refreshRequired": "Απαιτείται ανανέωση σύνδεσης",
+      "claudeLoginRequired": "Απαιτείται σύνδεση στο Claude",
+      "claudeRefreshRequired": "Ανανεώστε τη σύνδεση Claude",
+      "chatgptLoginRequired": "Απαιτείται σύνδεση στο ChatGPT",
+      "chatgptRefreshRequired": "Ανανεώστε τη σύνδεση ChatGPT Billing",
+      "claudeConflict": "Claude Max: αντικρουόμενες πηγές ({details})"
+    },
+    "connectionHelp": "Ανοίξτε τη σελίδα του παρόχου, συνδεθείτε αν χρειάζεται και επιστρέψτε εδώ. Η εφαρμογή θα διαβάσει ξανά το πλάνο όταν επανέλθει η εστίαση ή χρησιμοποιήστε το κουμπί."
+  },
+  "gptAccounts": {
+    "ariaLabel": "GPT accounts",
+    "eyebrow": "Local account registry",
+    "heading": "GPT accounts",
+    "recheck": "Re-scan accounts",
+    "checking": "Scanning Codex and OpenCode accounts…",
+    "rechecked": "Account scan complete.",
+    "recheckError": "Account scan failed: {message}",
+    "recheckErrorFallback": "Unknown error",
+    "summary": "{active} active of {count} known accounts · scanned {time}",
+    "notScanned": "Accounts have not been scanned yet.",
+    "empty": "No ChatGPT account found yet",
+    "guidance": "Sign in with Codex or OpenCode, then re-scan. Accounts seen previously remain in this list as history.",
+    "active": "Active",
+    "historical": "Previous",
+    "lifetimeTokens": "Codex lifetime tokens",
+    "limit": "Limit",
+    "lastSeen": "Last seen {time}",
+    "activeSourceCount": "{count} active sources",
+    "attributionNote": "OpenCode tokens are measured for OpenCode as a whole because its message database does not record which account produced each message.",
+    "sources": {
+      "codex": "Codex",
+      "openCode": "OpenCode"
+    },
+    "activeSourceCountOne": "1 active source",
+    "add": "Προσθήκη λογαριασμού GPT",
+    "signIn": "Σύνδεση στο OpenAI",
+    "removeLogin": "Αφαίρεση αποθηκευμένης σύνδεσης",
+    "login": {
+      "waiting": "Ολοκληρώστε τη σύνδεση στο OpenAI. Επιλέξτε τον επιθυμητό λογαριασμό στο πρόγραμμα περιήγησης.",
+      "complete": "Ο λογαριασμός συνδέθηκε.",
+      "failed": "Η σύνδεση δεν είναι διαθέσιμη. Εγκαταστήστε το Codex CLI ή δοκιμάστε ξανά."
+    },
+    "connectionHelp": "Οι υπάρχουσες συνδέσεις Codex και OpenCode εντοπίζονται αυτόματα. Προσθέστε λογαριασμούς GPT χωρίς να τις αντικαταστήσετε.",
+    "loginPrivacy": "Η σύνδεση επικοινωνεί με το OpenAI. Τα διαπιστευτήρια παραμένουν σε ξεχωριστό τοπικό προφίλ και δεν αποστέλλονται στον προγραμματιστή ή στις συζευγμένες συσκευές."
+  },
+  "codexResets": {
+    "title": "Codex · Ιστορικό επαναφορών",
+    "period": "Περίοδος",
+    "last10": "Τελευταία 10 παράθυρα",
+    "last30": "Τελευταία 30 παράθυρα",
+    "all": "Όλα τα παράθυρα",
+    "credits": "Διαθέσιμες πιστώσεις επαναφοράς",
+    "earlyCount": "Πρόωρες επαναφορές",
+    "averageDuration": "Μέση διάρκεια ≈",
+    "averageUsage": "Μέση χρήση",
+    "days": "{value} ημέρες",
+    "windows": "από {count} παράθυρα",
+    "maximum": "Υψηλότερη παρατηρημένη χρήση",
+    "start": "Αρχή ≈",
+    "plannedReset": "Ανακοινωμένη επαναφορά",
+    "end": "Τέλος ≈",
+    "duration": "Διάρκεια ≈",
+    "usage": "Μέγ. χρήση",
+    "result": "Τεκμήριο επαναφοράς",
+    "early": "Πρόωρη",
+    "regular": "Προγραμματισμένη",
+    "uncertain": "Αβέβαιη",
+    "estimated": "Ανακατασκευασμένη",
+    "confirmed": "Πίστωση χρησιμοποιήθηκε: επιβεβαιωμένο",
+    "inferred": "Πίστωση χρησιμοποιήθηκε: συναγόμενο",
+    "live": "Καταγραφή ενεργή",
+    "stale": "Καταγραφή παρωχημένη",
+    "unavailable": "Ζωντανά δεδομένα μη διαθέσιμα",
+    "loading": "Φόρτωση ιστορικού…",
+    "empty": "Δεν έχουν παρατηρηθεί ολοκληρωμένα παράθυρα.",
+    "note": "Τα παλιά αρχεία ανακατασκευάζουν παράθυρα χωρίς ταυτοποίηση λογαριασμού. Διάρκεια και τέλος είναι εκτιμήσεις· η χρήση είναι η μέγιστη παρατηρημένη τιμή. Η καταγραφή συνεχίζεται όσο λειτουργεί η εφαρμογή. Άτομα και συσκευές δεν ταυτοποιούνται.",
+    "durationBasis": "{count} αξιοποιήσιμα παράθυρα · αναμενόμενο: 7 ημέρες",
+    "recordingSince": "Καταγραφή από {time}",
+    "redemptions": "Πιστώσεις: {confirmed} επιβεβαιωμένες · {inferred} συναγόμενες χρήσεις",
+    "expires": "Λήγει {time}",
+    "coverage": "{uncertain} αβέβαια παράθυρα · {gaps} κενά",
+    "current": "Τρέχον: επαναφορά {time} · μέγ. {percent} %",
+    "events": "Συμβάντα πιστώσεων · τελευταία 30",
+    "granted": "Πίστωση χορηγήθηκε",
+    "expired": "Πίστωση έληξε",
+    "creditUnknown": "Αλλαγή πίστωσης: ασαφής",
+    "cause": "Αιτία επαναφοράς",
+    "causeManual": "Χειροκίνητη · κουπόνι",
+    "causeProvider": "OpenAI · εκτίμηση",
+    "causeScheduled": "Προγραμματισμένη",
+    "causeUnknown": "Άγνωστη",
+    "causeMissing": "Λείπουν στοιχεία κουπονιού ή μετάβασης",
+    "causeNoCredit": "Πρόωρη χωρίς παρατηρημένη χρήση κουπονιού",
+    "causeConfirmed": "Επιβεβαιωμένη",
+    "causeInferred": "Εκτίμηση",
+    "causeSummary": "Αιτίες: {manual} κουπόνι · {provider} OpenAI (εκτίμηση) · {scheduled} προγραμματισμένες · {unknown} άγνωστες",
+    "causeNote": "Η πρόωρη επαναφορά δεν προσδιορίζει την αιτία. Το OpenAI εκτιμάται μόνο όταν η πλήρης λίστα κουπονιών παραμένει ίδια σε στενά παρατηρημένη επαναφορά ορίου. Τα παλιά αρχεία δεν διακρίνουν χειροκίνητες επαναφορές από OpenAI. Το πρόσωπο που την προκάλεσε είναι άγνωστο."
+  },
+  "deviceSync": {
+    "heading": "Συνδέστε τις συσκευές σας",
+    "enabled": "Ενεργοποίηση άμεσου συγχρονισμού",
+    "name": "Όνομα συσκευής",
+    "invite": "Δημιουργία κωδικού σύζευξης",
+    "code": "Κωδικός σύζευξης",
+    "copy": "Αντιγραφή κωδικού",
+    "join": "Σύνδεση συσκευής",
+    "forget": "Αποσύνδεση συσκευής",
+    "view": "Συσκευές",
+    "local": "Αυτή η συσκευή",
+    "all": "Όλες οι συνδεδεμένες συσκευές",
+    "copied": "Ο κωδικός αντιγράφηκε.",
+    "working": "Σύνδεση…",
+    "ready": "Έτοιμο.",
+    "inviteReady": "Ο κωδικός λήγει σε πέντε λεπτά. Επικολλήστε τον στην άλλη συσκευή.",
+    "errors": {
+      "default": "Η σύνδεση δεν είναι διαθέσιμη. Τα δεδομένα που έχουν ληφθεί παραμένουν σε αυτή τη συσκευή.",
+      "peer_unreachable": "Η σύνδεση δεν είναι διαθέσιμη. Τα δεδομένα που έχουν ληφθεί παραμένουν σε αυτή τη συσκευή.",
+      "invalid_pairing_code": "Η σύνδεση δεν είναι διαθέσιμη. Τα δεδομένα που έχουν ληφθεί παραμένουν σε αυτή τη συσκευή.",
+      "network_unavailable": "Η σύνδεση δεν είναι διαθέσιμη. Τα δεδομένα που έχουν ληφθεί παραμένουν σε αυτή τη συσκευή.",
+      "sync_disabled": "Η σύνδεση δεν είναι διαθέσιμη. Τα δεδομένα που έχουν ληφθεί παραμένουν σε αυτή τη συσκευή.",
+      "capture_failed": "Η σύνδεση δεν είναι διαθέσιμη. Τα δεδομένα που έχουν ληφθεί παραμένουν σε αυτή τη συσκευή.",
+      "storage_unavailable": "Η σύνδεση δεν είναι διαθέσιμη. Τα δεδομένα που έχουν ληφθεί παραμένουν σε αυτή τη συσκευή.",
+      "discovery_unavailable": "Η σύνδεση δεν είναι διαθέσιμη. Τα δεδομένα που έχουν ληφθεί παραμένουν σε αυτή τη συσκευή."
+    },
+    "privacy": "Δεδομένα χρήσης και διαπιστευτήρια δεν αποστέλλονται στον προγραμματιστή. Κρυπτογραφημένες μετρήσεις μοιράζονται μόνο με ρητά συζευγμένες συσκευές. Η αποσύνδεση δεν διαγράφει αντίγραφα που έχουν ληφθεί.",
+    "networkLimit": "Οι άμεσες συνδέσεις χρησιμοποιούν το τοπικό δίκτυο ή υπάρχον ιδιωτικό VPN χωρίς αναμεταδότη, διακομιστή εντοπισμού ή αλλαγές δρομολογητή. Δίκτυα που τις αποκλείουν εμποδίζουν τον αυτόματο συγχρονισμό.",
+    "coverage": "{count} μοναδικές εγγραφές · {duplicates} διπλότυπα αφαιρέθηκαν · {excluded} εγγραφές παραμένουν τοπικές χωρίς αξιόπιστο αναγνωριστικό. Τα όρια λογαριασμών διατηρούνται ξεχωριστά· τα σύνολα API δεν προστίθενται."
+  },
+  "connections": {
+    "accounts": "Λογαριασμοί",
+    "installations": "Εγκαταστάσεις",
+    "general": "Γενικά",
+    "advanced": "Για προχωρημένους",
+    "addAccount": "Προσθήκη λογαριασμού",
+    "chooseProvider": "Επιλέξτε πάροχο",
+    "detectedDetails": "Εντοπισμένοι λογαριασμοί GPT και λεπτομέρειες",
+    "back": "Πίσω",
+    "accountLabel": "Όνομα (προαιρετικό)",
+    "apiKey": "Κλειδί API",
+    "adminKey": "Κλειδί διαχειριστή API",
+    "region": "Περιοχή",
+    "global": "Διεθνής",
+    "china": "Κίνα",
+    "setupHelp": "Οδηγίες ρύθμισης",
+    "connect": "Σύνδεση",
+    "openSignIn": "Άνοιγμα σύνδεσης",
+    "connectInstallation": "Σύνδεση εγκατάστασης",
+    "haveCode": "Έχω κωδικό",
+    "syncOptions": "Συγχρονισμός και απόρρητο",
+    "remove": "Αφαίρεση",
+    "automatic": "Αυτόματος εντοπισμός",
+    "empty": "Δεν έχουν συνδεθεί λογαριασμοί ακόμη.",
+    "apiAccount": "Λογαριασμός API",
+    "subscription": "Συνδρομή / πλάνο προγραμματισμού",
+    "thisInstallation": "Αυτή η εγκατάσταση",
+    "syncOn": "Συγχρονισμός ενεργός",
+    "syncOff": "Συγχρονισμός ανενεργός",
+    "local": "Τοπική",
+    "waitingSync": "Αναμονή πρώτου συγχρονισμού",
+    "viaPeer": "Μέσω συζευγμένης εγκατάστασης",
+    "balance": "Υπόλοιπο",
+    "privacy": "Τα στοιχεία σύνδεσης παραμένουν σε αυτή τη συσκευή. Η χρήση δεν αποστέλλεται στον προγραμματιστή.",
+    "installationsHelp": "Συνδέστε τις εγκαταστάσεις σας για κοινή προβολή της χρήσης.",
+    "pairHelp": "Ανοίξτε τις Εγκαταστάσεις στην άλλη συσκευή. Δημιουργήστε εδώ κωδικό ή επικολλήστε τον δικό της. Οι συσκευές πρέπει να είναι άμεσα προσβάσιμες.",
+    "adminKeyHelp": "Οι αναφορές απαιτούν κλειδί API διαχειριστή του οργανισμού, ανεξάρτητα από τη συνδρομή συνομιλίας.",
+    "glmHelp": "Χρησιμοποιήστε το κλειδί GLM Coding Plan και επιλέξτε την περιοχή του.",
+    "browserHelp": "Συνεχίστε μέσω της επίσημης σύνδεσης του παρόχου.",
+    "keyPrivacy": "Το κλειδί αποθηκεύεται τοπικά και χρησιμοποιείται μόνο για αιτήματα σε αυτόν τον πάροχο.",
+    "needsSetup": "Εγκαταστήστε πρώτα το επίσημο CLI του παρόχου και ανανεώστε τη λίστα.",
+    "claudeHelp": "Το Claude Code διαχειρίζεται τη σύνδεση σε αυτή τη συσκευή. Απαιτείται εγκατεστημένο Claude Code CLI.",
+    "kimiHelp": "Χρησιμοποιήστε την επίσημη σύνδεση Kimi Code ή κλειδί πλάνου Kimi Code.",
+    "moonshotHelp": "Χρησιμοποιήστε κλειδί Moonshot API για το υπόλοιπο API, ανεξάρτητα από το Kimi Code.",
+    "loginWaiting": "Ολοκληρώστε τη σύνδεση στον πάροχο. Κρατήστε αυτό το παράθυρο ανοικτό.",
+    "loginComplete": "Ο λογαριασμός συνδέθηκε. Οι μετρήσεις ανανεώνονται αυτόματα.",
+    "claudeSignIn": "Σύνδεση με Claude Code",
+    "providers": {
+      "gpt": "ChatGPT / Codex",
+      "claude": "Claude / Anthropic",
+      "kimi": "Kimi Code",
+      "glm": "GLM / Z.AI",
+      "openai": "OpenAI API",
+      "anthropic": "Anthropic API",
+      "moonshot": "Moonshot API"
+    },
+    "browser": "Σύνδεση",
+    "failed": "Η σύνδεση απέτυχε",
+    "checking": "Σύνδεση…",
+    "installation": "Εγκαταστάσεις",
+    "status": {
+      "connected": "Ενεργός",
+      "detected": "Εντοπίστηκε",
+      "historical": "Προηγούμενος",
+      "auth_required": "Απαιτείται σύνδεση",
+      "error": "Σφάλμα",
+      "unavailable": "Μη διαθέσιμο",
+      "unknown": "Μη διαθέσιμο"
+    },
+    "errors": {
+      "invalid_account": "Ο λογαριασμός δεν βρέθηκε. Ανανεώστε τη λίστα λογαριασμών.",
+      "invalid_key": "Το κλειδί απορρίφθηκε. Ελέγξτε το κλειδί και τον επιλεγμένο πάροχο.",
+      "permission_denied": "Το κλειδί δεν έχει πρόσβαση στις αναφορές χρήσης. Χρησιμοποιήστε κλειδί με τα απαιτούμενα δικαιώματα.",
+      "unsupported_key": "Αυτός ο τύπος κλειδιού δεν διαβάζει τη χρήση. Ακολουθήστε τις οδηγίες ρύθμισης του παρόχου.",
+      "account_limit": "Συμπληρώθηκε το όριο λογαριασμών. Αφαιρέστε πρώτα έναν αχρησιμοποίητο λογαριασμό.",
+      "connection_unavailable": "Ο πάροχος δεν είναι προσβάσιμος. Ελέγξτε τη σύνδεση και προσπαθήστε ξανά.",
+      "account_storage_unavailable": "Η τοπική αποθήκευση λογαριασμών δεν είναι διαθέσιμη. Ελέγξτε τα δικαιώματα αρχείων της εφαρμογής.",
+      "profile_remove_failed": "Η αποθηκευμένη σύνδεση δεν αφαιρέθηκε. Κλείστε το παράθυρο σύνδεσης και προσπαθήστε ξανά.",
+      "unsupported_platform": "Η σύνδεση μέσω προγράμματος περιήγησης δεν είναι διαθέσιμη σε αυτή την πλατφόρμα. Χρησιμοποιήστε διαθέσιμη μέθοδο κλειδιού."
+    },
+    "kimiHelperHelp": "Στην πρώτη σύνδεση η εφαρμογή κατεβάζει τον επίσημο βοηθό Kimi απευθείας από την Kimi. Εκτελείται τοπικά· ο πίνακας δεν στέλνει τηλεμετρία.",
+    "lastSeen": "Τελευταία εμφάνιση {time}"
+  },
+  "history": {
+    "refreshing": "Αποθηκευμένο ιστορικό · {time}. Ενημέρωση στο παρασκήνιο."
+  },
+  "quotaIntegrity": {
+    "title": "Ακεραιότητα ποσοστώσεων",
+    "period": "Χρονικό διάστημα",
+    "range24h": "Τελευταίες 24 ώρες",
+    "range7d": "Τελευταίες 7 ημέρες",
+    "range30d": "Τελευταίες 30 ημέρες",
+    "loading": "Φόρτωση ακεραιότητας ποσοστώσεων…",
+    "unavailable": "Τα δεδομένα ακεραιότητας ποσοστώσεων δεν είναι διαθέσιμα.",
+    "intro": "Ασυνήθιστες παρατηρήσεις ποσοστώσεων, πόσο καλά καλύπτονται από δεδομένα και αν μπορεί να τις εξηγήσει η τοπική δραστηριότητα tokens. Μια ασυνήθιστη παρατήρηση χρειάζεται διερεύνηση και δεν αποτελεί απόδειξη προβλήματος του παρόχου.",
+    "status": {
+      "attention": "Χρειάζεται προσοχή",
+      "no_anomaly_detected": "Δεν εντοπίστηκε ανωμαλία",
+      "insufficient_data": "Δεν υπάρχουν ακόμη αρκετά δεδομένα"
+    },
+    "collector": "Συλλέκτης Codex σε πραγματικό χρόνο",
+    "noData": "Χωρίς δεδομένα",
+    "lastSample": "Τελευταίο δείγμα {time}",
+    "noSample": "Κανένα δείγμα σε πραγματικό χρόνο",
+    "findings": "Ευρήματα",
+    "findingsDetail": "{warnings} προειδοποιήσεις · {info} πληροφοριακά",
+    "observations": "Παρατηρήσεις",
+    "observationsDetail": "{samples} στιγμιότυπα · {events} εγγραφές ιστορικού",
+    "localData": "Δεδομένα τοπικής δραστηριότητας",
+    "localDataDetail": "{slots} διαστήματα · ανανεώθηκε {time}",
+    "neverRefreshed": "δεν έχει καταγραφεί ακόμη",
+    "gaps": "Κενά συλλογής",
+    "gapsDetail": "{count} σε αυτό το διάστημα",
+    "measured": "Μετρημένο",
+    "estimate": "Εκτίμηση",
+    "hypothesis": "Υπόθεση",
+    "confidence": "Βεβαιότητα: {level}",
+    "level": {
+      "medium": "μέτρια",
+      "low": "χαμηλή"
+    },
+    "confidenceWord": {
+      "confirmed": "επιβεβαιωμένο",
+      "inferred": "συμπερασμένο",
+      "possible": "πιθανό"
+    },
+    "chartTitle": "Εβδομαδιαία χρήση Codex στον χρόνο",
+    "chartAria": "Γραμμικό διάγραμμα εβδομαδιαίας χρήσης ποσόστωσης Codex σε ποσοστό: {points} καταγεγραμμένα σημεία, {findings} σημειωμένα ευρήματα.",
+    "chartEmpty": "Δεν καταγράφηκαν αλλαγές στην εβδομαδιαία ποσόστωση Codex σε αυτό το διάστημα.",
+    "legendWarning": "Προειδοποίηση",
+    "legendInfo": "Πληροφορία",
+    "legendGap": "Κενό συλλογής",
+    "types": {
+      "usage_rolled_back": "Η αναφερόμενη χρήση μειώθηκε",
+      "reset_deadline_changed_early": "Η ώρα επαναφοράς άλλαξε πρόωρα",
+      "usage_increase_without_local_activity": "Η χρήση αυξήθηκε χωρίς τοπική δραστηριότητα",
+      "collector_gap": "Ο συλλέκτης δεν είναι διαθέσιμος",
+      "observation_gap": "Καμία παρατήρηση",
+      "account_changed": "Άλλαξε το πεδίο του λογαριασμού",
+      "stale_codex_snapshot": "Τα δεδομένα πραγματικού χρόνου είναι παλιά",
+      "no_live_codex_samples": "Κανένα δεδομένο Codex σε πραγματικό χρόνο"
+    },
+    "fact": {
+      "usageChange": "Χρησιμοποιημένη ποσόστωση {from}% → {to}% ({delta} μονάδες)",
+      "between": "Παρατηρήθηκε μεταξύ {from} και {to}",
+      "deadlineShift": "Η ώρα επαναφοράς μετατοπίστηκε κατά {minutes} λεπτά: {from} → {to}",
+      "noActivity": "Δεν έχει καταγραφεί τοπική δραστηριότητα tokens για {minutes} λεπτά ({basis})",
+      "basisPlateau": "από την πρώτη φορά που εμφανίστηκε η προηγούμενη τιμή",
+      "basisWindow": "από την έναρξη του παραθύρου ποσόστωσης",
+      "localCounts": "Τοπικά συμβάντα: {events} · τοπικά tokens: {tokens}",
+      "gapSpan": "Δεν υπάρχουν δεδομένα για {minutes} λεπτά ({from} → {to})",
+      "gapOngoing": "Δεν υπάρχουν δεδομένα εδώ και {minutes} λεπτά, από {from} (σε εξέλιξη)",
+      "failures": "Καταγράφηκαν {count} αποτυχημένες προσπάθειες συλλογής",
+      "staleAge": "Το τελευταίο δείγμα πραγματικού χρόνου ήταν πριν από {minutes} λεπτά"
+    },
+    "evidence": {
+      "heading": "Ενδείξεις στα δεδομένα",
+      "credit": "Εξαργυρώθηκε πίστωση επαναφοράς μεταξύ αυτών των παρατηρήσεων ({confidence}).",
+      "account": "Το στιγμιότυπο πραγματικού χρόνου άλλαξε σε άλλον λογαριασμό περίπου τότε (πιθανό).",
+      "resetNoCredit": "Πρόωρη επαναφορά χωρίς χρήση πίστωσης (συμπερασμένο)."
+    },
+    "hypothesesHeading": "Πιθανές εξηγήσεις (υποθέσεις, όχι ευρήματα)",
+    "hypotheses": {
+      "other_device_or_surface": "Χρήση σε άλλη συσκευή, στην εφαρμογή ιστού, σε επέκταση IDE ή σε εργασίες cloud που τα τοπικά αρχεία καταγραφής δεν βλέπουν",
+      "other_account_or_profile": "Χρήση από άλλον λογαριασμό ή προφίλ που μοιράζεται αυτή την ποσόστωση",
+      "provider_accounting_or_adjustment": "Καθυστέρηση λογιστικής καταχώρισης, στρογγυλοποίηση ή προσαρμογή από τον πάροχο",
+      "local_logs_incomplete": "Τοπικά αρχεία καταγραφής ελλιπή, εναλλαγμένα ή που δεν συλλέγονται",
+      "ledger_not_account_scoped": "Αυτό το ιστορικό ποσόστωσης δεν συνδέεται με έναν μόνο λογαριασμό",
+      "reset_credit_or_plan_change": "Πίστωση επαναφοράς, αλλαγή πακέτου ή άλλη προσαρμογή ποσόστωσης",
+      "inconsistent_source_data": "Ασυνεπή δεδομένα από την πηγή της ποσόστωσης"
+    },
+    "noFindings": "Κανένα εύρημα σε αυτό το διάστημα.",
+    "stepStatus": {
+      "activity_present": "Υπάρχει τοπική δραστηριότητα",
+      "shared_source_activity": "Μόνο άλλος τοπικός πράκτορας",
+      "no_local_activity": "Δεν καταγράφηκε τοπική δραστηριότητα",
+      "not_assessable": "Δεν μπορεί να αξιολογηθεί"
+    },
+    "reason": {
+      "history_start": "Το ιστορικό ξεκινά από αυτό το σημείο",
+      "no_local_history": "Κανένα ιστορικό τοπικών αρχείων καταγραφής",
+      "before_local_history": "Τα τοπικά αρχεία καταγραφής ξεκινούν αργότερα",
+      "ingest_pending": "Τα τοπικά αρχεία καταγραφής δεν έχουν ξαναδιαβαστεί ακόμη"
+    },
+    "steps": {
+      "heading": "Αυξήσεις ποσόστωσης σε σύγκριση με την τοπική δραστηριότητα",
+      "summary": "{present} με τοπική δραστηριότητα · {shared} μόνο άλλος τοπικός πράκτορας · {none} χωρίς · {unknown} δεν αξιολογούνται",
+      "note": "Κάθε γραμμή είναι αύξηση της αναφερόμενης χρήσης. Τα τοπικά tokens προέρχονται μόνο από τα αρχεία καταγραφής αυτού του υπολογιστή και δεν αποτελούν μετατροπή της ποσόστωσης.",
+      "empty": "Δεν υπάρχουν αυξήσεις χρήσης σε αυτό το διάστημα."
+    },
+    "estimateText": "Τα συγκρίσιμα βήματα κατέγραψαν διάμεσο {median} τοπικών tokens ανά μονάδα ποσόστωσης (μεσαίο μισό {low}–{high}, {samples} βήματα). Οι πάροχοι σταθμίζουν διαφορετικά τα μοντέλα και την προσωρινά αποθηκευμένη είσοδο, άρα είναι χονδρική κλίμακα και όχι μετατροπή.",
+    "localValue": "{events} συμβάντα · {tokens} tokens",
+    "colTime": "Ώρα",
+    "colChange": "Χρησιμοποιημένη ποσόστωση",
+    "colLocal": "Τοπική δραστηριότητα",
+    "colTokens": "Συμβάντα · tokens",
+    "colWindow": "Παράθυρο",
+    "colUsed": "Χρήση",
+    "colResets": "Επαναφορά",
+    "colLastChange": "Τελευταία αλλαγή",
+    "gapKind": {
+      "collector_unavailable": "Ο συλλέκτης δεν είναι διαθέσιμος",
+      "no_observations": "Καμία παρατήρηση (η εφαρμογή ήταν κλειστή ή ο υπολογιστής σε αναστολή)"
+    },
+    "ongoing": "σε εξέλιξη",
+    "minutes": "{value} λ.",
+    "gapsEmpty": "Κανένα κενό συλλογής σε αυτό το διάστημα.",
+    "windows": {
+      "heading": "Παρατηρημένα παράθυρα ποσόστωσης",
+      "note": "Το ιστορικό ποσοστώσεων καταγράφει μόνο αλλαγές, άρα μια ήρεμη περίοδος δεν είναι κενό.",
+      "empty": "Δεν καταγράφηκαν παράθυρα ποσόστωσης σε αυτό το διάστημα."
+    },
+    "privacyNote": "Αναλύονται μόνο οι χρόνοι ποσοστώσεων και τα πλήθη tokens. Prompts, μεταγραφές, αναγνωριστικά λογαριασμών και διαδρομές αρχείων δεν συμπεριλαμβάνονται ποτέ."
+  },
+  "workspace": {
+    "openPalette": "Open command palette",
+    "paletteShortcut": "Command palette · Ctrl+K",
+    "focusMode": "Toggle focus mode",
+    "focusShortcut": "Focus mode · Alt+Shift+F",
+    "compactMode": "Toggle compact layout",
+    "paletteTitle": "Command palette",
+    "paletteSearch": "Search actions or jump to a section…",
+    "paletteClose": "Close command palette",
+    "focusOn": "Focus mode enabled",
+    "focusOff": "Focus mode disabled",
+    "compactOn": "Compact layout enabled",
+    "compactOff": "Comfortable layout enabled",
+    "glassOn": "Glass effect enabled",
+    "glassOff": "Glass effect disabled",
+    "motionOn": "Reduced motion enabled",
+    "motionOff": "Full motion enabled"
+  }
+}

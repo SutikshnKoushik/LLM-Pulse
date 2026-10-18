@@ -1,0 +1,1372 @@
+{
+  "app": {
+    "title": "LLM Pulse — AI Usage Intelligence",
+    "eyebrow": "LLM Pulse",
+    "heading": "Limity i tokeny"
+  },
+  "actions": {
+    "refresh": "Odśwież",
+    "settings": "Ustawienia",
+    "close": "Zamknij"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "password": "Hasło",
+    "signIn": "Zaloguj się",
+    "loginFailed": "Logowanie nie powiodło się"
+  },
+  "filter": {
+    "showAll": "Pokaż wszystko",
+    "showActive": "Tylko aktywne",
+    "hideInactive": "Ukryj nieaktywnych dostawców",
+    "showInactiveCount": "Pokaż {count} nieaktywnych dostawców",
+    "allVisible": "Wszyscy dostawcy są widoczni",
+    "showAllNoticeTitle": "Widok wszystkich dostawców",
+    "showAllNoticeBody": "Widoczne są nieaktywne, puste, tylko skonfigurowane i historyczne karty dostawców. Tylko aktywne to normalny widok."
+  },
+  "layout": {
+    "edit": "Edit layout",
+    "done": "Done",
+    "reset": "Default order",
+    "resetDone": "Default dashboard order restored.",
+    "dragHandle": "Move {name}",
+    "grabbed": "Moving {name}. Use arrow keys to move, Enter or Space to drop, Escape to cancel.",
+    "moved": "{name} moved to position {position} of {total}.",
+    "dropped": "{name} dropped at position {position} of {total}.",
+    "cancelled": "Move cancelled."
+  },
+  "summary": {
+    "ariaLabel": "Przegląd",
+    "fiveHourOpen": "5h quota free",
+    "weeklyOpen": "Week quota free",
+    "tokensToday": "Logged tokens today",
+    "tokensTotal": "Łącznie zapisane tokeny",
+    "recordDayLabel": "Dzień rekordowy",
+    "recordDay": "Dzień rekordowy: {date} · {tokens}",
+    "quotaWindowNote": "Provider quota window",
+    "tokensRange": "Logged tokens: {range}",
+    "todayLogNote": "Calendar day from local logs, not provider quota limits. {providers}",
+    "totalLogNote": "All local log history, not provider quota limits. {providers}",
+    "providerTokenDetail": "{provider}: {tokens}",
+    "providerBreakdownMore": "{providers} + {count} more",
+    "providerBreakdownEmpty": "No provider log tokens.",
+    "rangeNotes": {
+      "h24": "Rolling 24-hour total; chart bars are day-grained.",
+      "today": "Calendar day in local time.",
+      "week": "Last 7 days from local logs.",
+      "month": "Last 30 calendar days from local logs."
+    }
+  },
+  "chart": {
+    "eyebrow": "Local capture",
+    "heading": "Historia tokenów z logów",
+    "sourceTotalsAria": "Łączne użycie według dostawcy",
+    "legendAria": "Legenda",
+    "sourceTotalTitle": "Łączne użycie",
+    "svgAria": "Historia tokenów",
+    "costSummary": {
+      "title": "Cost summary",
+      "apiEquivalent": "API equivalent",
+      "paid": "Subscription fixed cost",
+      "saved": "Delta vs API",
+      "quote": "API difference",
+      "quality": "Data quality",
+      "qualityComplete": "Covered",
+      "qualityPartial": "Partially estimated",
+      "qualityUnavailable": "Unavailable",
+      "missingSubscriptions": "Subscription history or a reliable fixed-cost source is missing for this range.",
+      "estimatedSources": "Estimated providers: {providers}.",
+      "missingSources": "Not included: {providers}.",
+      "unsupportedCurrencies": "Unsupported currencies: {currencies}."
+    },
+    "costs": {
+      "svgAria": "Cost history",
+      "noData": "No cost data for the selected range."
+    },
+    "filters": {
+      "h24": "Last 24 hours",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all": "All Time"
+    },
+    "headingCosts": "Cost History from Logs",
+    "mode": {
+      "tokens": "Tokens",
+      "costs": "Costs"
+    },
+    "modeToggleAria": "Chart mode",
+    "filterBarAria": "Time range",
+    "insights": {
+      "ariaLabel": "Selected range statistics",
+      "total": "Total",
+      "selectedRange": "Selected range",
+      "avgActiveDay": "Ø active day",
+      "avgActiveDayDetail": "Based on {days} active days",
+      "activeDays": "Active days",
+      "activeDaysValue": "{active}/{days}",
+      "activeDaysDetail": "Days with usage",
+      "peakDay": "Peak day",
+      "noData": "No activity in the selected range.",
+      "selectedRangeDetail": "{range} shown with the selected range semantics."
+    },
+    "models": {
+      "heading": "Models used",
+      "range": "{range} model mix",
+      "topTokens": "Top by tokens: {model} · {tokens}",
+      "topCost": "Top by API-equivalent cost: {model} · {cost}",
+      "costUnknown": "API-equivalent cost unavailable for these models.",
+      "unknown": "Nieznany model"
+    },
+    "breakdown": {
+      "total": "Razem",
+      "provider": "Dostawca",
+      "model": "Modele",
+      "device": "Instalacji",
+      "account": "Konta"
+    },
+    "breakdownToggleAria": "Podział tokenów",
+    "overviewAria": "Compact token history by provider",
+    "breakdownSummary": {
+      "totalTitle": "Total window",
+      "providerTitle": "Provider share",
+      "modelTitle": "Model share",
+      "topProvider": "Top provider",
+      "topModel": "Top model",
+      "coverage": "Coverage",
+      "providerCount": "{count} providers",
+      "modelCount": "{count} models",
+      "noProvider": "No provider breakdown",
+      "noModel": "No model breakdown"
+    },
+    "providers": {
+      "heading": "Providers used",
+      "range": "{range} provider mix",
+      "topTokens": "Top by tokens: {provider} · {tokens}",
+      "topModel": "Top model: {model} · {tokens}",
+      "noModel": "No model details",
+      "columns": {
+        "provider": "Provider",
+        "tokens": "Tokens",
+        "share": "Share",
+        "topModel": "Top model"
+      }
+    },
+    "totalBreakdown": {
+      "heading": "Total summary",
+      "range": "{range} aggregate"
+    },
+    "attribution": {
+      "groupBy": "Grupuj według",
+      "unknownAccount": "Nieznane konto",
+      "unknownDevice": "Nieznana instalacja",
+      "sharedDevice": "Wykryto na wielu instalacjach",
+      "sharedDeviceHelp": "Policzono raz; pierwotna instalacja jest niejasna.",
+      "observed": "Wykryto w lokalnych logach",
+      "observedOn": "Wykryto na instalacjach",
+      "evidence": "Przypisanie",
+      "observedHelp": "Instalacje pokazują, gdzie znaleziono logi. Skopiowane zdarzenia są liczone raz; pierwotny komputer może być nieznany.",
+      "accountHelp": "Konto jest przypisywane tylko wtedy, gdy potwierdzają je dane użycia. Pozostałe tokeny pozostają pod Nieznanym kontem."
+    }
+  },
+  "tokenMix": {
+    "eyebrow": "Token Mix",
+    "heading": "Zapisane przetwarzanie tokenów"
+  },
+  "liveMetrics": {
+    "ariaLabel": "Live system usage",
+    "eyebrow": "Live",
+    "heading": "Live Load",
+    "updated": "Updated {time}",
+    "notAvailable": "Not available",
+    "error": "Error",
+    "unavailable": "Not available",
+    "unavailableShort": "N/A",
+    "percentScale": "0-100%",
+    "cpu": "CPU",
+    "ram": "Memory",
+    "ramSub": "{used}/{total} GB used",
+    "aiLoad": "AI Load",
+    "aiLoadSub": "Heuristic",
+    "aiLoadHelp": "Estimated from CPU, memory, and token throughput. Not an exact measurement.",
+    "tokensPerMinute": "Tokens/min",
+    "noTokenWindow": "No measured window yet",
+    "noTokenBreakdown": "No reliable breakdown",
+    "historyHeading": "Trend",
+    "historyAria": "Live load trend",
+    "legendAria": "Live trend legend",
+    "historyLoading": "Collecting live data...",
+    "historyNoSeries": "No active series.",
+    "quality": {
+      "measured": "Measured",
+      "calculated": "From logs",
+      "estimated": "Estimated",
+      "unavailable": "Not available"
+    },
+    "series": {
+      "cpu": "CPU",
+      "ram": "Memory",
+      "aiLoad": "AI Load",
+      "tokensTotal": "Tokens/min",
+      "tokensInput": "Input",
+      "tokensOutput": "Output",
+      "tokensCached": "Cached",
+      "aiCpu": "AI CPU",
+      "aiMemory": "AI Memory",
+      "swap": "Swap"
+    },
+    "errors": {
+      "load": "Could not load live system metrics."
+    },
+    "tokensPerMinuteHelp": "Calculated from local Claude Code, Codex, Gemini, Copilot, and Ollama logs in the local aggregate. Multica Claude/Codex runs are included through those logs; API-only OpenAI/Anthropic billing is excluded to avoid double counting. Gemini agents may be missing when the Gemini CLI does not write token metadata.",
+    "systemCpu": "System CPU",
+    "systemRam": "System Memory",
+    "aiCpu": "AI CPU",
+    "aiCpuSub": "{count} AI processes",
+    "aiCpuHelp": "Aggregated CPU share of recognized local AI process groups. Commands and paths are not exposed.",
+    "aiMemory": "AI Memory",
+    "aiMemorySub": "{used} GB RSS",
+    "aiMemoryHelp": "Aggregated resident memory of recognized local AI process groups. Shared Electron and browser memory is approximate.",
+    "swap": "Swap",
+    "swapSub": "{used}/{total} GB used",
+    "swapHelp": "System swap usage. High swap can slow the Mac even when AI process memory is only part of the total.",
+    "noAiProcesses": "No AI process group found",
+    "processBreakdownHeading": "Running AI groups",
+    "processBreakdownHelp": "Safe aggregate view: running AI process groups and load shares without command lines, prompts, or paths.",
+    "processTotal": "AI total: {cpu} CPU · {memory} · {memoryShare} RAM · {count} running processes",
+    "processBreakdownUnavailable": "Process grouping is not available on this platform/runtime.",
+    "processBreakdownEmpty": "No recognized AI process group is currently running for the dashboard.",
+    "processColumns": {
+      "group": "Group",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "memoryShare": "RAM %",
+      "count": "Processes"
+    },
+    "recentRateWindow": "Live-rate, ruchome 60 s"
+  },
+  "pricing": {
+    "eyebrow": "Koszty API",
+    "heading": "Ile kosztowałyby twoje tokeny przez API",
+    "meta": "Katalog {catalogVersion} · {modelCount} modeli · EUR wg EBC {fxDate} · ceny API {pricingDate} · Arena Text {scoreDate}",
+    "modelFilter": {
+      "label": "Filtruj według nazwy modelu",
+      "placeholder": "Na przykład Sol, 6.1 lub Claude",
+      "empty": "Nie znaleziono modeli o tej nazwie."
+    },
+    "qualityScoreTitle": "Arena Text {scoreDate}: {score} Elo",
+    "chinaBadge": "Chiny",
+    "unknown": "Nieznane",
+    "notPriced": "Bez ceny",
+    "aliases": "Aliasy: {aliases}",
+    "limitSummary": "kontekst {context} · wyjście {output}",
+    "sourceReviewed": "Sprawdzone {date}",
+    "regions": {
+      "apiDiscount": "Rabat API"
+    },
+    "columns": {
+      "model": "Model",
+      "score": "Wynik",
+      "region": "Obszar",
+      "limits": "Limity",
+      "input": "Wejście",
+      "cache": "Pamięć podręczna",
+      "output": "Wyjście",
+      "today": "Last 24h",
+      "total": "Razem",
+      "status": "Stan",
+      "source": "Źródło"
+    },
+    "priceStatus": {
+      "official": "Cena oficjalna",
+      "estimated": "Cena szacowana",
+      "unknown": "Cena nieznana",
+      "mixed": "Ceny mieszane"
+    },
+    "availability": {
+      "ga": "Ogólnie dostępne",
+      "preview": "Podgląd",
+      "deprecated": "Wycofane",
+      "unknown": "Dostępność nieznana"
+    },
+    "limitStatus": {
+      "official": "Oficjalne limity",
+      "estimated": "Szacowane limity",
+      "unknown": "Limity nieznane"
+    },
+    "viewToggleAria": "Cost view",
+    "aliasesSummary": "{count} aliases",
+    "views": {
+      "api": "API equivalent",
+      "models": "Used models",
+      "subscriptions": "Fixed costs"
+    },
+    "usedModels": {
+      "heading": "Used models in {range}",
+      "description": "Actual logged model usage matched to the local pricing catalog where possible.",
+      "empty": "No model-level token data is available for the selected range.",
+      "totalLabel": "Łączny koszt API",
+      "totalComplete": "Pełny",
+      "totalPartial": "Częściowy",
+      "totalUnknown": "Nieznany",
+      "totalMixed": "Różne waluty",
+      "totalPartialNote": "Niektóre wyświetlane wiersze nie mają wiarygodnej ceny API, więc suma jest częściowa.",
+      "totalUnknownNote": "Żaden wyświetlany wiersz nie ma wiarygodnej ceny API.",
+      "totalMixedNote": "Wyświetlane wiersze używają wielu walut; suma nie jest obliczana.",
+      "totalRow": "Łączny koszt API"
+    },
+    "subscriptions": {
+      "heading": "Subscription and fixed costs in {range}",
+      "description": "Shows monthly fixed costs only when safely detected locally or saved as fallback estimates. Missing data is not treated as real cost.",
+      "empty": "No subscription or fixed-cost data is available yet.",
+      "previous": "Previous cost",
+      "delta": "Change"
+    }
+  },
+  "providers": {
+    "codex": {
+      "kicker": "Codex"
+    },
+    "codexSpark": {
+      "kicker": "Codex Spark"
+    },
+    "claudeCode": {
+      "kicker": "Claude Code"
+    },
+    "anthropic": {
+      "kicker": "Użycie API"
+    },
+    "openai": {
+      "kicker": "API i kredyty"
+    },
+    "gemini": {
+      "kicker": "Gemini"
+    },
+    "glm": {
+      "kicker": "OpenAI-compatible import"
+    },
+    "ollama": {
+      "kicker": "Ollama"
+    },
+    "local": {
+      "name": "Local capture"
+    },
+    "gridAria": "Dostawcy",
+    "messages": {
+      "sparkTokens24h": "Tokeny Spark 24h",
+      "logTokens24h": "Tokeny logów 24h",
+      "missingBackendKey": "Brakuje klucza backendu",
+      "sevenDays": "7 dni",
+      "noCodexSparkEvents": "Nie znaleziono zdarzeń Codex 5.3 Spark.",
+      "noGeminiLogs": "Nie znaleziono lokalnych logów użycia Gemini.",
+      "glmImportTokens": "GLM/Z.AI tokens from local imports.",
+      "glmQuotaUnavailable": "Official quota through OpenCode is not available.",
+      "noGlmEvents": "No local GLM/Z.AI usage events found.",
+      "ollamaLogTokens": "Lokalne tokeny Ollama z logów",
+      "noOllamaLogs": "Nie znaleziono lokalnych logów Ollama.",
+      "copilotLogTokens": "Copilot CLI tokens 24h",
+      "noCopilotSessionMetrics": "No local Copilot CLI session metrics found.",
+      "claudeStatuslineNoQuotas": "Claude is sending data, but not official Pro/Max limit values yet.",
+      "claudeStatuslineMissing": "Statusline Claude nie jest skonfigurowany. Włącz polecenie statusline dashboardu dla limitów Pro/Max na żywo.",
+      "claudeLiveLimitsMissing": "Claude live limits are not available from local telemetry yet.",
+      "claudeLimitsStale": "Claude live limits are out of date. Open Claude Code once to refresh them.",
+      "claudeOauthUnavailable": "Claude CLI/OAuth quota unavailable: {reason}.",
+      "claudeBrowserLoginHint": "Log in to Claude.ai in your browser to enable credit tracking.",
+      "glmQuotaAvailable": "Official GLM Coding Plan quota from OpenCode.",
+      "glmQuotaUnavailableReason": "Official GLM Coding Plan quota unavailable: {reason}.",
+      "noOpenCodeGptEvents": "No local OpenAI/GPT usage events found in OpenCode."
+    },
+    "emptyState": {
+      "eyebrow": "Dostawca",
+      "heading": "Brak aktywnego użycia",
+      "status": "Puste",
+      "message": "Żaden dostawca nie ma obecnie zapisanych tokenów ani danych limitów.",
+      "visible": "Widoczne",
+      "hidden": "Ukryte",
+      "all": "Wszystkie"
+    },
+    "copilot": {
+      "kicker": "Copilot CLI"
+    },
+    "updateDelayHints": {
+      "default": "This provider has not produced a fresh local signal for more than {minutes} minutes. Some sources only update when their CLI or app writes new usage data.",
+      "codex": "Codex limits normally update through the local app-server. If this stays old, the app-server may be unavailable or Codex has not produced fresh live limit data.",
+      "codexSpark": "Codex Spark limits normally update through the local Codex app-server. If this stays old, Spark live limit data may not be exposed yet.",
+      "claudeCode": "This Claude Code card combines statusline, local logs, and Claude.ai billing or usage data. Updates can lag when Claude Code is closed, the statusline has not run, or Claude.ai cookies/API access are unavailable.",
+      "copilot": "GitHub Copilot CLI usage is written after sessions shut down, and live quota probing depends on the local Copilot CLI. The timestamp can lag while a session is still open or the probe is unavailable.",
+      "gemini": "Gemini local usage updates only when local log files contain new usage metadata.",
+      "glm": "GLM/Z.AI updates when local JSON, JSONL, or CSV usage imports contain OpenAI-compatible GLM token counts.",
+      "ollama": "Ollama usage updates only when requests pass through the dashboard's local proxy/log file."
+    },
+    "freshness": {
+      "ariaLabel": "Czas danych dostawcy",
+      "usage": "Użycie {time}",
+      "limits": "Limity {time}",
+      "prices": "Ceny {time}",
+      "catalog": "Katalog {date}",
+      "unknown": "Czas danych nieznany"
+    },
+    "openCode": {
+      "kicker": "OpenCode GPT logs"
+    },
+    "kimi": {
+      "kicker": "Kimi Code"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "empty": "Puste",
+    "not_configured": "Konfiguracja",
+    "error": "Błąd"
+  },
+  "labels": {
+    "today": "Dziś",
+    "fiveHourUsed": "5h użyte",
+    "weekUsed": "Tydzień użyty",
+    "fiveHourLeft": "Pozostało 5 h",
+    "weekLeft": "Pozostał tydzień",
+    "since": "Od",
+    "updated": "Zaktualizowano",
+    "plan": "Plan",
+    "fiveHourTokens": "Tokeny 5h",
+    "total": "Łącznie",
+    "cost": "Koszt",
+    "tokens7d": "Tokeny 7 dni",
+    "cost7d": "Koszt 7 dni",
+    "limits": "Limity",
+    "updatedHelp": "Why this timestamp may be delayed",
+    "subscription": "Subscription",
+    "last24h": "Last 24h"
+  },
+  "credits": {
+    "title": "Kredyty",
+    "monthlySpend": "Kredyty użycia",
+    "monthlyLimit": "Limit miesięczny",
+    "currentCredit": "Aktualny kredyt",
+    "autoTopUp": "Automatyczne doładowanie",
+    "default": "Kredyty",
+    "on": "Wł.",
+    "off": "Wył."
+  },
+  "limits": {
+    "recentPace": {
+      "timeToLimit": "Czas do limitu: {duration}",
+      "title": "Ostatnie tempo",
+      "measured": "+{percent} punktów procentowych w {duration}",
+      "collecting": "Brakuje jeszcze pomiarów dla tego okresu.",
+      "flat": "Brak mierzalnego wzrostu w tym okresie.",
+      "stale": "Ostatni odczyt limitu jest zbyt stary.",
+      "changed": "Odczyty się zmieniły; brak prognozy.",
+      "possible": "Limit może zostać osiągnięty przed resetem; szacunek jest niepewny.",
+      "note": "Szacunek z zaokrąglonych procentów przy stałym tempie."
+    },
+    "fiveHour": "5h",
+    "weekly": "Tydzień",
+    "currentSession": "Bieżąca sesja",
+    "allModels": "Wszystkie modele",
+    "claudeDesign": "Claude Design",
+    "sonnetOnly": "Tylko Sonnet",
+    "default": "Limit",
+    "resetPrefix": "Reset {time}",
+    "usedValue": "{percent}% użyte",
+    "leftValue": "Pozostało {percent}%",
+    "freeLabel": "{label} dostępne",
+    "limitGroups": "{count} grup limitów",
+    "noModelLimits": "Brak limitów modeli",
+    "remainingShort": "{days}d {hours}h {minutes}m",
+    "fullTitle": "Limit full",
+    "fullDescription": "{limit} is full.",
+    "fullTokenDetail": "{tokens} tokens in {period}",
+    "fullPremiumRequestsDetail": "{requests} premium requests from local session logs",
+    "fullResetDetail": "Reset {time}",
+    "period5h": "5h",
+    "period7d": "7d",
+    "period24h": "24h",
+    "fullQuotaDetail": "{usage} used",
+    "status": {
+      "ok": "On track",
+      "risk": "Wysokie tempo",
+      "full": "Limit reached",
+      "unknown": "Unknown"
+    },
+    "pace": {
+      "remaining": "Przy obecnym tempie do resetu zostanie okolo {percent}%.",
+      "shortfall": "Przy obecnym tempie do resetu zabraknie okolo {percent}%.",
+      "hitBeforeReset": "Przy obecnym tempie limit zostanie osiagniety okolo {duration} przed resetem. ({time})",
+      "fullWithReset": "Limit osiagniety; reset {time}.",
+      "fullNoReset": "Limit osiagniety; czas resetu niedostepny.",
+      "unavailable": {
+        "noUsage": "Tempo niedostepne: to zrodlo nie podaje procentu uzycia.",
+        "noWindow": "Tempo niedostepne: to zrodlo nie podaje dlugosci okna ani czasu resetu.",
+        "notStarted": "Tempo niedostepne: to okno limitu jeszcze sie nie zaczelo.",
+        "staleReset": "Tempo niedostepne: czas resetu jest nieaktualny; odswiez zrodlo."
+      }
+    },
+    "duration": {
+      "daysHours": "{days} d {hours} godz.",
+      "hoursMinutes": "{hours} godz. {minutes} min",
+      "minutes": "{minutes} min"
+    },
+    "gauge": {
+      "title": "Bieżące użycie",
+      "projectedValue": "prognoza {percent}%",
+      "unavailable": "Prognoza niedostępna",
+      "aria": "Prognozowane końcowe użycie dla {label}"
+    },
+    "viewToggleAria": "Wizualizacja bieżącego użycia",
+    "view": {
+      "tachometer": "Wskaźnik",
+      "bar": "Pasek"
+    },
+    "remainingUntilReset": "Resets in {remaining} · Reset {time}",
+    "glmFiveHourTokens": "5h tokens",
+    "glmWeekly": "Weekly quota",
+    "glmMcpMonthly": "Monthly MCP"
+  },
+  "tokens": {
+    "input": "Wejście",
+    "cacheCreation": "Tworzenie cache",
+    "cachedInput": "Wejście z cache",
+    "output": "Wyjście",
+    "reasoningOutput": "Wyjście reasoning",
+    "total": "Łącznie"
+  },
+  "format": {
+    "billion": "mld",
+    "million": "mln",
+    "thousand": "tys.",
+    "lessThanSharePercent": "<0,1%",
+    "lessThanCent": "< 0,01 EUR",
+    "usdPerMillion": "{value} $/M",
+    "cacheReadWrite": "{read} odczyt / {write} zapis",
+    "cacheSameAsInput": "jak wejście",
+    "perMonth": "{amount}/mo",
+    "fromPerMonth": "od {amount}/mies."
+  },
+  "settings": {
+    "heading": "Ustawienia",
+    "language": {
+      "label": "Język"
+    },
+    "theme": {
+      "label": "Motyw",
+      "system": "System",
+      "light": "Jasny",
+      "dark": "Ciemny"
+    },
+    "notifications": {
+      "title": "Limits & warnings",
+      "description": "Warnings use real 5-hour and weekly provider windows plus projections; they are separate from monthly subscription/API cost comparisons.",
+      "enabled": "Enable notifications",
+      "pacingLabel": "Pacing warning at projected provider-window usage (%)",
+      "hardLimitLabel": "Hard warning at measured provider-window usage (%)",
+      "save": "Save",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "diagTitle": "Notification diagnostics",
+      "diagLastCheck": "Last check",
+      "diagDuration": "Duration",
+      "diagAlerts": "Alerts found",
+      "diagLastShown": "Last notification sent",
+      "diagSkipped": "Skip reason",
+      "diagError": "Last error",
+      "diagSupported": "Notifications supported",
+      "diagNone": "None",
+      "diagNever": "Never",
+      "diagYes": "Yes",
+      "diagNo": "No",
+      "testBtn": "Send test notification",
+      "testQueued": "Test requested. If no real system banner appears, open system notifications, allow LLM Pulse, restart the app, then run the test again.",
+      "testError": "Could not send test notification.",
+      "testResultLabel": "Last test result",
+      "testResultAt": "At",
+      "testResultOutcome": "Outcome",
+      "testResult_shown": "Reported as shown by an older build",
+      "testResult_not_supported": "Not supported on this system",
+      "testResult_error": "Error",
+      "diagPermission": "Browser permission (not a macOS banner guarantee)",
+      "permission_granted": "Granted for browser API",
+      "permission_default": "Not asked yet",
+      "permission_denied": "Denied",
+      "permission_unsupported": "Unsupported",
+      "permission_unknown": "Unknown",
+      "permission_error": "Permission check failed",
+      "permissionNotGranted": "Notification permission was not granted. System notification settings were opened; allow LLM Pulse, restart the app, then run the test again.",
+      "permissionUnsupported": "This app runtime does not expose desktop notification permission.",
+      "testResult_sent": "Queued with Electron (banner not confirmed)",
+      "testQueuedRendererError": "Native macOS notification queued, but the immediate browser notification failed: {error}",
+      "testTitle": "LLM Pulse - Test",
+      "testBody": "Desktop notifications are working correctly.",
+      "inAppTestTitle": "In-app test notification",
+      "inAppTestErrorTitle": "Notification test needs attention",
+      "inAppTestBody": "This in-app fallback confirms the test ran. It is not a system banner; native banners may require system notification permission, a fresh app restart, and a properly signed build.",
+      "diagNativeDelivery": "Native system delivery",
+      "nativeDelivery_ready": "Signed app: native banners should be available",
+      "nativeDelivery_ad_hoc": "Ad-hoc build: native banners may not appear",
+      "nativeDelivery_gatekeeper_rejected": "Gatekeeper rejected: native banners may not appear",
+      "nativeDelivery_unverified": "Unverified",
+      "nativeDelivery_not_applicable": "Not applicable on this platform",
+      "nativeDelivery_unknown": "Unknown",
+      "openSettingsBtn": "Open system notification settings",
+      "openSettingsQueued": "System notification settings opened. Allow notifications for LLM Pulse, restart the app if you just changed the setting, then run the test again.",
+      "openSettingsError": "Could not open system notification settings from this runtime.",
+      "systemGuideTitle": "System notifications need attention",
+      "systemGuideDefault": "Allow notifications for LLM Pulse in system settings, restart the app if you just changed the setting, then run the test again.",
+      "systemGuidePermission": "This app does not yet have notification permission. System settings were opened; allow notifications for LLM Pulse there.",
+      "systemGuideUnsupported": "This runtime cannot read browser notification permission. Open system notification settings and allow notifications for LLM Pulse there.",
+      "systemGuideNativeUnverified": "Native banners are not reliably confirmed with this build. Check system notifications, allow LLM Pulse, then test again after restarting the app.",
+      "systemGuideTestFailed": "The last native notification attempt reported a failure. Check system notifications, restart the app, then run the test again.",
+      "systemGuideAfterTest": "If no real system banner appeared, check system notifications, allow LLM Pulse, restart the app, then send the test again.",
+      "thresholdsHelp": "Pacing uses the current consumption rate; hard warning uses measured consumption in the relevant 5h or weekly provider window.",
+      "nativeAlertTitle": "Ostrzeżenie limitu: {window}",
+      "nativeUsedPercent": "Wykorzystano {percent}%.",
+      "nativeHardLimit": "Limit jest prawie wyczerpany.",
+      "nativePacingProjected": "Wykorzystano {usedPercent}%; obecne tempo prognozuje {projectedPercent}%.",
+      "nativeEstimatedExhaustion": "Szacowane wyczerpanie za {time}.",
+      "nativeDurationHoursMinutes": "{hours} godz. {minutes} min",
+      "nativeDurationHours": "{hours} godz.",
+      "nativeDurationMinutes": "{minutes} min",
+      "nativeWindowFiveHour": "Okno 5-godzinne",
+      "nativeWindowWeekly": "Limit tygodniowy",
+      "nativeWindowSonnetOnly": "Limit tylko Sonnet",
+      "nativeWindowClaudeDesign": "Limit Claude Design",
+      "nativeWindowGeneric": "Limit"
+    },
+    "subscriptions": {
+      "title": "Subscription costs",
+      "planLabel": "Plan",
+      "monthlyCostLabel": "Monthly cost (EUR)",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "description": "Detected plans and costs come from safe local signals. Missing data is not counted as real cost.",
+      "detectedOnly": "Manual values are not normal setup. Use Advanced only as a fallback estimate when local detection is unavailable.",
+      "advancedTitle": "Advanced fallback estimates",
+      "advancedDescription": "These values are saved fallback estimates. Cards and cost views label them as estimates, not automatically detected costs."
+    },
+    "sources": {
+      "title": "Data sources & diagnostics",
+      "description": "Manage connected sources, recheck access, and copy ACL commands for other local users.",
+      "recheck": "Recheck access",
+      "recheckOne": "Recheck access",
+      "recheckPending": "Checking...",
+      "rechecked": "Source diagnostics refreshed.",
+      "recheckError": "Could not refresh source diagnostics.",
+      "currentUser": "current user",
+      "summaryStatus": "Status: {status}",
+      "summaryCounts": "{connected} usable · {candidates} additional candidates",
+      "connectedTitle": "Usable sources",
+      "candidatesTitle": "Additional detected sources",
+      "connectedEmpty": "No usable sources detected yet.",
+      "candidatesEmpty": "No additional source candidates detected right now.",
+      "owner": "Owner: {owner}",
+      "discovery": "Discovery: {method} · confidence {confidence}",
+      "access": {
+        "readable": "Readable",
+        "mixed": "Partially readable",
+        "denied": "Access denied",
+        "missing": "Missing",
+        "process_only": "Process only",
+        "service_only": "Service only"
+      },
+      "permissions": {
+        "readable": "Readable",
+        "denied": "Denied",
+        "missing": "Missing",
+        "unknown": "Unknown",
+        "optionalMissing": "Optional missing"
+      },
+      "roles": {
+        "sessions": "Sessions",
+        "archived_sessions": "Archived sessions",
+        "projects": "Projects",
+        "session_state": "Session state",
+        "telemetry": "Telemetry",
+        "chats": "Chats",
+        "tmp": "Temporary files",
+        "usage_file": "Usage file",
+        "home": "Home"
+      },
+      "noPaths": "No direct filesystem path available.",
+      "connect": "Connect",
+      "connectPending": "Connecting...",
+      "connectSuccess": "Source connected. Running a fresh diagnostics pass now.",
+      "connectError": "Could not connect source.",
+      "disable": "Disable",
+      "disablePending": "Disabling...",
+      "disableSuccess": "Source disabled. Usage totals were refreshed.",
+      "disableError": "Could not disable source.",
+      "grantCommands": "Grant commands",
+      "revokeCommands": "Revoke commands",
+      "copyGrant": "Copy grant commands",
+      "copyRevoke": "Copy revoke commands",
+      "copyGrantSuccess": "Grant commands copied to the clipboard.",
+      "copyRevokeSuccess": "Revoke commands copied to the clipboard.",
+      "copyError": "Could not copy commands to the clipboard.",
+      "automatic": "used automatically"
+    },
+    "supportReport": {
+      "title": "Support report",
+      "description": "Generate a redacted support report for Multica or WhatsApp when local sources are missing or usage does not appear.",
+      "privacyNote": "The report contains only metadata and redacted paths, no raw logs, prompts, secrets, or provider payloads.",
+      "downloadJson": "Save JSON report",
+      "copySummary": "Copy summary",
+      "summaryLabel": "Compact summary",
+      "emptySummary": "Generate a report to preview the compact support summary.",
+      "preparing": "Preparing support report...",
+      "downloaded": "Support report saved.",
+      "copied": "Support summary copied to the clipboard.",
+      "generateError": "Could not generate support report: {message}",
+      "copyError": "Could not copy support summary to the clipboard."
+    },
+    "updates": {
+      "title": "App updates",
+      "description": "Automatic update checks are always active for supported packaged desktop builds; only preview releases are optional.",
+      "enabled": "Automatic update checks are always active",
+      "allowPrerelease": "Include preview releases",
+      "saved": "Saved.",
+      "saveError": "Could not save update settings.",
+      "diagTitle": "Update diagnostics",
+      "diagState": "State",
+      "diagSupport": "Support",
+      "diagLastCheck": "Last check",
+      "diagVersion": "App version",
+      "diagAvailable": "Available version",
+      "diagError": "Last error",
+      "diagNone": "None",
+      "checkNow": "Check now",
+      "checkQueued": "Update check queued.",
+      "checkError": "Could not request update check.",
+      "noticeTitle": "Update attention needed",
+      "noticeMacSigning": "macOS automatic updates require a signed app. This unsigned build can run after manual approval, but the updater will stay disabled until Developer ID signing and notarization are configured.",
+      "noticeDevelopment": "Automatic updates run only from a packaged desktop app, not from the development runtime.",
+      "noticeUnsupported": "Automatic updates are not supported on this platform/package.",
+      "noticeGatekeeper": "The app is signed, but Gatekeeper did not fully accept it. If updates behave oddly, reinstall a notarized build.",
+      "noticeDownloaded": "An update has been downloaded. Restart the app to install it.",
+      "noticeError": "The last update check failed. Check the error line, network access, and release assets.",
+      "state_unknown": "Unknown",
+      "state_disabled": "Disabled",
+      "state_checking": "Checking",
+      "state_available": "Update available",
+      "state_downloading": "Downloading",
+      "state_up_to_date": "Up to date",
+      "state_downloaded": "Downloaded",
+      "state_error": "Error",
+      "state_not_electron": "Not running in desktop app",
+      "state_development_build": "Development build",
+      "state_macos_signing_required": "macOS signing required",
+      "state_unsupported_platform": "Unsupported platform",
+      "support_ready": "Ready",
+      "support_development_build": "Development build",
+      "support_macos_signing_required": "macOS signing required",
+      "support_macos_gatekeeper_warning": "Signed, but Gatekeeper warning",
+      "support_unsupported_platform": "Unsupported platform",
+      "support_electron_updater_missing": "Updater package missing",
+      "support_unknown": "Unknown",
+      "state_electron_updater_missing": "Updater package missing",
+      "alwaysOn": "Automatic update checks are always active."
+    },
+    "saving": "Saving..."
+  },
+  "errors": {
+    "loadUsage": "Błąd"
+  },
+  "diagnostics": {
+    "ariaLabel": "Source diagnostics",
+    "eyebrow": "Local sources",
+    "heading": "Diagnostics & connection",
+    "recheck": "Recheck access",
+    "loading": "Loading source diagnostics...",
+    "meta": "User {user} · Checked {checkedAt} · {platform} · {support}",
+    "support": {
+      "full": "full host discovery",
+      "partial_container": "limited container discovery",
+      "stub": "platform check unavailable",
+      "unsupported": "unsupported platform"
+    },
+    "supportShort": {
+      "full": "Full",
+      "partial_container": "Limited",
+      "stub": "Unavailable",
+      "unsupported": "Unavailable"
+    },
+    "supportDescriptions": {
+      "full": "Host file access, process hints, and permissions are measured on this machine.",
+      "partial_container": "Container discovery can miss host users, services, and homes; mounted logs can still be read.",
+      "stub": "Host source discovery is not available on this platform build; current-user configured logs may still be read.",
+      "unsupported": "Host source discovery is unavailable here; use Settings or a supported host build for source setup."
+    },
+    "quality": {
+      "measured": "Measured",
+      "configured": "Configured",
+      "detected": "Detected",
+      "limited": "Limited",
+      "unavailable": "Unavailable"
+    },
+    "facets": {
+      "logs": {
+        "title": "Readable log sources",
+        "available": "The app can read at least one local usage source.",
+        "empty": "No readable token log source was found in this scan."
+      },
+      "savedSources": {
+        "title": "Saved extra sources",
+        "available": "These are additional sources saved in Settings.",
+        "empty": "Zero saved sources is OK: current-user log history can still appear below."
+      },
+      "permissions": {
+        "title": "Permission fixes",
+        "blocked": "At least one plausible source exists, but this app cannot read it yet.",
+        "clear": "No denied source path was found in this scan."
+      },
+      "runtimeHints": {
+        "title": "Process/service hints",
+        "available": "A supported tool is visible only as a process or service, not as readable logs.",
+        "empty": "No process-only or service-only source hints were found."
+      },
+      "platform": {
+        "title": "Platform coverage"
+      }
+    },
+    "errors": {
+      "load": "Could not load source diagnostics: {message}"
+    },
+    "statuses": {
+      "connected_live": {
+        "title": "Local data is available",
+        "body": "Readable local sources are available. Saved extra-source counts only track sources you connected manually."
+      },
+      "current_user_empty": {
+        "title": "Current-user logs empty",
+        "body": "The current desktop user was scanned, but no local usage files with token data were found yet."
+      },
+      "candidates_readable_empty": {
+        "title": "Readable candidates found",
+        "body": "Known tool folders are readable, but they currently look empty or are not saved as extra sources."
+      },
+      "candidates_denied": {
+        "title": "Permission action needed",
+        "body": "A plausible source was found, but this app cannot read it with the current account."
+      },
+      "runtime_hints_only": {
+        "title": "Tool seen without readable logs",
+        "body": "A supported tool process or service was detected, but no readable log folder was found for it yet."
+      },
+      "no_tools_found": {
+        "title": "No local tools found",
+        "body": "No supported local tool folders, related processes, or service hints were detected on this machine."
+      },
+      "other_dashboard_found": {
+        "title": "Other dashboard instance found",
+        "body": "Another local LLM Pulse instance is running and may already be reading local usage data."
+      },
+      "partial_unsupported": {
+        "title": "Discovery is limited here",
+        "body": "This runtime can only do limited source discovery, so some users, services, or homes may stay invisible."
+      },
+      "discovery_error": {
+        "title": "Discovery error",
+        "body": "Source discovery did not finish cleanly."
+      }
+    },
+    "nextActions": {
+      "connected_live": "No action is needed; local data below can come from default current-user logs even with zero saved extra sources.",
+      "current_user_empty": "No action is needed unless you expected history; start a supported tool or inspect sources in Settings.",
+      "candidates_readable_empty": "Open Settings > Local sources if you want to save one of these readable sources.",
+      "candidates_denied": "Open Settings > Local sources, copy the ACL command for the denied source, run it as an admin, then recheck.",
+      "runtime_hints_only": "Wait for the tool to write usage logs, or configure the readable source in Settings and recheck.",
+      "no_tools_found": "Start a supported local tool or add a source in Settings, then recheck.",
+      "other_dashboard_found": "Use the already running dashboard window or stop it before checking this instance again.",
+      "partial_unsupported": "Run the desktop app on the host OS for fuller discovery; mounted local logs can still be shown below.",
+      "discovery_error": "Recheck access. If it fails again, check the backend error and source settings."
+    },
+    "recheckResults": {
+      "checking": "Checking...",
+      "ready": "Recheck complete: {status}",
+      "action": "Action needed: {status}",
+      "error": "Recheck failed: {message}",
+      "empty": "Recheck did not return diagnostics."
+    },
+    "instances": {
+      "title": "Other dashboard instances",
+      "item": "{user} has another dashboard instance running."
+    }
+  },
+  "subscriptions": {
+    "plan": "Plan: {plan}",
+    "planUnknown": "Plan unknown",
+    "costUnknown": "Cost unknown",
+    "source": "Source: {source}",
+    "updated": "Updated {time}",
+    "qualityLabel": "Cost quality",
+    "sourceLabel": "Source",
+    "quality": {
+      "automatic": "Automatically detected",
+      "manual": "Saved fallback estimate",
+      "estimated": "Estimated / partial",
+      "unknown": "Unknown",
+      "catalog": "Wartość z katalogu",
+      "official": "Oficjalna cena katalogowa",
+      "officialStarting": "Oficjalna cena katalogowa od"
+    },
+    "sources": {
+      "local_settings": "saved fallback",
+      "account": "źródło konta/rozliczeń",
+      "codex_app_server": "Codex local app-server",
+      "codex_local_logs": "Codex local logs",
+      "claude_statusline": "Claude Code statusline",
+      "claude_auth_status": "Claude CLI auth status",
+      "claudeCode_local_signal": "Claude Code local signal",
+      "codex_local_signal": "Codex local signal",
+      "copilot_local_signal": "Copilot local signal",
+      "gemini_local_signal": "Gemini local signal",
+      "openai_api": "OpenAI API metadata",
+      "anthropic_api": "Anthropic API metadata",
+      "unknown": "unknown",
+      "openai_public_catalog": "publiczny katalog subskrypcji OpenAI",
+      "anthropic_public_catalog": "publiczny katalog subskrypcji Anthropic",
+      "claude_browser_sync": "synchronizacja przegladarki/konta Claude",
+      "claude_api": "API uzycia konta Claude",
+      "browser": "zrodlo konta przegladarki",
+      "official_pricing_page": "oficjalna strona cen",
+      "cached_official_snapshot": "buforowany oficjalny snapshot",
+      "bundled_catalog": "wbudowany katalog",
+      "account_billing": "źródło konta/rozliczeń"
+    },
+    "catalogReviewed": "Katalog sprawdzono {date}",
+    "costReasons": {
+      "catalogMissing": "Brak wiarygodnej ceny z katalogu lub konta pasujacej do wykrytego planu.",
+      "catalogMissingCodexAppServer": "Lokalny serwer aplikacji Codex podal plan, ale nie miesieczna cene; brak pasujacej wiarygodnej ceny katalogowej.",
+      "catalogMissingClaudeStatusline": "Statusline Claude podal plan, ale nie miesieczna cene; dane przegladarki/konta sa niedostepne albo nie pokazuja ceny.",
+      "catalogMissingClaudeAuth": "Uwierzytelnienie CLI Claude podalo plan, ale nie miesieczna cene; dane przegladarki/konta sa niedostepne albo nie pokazuja ceny.",
+      "catalogMissingClaudeBrowser": "Sprawdzono {source}, ale nie pokazuje miesiecznej ceny planu."
+    },
+    "costActions": {
+      "addFallback": "Zaktualizuj źródło katalogu/konta albo dodaj zapasowe oszacowanie w Advanced."
+    },
+    "planSource": "Plan/limity z {source}",
+    "planSourceLabel": "Źródło planu/limitów",
+    "catalogFallbackNote": "Cena miesięczna pochodzi z katalogu awaryjnego; źródła aplikacji/konta tylko do odczytu podają plan, limity lub kredyty, ale nie zaufaną cenę miesięczną.",
+    "sourceAudit": {
+      "heading": "Źródła cen tylko do odczytu",
+      "safePriceDetected": "wykryto wiarygodną cenę miesięczną",
+      "planOnlyNoPrice": "tylko plan/limity; brak ceny miesięcznej",
+      "browserNoPrice": "sprawdzono; brak wiarygodnej ceny miesięcznej",
+      "catalogFallback": "cena zastępcza z katalogu",
+      "notConfigured": "brak w tym uruchomieniu",
+      "notAvailable": "brak bezpiecznego źródła ceny tylko do odczytu",
+      "notUsed": "nieużywane",
+      "officialListPrice": "oficjalna cena katalogowa",
+      "accountSourceExpired": "źródło konta wygasło",
+      "accountSourceUnavailable": "źródło konta niedostępne"
+    },
+    "officialListPriceNote": "Oficjalna cena katalogowa; rzeczywisty rachunek może się różnić przez VAT/podatki, rabaty roczne, stanowiska, kupony, ceny regionalne lub umowy Enterprise.",
+    "fetched": "Pobrano {time}",
+    "sourceUrl": "URL: {url}",
+    "planKey": "Klucz planu: {key}",
+    "parserStatus": "Parser: {status}",
+    "priceSourceTypeLabel": "Typ źródła ceny",
+    "sourceUrlLabel": "URL źródła",
+    "fetchedLabel": "Czas pobrania/danych",
+    "planKeyLabel": "Klucz planu",
+    "parserStatusLabel": "Status parsera",
+    "parserStatuses": {
+      "parsed": "sparsowano",
+      "parse_failed": "parsowanie nieudane",
+      "cached_after_fetch_error": "cache po błędzie pobrania",
+      "bundled": "wbudowany fallback",
+      "missing": "brak",
+      "unknown": "nieznane"
+    },
+    "officialStartingListPriceNote": "Oficjalna cena katalogowa od; rzeczywista faktura konta nie została odczytana i może się różnić przez wariant, VAT/podatki, rabaty roczne, miejsca, kupony, ceny regionalne, dodatki lub umowy enterprise.",
+    "tierVariant": "Poziom/wariant: {variant}",
+    "actualBilling": "Rzeczywista faktura znana: {status}",
+    "tierVariantLabel": "Poziom/wariant",
+    "actualBillingKnownLabel": "Rzeczywista faktura znana",
+    "priceVariants": {
+      "from": "minimum / od",
+      "pro_5x": "Pro 5x",
+      "pro_5x_20x": "Pro 5x/20x",
+      "pro_20x": "Pro 20x",
+      "max_5x": "Claude Max 5x",
+      "max_5x_20x": "Claude Max 5x/20x",
+      "max_20x": "Claude Max 20x",
+      "unknown": "nieznane"
+    },
+    "actualBillingKnown": {
+      "yes": "tak",
+      "no": "nie"
+    },
+    "connectionActions": {
+      "refresh": "Odśwież",
+      "claudeLogin": "Zaloguj się do Claude i odczytaj plan",
+      "claudeRefresh": "Odczytaj ponownie plan Claude",
+      "chatgptLogin": "Zaloguj się do ChatGPT i odczytaj plan",
+      "chatgptRefresh": "Odczytaj ponownie plan ChatGPT",
+      "rereadPlan": "Odczytaj plan teraz"
+    },
+    "connectionStatus": {
+      "refreshRequired": "Wymagane odświeżenie połączenia",
+      "claudeLoginRequired": "Wymagane logowanie do Claude",
+      "claudeRefreshRequired": "Odśwież połączenie Claude",
+      "chatgptLoginRequired": "Wymagane logowanie do ChatGPT",
+      "chatgptRefreshRequired": "Odśwież połączenie ChatGPT Billing",
+      "claudeConflict": "Claude Max: sprzeczne źródła ({details})"
+    },
+    "connectionHelp": "Otwórz stronę dostawcy, zaloguj się w razie potrzeby i wróć tutaj. Aplikacja ponownie odczyta plan po odzyskaniu fokusu albo użyj przycisku."
+  },
+  "gptAccounts": {
+    "ariaLabel": "GPT accounts",
+    "eyebrow": "Local account registry",
+    "heading": "GPT accounts",
+    "recheck": "Re-scan accounts",
+    "checking": "Scanning Codex and OpenCode accounts…",
+    "rechecked": "Account scan complete.",
+    "recheckError": "Account scan failed: {message}",
+    "recheckErrorFallback": "Unknown error",
+    "summary": "{active} active of {count} known accounts · scanned {time}",
+    "notScanned": "Accounts have not been scanned yet.",
+    "empty": "No ChatGPT account found yet",
+    "guidance": "Sign in with Codex or OpenCode, then re-scan. Accounts seen previously remain in this list as history.",
+    "active": "Active",
+    "historical": "Previous",
+    "lifetimeTokens": "Codex lifetime tokens",
+    "limit": "Limit",
+    "lastSeen": "Last seen {time}",
+    "activeSourceCount": "{count} active sources",
+    "attributionNote": "OpenCode tokens are measured for OpenCode as a whole because its message database does not record which account produced each message.",
+    "sources": {
+      "codex": "Codex",
+      "openCode": "OpenCode"
+    },
+    "activeSourceCountOne": "1 active source",
+    "add": "Dodaj konto GPT",
+    "signIn": "Zaloguj się w OpenAI",
+    "removeLogin": "Usuń zapisane logowanie",
+    "login": {
+      "waiting": "Dokończ logowanie w OpenAI. Wybierz właściwe konto w przeglądarce.",
+      "complete": "Konto połączone.",
+      "failed": "Logowanie niedostępne. Zainstaluj Codex CLI lub spróbuj ponownie."
+    },
+    "connectionHelp": "Istniejące logowania Codex i OpenCode są wykrywane automatycznie. Dodaj kolejne konta GPT bez ich zastępowania.",
+    "loginPrivacy": "Logowanie komunikuje się z OpenAI. Dane uwierzytelniające pozostają w oddzielnym profilu lokalnym i nie trafiają do twórcy ani do sparowanych urządzeń."
+  },
+  "codexResets": {
+    "title": "Codex · Historia resetów",
+    "period": "Okres",
+    "last10": "Ostatnie 10 okien",
+    "last30": "Ostatnie 30 okien",
+    "all": "Wszystkie okna",
+    "credits": "Dostępne kredyty resetu",
+    "earlyCount": "Wcześniejsze resety",
+    "averageDuration": "Średni czas trwania ≈",
+    "averageUsage": "Średnie zużycie",
+    "days": "{value} dni",
+    "windows": "z {count} okien",
+    "maximum": "Najwyższe zaobserwowane zużycie",
+    "start": "Początek ≈",
+    "plannedReset": "Zapowiedziany reset",
+    "end": "Koniec ≈",
+    "duration": "Czas trwania ≈",
+    "usage": "Maks. zużycie",
+    "result": "Dowód resetu",
+    "early": "Wcześniejszy",
+    "regular": "Planowy",
+    "uncertain": "Niepewny",
+    "estimated": "Odtworzony",
+    "confirmed": "Kredyt użyty: potwierdzone",
+    "inferred": "Kredyt użyty: wywnioskowane",
+    "live": "Rejestrowanie aktywne",
+    "stale": "Rejestr nieaktualny",
+    "unavailable": "Dane na żywo niedostępne",
+    "loading": "Wczytywanie historii…",
+    "empty": "Nie zaobserwowano jeszcze zakończonych okien.",
+    "note": "Stare logi odtwarzają okna bez przypisania do konta. Czas trwania i koniec są szacowane; zużycie to najwyższa zaobserwowana wartość. Rejestrowanie trwa, gdy aplikacja działa. Osób i urządzeń nie można zidentyfikować.",
+    "durationBasis": "{count} użytecznych okien · plan: 7 dni",
+    "recordingSince": "Rejestrowanie od {time}",
+    "redemptions": "Kredyty: {confirmed} potwierdzonych · {inferred} wywnioskowanych użyć",
+    "expires": "Wygasa {time}",
+    "coverage": "{uncertain} niepewnych okien · {gaps} luk",
+    "current": "Obecnie: reset {time} · maks. {percent} %",
+    "events": "Zdarzenia kredytów · ostatnie 30",
+    "granted": "Kredyt przyznany",
+    "expired": "Kredyt wygasł",
+    "creditUnknown": "Zmiana kredytu: niejasna",
+    "cause": "Przyczyna resetu",
+    "causeManual": "Ręczny · kupon",
+    "causeProvider": "OpenAI · wnioskowane",
+    "causeScheduled": "Planowy",
+    "causeUnknown": "Nieznana",
+    "causeMissing": "Brak dowodu kuponu lub przejścia",
+    "causeNoCredit": "Przedwczesny bez zaobserwowanego użycia kuponu",
+    "causeConfirmed": "Potwierdzone",
+    "causeInferred": "Wnioskowane",
+    "causeSummary": "Przyczyny: {manual} kupon · {provider} OpenAI (wnioskowane) · {scheduled} planowe · {unknown} nieznane",
+    "causeNote": "Przedwczesny termin nie wskazuje przyczyny. OpenAI jest wnioskowane tylko wtedy, gdy pełna lista kuponów nie zmienia się przy dokładnie obserwowanym resecie limitu. Stare logi nie rozróżniają resetów ręcznych i OpenAI. Osoba uruchamiająca reset jest nieznana."
+  },
+  "deviceSync": {
+    "heading": "Połącz swoje urządzenia",
+    "enabled": "Włącz bezpośrednią synchronizację",
+    "name": "Nazwa urządzenia",
+    "invite": "Utwórz kod parowania",
+    "code": "Kod parowania",
+    "copy": "Kopiuj kod",
+    "join": "Połącz urządzenie",
+    "forget": "Odłącz urządzenie",
+    "view": "Urządzenia",
+    "local": "To urządzenie",
+    "all": "Wszystkie połączone urządzenia",
+    "copied": "Kod skopiowany.",
+    "working": "Łączenie…",
+    "ready": "Gotowe.",
+    "inviteReady": "Kod wygasa za pięć minut. Wklej go na drugim urządzeniu.",
+    "errors": {
+      "default": "Połączenie niedostępne. Wcześniej odebrane dane pozostają na tym urządzeniu.",
+      "peer_unreachable": "Połączenie niedostępne. Wcześniej odebrane dane pozostają na tym urządzeniu.",
+      "invalid_pairing_code": "Połączenie niedostępne. Wcześniej odebrane dane pozostają na tym urządzeniu.",
+      "network_unavailable": "Połączenie niedostępne. Wcześniej odebrane dane pozostają na tym urządzeniu.",
+      "sync_disabled": "Połączenie niedostępne. Wcześniej odebrane dane pozostają na tym urządzeniu.",
+      "capture_failed": "Połączenie niedostępne. Wcześniej odebrane dane pozostają na tym urządzeniu.",
+      "storage_unavailable": "Połączenie niedostępne. Wcześniej odebrane dane pozostają na tym urządzeniu.",
+      "discovery_unavailable": "Połączenie niedostępne. Wcześniej odebrane dane pozostają na tym urządzeniu."
+    },
+    "privacy": "Dane użycia i dane uwierzytelniające nie trafiają do twórcy. Tylko zaszyfrowane pomiary są udostępniane jawnie sparowanym urządzeniom. Odłączenie nie usuwa wcześniej otrzymanych kopii.",
+    "networkLimit": "Bezpośrednie połączenia używają sieci lokalnej lub istniejącej prywatnej sieci VPN, bez przekaźnika, serwera wykrywania ani zmian routera. Sieci blokujące takie połączenia uniemożliwiają automatyczną synchronizację.",
+    "coverage": "{count} unikalnych rekordów · usunięto {duplicates} duplikatów · {excluded} rekordów pozostaje lokalnie bez wiarygodnego identyfikatora. Limity kont pozostają oddzielne; sumy API nie są dodawane."
+  },
+  "connections": {
+    "accounts": "Konta",
+    "installations": "Instalacje",
+    "general": "Ogólne",
+    "advanced": "Zaawansowane",
+    "addAccount": "Dodaj konto",
+    "chooseProvider": "Wybierz dostawcę",
+    "detectedDetails": "Wykryte konta GPT i szczegóły",
+    "back": "Wstecz",
+    "accountLabel": "Nazwa (opcjonalna)",
+    "apiKey": "Klucz API",
+    "adminKey": "Klucz API administratora",
+    "region": "Region",
+    "global": "Międzynarodowy",
+    "china": "Chiny",
+    "setupHelp": "Instrukcja konfiguracji",
+    "connect": "Połącz",
+    "openSignIn": "Otwórz logowanie",
+    "connectInstallation": "Połącz instalację",
+    "haveCode": "Mam kod",
+    "syncOptions": "Synchronizacja i prywatność",
+    "remove": "Usuń",
+    "automatic": "Wykryto automatycznie",
+    "empty": "Nie połączono jeszcze żadnych kont.",
+    "apiAccount": "Konto API",
+    "subscription": "Subskrypcja / plan programistyczny",
+    "thisInstallation": "Ta instalacja",
+    "syncOn": "Synchronizacja włączona",
+    "syncOff": "Synchronizacja wyłączona",
+    "local": "Lokalna",
+    "waitingSync": "Oczekiwanie na pierwszą synchronizację",
+    "viaPeer": "Przez sparowaną instalację",
+    "balance": "Saldo",
+    "privacy": "Dane logowania pozostają na tym urządzeniu. Dane użycia nie są wysyłane do twórcy.",
+    "installationsHelp": "Połącz własne instalacje, aby zobaczyć ich łączne użycie.",
+    "pairHelp": "Otwórz Instalacje na drugim urządzeniu. Utwórz tutaj kod lub wklej jego kod. Urządzenia muszą być bezpośrednio osiągalne.",
+    "adminKeyHelp": "Raporty wymagają klucza API administratora organizacji, niezależnego od subskrypcji czatu.",
+    "glmHelp": "Użyj klucza GLM Coding Plan i wybierz jego region.",
+    "browserHelp": "Kontynuuj przez oficjalne logowanie dostawcy.",
+    "keyPrivacy": "Klucz jest przechowywany lokalnie i używany tylko do zapytań do tego dostawcy.",
+    "needsSetup": "Najpierw zainstaluj oficjalne CLI dostawcy, potem odśwież listę.",
+    "claudeHelp": "Claude Code obsługuje logowanie na tym urządzeniu. Wymagane jest zainstalowane CLI Claude Code.",
+    "kimiHelp": "Użyj oficjalnego logowania Kimi Code lub klucza planu Kimi Code.",
+    "moonshotHelp": "Użyj klucza API Moonshot, aby odczytać saldo API, niezależne od Kimi Code.",
+    "loginWaiting": "Dokończ logowanie u dostawcy. Pozostaw to okno otwarte.",
+    "loginComplete": "Konto połączone. Pomiary odświeżają się automatycznie.",
+    "claudeSignIn": "Połącz przez Claude Code",
+    "providers": {
+      "gpt": "ChatGPT / Codex",
+      "claude": "Claude / Anthropic",
+      "kimi": "Kimi Code",
+      "glm": "GLM / Z.AI",
+      "openai": "OpenAI API",
+      "anthropic": "Anthropic API",
+      "moonshot": "Moonshot API"
+    },
+    "browser": "Zaloguj się",
+    "failed": "Logowanie nie powiodło się",
+    "checking": "Łączenie…",
+    "installation": "Instalacje",
+    "status": {
+      "connected": "Aktywne",
+      "detected": "Wykryte",
+      "historical": "Poprzednie",
+      "auth_required": "Wymagane logowanie",
+      "error": "Błąd",
+      "unavailable": "Niedostępne",
+      "unknown": "Niedostępne"
+    },
+    "errors": {
+      "invalid_account": "Nie znaleziono konta. Odśwież listę kont.",
+      "invalid_key": "Klucz odrzucony. Sprawdź klucz i wybranego dostawcę.",
+      "permission_denied": "Klucz nie ma dostępu do raportów użycia. Użyj klucza z wymaganymi uprawnieniami.",
+      "unsupported_key": "Ten typ klucza nie może odczytać użycia. Postępuj zgodnie z instrukcją dostawcy.",
+      "account_limit": "Osiągnięto limit kont. Najpierw usuń nieużywane konto.",
+      "connection_unavailable": "Dostawca jest nieosiągalny. Sprawdź połączenie i spróbuj ponownie.",
+      "account_storage_unavailable": "Lokalny magazyn kont jest niedostępny. Sprawdź uprawnienia aplikacji do plików.",
+      "profile_remove_failed": "Nie udało się usunąć zapisanego logowania. Zamknij okno logowania i spróbuj ponownie.",
+      "unsupported_platform": "Logowanie w przeglądarce jest niedostępne na tej platformie. Użyj dostępnej metody z kluczem."
+    },
+    "kimiHelperHelp": "Przy pierwszym logowaniu aplikacja pobiera oficjalne narzędzie Kimi bezpośrednio od Kimi. Działa lokalnie; panel nie wysyła telemetrii.",
+    "lastSeen": "Ostatnio widziane {time}"
+  },
+  "history": {
+    "refreshing": "Zapisana historia · {time}. Aktualizacja w tle."
+  },
+  "quotaIntegrity": {
+    "title": "Integralność limitów",
+    "period": "Zakres czasu",
+    "range24h": "Ostatnie 24 godziny",
+    "range7d": "Ostatnie 7 dni",
+    "range30d": "Ostatnie 30 dni",
+    "loading": "Ładowanie integralności limitów…",
+    "unavailable": "Dane o integralności limitów są niedostępne.",
+    "intro": "Nietypowe obserwacje limitów, jak dobrze pokrywają je dane oraz czy lokalna aktywność tokenów może je wyjaśnić. Nietypowa obserwacja to powód do sprawdzenia, a nie dowód problemu po stronie dostawcy.",
+    "status": {
+      "attention": "Wymaga uwagi",
+      "no_anomaly_detected": "Nie wykryto anomalii",
+      "insufficient_data": "Za mało danych"
+    },
+    "collector": "Kolektor Codex na żywo",
+    "noData": "Brak danych",
+    "lastSample": "Ostatni odczyt {time}",
+    "noSample": "Brak odczytu na żywo",
+    "findings": "Ustalenia",
+    "findingsDetail": "{warnings} ostrzeżeń · {info} informacji",
+    "observations": "Obserwacje",
+    "observationsDetail": "{samples} odczytów · {events} wpisów historii",
+    "localData": "Lokalne dane aktywności",
+    "localDataDetail": "{slots} przedziałów · odświeżono {time}",
+    "neverRefreshed": "jeszcze nie zapisano",
+    "gaps": "Luki w zbieraniu danych",
+    "gapsDetail": "{count} w tym zakresie",
+    "measured": "Zmierzone",
+    "estimate": "Szacunek",
+    "hypothesis": "Hipoteza",
+    "confidence": "Pewność: {level}",
+    "level": {
+      "medium": "średnia",
+      "low": "niska"
+    },
+    "confidenceWord": {
+      "confirmed": "potwierdzone",
+      "inferred": "wywnioskowane",
+      "possible": "możliwe"
+    },
+    "chartTitle": "Tygodniowe użycie Codex w czasie",
+    "chartAria": "Wykres liniowy tygodniowego użycia limitu Codex w procentach: {points} zapisanych punktów, {findings} oznaczonych ustaleń.",
+    "chartEmpty": "W tym zakresie nie zapisano zmian tygodniowego limitu Codex.",
+    "legendWarning": "Ostrzeżenie",
+    "legendInfo": "Informacja",
+    "legendGap": "Luka w zbieraniu danych",
+    "types": {
+      "usage_rolled_back": "Zgłoszone użycie spadło",
+      "reset_deadline_changed_early": "Czas resetu zmienił się przedwcześnie",
+      "usage_increase_without_local_activity": "Użycie wzrosło bez lokalnej aktywności",
+      "collector_gap": "Kolektor niedostępny",
+      "observation_gap": "Brak obserwacji",
+      "account_changed": "Zmienił się zakres konta",
+      "stale_codex_snapshot": "Dane na żywo są nieaktualne",
+      "no_live_codex_samples": "Brak danych Codex na żywo"
+    },
+    "fact": {
+      "usageChange": "Zużyty limit {from}% → {to}% ({delta} pkt)",
+      "between": "Zaobserwowano między {from} a {to}",
+      "deadlineShift": "Czas resetu przesunął się o {minutes} min: {from} → {to}",
+      "noActivity": "Od {minutes} min brak zapisanej lokalnej aktywności tokenów ({basis})",
+      "basisPlateau": "od pierwszego zaobserwowania poprzedniej wartości",
+      "basisWindow": "od początku okna limitu",
+      "localCounts": "Zdarzenia lokalne: {events} · tokeny lokalne: {tokens}",
+      "gapSpan": "Brak danych przez {minutes} min ({from} → {to})",
+      "gapOngoing": "Brak danych od {minutes} min, od {from} (trwa)",
+      "failures": "Zapisano {count} nieudanych prób zbierania danych",
+      "staleAge": "Ostatni odczyt na żywo był {minutes} min temu"
+    },
+    "evidence": {
+      "heading": "Dowody w danych",
+      "credit": "Między tymi obserwacjami wykorzystano kredyt resetu ({confidence}).",
+      "account": "Odczyt na żywo przełączył się mniej więcej wtedy na inne konto (możliwe).",
+      "resetNoCredit": "Przedwczesny reset bez użycia kredytu (wywnioskowane)."
+    },
+    "hypothesesHeading": "Możliwe wyjaśnienia (hipotezy, nie ustalenia)",
+    "hypotheses": {
+      "other_device_or_surface": "Użycie na innym urządzeniu, w aplikacji webowej, rozszerzeniu IDE lub zadaniach w chmurze, których nie widzą lokalne logi",
+      "other_account_or_profile": "Użycie przez inne konto lub profil współdzielące ten limit",
+      "provider_accounting_or_adjustment": "Opóźnienie rozliczenia, zaokrąglenie lub korekta po stronie dostawcy",
+      "local_logs_incomplete": "Lokalne logi są niekompletne, zrotowane lub niezbierane",
+      "ledger_not_account_scoped": "Ta historia limitu nie jest powiązana z jednym kontem",
+      "reset_credit_or_plan_change": "Kredyt resetu, zmiana planu lub inna korekta limitu",
+      "inconsistent_source_data": "Niespójne dane ze źródła limitu"
+    },
+    "noFindings": "Brak ustaleń w tym zakresie.",
+    "stepStatus": {
+      "activity_present": "Jest lokalna aktywność",
+      "shared_source_activity": "Tylko inny agent lokalny",
+      "no_local_activity": "Nie zapisano lokalnej aktywności",
+      "not_assessable": "Nie do oceny"
+    },
+    "reason": {
+      "history_start": "Historia zaczyna się w tym punkcie",
+      "no_local_history": "Brak lokalnej historii logów",
+      "before_local_history": "Lokalne logi zaczynają się później",
+      "ingest_pending": "Lokalne logi jeszcze nie odczytane ponownie"
+    },
+    "steps": {
+      "heading": "Wzrosty limitu w porównaniu z lokalną aktywnością",
+      "summary": "{present} z lokalną aktywnością · {shared} tylko inny agent lokalny · {none} bez · {unknown} nie do oceny",
+      "note": "Każdy wiersz to wzrost zgłoszonego użycia. Liczby tokenów lokalnych pochodzą wyłącznie z logów tego komputera i nie są przeliczeniem limitu.",
+      "empty": "Brak wzrostów użycia w tym zakresie."
+    },
+    "estimateText": "Porównywalne kroki dały medianę {median} tokenów lokalnych na punkt limitu (środkowa połowa {low}–{high}, {samples} kroków). Dostawcy inaczej ważą modele i dane z pamięci podręcznej, więc to tylko przybliżona skala, a nie przeliczenie.",
+    "localValue": "{events} zdarzeń · {tokens} tokenów",
+    "colTime": "Czas",
+    "colChange": "Zużyty limit",
+    "colLocal": "Aktywność lokalna",
+    "colTokens": "Zdarzenia · tokeny",
+    "colWindow": "Okno",
+    "colUsed": "Zużyto",
+    "colResets": "Reset",
+    "colLastChange": "Ostatnia zmiana",
+    "gapKind": {
+      "collector_unavailable": "Kolektor niedostępny",
+      "no_observations": "Brak obserwacji (aplikacja zamknięta lub komputer uśpiony)"
+    },
+    "ongoing": "trwa",
+    "minutes": "{value} min",
+    "gapsEmpty": "Brak luk w zbieraniu danych w tym zakresie.",
+    "windows": {
+      "heading": "Zaobserwowane okna limitów",
+      "note": "Historia limitów zapisuje tylko zmiany, więc spokojny okres nie jest luką.",
+      "empty": "W tym zakresie nie zapisano okien limitów."
+    },
+    "privacyNote": "Analizowane są tylko czasy limitów i liczby tokenów. Prompty, transkrypcje, identyfikatory kont i ścieżki plików nigdy nie są uwzględniane."
+  },
+  "workspace": {
+    "openPalette": "Open command palette",
+    "paletteShortcut": "Command palette · Ctrl+K",
+    "focusMode": "Toggle focus mode",
+    "focusShortcut": "Focus mode · Alt+Shift+F",
+    "compactMode": "Toggle compact layout",
+    "paletteTitle": "Command palette",
+    "paletteSearch": "Search actions or jump to a section…",
+    "paletteClose": "Close command palette",
+    "focusOn": "Focus mode enabled",
+    "focusOff": "Focus mode disabled",
+    "compactOn": "Compact layout enabled",
+    "compactOff": "Comfortable layout enabled",
+    "glassOn": "Glass effect enabled",
+    "glassOff": "Glass effect disabled",
+    "motionOn": "Reduced motion enabled",
+    "motionOff": "Full motion enabled"
+  }
+}

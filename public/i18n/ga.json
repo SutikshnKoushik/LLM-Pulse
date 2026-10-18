@@ -1,0 +1,1372 @@
+{
+  "app": {
+    "title": "LLM Pulse — AI Usage Intelligence",
+    "eyebrow": "LLM Pulse",
+    "heading": "Teorainneacha agus tokens"
+  },
+  "actions": {
+    "refresh": "Athnuaigh",
+    "settings": "Socruithe",
+    "close": "Dún"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "password": "Pasfhocal",
+    "signIn": "Sínigh isteach",
+    "loginFailed": "Theip ar logáil isteach"
+  },
+  "filter": {
+    "showAll": "Taispeáin gach rud",
+    "showActive": "Gníomhach amháin",
+    "hideInactive": "Folaigh soláthraithe neamhghníomhacha",
+    "showInactiveCount": "Taispeáin {count} soláthraí neamhghníomhacha",
+    "allVisible": "Tá gach soláthraí le feiceáil",
+    "showAllNoticeTitle": "Amharc gach soláthraí",
+    "showAllNoticeBody": "Tá cártaí soláthraithe neamhghníomhacha, folmha, cumraíochta amháin agus stairiúla le feiceáil. Is é Gníomhach amháin an gnáthamharc."
+  },
+  "layout": {
+    "edit": "Edit layout",
+    "done": "Done",
+    "reset": "Default order",
+    "resetDone": "Default dashboard order restored.",
+    "dragHandle": "Move {name}",
+    "grabbed": "Moving {name}. Use arrow keys to move, Enter or Space to drop, Escape to cancel.",
+    "moved": "{name} moved to position {position} of {total}.",
+    "dropped": "{name} dropped at position {position} of {total}.",
+    "cancelled": "Move cancelled."
+  },
+  "summary": {
+    "ariaLabel": "Forbhreathnú",
+    "fiveHourOpen": "5h quota free",
+    "weeklyOpen": "Week quota free",
+    "tokensToday": "Logged tokens today",
+    "tokensTotal": "Iomlán tokens logáilte",
+    "recordDayLabel": "Lá is airde",
+    "recordDay": "Lá is airde: {date} · {tokens}",
+    "quotaWindowNote": "Provider quota window",
+    "tokensRange": "Logged tokens: {range}",
+    "todayLogNote": "Calendar day from local logs, not provider quota limits. {providers}",
+    "totalLogNote": "All local log history, not provider quota limits. {providers}",
+    "providerTokenDetail": "{provider}: {tokens}",
+    "providerBreakdownMore": "{providers} + {count} more",
+    "providerBreakdownEmpty": "No provider log tokens.",
+    "rangeNotes": {
+      "h24": "Rolling 24-hour total; chart bars are day-grained.",
+      "today": "Calendar day in local time.",
+      "week": "Last 7 days from local logs.",
+      "month": "Last 30 calendar days from local logs."
+    }
+  },
+  "chart": {
+    "eyebrow": "Local capture",
+    "heading": "Stair tokens ó logaí",
+    "sourceTotalsAria": "Úsáid iomlán de réir soláthraí",
+    "legendAria": "Eochair",
+    "sourceTotalTitle": "Úsáid iomlán",
+    "svgAria": "Stair tokens",
+    "costSummary": {
+      "title": "Cost summary",
+      "apiEquivalent": "API equivalent",
+      "paid": "Subscription fixed cost",
+      "saved": "Delta vs API",
+      "quote": "API difference",
+      "quality": "Data quality",
+      "qualityComplete": "Covered",
+      "qualityPartial": "Partially estimated",
+      "qualityUnavailable": "Unavailable",
+      "missingSubscriptions": "Subscription history or a reliable fixed-cost source is missing for this range.",
+      "estimatedSources": "Estimated providers: {providers}.",
+      "missingSources": "Not included: {providers}.",
+      "unsupportedCurrencies": "Unsupported currencies: {currencies}."
+    },
+    "costs": {
+      "svgAria": "Cost history",
+      "noData": "No cost data for the selected range."
+    },
+    "filters": {
+      "h24": "Last 24 hours",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all": "All Time"
+    },
+    "headingCosts": "Cost History from Logs",
+    "mode": {
+      "tokens": "Tokens",
+      "costs": "Costs"
+    },
+    "modeToggleAria": "Chart mode",
+    "filterBarAria": "Time range",
+    "insights": {
+      "ariaLabel": "Selected range statistics",
+      "total": "Total",
+      "selectedRange": "Selected range",
+      "avgActiveDay": "Ø active day",
+      "avgActiveDayDetail": "Based on {days} active days",
+      "activeDays": "Active days",
+      "activeDaysValue": "{active}/{days}",
+      "activeDaysDetail": "Days with usage",
+      "peakDay": "Peak day",
+      "noData": "No activity in the selected range.",
+      "selectedRangeDetail": "{range} shown with the selected range semantics."
+    },
+    "models": {
+      "heading": "Models used",
+      "range": "{range} model mix",
+      "topTokens": "Top by tokens: {model} · {tokens}",
+      "topCost": "Top by API-equivalent cost: {model} · {cost}",
+      "costUnknown": "API-equivalent cost unavailable for these models.",
+      "unknown": "Samhail anaithnid"
+    },
+    "breakdown": {
+      "total": "Iomlán",
+      "provider": "Soláthraí",
+      "model": "Samhail",
+      "device": "Suiteála",
+      "account": "Cuntais"
+    },
+    "breakdownToggleAria": "Miondealú comharthaí",
+    "overviewAria": "Compact token history by provider",
+    "breakdownSummary": {
+      "totalTitle": "Total window",
+      "providerTitle": "Provider share",
+      "modelTitle": "Model share",
+      "topProvider": "Top provider",
+      "topModel": "Top model",
+      "coverage": "Coverage",
+      "providerCount": "{count} providers",
+      "modelCount": "{count} models",
+      "noProvider": "No provider breakdown",
+      "noModel": "No model breakdown"
+    },
+    "providers": {
+      "heading": "Providers used",
+      "range": "{range} provider mix",
+      "topTokens": "Top by tokens: {provider} · {tokens}",
+      "topModel": "Top model: {model} · {tokens}",
+      "noModel": "No model details",
+      "columns": {
+        "provider": "Provider",
+        "tokens": "Tokens",
+        "share": "Share",
+        "topModel": "Top model"
+      }
+    },
+    "totalBreakdown": {
+      "heading": "Total summary",
+      "range": "{range} aggregate"
+    },
+    "attribution": {
+      "groupBy": "Grúpáil de réir",
+      "unknownAccount": "Cuntas anaithnid",
+      "unknownDevice": "Suiteáil anaithnid",
+      "sharedDevice": "Feicthe ar roinnt suiteálacha",
+      "sharedDeviceHelp": "Áirithe uair amháin; suiteáil bhunaidh doiléir.",
+      "observed": "Feicthe i logaí áitiúla",
+      "observedOn": "Feicthe ar shuiteálacha",
+      "evidence": "Sannadh",
+      "observedHelp": "Léiríonn suiteálacha cá bhfuarthas logaí. Áirítear imeachtaí cóipeáilte uair amháin; d’fhéadfadh an ríomhaire bunaidh a bheith anaithnid.",
+      "accountHelp": "Ní shanntar cuntas ach nuair atá sé taifeadta san fhianaise úsáide. Fanann comharthaí eile faoi Chuntas anaithnid."
+    }
+  },
+  "tokenMix": {
+    "eyebrow": "Token Mix",
+    "heading": "Próiseáil tokens logáilte"
+  },
+  "liveMetrics": {
+    "ariaLabel": "Live system usage",
+    "eyebrow": "Live",
+    "heading": "Live Load",
+    "updated": "Updated {time}",
+    "notAvailable": "Not available",
+    "error": "Error",
+    "unavailable": "Not available",
+    "unavailableShort": "N/A",
+    "percentScale": "0-100%",
+    "cpu": "CPU",
+    "ram": "Memory",
+    "ramSub": "{used}/{total} GB used",
+    "aiLoad": "AI Load",
+    "aiLoadSub": "Heuristic",
+    "aiLoadHelp": "Estimated from CPU, memory, and token throughput. Not an exact measurement.",
+    "tokensPerMinute": "Tokens/min",
+    "noTokenWindow": "No measured window yet",
+    "noTokenBreakdown": "No reliable breakdown",
+    "historyHeading": "Trend",
+    "historyAria": "Live load trend",
+    "legendAria": "Live trend legend",
+    "historyLoading": "Collecting live data...",
+    "historyNoSeries": "No active series.",
+    "quality": {
+      "measured": "Measured",
+      "calculated": "From logs",
+      "estimated": "Estimated",
+      "unavailable": "Not available"
+    },
+    "series": {
+      "cpu": "CPU",
+      "ram": "Memory",
+      "aiLoad": "AI Load",
+      "tokensTotal": "Tokens/min",
+      "tokensInput": "Input",
+      "tokensOutput": "Output",
+      "tokensCached": "Cached",
+      "aiCpu": "AI CPU",
+      "aiMemory": "AI Memory",
+      "swap": "Swap"
+    },
+    "errors": {
+      "load": "Could not load live system metrics."
+    },
+    "tokensPerMinuteHelp": "Calculated from local Claude Code, Codex, Gemini, Copilot, and Ollama logs in the local aggregate. Multica Claude/Codex runs are included through those logs; API-only OpenAI/Anthropic billing is excluded to avoid double counting. Gemini agents may be missing when the Gemini CLI does not write token metadata.",
+    "systemCpu": "System CPU",
+    "systemRam": "System Memory",
+    "aiCpu": "AI CPU",
+    "aiCpuSub": "{count} AI processes",
+    "aiCpuHelp": "Aggregated CPU share of recognized local AI process groups. Commands and paths are not exposed.",
+    "aiMemory": "AI Memory",
+    "aiMemorySub": "{used} GB RSS",
+    "aiMemoryHelp": "Aggregated resident memory of recognized local AI process groups. Shared Electron and browser memory is approximate.",
+    "swap": "Swap",
+    "swapSub": "{used}/{total} GB used",
+    "swapHelp": "System swap usage. High swap can slow the Mac even when AI process memory is only part of the total.",
+    "noAiProcesses": "No AI process group found",
+    "processBreakdownHeading": "Running AI groups",
+    "processBreakdownHelp": "Safe aggregate view: running AI process groups and load shares without command lines, prompts, or paths.",
+    "processTotal": "AI total: {cpu} CPU · {memory} · {memoryShare} RAM · {count} running processes",
+    "processBreakdownUnavailable": "Process grouping is not available on this platform/runtime.",
+    "processBreakdownEmpty": "No recognized AI process group is currently running for the dashboard.",
+    "processColumns": {
+      "group": "Group",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "memoryShare": "RAM %",
+      "count": "Processes"
+    },
+    "recentRateWindow": "Ráta bheo 60 s rollach"
+  },
+  "pricing": {
+    "eyebrow": "Costais API",
+    "heading": "Cad a chosnódh do chuid token tríd an API",
+    "meta": "Catalóg {catalogVersion} · {modelCount} samhail · EUR trí ECB {fxDate} · praghsanna API {pricingDate} · Arena Text {scoreDate}",
+    "modelFilter": {
+      "label": "Scag de réir ainm an mhúnla",
+      "placeholder": "Mar shampla Sol, 6.1 nó Claude",
+      "empty": "Níor aimsíodh aon mhúnla leis an ainm seo."
+    },
+    "qualityScoreTitle": "Arena Text {scoreDate}: {score} Elo",
+    "chinaBadge": "An tSín",
+    "unknown": "Anaithnid",
+    "notPriced": "Gan phraghas",
+    "aliases": "Ailiasanna: {aliases}",
+    "limitSummary": "comhthéacs {context} · aschur {output}",
+    "sourceReviewed": "Athbhreithnithe {date}",
+    "regions": {
+      "apiDiscount": "Lascaine API"
+    },
+    "columns": {
+      "model": "Samhail",
+      "score": "Scór",
+      "region": "Réigiún",
+      "limits": "Teorainneacha",
+      "input": "Ionchur",
+      "cache": "Taisce",
+      "output": "Aschur",
+      "today": "Last 24h",
+      "total": "Iomlán",
+      "status": "Stádas",
+      "source": "Foinse"
+    },
+    "priceStatus": {
+      "official": "Praghas oifigiúil",
+      "estimated": "Praghas measta",
+      "unknown": "Praghas anaithnid",
+      "mixed": "Praghsanna measctha"
+    },
+    "availability": {
+      "ga": "Ar fáil go ginearálta",
+      "preview": "Réamhamharc",
+      "deprecated": "Dímheasta",
+      "unknown": "Infhaighteacht anaithnid"
+    },
+    "limitStatus": {
+      "official": "Teorainneacha oifigiúla",
+      "estimated": "Teorainneacha measta",
+      "unknown": "Teorainneacha anaithnid"
+    },
+    "viewToggleAria": "Cost view",
+    "aliasesSummary": "{count} aliases",
+    "views": {
+      "api": "API equivalent",
+      "models": "Used models",
+      "subscriptions": "Fixed costs"
+    },
+    "usedModels": {
+      "heading": "Used models in {range}",
+      "description": "Actual logged model usage matched to the local pricing catalog where possible.",
+      "empty": "No model-level token data is available for the selected range.",
+      "totalLabel": "Costas API iomlán",
+      "totalComplete": "Iomlán",
+      "totalPartial": "Páirteach",
+      "totalUnknown": "Anaithnid",
+      "totalMixed": "Airgeadraí measctha",
+      "totalPartialNote": "Níl praghas API iontaofa ag cuid de na línte ar taispeáint, mar sin tá an t-iomlán páirteach.",
+      "totalUnknownNote": "Níl praghas API iontaofa ag aon líne ar taispeáint.",
+      "totalMixedNote": "Úsáideann na línte ar taispeáint il-airgeadraí; ní ríomhtar iomlán.",
+      "totalRow": "Costas API iomlán"
+    },
+    "subscriptions": {
+      "heading": "Subscription and fixed costs in {range}",
+      "description": "Shows monthly fixed costs only when safely detected locally or saved as fallback estimates. Missing data is not treated as real cost.",
+      "empty": "No subscription or fixed-cost data is available yet.",
+      "previous": "Previous cost",
+      "delta": "Change"
+    }
+  },
+  "providers": {
+    "codex": {
+      "kicker": "Codex"
+    },
+    "codexSpark": {
+      "kicker": "Codex Spark"
+    },
+    "claudeCode": {
+      "kicker": "Claude Code"
+    },
+    "anthropic": {
+      "kicker": "Úsáid API"
+    },
+    "openai": {
+      "kicker": "API agus creidmheasanna"
+    },
+    "gemini": {
+      "kicker": "Gemini"
+    },
+    "glm": {
+      "kicker": "OpenAI-compatible import"
+    },
+    "ollama": {
+      "kicker": "Ollama"
+    },
+    "local": {
+      "name": "Local capture"
+    },
+    "gridAria": "Soláthraithe",
+    "messages": {
+      "sparkTokens24h": "Spark tokens 24h",
+      "logTokens24h": "Tokens loga 24h",
+      "missingBackendKey": "Eochair backend ar iarraidh",
+      "sevenDays": "7 lá",
+      "noCodexSparkEvents": "Níor aimsíodh aon imeachtaí Codex 5.3 Spark.",
+      "noGeminiLogs": "Níor aimsíodh aon logaí úsáide Gemini áitiúla.",
+      "glmImportTokens": "GLM/Z.AI tokens from local imports.",
+      "glmQuotaUnavailable": "Official quota through OpenCode is not available.",
+      "noGlmEvents": "No local GLM/Z.AI usage events found.",
+      "ollamaLogTokens": "Tokens Ollama áitiúla ó logaí",
+      "noOllamaLogs": "Níor aimsíodh aon logaí Ollama áitiúla.",
+      "copilotLogTokens": "Copilot CLI tokens 24h",
+      "noCopilotSessionMetrics": "No local Copilot CLI session metrics found.",
+      "claudeStatuslineNoQuotas": "Claude is sending data, but not official Pro/Max limit values yet.",
+      "claudeStatuslineMissing": "Níl statusline Claude cumraithe. Cumasaigh ordú statusline an deais le haghaidh cuótaí beo Pro/Max.",
+      "claudeLiveLimitsMissing": "Claude live limits are not available from local telemetry yet.",
+      "claudeLimitsStale": "Claude live limits are out of date. Open Claude Code once to refresh them.",
+      "claudeOauthUnavailable": "Claude CLI/OAuth quota unavailable: {reason}.",
+      "claudeBrowserLoginHint": "Log in to Claude.ai in your browser to enable credit tracking.",
+      "glmQuotaAvailable": "Official GLM Coding Plan quota from OpenCode.",
+      "glmQuotaUnavailableReason": "Official GLM Coding Plan quota unavailable: {reason}.",
+      "noOpenCodeGptEvents": "No local OpenAI/GPT usage events found in OpenCode."
+    },
+    "emptyState": {
+      "eyebrow": "Soláthraí",
+      "heading": "Gan úsáid ghníomhach",
+      "status": "Folamh",
+      "message": "Níl tokens logáilte ná sonraí teorann ag aon soláthraí faoi láthair.",
+      "visible": "Infheicthe",
+      "hidden": "Folaithe",
+      "all": "Uile"
+    },
+    "copilot": {
+      "kicker": "Copilot CLI"
+    },
+    "updateDelayHints": {
+      "default": "This provider has not produced a fresh local signal for more than {minutes} minutes. Some sources only update when their CLI or app writes new usage data.",
+      "codex": "Codex limits normally update through the local app-server. If this stays old, the app-server may be unavailable or Codex has not produced fresh live limit data.",
+      "codexSpark": "Codex Spark limits normally update through the local Codex app-server. If this stays old, Spark live limit data may not be exposed yet.",
+      "claudeCode": "This Claude Code card combines statusline, local logs, and Claude.ai billing or usage data. Updates can lag when Claude Code is closed, the statusline has not run, or Claude.ai cookies/API access are unavailable.",
+      "copilot": "GitHub Copilot CLI usage is written after sessions shut down, and live quota probing depends on the local Copilot CLI. The timestamp can lag while a session is still open or the probe is unavailable.",
+      "gemini": "Gemini local usage updates only when local log files contain new usage metadata.",
+      "glm": "GLM/Z.AI updates when local JSON, JSONL, or CSV usage imports contain OpenAI-compatible GLM token counts.",
+      "ollama": "Ollama usage updates only when requests pass through the dashboard's local proxy/log file."
+    },
+    "freshness": {
+      "ariaLabel": "Am sonraí an tsoláthraí",
+      "usage": "Úsáid {time}",
+      "limits": "Teorainneacha {time}",
+      "prices": "Praghsanna {time}",
+      "catalog": "Catalóg {date}",
+      "unknown": "Am sonraí anaithnid"
+    },
+    "openCode": {
+      "kicker": "OpenCode GPT logs"
+    },
+    "kimi": {
+      "kicker": "Kimi Code"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "empty": "Folamh",
+    "not_configured": "Socrú",
+    "error": "Earráid"
+  },
+  "labels": {
+    "today": "Inniu",
+    "fiveHourUsed": "5h úsáidte",
+    "weekUsed": "Seachtain úsáidte",
+    "fiveHourLeft": "5h fágtha",
+    "weekLeft": "Seachtain fágtha",
+    "since": "Ó",
+    "updated": "Nuashonraithe",
+    "plan": "Plean",
+    "fiveHourTokens": "Tokens 5h",
+    "total": "Iomlán",
+    "cost": "Costas",
+    "tokens7d": "Tokens 7 lá",
+    "cost7d": "Costas 7 lá",
+    "limits": "Teorainneacha",
+    "updatedHelp": "Why this timestamp may be delayed",
+    "subscription": "Subscription",
+    "last24h": "Last 24h"
+  },
+  "credits": {
+    "title": "Creidmheasanna",
+    "monthlySpend": "Creidmheasanna úsáide",
+    "monthlyLimit": "Teorainn mhíosúil",
+    "currentCredit": "Creidmheas reatha",
+    "autoTopUp": "Breisiú uathoibríoch",
+    "default": "Creidmheasanna",
+    "on": "Ar siúl",
+    "off": "As"
+  },
+  "limits": {
+    "recentPace": {
+      "timeToLimit": "Am go dtí an teorainn: {duration}",
+      "title": "Luas le déanaí",
+      "measured": "+{percent} pointe céatadáin i {duration}",
+      "collecting": "Níl dóthain tomhas ann don tréimhse seo fós.",
+      "flat": "Níl aon mhéadú intomhaiste sa tréimhse seo.",
+      "stale": "Tá an léamh cuóta is déanaí ró-shean.",
+      "changed": "D’athraigh na léamha; níl réamhaisnéis ar fáil.",
+      "possible": "D’fhéadfaí an teorainn a bhaint amach roimh athshocrú; tá an meastachán éiginnte.",
+      "note": "Meastachán ó chéatadáin chothromaithe le luas seasta."
+    },
+    "fiveHour": "5h",
+    "weekly": "Seachtain",
+    "currentSession": "Seisiún reatha",
+    "allModels": "Gach samhail",
+    "claudeDesign": "Claude Design",
+    "sonnetOnly": "Sonnet amháin",
+    "default": "Teorainn",
+    "resetPrefix": "Athshocrú {time}",
+    "usedValue": "{percent}% úsáidte",
+    "leftValue": "{percent}% fágtha",
+    "freeLabel": "{label} ar fáil",
+    "limitGroups": "{count} grúpa teorainneacha",
+    "noModelLimits": "Gan teorainneacha samhlacha",
+    "remainingShort": "{days}d {hours}h {minutes}m",
+    "fullTitle": "Limit full",
+    "fullDescription": "{limit} is full.",
+    "fullTokenDetail": "{tokens} tokens in {period}",
+    "fullPremiumRequestsDetail": "{requests} premium requests from local session logs",
+    "fullResetDetail": "Reset {time}",
+    "period5h": "5h",
+    "period7d": "7d",
+    "period24h": "24h",
+    "fullQuotaDetail": "{usage} used",
+    "status": {
+      "ok": "On track",
+      "risk": "Luas ard",
+      "full": "Limit reached",
+      "unknown": "Unknown"
+    },
+    "pace": {
+      "remaining": "Ag an luas reatha beidh thart ar {percent}% fagtha ag an athshocru.",
+      "shortfall": "Ag an luas reatha beidh thart ar {percent}% in easnamh ag an athshocru.",
+      "hitBeforeReset": "Ag an luas reatha bainfear an teorainn amach thart ar {duration} roimh an athshocru. ({time})",
+      "fullWithReset": "Teorainn bainte amach; athshocru {time}.",
+      "fullNoReset": "Teorainn bainte amach; am athshocraithe ar fail.",
+      "unavailable": {
+        "noUsage": "Luas ar fail: ni thugann an fhoinse seo ceatadan usaide.",
+        "noWindow": "Luas ar fail: ni thugann an fhoinse seo fad fuinneoige no am athshocraithe.",
+        "notStarted": "Luas ar fail: nior thosaigh an fhuinneog chuota seo fos.",
+        "staleReset": "Luas ar fail: ta am an athshocraithe as data; athnuaigh an fhoinse."
+      }
+    },
+    "duration": {
+      "daysHours": "{days} l {hours} u",
+      "hoursMinutes": "{hours} u {minutes} n",
+      "minutes": "{minutes} n"
+    },
+    "gauge": {
+      "title": "Úsáid reatha",
+      "projectedValue": "{percent}% réamh-mheasta",
+      "unavailable": "Níl an réamh-mheastachán ar fáil",
+      "aria": "Úsáid deiridh réamh-mheasta do {label}"
+    },
+    "viewToggleAria": "Léirshamhlú úsáide reatha",
+    "view": {
+      "tachometer": "Tomhas",
+      "bar": "Barra"
+    },
+    "remainingUntilReset": "Resets in {remaining} · Reset {time}",
+    "glmFiveHourTokens": "5h tokens",
+    "glmWeekly": "Weekly quota",
+    "glmMcpMonthly": "Monthly MCP"
+  },
+  "tokens": {
+    "input": "Ionchur",
+    "cacheCreation": "Cruthú taisce",
+    "cachedInput": "Ionchur taiscithe",
+    "output": "Aschur",
+    "reasoningOutput": "Aschur réasúnaithe",
+    "total": "Iomlán"
+  },
+  "format": {
+    "billion": "bn",
+    "million": "m",
+    "thousand": "k",
+    "lessThanSharePercent": "<0.1%",
+    "lessThanCent": "< 0.01 EUR",
+    "usdPerMillion": "{value} $/M",
+    "cacheReadWrite": "{read} léamh / {write} scríobh",
+    "cacheSameAsInput": "cosúil leis an ionchur",
+    "perMonth": "{amount}/mo",
+    "fromPerMonth": "ó {amount}/mí"
+  },
+  "settings": {
+    "heading": "Socruithe",
+    "language": {
+      "label": "Teanga"
+    },
+    "theme": {
+      "label": "Téama",
+      "system": "Córas",
+      "light": "Geal",
+      "dark": "Dorcha"
+    },
+    "notifications": {
+      "title": "Limits & warnings",
+      "description": "Warnings use real 5-hour and weekly provider windows plus projections; they are separate from monthly subscription/API cost comparisons.",
+      "enabled": "Enable notifications",
+      "pacingLabel": "Pacing warning at projected provider-window usage (%)",
+      "hardLimitLabel": "Hard warning at measured provider-window usage (%)",
+      "save": "Save",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "diagTitle": "Notification diagnostics",
+      "diagLastCheck": "Last check",
+      "diagDuration": "Duration",
+      "diagAlerts": "Alerts found",
+      "diagLastShown": "Last notification sent",
+      "diagSkipped": "Skip reason",
+      "diagError": "Last error",
+      "diagSupported": "Notifications supported",
+      "diagNone": "None",
+      "diagNever": "Never",
+      "diagYes": "Yes",
+      "diagNo": "No",
+      "testBtn": "Send test notification",
+      "testQueued": "Test requested. If no real system banner appears, open system notifications, allow LLM Pulse, restart the app, then run the test again.",
+      "testError": "Could not send test notification.",
+      "testResultLabel": "Last test result",
+      "testResultAt": "At",
+      "testResultOutcome": "Outcome",
+      "testResult_shown": "Reported as shown by an older build",
+      "testResult_not_supported": "Not supported on this system",
+      "testResult_error": "Error",
+      "diagPermission": "Browser permission (not a macOS banner guarantee)",
+      "permission_granted": "Granted for browser API",
+      "permission_default": "Not asked yet",
+      "permission_denied": "Denied",
+      "permission_unsupported": "Unsupported",
+      "permission_unknown": "Unknown",
+      "permission_error": "Permission check failed",
+      "permissionNotGranted": "Notification permission was not granted. System notification settings were opened; allow LLM Pulse, restart the app, then run the test again.",
+      "permissionUnsupported": "This app runtime does not expose desktop notification permission.",
+      "testResult_sent": "Queued with Electron (banner not confirmed)",
+      "testQueuedRendererError": "Native macOS notification queued, but the immediate browser notification failed: {error}",
+      "testTitle": "LLM Pulse - Test",
+      "testBody": "Desktop notifications are working correctly.",
+      "inAppTestTitle": "In-app test notification",
+      "inAppTestErrorTitle": "Notification test needs attention",
+      "inAppTestBody": "This in-app fallback confirms the test ran. It is not a system banner; native banners may require system notification permission, a fresh app restart, and a properly signed build.",
+      "diagNativeDelivery": "Native system delivery",
+      "nativeDelivery_ready": "Signed app: native banners should be available",
+      "nativeDelivery_ad_hoc": "Ad-hoc build: native banners may not appear",
+      "nativeDelivery_gatekeeper_rejected": "Gatekeeper rejected: native banners may not appear",
+      "nativeDelivery_unverified": "Unverified",
+      "nativeDelivery_not_applicable": "Not applicable on this platform",
+      "nativeDelivery_unknown": "Unknown",
+      "openSettingsBtn": "Open system notification settings",
+      "openSettingsQueued": "System notification settings opened. Allow notifications for LLM Pulse, restart the app if you just changed the setting, then run the test again.",
+      "openSettingsError": "Could not open system notification settings from this runtime.",
+      "systemGuideTitle": "System notifications need attention",
+      "systemGuideDefault": "Allow notifications for LLM Pulse in system settings, restart the app if you just changed the setting, then run the test again.",
+      "systemGuidePermission": "This app does not yet have notification permission. System settings were opened; allow notifications for LLM Pulse there.",
+      "systemGuideUnsupported": "This runtime cannot read browser notification permission. Open system notification settings and allow notifications for LLM Pulse there.",
+      "systemGuideNativeUnverified": "Native banners are not reliably confirmed with this build. Check system notifications, allow LLM Pulse, then test again after restarting the app.",
+      "systemGuideTestFailed": "The last native notification attempt reported a failure. Check system notifications, restart the app, then run the test again.",
+      "systemGuideAfterTest": "If no real system banner appeared, check system notifications, allow LLM Pulse, restart the app, then send the test again.",
+      "thresholdsHelp": "Pacing uses the current consumption rate; hard warning uses measured consumption in the relevant 5h or weekly provider window.",
+      "nativeAlertTitle": "Rabhadh teorann: {window}",
+      "nativeUsedPercent": "{percent}% úsáidte.",
+      "nativeHardLimit": "Tá an teorainn beagnach ídithe.",
+      "nativePacingProjected": "{usedPercent}% úsáidte; réamh-mheastar {projectedPercent}% leis an luas reatha.",
+      "nativeEstimatedExhaustion": "Ídiú measta i gceann {time}.",
+      "nativeDurationHoursMinutes": "{hours} u {minutes} nóim",
+      "nativeDurationHours": "{hours} u",
+      "nativeDurationMinutes": "{minutes} nóim",
+      "nativeWindowFiveHour": "Fuinneog 5 uair",
+      "nativeWindowWeekly": "Teorainn sheachtainiúil",
+      "nativeWindowSonnetOnly": "Teorainn Sonnet amháin",
+      "nativeWindowClaudeDesign": "Teorainn Claude Design",
+      "nativeWindowGeneric": "Teorainn"
+    },
+    "subscriptions": {
+      "title": "Subscription costs",
+      "planLabel": "Plan",
+      "monthlyCostLabel": "Monthly cost (EUR)",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "description": "Detected plans and costs come from safe local signals. Missing data is not counted as real cost.",
+      "detectedOnly": "Manual values are not normal setup. Use Advanced only as a fallback estimate when local detection is unavailable.",
+      "advancedTitle": "Advanced fallback estimates",
+      "advancedDescription": "These values are saved fallback estimates. Cards and cost views label them as estimates, not automatically detected costs."
+    },
+    "sources": {
+      "title": "Data sources & diagnostics",
+      "description": "Manage connected sources, recheck access, and copy ACL commands for other local users.",
+      "recheck": "Recheck access",
+      "recheckOne": "Recheck access",
+      "recheckPending": "Checking...",
+      "rechecked": "Source diagnostics refreshed.",
+      "recheckError": "Could not refresh source diagnostics.",
+      "currentUser": "current user",
+      "summaryStatus": "Status: {status}",
+      "summaryCounts": "{connected} usable · {candidates} additional candidates",
+      "connectedTitle": "Usable sources",
+      "candidatesTitle": "Additional detected sources",
+      "connectedEmpty": "No usable sources detected yet.",
+      "candidatesEmpty": "No additional source candidates detected right now.",
+      "owner": "Owner: {owner}",
+      "discovery": "Discovery: {method} · confidence {confidence}",
+      "access": {
+        "readable": "Readable",
+        "mixed": "Partially readable",
+        "denied": "Access denied",
+        "missing": "Missing",
+        "process_only": "Process only",
+        "service_only": "Service only"
+      },
+      "permissions": {
+        "readable": "Readable",
+        "denied": "Denied",
+        "missing": "Missing",
+        "unknown": "Unknown",
+        "optionalMissing": "Optional missing"
+      },
+      "roles": {
+        "sessions": "Sessions",
+        "archived_sessions": "Archived sessions",
+        "projects": "Projects",
+        "session_state": "Session state",
+        "telemetry": "Telemetry",
+        "chats": "Chats",
+        "tmp": "Temporary files",
+        "usage_file": "Usage file",
+        "home": "Home"
+      },
+      "noPaths": "No direct filesystem path available.",
+      "connect": "Connect",
+      "connectPending": "Connecting...",
+      "connectSuccess": "Source connected. Running a fresh diagnostics pass now.",
+      "connectError": "Could not connect source.",
+      "disable": "Disable",
+      "disablePending": "Disabling...",
+      "disableSuccess": "Source disabled. Usage totals were refreshed.",
+      "disableError": "Could not disable source.",
+      "grantCommands": "Grant commands",
+      "revokeCommands": "Revoke commands",
+      "copyGrant": "Copy grant commands",
+      "copyRevoke": "Copy revoke commands",
+      "copyGrantSuccess": "Grant commands copied to the clipboard.",
+      "copyRevokeSuccess": "Revoke commands copied to the clipboard.",
+      "copyError": "Could not copy commands to the clipboard.",
+      "automatic": "used automatically"
+    },
+    "supportReport": {
+      "title": "Support report",
+      "description": "Generate a redacted support report for Multica or WhatsApp when local sources are missing or usage does not appear.",
+      "privacyNote": "The report contains only metadata and redacted paths, no raw logs, prompts, secrets, or provider payloads.",
+      "downloadJson": "Save JSON report",
+      "copySummary": "Copy summary",
+      "summaryLabel": "Compact summary",
+      "emptySummary": "Generate a report to preview the compact support summary.",
+      "preparing": "Preparing support report...",
+      "downloaded": "Support report saved.",
+      "copied": "Support summary copied to the clipboard.",
+      "generateError": "Could not generate support report: {message}",
+      "copyError": "Could not copy support summary to the clipboard."
+    },
+    "updates": {
+      "title": "App updates",
+      "description": "Automatic update checks are always active for supported packaged desktop builds; only preview releases are optional.",
+      "enabled": "Automatic update checks are always active",
+      "allowPrerelease": "Include preview releases",
+      "saved": "Saved.",
+      "saveError": "Could not save update settings.",
+      "diagTitle": "Update diagnostics",
+      "diagState": "State",
+      "diagSupport": "Support",
+      "diagLastCheck": "Last check",
+      "diagVersion": "App version",
+      "diagAvailable": "Available version",
+      "diagError": "Last error",
+      "diagNone": "None",
+      "checkNow": "Check now",
+      "checkQueued": "Update check queued.",
+      "checkError": "Could not request update check.",
+      "noticeTitle": "Update attention needed",
+      "noticeMacSigning": "macOS automatic updates require a signed app. This unsigned build can run after manual approval, but the updater will stay disabled until Developer ID signing and notarization are configured.",
+      "noticeDevelopment": "Automatic updates run only from a packaged desktop app, not from the development runtime.",
+      "noticeUnsupported": "Automatic updates are not supported on this platform/package.",
+      "noticeGatekeeper": "The app is signed, but Gatekeeper did not fully accept it. If updates behave oddly, reinstall a notarized build.",
+      "noticeDownloaded": "An update has been downloaded. Restart the app to install it.",
+      "noticeError": "The last update check failed. Check the error line, network access, and release assets.",
+      "state_unknown": "Unknown",
+      "state_disabled": "Disabled",
+      "state_checking": "Checking",
+      "state_available": "Update available",
+      "state_downloading": "Downloading",
+      "state_up_to_date": "Up to date",
+      "state_downloaded": "Downloaded",
+      "state_error": "Error",
+      "state_not_electron": "Not running in desktop app",
+      "state_development_build": "Development build",
+      "state_macos_signing_required": "macOS signing required",
+      "state_unsupported_platform": "Unsupported platform",
+      "support_ready": "Ready",
+      "support_development_build": "Development build",
+      "support_macos_signing_required": "macOS signing required",
+      "support_macos_gatekeeper_warning": "Signed, but Gatekeeper warning",
+      "support_unsupported_platform": "Unsupported platform",
+      "support_electron_updater_missing": "Updater package missing",
+      "support_unknown": "Unknown",
+      "state_electron_updater_missing": "Updater package missing",
+      "alwaysOn": "Automatic update checks are always active."
+    },
+    "saving": "Saving..."
+  },
+  "errors": {
+    "loadUsage": "Earráid"
+  },
+  "diagnostics": {
+    "ariaLabel": "Source diagnostics",
+    "eyebrow": "Local sources",
+    "heading": "Diagnostics & connection",
+    "recheck": "Recheck access",
+    "loading": "Loading source diagnostics...",
+    "meta": "User {user} · Checked {checkedAt} · {platform} · {support}",
+    "support": {
+      "full": "full host discovery",
+      "partial_container": "limited container discovery",
+      "stub": "platform check unavailable",
+      "unsupported": "unsupported platform"
+    },
+    "supportShort": {
+      "full": "Full",
+      "partial_container": "Limited",
+      "stub": "Unavailable",
+      "unsupported": "Unavailable"
+    },
+    "supportDescriptions": {
+      "full": "Host file access, process hints, and permissions are measured on this machine.",
+      "partial_container": "Container discovery can miss host users, services, and homes; mounted logs can still be read.",
+      "stub": "Host source discovery is not available on this platform build; current-user configured logs may still be read.",
+      "unsupported": "Host source discovery is unavailable here; use Settings or a supported host build for source setup."
+    },
+    "quality": {
+      "measured": "Measured",
+      "configured": "Configured",
+      "detected": "Detected",
+      "limited": "Limited",
+      "unavailable": "Unavailable"
+    },
+    "facets": {
+      "logs": {
+        "title": "Readable log sources",
+        "available": "The app can read at least one local usage source.",
+        "empty": "No readable token log source was found in this scan."
+      },
+      "savedSources": {
+        "title": "Saved extra sources",
+        "available": "These are additional sources saved in Settings.",
+        "empty": "Zero saved sources is OK: current-user log history can still appear below."
+      },
+      "permissions": {
+        "title": "Permission fixes",
+        "blocked": "At least one plausible source exists, but this app cannot read it yet.",
+        "clear": "No denied source path was found in this scan."
+      },
+      "runtimeHints": {
+        "title": "Process/service hints",
+        "available": "A supported tool is visible only as a process or service, not as readable logs.",
+        "empty": "No process-only or service-only source hints were found."
+      },
+      "platform": {
+        "title": "Platform coverage"
+      }
+    },
+    "errors": {
+      "load": "Could not load source diagnostics: {message}"
+    },
+    "statuses": {
+      "connected_live": {
+        "title": "Local data is available",
+        "body": "Readable local sources are available. Saved extra-source counts only track sources you connected manually."
+      },
+      "current_user_empty": {
+        "title": "Current-user logs empty",
+        "body": "The current desktop user was scanned, but no local usage files with token data were found yet."
+      },
+      "candidates_readable_empty": {
+        "title": "Readable candidates found",
+        "body": "Known tool folders are readable, but they currently look empty or are not saved as extra sources."
+      },
+      "candidates_denied": {
+        "title": "Permission action needed",
+        "body": "A plausible source was found, but this app cannot read it with the current account."
+      },
+      "runtime_hints_only": {
+        "title": "Tool seen without readable logs",
+        "body": "A supported tool process or service was detected, but no readable log folder was found for it yet."
+      },
+      "no_tools_found": {
+        "title": "No local tools found",
+        "body": "No supported local tool folders, related processes, or service hints were detected on this machine."
+      },
+      "other_dashboard_found": {
+        "title": "Other dashboard instance found",
+        "body": "Another local LLM Pulse instance is running and may already be reading local usage data."
+      },
+      "partial_unsupported": {
+        "title": "Discovery is limited here",
+        "body": "This runtime can only do limited source discovery, so some users, services, or homes may stay invisible."
+      },
+      "discovery_error": {
+        "title": "Discovery error",
+        "body": "Source discovery did not finish cleanly."
+      }
+    },
+    "nextActions": {
+      "connected_live": "No action is needed; local data below can come from default current-user logs even with zero saved extra sources.",
+      "current_user_empty": "No action is needed unless you expected history; start a supported tool or inspect sources in Settings.",
+      "candidates_readable_empty": "Open Settings > Local sources if you want to save one of these readable sources.",
+      "candidates_denied": "Open Settings > Local sources, copy the ACL command for the denied source, run it as an admin, then recheck.",
+      "runtime_hints_only": "Wait for the tool to write usage logs, or configure the readable source in Settings and recheck.",
+      "no_tools_found": "Start a supported local tool or add a source in Settings, then recheck.",
+      "other_dashboard_found": "Use the already running dashboard window or stop it before checking this instance again.",
+      "partial_unsupported": "Run the desktop app on the host OS for fuller discovery; mounted local logs can still be shown below.",
+      "discovery_error": "Recheck access. If it fails again, check the backend error and source settings."
+    },
+    "recheckResults": {
+      "checking": "Checking...",
+      "ready": "Recheck complete: {status}",
+      "action": "Action needed: {status}",
+      "error": "Recheck failed: {message}",
+      "empty": "Recheck did not return diagnostics."
+    },
+    "instances": {
+      "title": "Other dashboard instances",
+      "item": "{user} has another dashboard instance running."
+    }
+  },
+  "subscriptions": {
+    "plan": "Plan: {plan}",
+    "planUnknown": "Plan unknown",
+    "costUnknown": "Cost unknown",
+    "source": "Source: {source}",
+    "updated": "Updated {time}",
+    "qualityLabel": "Cost quality",
+    "sourceLabel": "Source",
+    "quality": {
+      "automatic": "Automatically detected",
+      "manual": "Saved fallback estimate",
+      "estimated": "Estimated / partial",
+      "unknown": "Unknown",
+      "catalog": "Luach catalóige",
+      "official": "Praghas liosta oifigiúil",
+      "officialStarting": "Praghas liosta tosaigh oifigiúil"
+    },
+    "sources": {
+      "local_settings": "saved fallback",
+      "account": "foinse cuntais/billeála",
+      "codex_app_server": "Codex local app-server",
+      "codex_local_logs": "Codex local logs",
+      "claude_statusline": "Claude Code statusline",
+      "claude_auth_status": "Claude CLI auth status",
+      "claudeCode_local_signal": "Claude Code local signal",
+      "codex_local_signal": "Codex local signal",
+      "copilot_local_signal": "Copilot local signal",
+      "gemini_local_signal": "Gemini local signal",
+      "openai_api": "OpenAI API metadata",
+      "anthropic_api": "Anthropic API metadata",
+      "unknown": "unknown",
+      "openai_public_catalog": "catalóg poiblí síntiús OpenAI",
+      "anthropic_public_catalog": "catalóg poiblí síntiús Anthropic",
+      "claude_browser_sync": "sioncronú brabhsalaí/cuntais Claude",
+      "claude_api": "API usaide cuntais Claude",
+      "browser": "foinse chuntais bhrabhsalaí",
+      "official_pricing_page": "leathanach praghsála oifigiúil",
+      "cached_official_snapshot": "seat oifigiúil taiscthe",
+      "bundled_catalog": "catalóg chuachta",
+      "account_billing": "foinse cuntais/billeála"
+    },
+    "catalogReviewed": "Athbhreithníodh an catalóg ar {date}",
+    "costReasons": {
+      "catalogMissing": "Nil praghas iontaofa cataloige no cuntais ag teacht leis an bplean braite seo.",
+      "catalogMissingCodexAppServer": "Nocht app-server Codex an plean, ach ni praghas miosuil; nil praghas cataloige iontaofa ag teacht leis.",
+      "catalogMissingClaudeStatusline": "Nocht statusline Claude an plean, ach ni praghas miosuil; ta sonrai brabhsalai/cuntais in easnamh no gan phraghas.",
+      "catalogMissingClaudeAuth": "Nocht auth CLI Claude an plean, ach ni praghas miosuil; ta sonrai brabhsalai/cuntais in easnamh no gan phraghas.",
+      "catalogMissingClaudeBrowser": "Seicealadh {source}, ach ni nochtann se praghas miosuil an phleain."
+    },
+    "costActions": {
+      "addFallback": "Nuashonraigh foinse an chatalóige/an chuntais nó cuir meastachán cúltaca Advanced leis."
+    },
+    "planSource": "Plean/teorainneacha ó {source}",
+    "planSourceLabel": "Foinse plean/teorainneacha",
+    "catalogFallbackNote": "Is luach cúltaca ón gcatalóg é an praghas míosúil; tugann foinsí aip/cuntais léite amháin sonraí plean, teorainneacha nó creidmheasa, ach ní praghas míosúil iontaofa.",
+    "sourceAudit": {
+      "heading": "Foinsí praghais inléite amháin",
+      "safePriceDetected": "aimsíodh praghas míosúil iontaofa",
+      "planOnlyNoPrice": "plean/teorainneacha amháin; níl praghas míosúil nochta",
+      "browserNoPrice": "seiceáilte; níl praghas míosúil iontaofa nochta",
+      "catalogFallback": "praghas cúltaca catalóige",
+      "notConfigured": "níl sé sa rith seo",
+      "notAvailable": "níl foinse phraghais shábháilte inléite amháin ar fáil",
+      "notUsed": "níl in úsáid",
+      "officialListPrice": "praghas liosta oifigiúil",
+      "accountSourceExpired": "tá foinse an chuntais imithe in éag",
+      "accountSourceUnavailable": "níl foinse an chuntais ar fáil"
+    },
+    "officialListPriceNote": "Praghas liosta oifigiúil; d’fhéadfadh billeáil iarbhír athrú mar gheall ar CBL/cánacha, lascainí bliantúla, suíocháin, cúpóin, praghsáil réigiúnach nó conarthaí Enterprise.",
+    "fetched": "Faighte {time}",
+    "sourceUrl": "URL: {url}",
+    "planKey": "Eochair plean: {key}",
+    "parserStatus": "Parsálaí: {status}",
+    "priceSourceTypeLabel": "Cineál foinse praghais",
+    "sourceUrlLabel": "URL foinse",
+    "fetchedLabel": "Am faighte/sonraí",
+    "planKeyLabel": "Eochair plean",
+    "parserStatusLabel": "Stádas parsálaí",
+    "parserStatuses": {
+      "parsed": "parsáilte",
+      "parse_failed": "theip ar pharsáil",
+      "cached_after_fetch_error": "taisce tar éis earráid faighte",
+      "bundled": "cúltaca cuachta",
+      "missing": "ar iarraidh",
+      "unknown": "anaithnid"
+    },
+    "officialStartingListPriceNote": "Praghas liosta tosaigh oifigiúil; níor léadh bille iarbhír an chuntais agus d’fhéadfadh sé a bheith difriúil mar gheall ar shraith, CBL/cánacha, lascainí bliantúla, suíocháin, cúpóin, praghsanna réigiúnacha, breiseáin nó conarthaí enterprise.",
+    "tierVariant": "Sraith/leagan: {variant}",
+    "actualBilling": "Billeáil iarbhír ar eolas: {status}",
+    "tierVariantLabel": "Sraith/leagan",
+    "actualBillingKnownLabel": "Billeáil iarbhír ar eolas",
+    "priceVariants": {
+      "from": "íosmhéid / ó",
+      "pro_5x": "Pro 5x",
+      "pro_5x_20x": "Pro 5x/20x",
+      "pro_20x": "Pro 20x",
+      "max_5x": "Claude Max 5x",
+      "max_5x_20x": "Claude Max 5x/20x",
+      "max_20x": "Claude Max 20x",
+      "unknown": "anaithnid"
+    },
+    "actualBillingKnown": {
+      "yes": "tá",
+      "no": "níl"
+    },
+    "connectionActions": {
+      "refresh": "Athnuaigh",
+      "claudeLogin": "Logáil isteach i Claude agus léigh an plean",
+      "claudeRefresh": "Léigh plean Claude arís",
+      "chatgptLogin": "Logáil isteach i ChatGPT agus léigh an plean",
+      "chatgptRefresh": "Léigh plean ChatGPT arís",
+      "rereadPlan": "Léigh an plean anois"
+    },
+    "connectionStatus": {
+      "refreshRequired": "Tá athnuachan an naisc de dhíth",
+      "claudeLoginRequired": "Tá logáil isteach Claude de dhíth",
+      "claudeRefreshRequired": "Athnuaigh nasc Claude",
+      "chatgptLoginRequired": "Tá logáil isteach ChatGPT de dhíth",
+      "chatgptRefreshRequired": "Athnuaigh nasc ChatGPT Billing",
+      "claudeConflict": "Claude Max: foinsí contrártha ({details})"
+    },
+    "connectionHelp": "Oscail leathanach an tsoláthraí, logáil isteach más gá, agus fill anseo. Léifidh an aip an plean arís nuair a fhilleann fócas, nó úsáid an cnaipe."
+  },
+  "gptAccounts": {
+    "ariaLabel": "GPT accounts",
+    "eyebrow": "Local account registry",
+    "heading": "GPT accounts",
+    "recheck": "Re-scan accounts",
+    "checking": "Scanning Codex and OpenCode accounts…",
+    "rechecked": "Account scan complete.",
+    "recheckError": "Account scan failed: {message}",
+    "recheckErrorFallback": "Unknown error",
+    "summary": "{active} active of {count} known accounts · scanned {time}",
+    "notScanned": "Accounts have not been scanned yet.",
+    "empty": "No ChatGPT account found yet",
+    "guidance": "Sign in with Codex or OpenCode, then re-scan. Accounts seen previously remain in this list as history.",
+    "active": "Active",
+    "historical": "Previous",
+    "lifetimeTokens": "Codex lifetime tokens",
+    "limit": "Limit",
+    "lastSeen": "Last seen {time}",
+    "activeSourceCount": "{count} active sources",
+    "attributionNote": "OpenCode tokens are measured for OpenCode as a whole because its message database does not record which account produced each message.",
+    "sources": {
+      "codex": "Codex",
+      "openCode": "OpenCode"
+    },
+    "activeSourceCountOne": "1 active source",
+    "add": "Cuir cuntas GPT leis",
+    "signIn": "Sínigh isteach le OpenAI",
+    "removeLogin": "Bain an síniú isteach sábháilte",
+    "login": {
+      "waiting": "Críochnaigh an síniú isteach le OpenAI. Roghnaigh an cuntas sa bhrabhsálaí.",
+      "complete": "Cuntas ceangailte.",
+      "failed": "Níl síniú isteach ar fáil. Suiteáil Codex CLI nó bain triail eile as."
+    },
+    "connectionHelp": "Aimsítear sínithe isteach Codex agus OpenCode go huathoibríoch. Cuir cuntais GPT leis gan iad a athsholáthar.",
+    "loginPrivacy": "Déanann an síniú isteach cumarsáid le OpenAI. Fanann dintiúir i bpróifíl áitiúil ar leith agus ní sheoltar chuig an bhforbróir ná chuig gléasanna péireáilte iad."
+  },
+  "codexResets": {
+    "title": "Codex · Stair athshocruithe",
+    "period": "Tréimhse",
+    "last10": "Na 10 bhfuinneog is déanaí",
+    "last30": "Na 30 fuinneog is déanaí",
+    "all": "Gach fuinneog",
+    "credits": "Creidmheasanna athshocraithe ar fáil",
+    "earlyCount": "Athshocruithe luatha",
+    "averageDuration": "Meánfhad ≈",
+    "averageUsage": "Meánúsáid",
+    "days": "{value} lá",
+    "windows": "as {count} fuinneog",
+    "maximum": "An úsáid is airde a breathnaíodh",
+    "start": "Tús ≈",
+    "plannedReset": "Athshocrú fógartha",
+    "end": "Deireadh ≈",
+    "duration": "Fad ≈",
+    "usage": "Úsáid uasta",
+    "result": "Fianaise athshocraithe",
+    "early": "Luath",
+    "regular": "Sceidealaithe",
+    "uncertain": "Éiginnte",
+    "estimated": "Athchruthaithe",
+    "confirmed": "Creidmheas úsáidte: deimhnithe",
+    "inferred": "Creidmheas úsáidte: tátal",
+    "live": "Taifeadadh gníomhach",
+    "stale": "Taifeadadh as dáta",
+    "unavailable": "Sonraí beo gan fáil",
+    "loading": "Stair á luchtú…",
+    "empty": "Níor breathnaíodh fuinneoga críochnaithe fós.",
+    "note": "Athchruthaíonn seanlogaí fuinneoga gan cuntas a shannadh. Meastacháin iad an fad agus an deireadh; is í an úsáid an luach is airde a breathnaíodh. Leanann an taifeadadh fad a bhíonn an aip ag rith. Ní féidir daoine ná gléasanna a aithint.",
+    "durationBasis": "{count} fuinneog inúsáidte · ionchas: 7 lá",
+    "recordingSince": "Taifeadadh ó {time}",
+    "redemptions": "Creidmheasanna: {confirmed} úsáid dheimhnithe · {inferred} úsáid thátalaithe",
+    "expires": "Éagann {time}",
+    "coverage": "{uncertain} fuinneog éiginnte · {gaps} bearna taifeadta",
+    "current": "Reatha: athshocrú {time} · uasmhéid {percent} %",
+    "events": "Imeachtaí creidmheasa · na 30 is déanaí",
+    "granted": "Creidmheas deonaithe",
+    "expired": "Creidmheas imithe in éag",
+    "creditUnknown": "Athrú creidmheasa: doiléir",
+    "cause": "Cúis an athshocraithe",
+    "causeManual": "De láimh · cúpón",
+    "causeProvider": "OpenAI · tátal",
+    "causeScheduled": "Sceidealaithe",
+    "causeUnknown": "Anaithnid",
+    "causeMissing": "Fianaise ar an gcúpón nó ar an athrú ar iarraidh",
+    "causeNoCredit": "Luath gan úsáid chúpóin breathnaithe",
+    "causeConfirmed": "Deimhnithe",
+    "causeInferred": "Tátal",
+    "causeSummary": "Cúiseanna: {manual} cúpón · {provider} OpenAI (tátal) · {scheduled} sceidealaithe · {unknown} anaithnid",
+    "causeNote": "Ní léiríonn am luath an chúis. Ní dhéantar tátal faoi OpenAI ach nuair nach n-athraíonn an liosta iomlán cúpón le linn athshocrú cuóta a breathnaíodh go dlúth. Ní scarann seanlogaí athshocruithe de láimh ó OpenAI. Ní fios cé a thionscain an t-athshocrú."
+  },
+  "deviceSync": {
+    "heading": "Ceangail do ghléasanna",
+    "enabled": "Cumasaigh sioncronú díreach",
+    "name": "Ainm an ghléis",
+    "invite": "Cruthaigh cód péireála",
+    "code": "Cód péireála",
+    "copy": "Cóipeáil an cód",
+    "join": "Ceangail an gléas",
+    "forget": "Dícheangail an gléas",
+    "view": "Gléasanna",
+    "local": "An gléas seo",
+    "all": "Gach gléas ceangailte",
+    "copied": "Cód cóipeáilte.",
+    "working": "Ag ceangal…",
+    "ready": "Réidh.",
+    "inviteReady": "Rachaidh an cód seo in éag i gceann cúig nóiméad. Greamaigh ar do ghléas eile é.",
+    "errors": {
+      "default": "Níl an nasc ar fáil. Fanann sonraí a fuarthas cheana ar an ngléas seo.",
+      "peer_unreachable": "Níl an nasc ar fáil. Fanann sonraí a fuarthas cheana ar an ngléas seo.",
+      "invalid_pairing_code": "Níl an nasc ar fáil. Fanann sonraí a fuarthas cheana ar an ngléas seo.",
+      "network_unavailable": "Níl an nasc ar fáil. Fanann sonraí a fuarthas cheana ar an ngléas seo.",
+      "sync_disabled": "Níl an nasc ar fáil. Fanann sonraí a fuarthas cheana ar an ngléas seo.",
+      "capture_failed": "Níl an nasc ar fáil. Fanann sonraí a fuarthas cheana ar an ngléas seo.",
+      "storage_unavailable": "Níl an nasc ar fáil. Fanann sonraí a fuarthas cheana ar an ngléas seo.",
+      "discovery_unavailable": "Níl an nasc ar fáil. Fanann sonraí a fuarthas cheana ar an ngléas seo."
+    },
+    "privacy": "Ní sheoltar sonraí úsáide ná dintiúir chuig an bhforbróir. Ní roinntear ach tomhais chriptithe le gléasanna atá péireáilte go sainráite. Ní scriosann dícheangal cóipeanna a fuarthas cheana.",
+    "networkLimit": "Úsáideann naisc dhíreacha an líonra áitiúil nó VPN príobháideach atá ann cheana, gan athsheachadán, freastalaí aimsithe ná athruithe ródaire. Cuireann líonraí a chuireann bac orthu cosc ar shioncronú uathoibríoch.",
+    "coverage": "{count} taifead ar leith · {duplicates} dúblach bainte · fanann {excluded} taifead áitiúil gan aitheantóir iontaofa. Coinnítear teorainneacha na gcuntas ar leithligh; ní chuirtear iomláin API leis."
+  },
+  "connections": {
+    "accounts": "Cuntais",
+    "installations": "Suiteálacha",
+    "general": "Ginearálta",
+    "advanced": "Ardroghanna",
+    "addAccount": "Cuir cuntas leis",
+    "chooseProvider": "Roghnaigh soláthraí",
+    "detectedDetails": "Cuntais GPT aimsithe agus sonraí",
+    "back": "Ar ais",
+    "accountLabel": "Ainm (roghnach)",
+    "apiKey": "Eochair API",
+    "adminKey": "Eochair API riarthóra",
+    "region": "Réigiún",
+    "global": "Idirnáisiúnta",
+    "china": "An tSín",
+    "setupHelp": "Treoracha socraithe",
+    "connect": "Ceangail",
+    "openSignIn": "Oscail síniú isteach",
+    "connectInstallation": "Ceangail suiteáil",
+    "haveCode": "Tá cód agam",
+    "syncOptions": "Sioncronú agus príobháideachas",
+    "remove": "Bain",
+    "automatic": "Aimsithe go huathoibríoch",
+    "empty": "Níl aon chuntas ceangailte fós.",
+    "apiAccount": "Cuntas API",
+    "subscription": "Síntiús / plean códaithe",
+    "thisInstallation": "An tsuiteáil seo",
+    "syncOn": "Sioncronú cumasaithe",
+    "syncOff": "Sioncronú díchumasaithe",
+    "local": "Áitiúil",
+    "waitingSync": "Ag fanacht leis an gcéad sioncronú",
+    "viaPeer": "Trí shuiteáil phéireáilte",
+    "balance": "Iarmhéid",
+    "privacy": "Fanann na dintiúir ar an ngléas seo. Ní sheoltar úsáid chuig an bhforbróir.",
+    "installationsHelp": "Ceangail do shuiteálacha féin chun a n-úsáid a fheiceáil le chéile.",
+    "pairHelp": "Oscail Suiteálacha ar an ngléas eile. Cruthaigh cód anseo nó greamaigh a chód. Ní mór an dá ghléas a bheith insroichte go díreach.",
+    "adminKeyHelp": "Teastaíonn eochair API riarthóra na heagraíochta le haghaidh tuairiscí úsáide, ar leithligh ón síntiús comhrá.",
+    "glmHelp": "Úsáid d’eochair GLM Coding Plan agus roghnaigh a réigiún.",
+    "browserHelp": "Lean ar aghaidh trí shíniú isteach oifigiúil an tsoláthraí.",
+    "keyPrivacy": "Stóráiltear an eochair go háitiúil agus úsáidtear í le haghaidh iarratas chuig an soláthraí seo amháin.",
+    "needsSetup": "Suiteáil CLI oifigiúil an tsoláthraí ar dtús agus athnuaigh an liosta.",
+    "claudeHelp": "Láimhseálann Claude Code síniú isteach ar an ngléas seo. Teastaíonn Claude Code CLI suiteáilte.",
+    "kimiHelp": "Úsáid síniú isteach oifigiúil Kimi Code nó eochair phlean Kimi Code.",
+    "moonshotHelp": "Úsáid eochair Moonshot API chun iarmhéid API a léamh, ar leithligh ó Kimi Code.",
+    "loginWaiting": "Críochnaigh síniú isteach an tsoláthraí. Coinnigh an fhuinneog seo ar oscailt.",
+    "loginComplete": "Cuntas ceangailte. Athnuaitear tomhais go huathoibríoch.",
+    "claudeSignIn": "Ceangail le Claude Code",
+    "providers": {
+      "gpt": "ChatGPT / Codex",
+      "claude": "Claude / Anthropic",
+      "kimi": "Kimi Code",
+      "glm": "GLM / Z.AI",
+      "openai": "OpenAI API",
+      "anthropic": "Anthropic API",
+      "moonshot": "Moonshot API"
+    },
+    "browser": "Sínigh isteach",
+    "failed": "Theip ar logáil isteach",
+    "checking": "Ag ceangal…",
+    "installation": "Suiteálacha",
+    "status": {
+      "connected": "Gníomhach",
+      "detected": "Aimsithe",
+      "historical": "Roimhe seo",
+      "auth_required": "Síniú isteach de dhíth",
+      "error": "Earráid",
+      "unavailable": "Níl ar fáil",
+      "unknown": "Níl ar fáil"
+    },
+    "errors": {
+      "invalid_account": "Níor aimsíodh an cuntas. Athnuaigh liosta na gcuntas.",
+      "invalid_key": "Diúltaíodh don eochair. Seiceáil an eochair agus an soláthraí roghnaithe.",
+      "permission_denied": "Níl rochtain ag an eochair seo ar thuairiscí úsáide. Úsáid eochair leis na ceadanna riachtanacha.",
+      "unsupported_key": "Ní féidir leis an gcineál eochrach seo úsáid a léamh. Lean treoracha socraithe an tsoláthraí.",
+      "account_limit": "Baineadh teorainn na gcuntas amach. Bain cuntas nach n-úsáidtear ar dtús.",
+      "connection_unavailable": "Níorbh fhéidir an soláthraí a bhaint amach. Seiceáil do nasc agus bain triail eile as.",
+      "account_storage_unavailable": "Níl stóráil áitiúil cuntas ar fáil. Seiceáil ceadanna comhad na haipe.",
+      "profile_remove_failed": "Níorbh fhéidir an síniú isteach sábháilte a bhaint. Dún a fhuinneog sínithe isteach agus bain triail eile as.",
+      "unsupported_platform": "Níl síniú isteach brabhsálaí ar fáil ar an ardán seo. Úsáid modh eochrach atá ar fáil."
+    },
+    "kimiHelperHelp": "Ar an gcéad síniú isteach, íoslódálann an aip cúntóir oifigiúil Kimi go díreach ó Kimi. Ritheann sé go háitiúil; ní sheolann an deais teiliméadracht.",
+    "lastSeen": "Feicthe go deireanach {time}"
+  },
+  "history": {
+    "refreshing": "Stair shábháilte · {time}. Nuashonrú sa chúlra."
+  },
+  "quotaIntegrity": {
+    "title": "Sláine cuótaí",
+    "period": "Raon ama",
+    "range24h": "Na 24 uair an chloig seo caite",
+    "range7d": "Na 7 lá seo caite",
+    "range30d": "Na 30 lá seo caite",
+    "loading": "Sláine cuótaí á luchtú…",
+    "unavailable": "Níl sonraí sláine cuótaí ar fáil.",
+    "intro": "Breathnuithe neamhghnácha ar chuótaí, cé chomh maith agus a chlúdaíonn sonraí iad, agus an féidir le gníomhaíocht chomharthaí áitiúil iad a mhíniú. Is fiú breathnú neamhghnách a imscrúdú, ach ní fianaise ar fhadhb ag an soláthraí é.",
+    "status": {
+      "attention": "Teastaíonn aird",
+      "no_anomaly_detected": "Níor aimsíodh aon neamhghnáthacht",
+      "insufficient_data": "Níl go leor sonraí ann go fóill"
+    },
+    "collector": "Bailitheoir beo Codex",
+    "noData": "Gan sonraí",
+    "lastSample": "Sampla is déanaí {time}",
+    "noSample": "Gan sampla beo",
+    "findings": "Torthaí",
+    "findingsDetail": "{warnings} rabhadh · {info} faisnéis",
+    "observations": "Breathnuithe",
+    "observationsDetail": "{samples} grianghraf · {events} iontráil staire",
+    "localData": "Sonraí gníomhaíochta áitiúla",
+    "localDataDetail": "{slots} eatramh ama · athnuaite {time}",
+    "neverRefreshed": "níor taifeadadh go fóill",
+    "gaps": "Bearnaí bailiúcháin",
+    "gapsDetail": "{count} sa raon seo",
+    "measured": "Tomhaiste",
+    "estimate": "Meastachán",
+    "hypothesis": "Hipitéis",
+    "confidence": "Muinín: {level}",
+    "level": {
+      "medium": "meánach",
+      "low": "íseal"
+    },
+    "confidenceWord": {
+      "confirmed": "deimhnithe",
+      "inferred": "tátail",
+      "possible": "féideartha"
+    },
+    "chartTitle": "Úsáid sheachtainiúil Codex thar am",
+    "chartAria": "Cairt líne d'úsáid chuóta seachtainiúil Codex i gcéatadán: {points} pointe taifeadta, {findings} toradh marcáilte.",
+    "chartEmpty": "Níor taifeadadh aon athrú ar chuóta seachtainiúil Codex sa raon seo.",
+    "legendWarning": "Rabhadh",
+    "legendInfo": "Faisnéis",
+    "legendGap": "Bearna bailiúcháin",
+    "types": {
+      "usage_rolled_back": "Tháinig laghdú ar an úsáid tuairiscithe",
+      "reset_deadline_changed_early": "D'athraigh an t-am athshocraithe roimh am",
+      "usage_increase_without_local_activity": "Tháinig méadú ar an úsáid gan gníomhaíocht áitiúil",
+      "collector_gap": "Níl an bailitheoir ar fáil",
+      "observation_gap": "Gan breathnuithe",
+      "account_changed": "D'athraigh raon feidhme an chuntais",
+      "stale_codex_snapshot": "Tá na sonraí beo as dáta",
+      "no_live_codex_samples": "Gan sonraí beo Codex"
+    },
+    "fact": {
+      "usageChange": "Cuóta úsáidte {from}% → {to}% ({delta} pointe)",
+      "between": "Breathnaíodh idir {from} agus {to}",
+      "deadlineShift": "Bhog an t-am athshocraithe {minutes} nóiméad: {from} → {to}",
+      "noActivity": "Níor taifeadadh aon ghníomhaíocht chomharthaí áitiúil le {minutes} nóiméad ({basis})",
+      "basisPlateau": "ón uair a chonacthas an luach roimhe seo den chéad uair",
+      "basisWindow": "ó thosaigh fuinneog an chuóta",
+      "localCounts": "Imeachtaí áitiúla: {events} · comharthaí áitiúla: {tokens}",
+      "gapSpan": "Gan sonraí ar feadh {minutes} nóiméad ({from} → {to})",
+      "gapOngoing": "Gan sonraí le {minutes} nóiméad, ó {from} (ar siúl)",
+      "failures": "Taifeadadh {count} iarracht bailiúcháin nár éirigh leo",
+      "staleAge": "Bhí an sampla beo is déanaí {minutes} nóiméad ó shin"
+    },
+    "evidence": {
+      "heading": "Fianaise sna sonraí",
+      "credit": "Fuasclaíodh creidmheas athshocraithe idir na breathnuithe seo ({confidence}).",
+      "account": "Aistrigh an grianghraf beo go cuntas eile thart ar an am seo (féideartha).",
+      "resetNoCredit": "Athshocrú luath gan creidmheas úsáidte (tátail)."
+    },
+    "hypothesesHeading": "Mínithe féideartha (hipitéisí, ní torthaí)",
+    "hypotheses": {
+      "other_device_or_surface": "Úsáid ar ghléas eile, san aip ghréasáin, i bhfeidhmchlár IDE nó i dtascanna scamall nach bhfeiceann logaí áitiúla",
+      "other_account_or_profile": "Úsáid ag cuntas nó próifíl eile a roinneann an cuóta seo",
+      "provider_accounting_or_adjustment": "Moill chuntasaíochta, babhtáil nó coigeartú ag an soláthraí",
+      "local_logs_incomplete": "Logaí áitiúla atá neamhiomlán, rothlaithe nó nach mbailítear",
+      "ledger_not_account_scoped": "Níl stair an chuóta seo ceangailte le cuntas amháin",
+      "reset_credit_or_plan_change": "Creidmheas athshocraithe, athrú pleana nó coigeartú eile cuóta",
+      "inconsistent_source_data": "Sonraí neamhsheasmhacha ó fhoinse an chuóta"
+    },
+    "noFindings": "Gan torthaí sa raon seo.",
+    "stepStatus": {
+      "activity_present": "Tá gníomhaíocht áitiúil ann",
+      "shared_source_activity": "Gníomhaire áitiúil eile amháin",
+      "no_local_activity": "Níor taifeadadh aon ghníomhaíocht áitiúil",
+      "not_assessable": "Ní féidir measúnú a dhéanamh"
+    },
+    "reason": {
+      "history_start": "Tosaíonn an stair ag an bpointe seo",
+      "no_local_history": "Gan stair logaí áitiúla",
+      "before_local_history": "Tosaíonn logaí áitiúla níos déanaí",
+      "ingest_pending": "Níor léadh logaí áitiúla arís go fóill"
+    },
+    "steps": {
+      "heading": "Méaduithe cuóta i gcomparáid le gníomhaíocht áitiúil",
+      "summary": "{present} le gníomhaíocht áitiúil · {shared} gníomhaire áitiúil eile amháin · {none} gan · {unknown} nach féidir a mheasúnú",
+      "note": "Is méadú ar an úsáid tuairiscithe gach sraith. Tagann líon na gcomharthaí áitiúla ó logaí an ríomhaire seo amháin agus ní tiontú cuóta iad.",
+      "empty": "Gan méaduithe úsáide sa raon seo."
+    },
+    "estimateText": "Thaifead céimeanna inchomparáide airmheán de {median} comhartha áitiúil in aghaidh an phointe cuóta (leath láir {low}–{high}, {samples} céim). Meáigh soláthraithe samhlacha agus ionchur taisce ar bhealaí éagsúla, mar sin is scála garbh é seo, ní tiontú.",
+    "localValue": "{events} imeacht · {tokens} comhartha",
+    "colTime": "Am",
+    "colChange": "Cuóta úsáidte",
+    "colLocal": "Gníomhaíocht áitiúil",
+    "colTokens": "Imeachtaí · comharthaí",
+    "colWindow": "Fuinneog",
+    "colUsed": "Úsáidte",
+    "colResets": "Athshocrú",
+    "colLastChange": "Athrú is déanaí",
+    "gapKind": {
+      "collector_unavailable": "Níl an bailitheoir ar fáil",
+      "no_observations": "Gan breathnuithe (aip dúnta nó ríomhaire ina chodladh)"
+    },
+    "ongoing": "ar siúl",
+    "minutes": "{value} nóim.",
+    "gapsEmpty": "Gan bearnaí bailiúcháin sa raon seo.",
+    "windows": {
+      "heading": "Fuinneoga cuóta breathnaithe",
+      "note": "Ní thaifeadann stair na gcuótaí ach athruithe, mar sin ní bearna é tréimhse chiúin.",
+      "empty": "Níor taifeadadh aon fhuinneog cuóta sa raon seo."
+    },
+    "privacyNote": "Ní dhéantar anailís ach ar amanna cuótaí agus líon comharthaí. Ní chuirtear leideanna, tras-scríbhinní, aitheantóirí cuntais ná cosáin comhad san áireamh riamh."
+  },
+  "workspace": {
+    "openPalette": "Open command palette",
+    "paletteShortcut": "Command palette · Ctrl+K",
+    "focusMode": "Toggle focus mode",
+    "focusShortcut": "Focus mode · Alt+Shift+F",
+    "compactMode": "Toggle compact layout",
+    "paletteTitle": "Command palette",
+    "paletteSearch": "Search actions or jump to a section…",
+    "paletteClose": "Close command palette",
+    "focusOn": "Focus mode enabled",
+    "focusOff": "Focus mode disabled",
+    "compactOn": "Compact layout enabled",
+    "compactOff": "Comfortable layout enabled",
+    "glassOn": "Glass effect enabled",
+    "glassOff": "Glass effect disabled",
+    "motionOn": "Reduced motion enabled",
+    "motionOff": "Full motion enabled"
+  }
+}

@@ -1,0 +1,602 @@
+## Unreleased — LLM Pulse GitHub integration
+
+- Brand the project as **LLM Pulse — AI Usage Intelligence** and link to the personal repository/profile while keeping the original LLM Usage Dashboard attribution and MIT copyright notice.
+- Configure Electron publishing for `SutikshnKoushik/LLM-Pulse` and retain the existing app identifier and user data folder for upgrade compatibility.
+
+## Unreleased — Codex quota bucket compatibility
+
+- Fixed live Codex reset-history snapshot selection when `account/rateLimits/read` returns `rateLimitsByLimitId` keyed by a provider-defined ID rather than the literal `codex` key.
+- The reset-history reader now prefers a valid explicit Codex bucket, otherwise selects the first valid non-Spark quota bucket, matching the live usage normalizer's behavior.
+- Updated quota-integrity report wording so a missing live sample is not incorrectly described as specifically a weekly-window failure on Go/monthly plans.
+- Added regression coverage for an opaque-key monthly Go bucket alongside a separate Spark bucket.
+- Verification in this environment: `node --check` passed for changed JavaScript; quota-integrity core and CLI tests passed. `test/codex-reset-history.test.mjs` could not complete because this environment lacks installed `express`, which that test imports indirectly through `server.js`.
+
+# Changelog
+
+## Unreleased — English-first glass workspace
+
+- Default fresh installs to English regardless of browser/OS language, while preserving an explicitly saved language choice; use English as the translation and native-notification fallback.
+- Add a glassmorphism visual system with translucent surfaces, backdrop blur, soft gradient lighting, and a one-click glass effect toggle for users who prefer opaque panels.
+- Add a Ctrl/Cmd+K command palette with searchable actions and direct navigation to dashboard sections; `/` also opens it when focus is outside an input.
+- Add persistent Focus Mode, Compact Layout, and Reduced Motion preferences. Focus Mode hides secondary panels without hiding quota integrity, Codex reset history, provider cards, token history, or live metrics.
+- Add keyboard navigation, accessible selected-command state, status announcements, and regression tests for the new workspace controls and English default.
+
+## Unreleased — quota-integrity hardening
+
+- Hardened local token-activity record validation so boolean and array values cannot be coerced into plausible token counts when stored JSONL is malformed or manually edited. Added regression coverage.
+- Tightened "no local activity" evidence checks to require a fresh scan for every relevant local provider group; a fresh scan from Claude Code or another agent can no longer make an old Codex scan look current. Added a regression test and clarified the coverage rules.
+
+## 1.6.0-preview.13 - 2026-10-14 (local customization)
+
+### Quota investigation
+
+- Add a quota-integrity analyzer for meaningful same-window usage rollbacks, reset-deadline changes before the previously reported deadline, stale Codex weekly samples, and grouped collector gaps.
+- Add a PowerShell-friendly CLI report (`npm run diagnose:quota`) and authenticated `/api/quota-integrity` endpoint for local investigation.
+- Add regression and privacy tests; document evidence limits so unusual observations are not misrepresented as proof of provider defects.
+- Add a responsive **Quota integrity** panel (status, collector freshness, usage chart with findings and gaps, findings with measured / estimate / hypothesis blocks, quota increases compared with local activity, collection gaps, observed quota windows), localized in all 27 languages.
+- Detect usage that rises without local token activity (for example remaining 5 % becoming 3 %), compared against a new counters-only local activity ledger (`token-activity.jsonl`). The verdict is only given when local logs demonstrably cover the interval; otherwise the step is reported as not assessable with a reason.
+- Use reset-credit redemption and account switches as explicit evidence on rollbacks and early resets; report silent observation gaps (app closed, computer asleep) separately from collector failures.
+- Go plan (30-day window) support, reviewed and completed: live Codex snapshots with a valid non-weekly window are recorded instead of being treated as collection failures; the window is chosen deterministically (weekly, else the longest); window durations and percentages are validated strictly; failure records carry a fixed reason code; every account and window type is its own series under the same names as the quota ledger (so one event seen by both sources is one finding); the weekly reset-history view reports the collector as live for a monthly-only account; activity records are loaded far enough back (36 days) and no absence claim reaches before the ledger's retention, fixing false "no local activity" warnings for 30-day windows and old steps; `codexWeeklySamples` is weekly-only with `codexLiveSamples` counting all; the CLI report and panel are labelled accordingly.
+- Evidence model hardening (round 3): absence claims ("no local activity" and "only another local agent") now require proven coverage for every relevant log group, judged against the end of the 5-minute slot that contains the 10-minute lookahead, with plausible-clock checks, a freshness check for shared agents that have produced activity, and a scan that actually saw events. Missing, stale, skewed or damaged records always yield "not assessable".
+- Ignore and count quota records dated after the analysis clock (a bad clock made a stopped collector look live or faked a rollback). Scan heartbeats now carry the time the log reads began.
+- Ledger: fixed provider-group allowlist and strict validation of counters, timestamps and slot sizes; provider-log events with malformed counters count as activity but add no tokens.
+- Report CLI resolves its data folder exactly like the server (including that `~\\` is not expanded), states where the folder came from, and warns on Windows when the installed app's folder holds newer history. Windows docs now separate source mode (`.\\data`) from the installed app (`%APPDATA%\\LLM Usage Dashboard\\data`) and list what must never be shared.
+- Fix: repeated collector-failure rows were reported as one incident each; unused windows with rolling deadlines raised false "early reset" findings; the previous period's last observation is now carried in as a comparison baseline; CRLF and BOM data files are read correctly.
+
+This is a local customization snapshot; it has not been published as an upstream release.
+
+## 1.6.0-preview.12 - 2026-10-06
+
+### Accounts and devices
+
+- Add and manage multiple ChatGPT/Codex and Claude Code accounts in compact settings.
+- Connect Kimi Code, GLM/Z.AI Coding Plan, OpenAI API, Anthropic API and Moonshot API accounts with their supported sign-in or key methods.
+- Pair trusted installations for encrypted direct usage sync, then inspect all devices together or just one computer.
+- Compare recorded tokens by installation, account, provider and model, with model details in chart tooltips and copied records counted once.
+
+### Resets and performance
+
+- Inspect Codex reset history and credits, with manual, scheduled, provider-inferred and unknown causes distinguished by their evidence.
+- Preserve manual-reset evidence across a short failed status poll.
+- Restore saved charts after restart and refresh in the background; speed up large histories and installation switching.
+- Include Multica Codex session logs and keep this computer's live account limits visible.
+- Refresh compatible desktop/build dependencies, including Electron 42.11.10 and electron-builder 26.15.3, and update proxy-addr to patched 2.0.8.
+
+### Preview notes
+
+- Direct sync needs reachable paired devices on a LAN or existing private network.
+- Kimi Code exposes quotas; Moonshot API exposes balance. Complete token history is unavailable for these connections.
+- macOS is ad-hoc signed without notarization; install the DMG manually. Windows installers are unsigned.
+- Full notes: [1.6 release](docs/releases/1.6.0.md).
+
+## 1.6.0-preview.11 - 2026-10-06
+
+### Fixed
+
+- Recognize manual Codex resets when a non-expired reset credit disappears across
+  a short failed status poll. Keep inferred versus confirmed evidence and recording
+  gaps visible; ambiguous accounts, overlapping windows and expiry stay unknown.
+
+## 1.6.0-preview.10 - 2026-10-05
+
+### Fixed
+
+- Restore completed token charts immediately after a restart, with the saved
+  timestamp and a visible background-update notice; read live Codex limits separately.
+- Calculate provider and Spark histories in one pass, preserving model totals,
+  copied-record deduplication and each provider's full date range.
+- Verify encrypted device histories in a background worker so startup does not
+  block the dashboard HTTP server.
+- Cancel obsolete chart requests when switching installations.
+- Recheck actual source read access before using extraction caches, including
+  Windows access-control permissions.
+
+## 1.6.0-preview.9 - 2026-10-05
+
+### Fixed
+
+- Skip parsing unrelated Codex message payloads while scanning large or active
+  logs. Token events, model context and source line identities are preserved.
+
+## 1.6.0-preview.8 - 2026-10-05
+
+### Fixed
+
+- Reuse private, compressed token extractions after app restarts instead of
+  rereading unchanged Codex, Claude and Gemini transcripts.
+- Recheck source permissions, file fingerprints and parser versions; safely
+  rebuild missing or damaged caches from the original logs.
+
+## 1.6.0-preview.7 - 2026-10-05
+
+### Fixed
+
+- Speed up large token histories by reusing device attribution across views
+  and avoiding repeated daily calculations.
+- Apply device changes made during a pending request immediately afterward,
+  without displaying the previous device's response under the new selection.
+
+## 1.6.0-preview.6 - 2026-10-05
+
+### Fixed
+
+- Omit zero minutes from compact whole-hour durations, including recent quota
+  pace measurements; retain actual minute values.
+
+## 1.6.0-preview.5 - 2026-10-05
+
+### Fixed
+
+- Automatically include Codex logs written into Multica session directories in
+  local history, model breakdowns and device sync.
+- Detect installations that only contain Multica sessions, while counting
+  copied rollouts once across normal and Multica history.
+
+## 1.6.0-preview.4 - 2026-10-05
+
+### Added
+
+- Show the recorded models and their token totals directly in installation
+  chart tooltips, for the selected day or time window.
+- Keep unknown models and shared observations explicit without counting copied
+  usage twice.
+
+## 1.6.0-preview.3 - 2026-10-05
+
+### Fixed
+
+- Keep this computer's current Codex limits and active account status visible
+  when viewing usage from all connected installations.
+- Calculate combined histories in the background and reuse the last completed
+  view while refreshing, so large histories do not block the desktop interface.
+- Avoid rewriting the encrypted sync history when its snapshots are unchanged.
+
+## 1.6.0-preview.2 - 2026-10-05
+
+### Fixed
+
+- Keep pairing reliable while installations collect or synchronize large histories.
+- Use clearly separated installation and account colors that stay consistent across date filters.
+
+## 1.6.0-preview.1 - 2026-10-05
+
+### Added
+
+- Compare recorded token usage by installation or account in the charts,
+  with matching legends, period totals and hover details.
+- Show unknown account ownership explicitly and distinguish logs observed on
+  several installations from records observed on one installation. Shared
+  events still count only once in the combined view.
+
+### Fixed
+
+- Keep a signed snapshot stable throughout a direct transfer so new local
+  activity does not repeatedly interrupt the first sync of a large history.
+
+### Preview limits
+
+- Historical account attribution requires account evidence in the original
+  record. A currently signed-in account does not establish who owned old usage.
+- An installation identifies where a record was observed; copied or migrated
+  logs do not prove where the model request originally ran.
+
+## 1.5.0-preview.2 - 2026-10-05
+
+### Fixed
+
+- Keep recent quota pace available when measurements cover only part of the
+  selected window, and display the duration actually measured.
+- Apply the same freshness limit to every pace window so short refresh delays
+  do not hide only the 30-minute view.
+
+## 1.5.0-preview.1 - 2026-10-05
+
+### Added
+
+- Compact account manager with provider selection, browser sign-in for ChatGPT,
+  Claude Code and Kimi Code, and separate key connections for GLM, Kimi Code,
+  OpenAI API, Anthropic API and Moonshot API.
+- Isolated local provider profiles and encrypted local API-key storage. Kimi
+  prepares its pinned official helper on first browser sign-in.
+- Installation overview with this computer always visible and a guided pairing
+  flow, directly accessible from the dashboard header.
+- Individual provider account quotas/reports and sanitized account snapshots
+  in direct device sync, without adding overlapping API reports to local tokens.
+
+### Improved
+
+- Split settings into Accounts, Installations, General and Advanced tabs.
+- Explain provider-specific access and missing measurements; API admin keys are
+  distinct from consumer subscriptions. Update all 27 interface languages.
+
+### Preview limits
+
+- Claude Code must be installed; its official quota statusline needs actual
+  session activity before values appear. Kimi initially exposes account quotas,
+  not a reconstructed token history. API report coverage varies by provider.
+- Use this version on every paired installation for the expanded account sync.
+  Direct network reachability is still required; no relay is introduced.
+
+## 1.4.0-preview.2 - 2026-10-04
+
+### Fixed
+
+- Support large usage histories up to one million stable events per device.
+- Transfer only changed event blocks after the first sync, including quota-only
+  changes, while verifying the complete signed snapshot before accepting it.
+- Preserve the local view with a visible coverage error if the initial local
+  snapshot cannot be created, instead of showing an empty combined total.
+
+## 1.4.0-preview.1 - 2026-10-04
+
+### Added
+
+- Add multiple GPT accounts through OpenAI sign-in with separate local Codex
+  profiles, and show account cards directly in the dashboard.
+- Optional encrypted direct device sync, one-use pairing, automatic LAN
+  rediscovery, offline snapshot history, and all-device/per-device usage views.
+- Deduplicate stable local usage events across devices and show missing coverage.
+  Credentials and conversation content never enter device sync.
+
+### Security
+
+- Serve icons locally and bind the desktop dashboard/proxy to loopback.
+- Restrict account and pairing controls to the local app with origin/Host checks.
+- Update affected Express/updater transitive dependencies to patched versions.
+
+### Preview limits
+
+- Direct reachability is required: no external discovery, relay, or automatic
+  router/VPN setup. See [accounts and direct sync](docs/accounts-and-direct-sync.md)
+  for supported sources, network limits, and the current security model.
+
+## 1.3.0-preview.3 - 2026-10-04
+
+### Fixed
+
+- Show the cause separately from the timing of each Codex reset: credit-backed
+  manual reset, inferred OpenAI reset without credit use, scheduled, or unknown.
+- Keep historical causes unknown when credit evidence is missing, and show
+  cause counts for the selected history period. Early timing alone is not an
+  OpenAI reset; the person who triggered a reset remains unknown.
+
+## 1.3.0-preview.2 - 2026-10-03
+
+### Fixed
+
+- Show the quota usage fill in the reset-history table in both light and dark themes.
+
+## 1.3.0-preview.1 - 2026-10-03
+
+### Added
+
+- Local Codex reset history with available reset credits, announced reset dates,
+  estimated window duration, early resets, and highest observed quota usage.
+- Read-only background recording while the app runs, with account-separated live
+  snapshots and reconstruction from existing quota/session logs.
+- Evidence labels distinguish confirmed credit redemptions, inferred redemptions,
+  stale overlapping windows, and recording gaps. No reset is consumed by the app.
+
+## 1.2.0-preview.4 - 2026-10-02
+
+### Fixed
+
+- Keep recent-pace estimates visible through short quota refresh delays,
+  while treating older samples as stale according to the selected time window.
+
+## 1.2.0-preview.3 - 2026-10-02
+
+### Fixed
+
+- Find the Codex CLI in its current macOS app location so installed desktop
+  builds can read live quota limits instead of falling back to old session logs.
+- Date Codex limit badges from the quota reading itself, not from a failed
+  refresh attempt or an unrelated token event.
+- Keep recent-pace history together when two sources report the same weekly
+  reset a few seconds apart.
+
+## 1.2.0-preview.2 - 2026-10-02
+
+### Added
+
+- Show recent weekly quota pace for 30 minutes, 1 hour, 2 hours, or 5 hours,
+  including an estimated time until the limit at that pace. Each provider card
+  now keeps its own selected comparison window and gauge/bar view.
+- Show the exact day total and hovered model's tokens in history bar tooltips.
+
+### Fixed
+
+- Keep the chosen language across desktop app restarts, even when Electron
+  assigns a new local port.
+- Hide the 5-hour summary tile when no active provider reports that limit.
+- Label recent pace with the selected comparison window and show the time
+  remaining until exhaustion directly.
+- Correct pricing of input tokens that were not served from cache.
+
+## 1.2.0-preview.1 - 2026-10-01
+
+### Added
+
+- Filter the API model catalog while typing a model name or API alias, with
+  case-insensitive partial matches and translated empty-result feedback.
+- Add GPT-6.1 Sol to the API model catalog with official input, cached-input,
+  cache-write, and output rates. Keep GPT-6 Sol as a separate historical model.
+
+### Updated
+
+- Add GPT-6 Sol and GPT-6 Luna with official API token prices, cache-write
+  prices, API/Codex aliases, and token limits. GPT-6 Terra is not listed
+  because OpenAI has not published or exposed that model.
+- Refresh the supported provider-price catalog, including current Claude Sonnet
+  5 and DeepSeek V4.1 rates, plus the complete Arena Text score snapshot from
+  September 13, 2026. Newly released GPT-6 Sol and Luna intentionally show no
+  Arena Text score until that leaderboard publishes comparable results.
+
+## 1.1.0-preview.19 - 2026-09-12
+
+### Added
+
+- Add the missing OpenAI GPT-6 Astra provider model with its official API token
+  rates, cache-write rate, and context/output limits.
+
+## 1.1.0-preview.18 - 2026-09-12
+
+### Fixed
+
+- Refresh the API pricing catalog with current official provider data, including
+  the revised GPT-5.6 Sol and Claude Sonnet 5 rates.
+
+### Added
+
+- Add current Gemini, Grok, Qwen, and Mistral model rows while preserving
+  retired Mistral aliases as explicitly unpriced historical mappings.
+
+## 1.1.0-preview.17 - 2026-09-11
+
+### Fixed
+
+- Keep Claude visible in the standard provider view when the current week has
+  recorded usage, even without current-day token activity.
+- Retain an unexpired, last-confirmed Claude quota snapshot across app restarts
+  and temporary live refresh failures instead of hiding the provider card.
+
+## 1.1.0-preview.16 - 2026-08-10
+
+### Added
+
+- Add a translated appearance setting with System, Light, and Dark modes.
+- Follow the operating-system appearance live on macOS, Windows, and Linux
+  while keeping manual overrides across browser and desktop restarts.
+
+### Improved
+
+- Apply the selected appearance before the first visible render and extend the
+  dark palette across dashboard surfaces, charts, controls, dialogs, focus and
+  interaction states.
+
+## 1.1.0-preview.15 - 2026-08-06
+
+### Fixed
+
+- Correctly recognize Claude Max 5x and 20x plans from the German billing
+  summary even when unrelated Team wording appears elsewhere on the page.
+
+### Improved
+
+- Move the local GPT account registry and its manual account re-scan from the
+  main dashboard into Settings.
+
+## 1.1.0-preview.14 - 2026-08-02
+
+### Fixed
+
+- Show every distinct ChatGPT account managed through common OpenCode
+  multi-account stores and read each account's 5-hour and weekly quota
+  independently.
+- Retain the last successful per-account quota snapshot when a live refresh is
+  temporarily unavailable or OpenCode switches to another account.
+
+### Improved
+
+- Watch built-in OpenCode auth plus `oc-codex-multi-auth` and
+  `opencode-multi-auth-codex` account stores for changes while the desktop
+  backend is running.
+- Keep multi-account probing read-only: the dashboard never sends refresh
+  tokens and persists only masked identities and normalized quota snapshots.
+
+## 1.1.0-preview.13 - 2026-08-01
+
+### Added
+
+- Read the current 5-hour and weekly ChatGPT quota separately for every
+  configured Codex home and reachable OpenCode OpenAI OAuth profile.
+- Show quota coverage across active GPT accounts and mark an account's limit as
+  unavailable when its current quota cannot be read.
+
+### Improved
+
+- Keep per-account quota probing read-only and privacy-safe: credentials and raw
+  provider responses are never written to the local account registry.
+
+## 1.1.0-preview.12 - 2026-07-31
+
+### Fixed
+
+- Keep the private GPT account-registry permission test strict on macOS and
+  Linux while allowing Windows builds, where POSIX `0600` mode bits are not
+  available.
+
+## 1.1.0-preview.11 - 2026-07-31
+
+### Added
+
+- Track privacy-safe GPT account identities observed through Codex and OpenCode,
+  keep previously seen accounts across sign-ins, and provide a manual account
+  re-scan in the dashboard. OpenCode GPT token totals remain correctly labeled
+  as OpenCode-wide when its database cannot attribute messages to an account.
+- Show separate machine-readable Claude Fable limits from the browser/API or
+  statusline telemetry. Multiple scoped Fable buckets remain separate from the
+  general weekly limit, quota history, and notifications.
+
+### Fixed
+
+- Keep both all-time timelines at their latest data after delayed Electron
+  layout measurement, refreshes, and real dashboard panel moves while still
+  preserving intentional manual history scrolling.
+- Hide empty setup-only providers such as an unused OpenCode GPT database from
+  the normal provider view; they remain available through `Show all`.
+
+## 1.1.0-preview.10 - 2026-07-31
+
+### Fixed
+
+- Keep both usage-history timelines pinned to the latest data after initial
+  rendering and view changes, including when their scrollable layout settles
+  after the first render frame. Intentional manual scrolling is still preserved
+  during ordinary background refreshes.
+- Restore dark, high-contrast styling for the Refresh and Settings buttons in
+  the dashboard header, including the Refresh loading state.
+
+## 1.1.0-preview.9 - 2026-07-19
+
+### Fixed
+
+- Hide GLM/Z.AI from the normal active-provider view when a generic OpenCode
+  database exists but contains no GLM usage. GLM remains available through
+  `Show all` and becomes active when GLM events or provider-specific quota
+  configuration are detected.
+
+## 1.1.0-preview.8 - 2026-07-19
+
+### Improved
+
+- Replaced the overlapping subscription actions with one contextual action:
+  open the provider page when login is required, or read the plan again when a
+  reusable browser session is available.
+
+### Fixed
+
+- Restored live Codex quota and plan reads after Codex moved into the ChatGPT
+  macOS app, while retaining support for the legacy standalone Codex app,
+  common CLI installations, and explicit binary overrides.
+- Accept the authenticated plan reported by the ChatGPT/Codex app as the
+  current plan, show the official price range when the exact variant is not
+  available, and stop asking users to reconnect an already working account.
+- Recognize the current ChatGPT billing layout that labels the active section
+  as `Your plan`, including the displayed Pro tier price needed to distinguish
+  the 5x and 20x variants.
+- Keep browser fallbacks on the exact account domain and ignore partitioned
+  Chromium cookies that would otherwise invalidate a reusable login session.
+
+## 1.1.0-preview.7 - 2026-07-18
+
+### Fixed
+
+- Correctly classify Codex quota windows by their actual duration so weekly
+  `primary` windows render as weekly limits instead of phantom 5h limits,
+  including GPT-5.3-Codex-Spark and desktop notifications.
+
+## 1.1.0-preview.6 - 2026-07-14
+
+### Added
+
+- Added read-only official GLM/Z.AI Coding Plan quota probing through the
+  documented Z.AI Usage API, including the 5-hour token window and any other
+  official windows returned by the provider.
+
+### Improved
+
+- Kept local OpenCode GLM token history separate from provider quota limits,
+  with redacted unavailable diagnostics when auth, plan state, or endpoint
+  access is missing.
+
+### Fixed
+
+- Hardened GLM quota auth discovery so generic OpenCode config files and
+  malformed loose config text do not activate the GLM quota card or pair
+  unrelated tokens with a Z.AI/BigModel base URL.
+
+## 1.1.0-preview.5 - 2026-07-13
+
+### Added
+
+- Added read-only Claude Code OAuth quota probing for Linux/Manjaro so current
+  Claude 5h and weekly usage windows can load without manually opening Claude
+  Code, when the local session and provider endpoint allow it.
+
+### Improved
+
+- Clarified GLM/Z.AI over OpenCode cards: measured token usage remains visible,
+  but official provider quota is shown as unavailable instead of estimating a
+  quota gauge from tokens.
+
+### Fixed
+
+- Stopped showing stale Claude statusline quota windows as live limits and
+  replaced Claude OAuth/API failures with safe, specific unavailable reasons.
+
+## 1.1.0-preview.4 - 2026-07-11
+
+### Added
+
+- Added a redacted Settings support report for Multica/WhatsApp diagnostics,
+  including provider source status, freshness, failure categories, and a compact
+  copyable summary.
+
+### Improved
+
+- Kept support-report UI text translated across all supported languages.
+
+## 1.1.0-preview.3 - 2026-07-11
+
+### Improved
+
+- Clarified that logged-token summary cards show locally logged usage, not
+  provider quota limits.
+- Added provider breakdown notes to logged token summary cards.
+
+### Fixed
+
+- Kept total/provider/model token views consistent across Today, Last 24 Hours,
+  Week, Month, and All Time for multi-provider local usage.
+
+## 1.1.0-preview.2 - 2026-07-10
+
+### Improved
+
+- Delegate WhatsApp review releases
+
+### Fixed
+
+- Capture GLM usage from OpenCode
+
+## 1.1.0-preview.1 - 2026-07-10
+
+### Added
+
+- Added automatic desktop update checks and release metadata support for new
+  preview builds.
+- Added GLM/Z.AI provider support. This should work, but still needs a real
+  GLM setup verification.
+- Added editable dashboard layouts, drag handles, and a record-day summary
+  card.
+- Added richer usage-history timeline controls, provider/model breakdowns, and
+  token/cost views.
+- Added live system/AI load gauges, source diagnostics, and notification setup
+  helpers.
+
+### Improved
+
+- Reduced idle CPU, disk I/O, polling, and background refresh load across the
+  server, Electron shell, and browser UI.
+- Improved subscription, quota, pricing, and account-plan detection for Codex,
+  Claude, Gemini, Copilot, and related providers.
+- Improved usage cards, reset labels, scroll behavior, chart labels, provider
+  colors, and app-wide scrollbars.
+
+### Fixed
+
+- Fixed stale provider cards and quota placeholders when local data is missing
+  or outdated.
+- Fixed token-history scroll position and current-time timeline handling.
+- Fixed Windows CI coverage for injected process-metric fixtures.

@@ -1,0 +1,1372 @@
+{
+  "app": {
+    "title": "LLM Pulse — AI Usage Intelligence",
+    "eyebrow": "LLM Pulse",
+    "heading": "Limiti un tokeni"
+  },
+  "actions": {
+    "refresh": "Atsvaidzināt",
+    "settings": "Iestatījumi",
+    "close": "Aizvērt"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "password": "Parole",
+    "signIn": "Pieteikties",
+    "loginFailed": "Pieteikšanās neizdevās"
+  },
+  "filter": {
+    "showAll": "Rādīt visu",
+    "showActive": "Tikai aktīvie",
+    "hideInactive": "Paslēpt neaktīvos pakalpojumu sniedzējus",
+    "showInactiveCount": "Rādīt {count} neaktīvus pakalpojumu sniedzējus",
+    "allVisible": "Visi pakalpojumu sniedzēji ir redzami",
+    "showAllNoticeTitle": "Visu pakalpojumu sniedzēju skats",
+    "showAllNoticeBody": "Redzamas neaktīvu, tukšu, tikai iestatītu un vēsturisku pakalpojumu sniedzēju kartītes. Tikai aktīvie ir parastais skats."
+  },
+  "layout": {
+    "edit": "Edit layout",
+    "done": "Done",
+    "reset": "Default order",
+    "resetDone": "Default dashboard order restored.",
+    "dragHandle": "Move {name}",
+    "grabbed": "Moving {name}. Use arrow keys to move, Enter or Space to drop, Escape to cancel.",
+    "moved": "{name} moved to position {position} of {total}.",
+    "dropped": "{name} dropped at position {position} of {total}.",
+    "cancelled": "Move cancelled."
+  },
+  "summary": {
+    "ariaLabel": "Pārskats",
+    "fiveHourOpen": "5h quota free",
+    "weeklyOpen": "Week quota free",
+    "tokensToday": "Logged tokens today",
+    "tokensTotal": "Kopā reģistrētie tokeni",
+    "recordDayLabel": "Rekorda diena",
+    "recordDay": "Rekorda diena: {date} · {tokens}",
+    "quotaWindowNote": "Provider quota window",
+    "tokensRange": "Logged tokens: {range}",
+    "todayLogNote": "Calendar day from local logs, not provider quota limits. {providers}",
+    "totalLogNote": "All local log history, not provider quota limits. {providers}",
+    "providerTokenDetail": "{provider}: {tokens}",
+    "providerBreakdownMore": "{providers} + {count} more",
+    "providerBreakdownEmpty": "No provider log tokens.",
+    "rangeNotes": {
+      "h24": "Rolling 24-hour total; chart bars are day-grained.",
+      "today": "Calendar day in local time.",
+      "week": "Last 7 days from local logs.",
+      "month": "Last 30 calendar days from local logs."
+    }
+  },
+  "chart": {
+    "eyebrow": "Local capture",
+    "heading": "Tokenu vēsture no žurnāliem",
+    "sourceTotalsAria": "Kopējais lietojums pēc sniedzēja",
+    "legendAria": "Leģenda",
+    "sourceTotalTitle": "Kopējais lietojums",
+    "svgAria": "Tokenu vēsture",
+    "costSummary": {
+      "title": "Cost summary",
+      "apiEquivalent": "API equivalent",
+      "paid": "Subscription fixed cost",
+      "saved": "Delta vs API",
+      "quote": "API difference",
+      "quality": "Data quality",
+      "qualityComplete": "Covered",
+      "qualityPartial": "Partially estimated",
+      "qualityUnavailable": "Unavailable",
+      "missingSubscriptions": "Subscription history or a reliable fixed-cost source is missing for this range.",
+      "estimatedSources": "Estimated providers: {providers}.",
+      "missingSources": "Not included: {providers}.",
+      "unsupportedCurrencies": "Unsupported currencies: {currencies}."
+    },
+    "costs": {
+      "svgAria": "Cost history",
+      "noData": "No cost data for the selected range."
+    },
+    "filters": {
+      "h24": "Last 24 hours",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all": "All Time"
+    },
+    "headingCosts": "Cost History from Logs",
+    "mode": {
+      "tokens": "Tokens",
+      "costs": "Costs"
+    },
+    "modeToggleAria": "Chart mode",
+    "filterBarAria": "Time range",
+    "insights": {
+      "ariaLabel": "Selected range statistics",
+      "total": "Total",
+      "selectedRange": "Selected range",
+      "avgActiveDay": "Ø active day",
+      "avgActiveDayDetail": "Based on {days} active days",
+      "activeDays": "Active days",
+      "activeDaysValue": "{active}/{days}",
+      "activeDaysDetail": "Days with usage",
+      "peakDay": "Peak day",
+      "noData": "No activity in the selected range.",
+      "selectedRangeDetail": "{range} shown with the selected range semantics."
+    },
+    "models": {
+      "heading": "Models used",
+      "range": "{range} model mix",
+      "topTokens": "Top by tokens: {model} · {tokens}",
+      "topCost": "Top by API-equivalent cost: {model} · {cost}",
+      "costUnknown": "API-equivalent cost unavailable for these models.",
+      "unknown": "Nezināms modelis"
+    },
+    "breakdown": {
+      "total": "Kopā",
+      "provider": "Pakalpojumu sniedzējs",
+      "model": "Modelis",
+      "device": "Instalācijas",
+      "account": "Konta"
+    },
+    "breakdownToggleAria": "Tokenu sadalījums",
+    "overviewAria": "Compact token history by provider",
+    "breakdownSummary": {
+      "totalTitle": "Total window",
+      "providerTitle": "Provider share",
+      "modelTitle": "Model share",
+      "topProvider": "Top provider",
+      "topModel": "Top model",
+      "coverage": "Coverage",
+      "providerCount": "{count} providers",
+      "modelCount": "{count} models",
+      "noProvider": "No provider breakdown",
+      "noModel": "No model breakdown"
+    },
+    "providers": {
+      "heading": "Providers used",
+      "range": "{range} provider mix",
+      "topTokens": "Top by tokens: {provider} · {tokens}",
+      "topModel": "Top model: {model} · {tokens}",
+      "noModel": "No model details",
+      "columns": {
+        "provider": "Provider",
+        "tokens": "Tokens",
+        "share": "Share",
+        "topModel": "Top model"
+      }
+    },
+    "totalBreakdown": {
+      "heading": "Total summary",
+      "range": "{range} aggregate"
+    },
+    "attribution": {
+      "groupBy": "Grupēt pēc",
+      "unknownAccount": "Nezināms konts",
+      "unknownDevice": "Nezināma instalācija",
+      "sharedDevice": "Atrasts vairākās instalācijās",
+      "sharedDeviceHelp": "Skaitīts vienreiz; sākotnējā instalācija nav skaidra.",
+      "observed": "Atrasts lokālajos žurnālos",
+      "observedOn": "Atrasts instalācijās",
+      "evidence": "Attiecinājums",
+      "observedHelp": "Instalācijas parāda, kur atrasti žurnāli. Kopētie notikumi tiek skaitīti vienreiz; sākotnējais dators var būt nezināms.",
+      "accountHelp": "Konts tiek attiecināts tikai tad, ja tas ierakstīts lietojuma datos. Citi tokeni paliek sadaļā Nezināms konts."
+    }
+  },
+  "tokenMix": {
+    "eyebrow": "Token Mix",
+    "heading": "Reģistrētā tokenu apstrāde"
+  },
+  "liveMetrics": {
+    "ariaLabel": "Live system usage",
+    "eyebrow": "Live",
+    "heading": "Live Load",
+    "updated": "Updated {time}",
+    "notAvailable": "Not available",
+    "error": "Error",
+    "unavailable": "Not available",
+    "unavailableShort": "N/A",
+    "percentScale": "0-100%",
+    "cpu": "CPU",
+    "ram": "Memory",
+    "ramSub": "{used}/{total} GB used",
+    "aiLoad": "AI Load",
+    "aiLoadSub": "Heuristic",
+    "aiLoadHelp": "Estimated from CPU, memory, and token throughput. Not an exact measurement.",
+    "tokensPerMinute": "Tokens/min",
+    "noTokenWindow": "No measured window yet",
+    "noTokenBreakdown": "No reliable breakdown",
+    "historyHeading": "Trend",
+    "historyAria": "Live load trend",
+    "legendAria": "Live trend legend",
+    "historyLoading": "Collecting live data...",
+    "historyNoSeries": "No active series.",
+    "quality": {
+      "measured": "Measured",
+      "calculated": "From logs",
+      "estimated": "Estimated",
+      "unavailable": "Not available"
+    },
+    "series": {
+      "cpu": "CPU",
+      "ram": "Memory",
+      "aiLoad": "AI Load",
+      "tokensTotal": "Tokens/min",
+      "tokensInput": "Input",
+      "tokensOutput": "Output",
+      "tokensCached": "Cached",
+      "aiCpu": "AI CPU",
+      "aiMemory": "AI Memory",
+      "swap": "Swap"
+    },
+    "errors": {
+      "load": "Could not load live system metrics."
+    },
+    "tokensPerMinuteHelp": "Calculated from local Claude Code, Codex, Gemini, Copilot, and Ollama logs in the local aggregate. Multica Claude/Codex runs are included through those logs; API-only OpenAI/Anthropic billing is excluded to avoid double counting. Gemini agents may be missing when the Gemini CLI does not write token metadata.",
+    "systemCpu": "System CPU",
+    "systemRam": "System Memory",
+    "aiCpu": "AI CPU",
+    "aiCpuSub": "{count} AI processes",
+    "aiCpuHelp": "Aggregated CPU share of recognized local AI process groups. Commands and paths are not exposed.",
+    "aiMemory": "AI Memory",
+    "aiMemorySub": "{used} GB RSS",
+    "aiMemoryHelp": "Aggregated resident memory of recognized local AI process groups. Shared Electron and browser memory is approximate.",
+    "swap": "Swap",
+    "swapSub": "{used}/{total} GB used",
+    "swapHelp": "System swap usage. High swap can slow the Mac even when AI process memory is only part of the total.",
+    "noAiProcesses": "No AI process group found",
+    "processBreakdownHeading": "Running AI groups",
+    "processBreakdownHelp": "Safe aggregate view: running AI process groups and load shares without command lines, prompts, or paths.",
+    "processTotal": "AI total: {cpu} CPU · {memory} · {memoryShare} RAM · {count} running processes",
+    "processBreakdownUnavailable": "Process grouping is not available on this platform/runtime.",
+    "processBreakdownEmpty": "No recognized AI process group is currently running for the dashboard.",
+    "processColumns": {
+      "group": "Group",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "memoryShare": "RAM %",
+      "count": "Processes"
+    },
+    "recentRateWindow": "Dzīvā likme, slīdošas 60 s"
+  },
+  "pricing": {
+    "eyebrow": "API izmaksas",
+    "heading": "Cik tavi tokeni maksātu caur API",
+    "meta": "Katalogs {catalogVersion} · {modelCount} modeļi · EUR pēc ECB {fxDate} · API cenas {pricingDate} · Arena Text {scoreDate}",
+    "modelFilter": {
+      "label": "Filtrēt pēc modeļa nosaukuma",
+      "placeholder": "Piemēram, Sol, 6.1 vai Claude",
+      "empty": "Modeļi ar šo nosaukumu nav atrasti."
+    },
+    "qualityScoreTitle": "Arena Text {scoreDate}: {score} Elo",
+    "chinaBadge": "Ķīna",
+    "unknown": "Nezināms",
+    "notPriced": "Bez cenas",
+    "aliases": "Aizstājvārdi: {aliases}",
+    "limitSummary": "konteksts {context} · izvade {output}",
+    "sourceReviewed": "Pārskatīts {date}",
+    "regions": {
+      "apiDiscount": "API atlaide"
+    },
+    "columns": {
+      "model": "Modelis",
+      "score": "Vērtējums",
+      "region": "Reģions",
+      "limits": "Limiti",
+      "input": "Ievade",
+      "cache": "Kešatmiņa",
+      "output": "Izvade",
+      "today": "Last 24h",
+      "total": "Kopā",
+      "status": "Statuss",
+      "source": "Avots"
+    },
+    "priceStatus": {
+      "official": "Oficiāla cena",
+      "estimated": "Aptuvena cena",
+      "unknown": "Cena nezināma",
+      "mixed": "Jauktas cenas"
+    },
+    "availability": {
+      "ga": "Vispārīgi pieejams",
+      "preview": "Priekšskatījums",
+      "deprecated": "Novecojis",
+      "unknown": "Pieejamība nezināma"
+    },
+    "limitStatus": {
+      "official": "Oficiāli limiti",
+      "estimated": "Aptuveni limiti",
+      "unknown": "Limiti nezināmi"
+    },
+    "viewToggleAria": "Cost view",
+    "aliasesSummary": "{count} aliases",
+    "views": {
+      "api": "API equivalent",
+      "models": "Used models",
+      "subscriptions": "Fixed costs"
+    },
+    "usedModels": {
+      "heading": "Used models in {range}",
+      "description": "Actual logged model usage matched to the local pricing catalog where possible.",
+      "empty": "No model-level token data is available for the selected range.",
+      "totalLabel": "API izmaksas kopā",
+      "totalComplete": "Pilns",
+      "totalPartial": "Daļējs",
+      "totalUnknown": "Nezināms",
+      "totalMixed": "Jauktas valūtas",
+      "totalPartialNote": "Dažām parādītajām rindām nav uzticamas API cenas, tāpēc kopsumma ir daļēja.",
+      "totalUnknownNote": "Nevienai parādītajai rindai nav uzticamas API cenas.",
+      "totalMixedNote": "Parādītās rindas izmanto vairākas valūtas; kopsumma netiek aprēķināta.",
+      "totalRow": "API izmaksas kopā"
+    },
+    "subscriptions": {
+      "heading": "Subscription and fixed costs in {range}",
+      "description": "Shows monthly fixed costs only when safely detected locally or saved as fallback estimates. Missing data is not treated as real cost.",
+      "empty": "No subscription or fixed-cost data is available yet.",
+      "previous": "Previous cost",
+      "delta": "Change"
+    }
+  },
+  "providers": {
+    "codex": {
+      "kicker": "Codex"
+    },
+    "codexSpark": {
+      "kicker": "Codex Spark"
+    },
+    "claudeCode": {
+      "kicker": "Claude Code"
+    },
+    "anthropic": {
+      "kicker": "API lietojums"
+    },
+    "openai": {
+      "kicker": "API un kredīti"
+    },
+    "gemini": {
+      "kicker": "Gemini"
+    },
+    "glm": {
+      "kicker": "OpenAI-compatible import"
+    },
+    "ollama": {
+      "kicker": "Ollama"
+    },
+    "local": {
+      "name": "Local capture"
+    },
+    "gridAria": "Sniedzēji",
+    "messages": {
+      "sparkTokens24h": "Spark tokeni 24h",
+      "logTokens24h": "Žurnāla tokeni 24h",
+      "missingBackendKey": "Trūkst backend atslēgas",
+      "sevenDays": "7 dienas",
+      "noCodexSparkEvents": "Codex 5.3 Spark notikumi nav atrasti.",
+      "noGeminiLogs": "Lokāli Gemini usage žurnāli nav atrasti.",
+      "glmImportTokens": "GLM/Z.AI tokens from local imports.",
+      "glmQuotaUnavailable": "Official quota through OpenCode is not available.",
+      "noGlmEvents": "No local GLM/Z.AI usage events found.",
+      "ollamaLogTokens": "Lokāli Ollama tokeni no žurnāliem",
+      "noOllamaLogs": "Lokāli Ollama žurnāli nav atrasti.",
+      "copilotLogTokens": "Copilot CLI tokens 24h",
+      "noCopilotSessionMetrics": "No local Copilot CLI session metrics found.",
+      "claudeStatuslineNoQuotas": "Claude is sending data, but not official Pro/Max limit values yet.",
+      "claudeStatuslineMissing": "Claude statusline nav konfigurēts. Iespējojiet paneļa statusline komandu Pro/Max tiešsaistes kvotām.",
+      "claudeLiveLimitsMissing": "Claude live limits are not available from local telemetry yet.",
+      "claudeLimitsStale": "Claude live limits are out of date. Open Claude Code once to refresh them.",
+      "claudeOauthUnavailable": "Claude CLI/OAuth quota unavailable: {reason}.",
+      "claudeBrowserLoginHint": "Log in to Claude.ai in your browser to enable credit tracking.",
+      "glmQuotaAvailable": "Official GLM Coding Plan quota from OpenCode.",
+      "glmQuotaUnavailableReason": "Official GLM Coding Plan quota unavailable: {reason}.",
+      "noOpenCodeGptEvents": "No local OpenAI/GPT usage events found in OpenCode."
+    },
+    "emptyState": {
+      "eyebrow": "Sniedzējs",
+      "heading": "Nav aktīva lietojuma",
+      "status": "Tukšs",
+      "message": "Nevienam sniedzējam pašlaik nav reģistrētu tokenu vai limitu datu.",
+      "visible": "Redzams",
+      "hidden": "Paslēpts",
+      "all": "Visi"
+    },
+    "copilot": {
+      "kicker": "Copilot CLI"
+    },
+    "updateDelayHints": {
+      "default": "This provider has not produced a fresh local signal for more than {minutes} minutes. Some sources only update when their CLI or app writes new usage data.",
+      "codex": "Codex limits normally update through the local app-server. If this stays old, the app-server may be unavailable or Codex has not produced fresh live limit data.",
+      "codexSpark": "Codex Spark limits normally update through the local Codex app-server. If this stays old, Spark live limit data may not be exposed yet.",
+      "claudeCode": "This Claude Code card combines statusline, local logs, and Claude.ai billing or usage data. Updates can lag when Claude Code is closed, the statusline has not run, or Claude.ai cookies/API access are unavailable.",
+      "copilot": "GitHub Copilot CLI usage is written after sessions shut down, and live quota probing depends on the local Copilot CLI. The timestamp can lag while a session is still open or the probe is unavailable.",
+      "gemini": "Gemini local usage updates only when local log files contain new usage metadata.",
+      "glm": "GLM/Z.AI updates when local JSON, JSONL, or CSV usage imports contain OpenAI-compatible GLM token counts.",
+      "ollama": "Ollama usage updates only when requests pass through the dashboard's local proxy/log file."
+    },
+    "freshness": {
+      "ariaLabel": "Piegādātāja datu laiks",
+      "usage": "Lietojums {time}",
+      "limits": "Limiti {time}",
+      "prices": "Cenas {time}",
+      "catalog": "Katalogs {date}",
+      "unknown": "Datu laiks nav zināms"
+    },
+    "openCode": {
+      "kicker": "OpenCode GPT logs"
+    },
+    "kimi": {
+      "kicker": "Kimi Code"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "empty": "Tukšs",
+    "not_configured": "Iestatīšana",
+    "error": "Kļūda"
+  },
+  "labels": {
+    "today": "Šodien",
+    "fiveHourUsed": "5h izmantots",
+    "weekUsed": "Nedēļa izmantota",
+    "fiveHourLeft": "Atlikušas 5 h",
+    "weekLeft": "Atlikusi nedēļa",
+    "since": "Kopš",
+    "updated": "Atjaunināts",
+    "plan": "Plāns",
+    "fiveHourTokens": "5h tokeni",
+    "total": "Kopā",
+    "cost": "Izmaksas",
+    "tokens7d": "Tokeni 7 dienas",
+    "cost7d": "Izmaksas 7 dienas",
+    "limits": "Limiti",
+    "updatedHelp": "Why this timestamp may be delayed",
+    "subscription": "Subscription",
+    "last24h": "Last 24h"
+  },
+  "credits": {
+    "title": "Kredīti",
+    "monthlySpend": "Lietojuma kredīti",
+    "monthlyLimit": "Mēneša limits",
+    "currentCredit": "Pašreizējais kredīts",
+    "autoTopUp": "Automātiska papildināšana",
+    "default": "Kredīti",
+    "on": "Ieslēgts",
+    "off": "Izslēgts"
+  },
+  "limits": {
+    "recentPace": {
+      "timeToLimit": "Laiks līdz limitam: {duration}",
+      "title": "Nesenais temps",
+      "measured": "+{percent} procentpunkti {duration} laikā",
+      "collecting": "Šim periodam vēl nav pietiekami daudz mērījumu.",
+      "flat": "Šajā periodā nav izmērāma pieauguma.",
+      "stale": "Pēdējais kvotas mērījums ir pārāk vecs.",
+      "changed": "Mērījumi mainījās; prognoze nav pieejama.",
+      "possible": "Limits var tikt sasniegts pirms atiestatīšanas; aplēse ir neskaidra.",
+      "note": "Aplēse no noapaļotiem procentiem pie nemainīga tempa."
+    },
+    "fiveHour": "5h",
+    "weekly": "Nedēļa",
+    "currentSession": "Pašreizējā sesija",
+    "allModels": "Visi modeļi",
+    "claudeDesign": "Claude Design",
+    "sonnetOnly": "Tikai Sonnet",
+    "default": "Limits",
+    "resetPrefix": "Atiestatīšana {time}",
+    "usedValue": "{percent}% izmantots",
+    "leftValue": "Atlikuši {percent}%",
+    "freeLabel": "{label} pieejams",
+    "limitGroups": "{count} limitu grupas",
+    "noModelLimits": "Nav modeļu limitu",
+    "remainingShort": "{days}d {hours}h {minutes}m",
+    "fullTitle": "Limit full",
+    "fullDescription": "{limit} is full.",
+    "fullTokenDetail": "{tokens} tokens in {period}",
+    "fullPremiumRequestsDetail": "{requests} premium requests from local session logs",
+    "fullResetDetail": "Reset {time}",
+    "period5h": "5h",
+    "period7d": "7d",
+    "period24h": "24h",
+    "fullQuotaDetail": "{usage} used",
+    "status": {
+      "ok": "On track",
+      "risk": "Augsts temps",
+      "full": "Limit reached",
+      "unknown": "Unknown"
+    },
+    "pace": {
+      "remaining": "Pie pasreizeja tempa lidz atiestatei paliks ap {percent}%.",
+      "shortfall": "Pie pasreizeja tempa lidz atiestatei pietruks ap {percent}%.",
+      "hitBeforeReset": "Pie pasreizeja tempa limits tiks sasniegts ap {duration} pirms atiestates. ({time})",
+      "fullWithReset": "Limits sasniegts; atiestate {time}.",
+      "fullNoReset": "Limits sasniegts; atiestates laiks nav pieejams.",
+      "unavailable": {
+        "noUsage": "Temps nav pieejams: sis avots nesniedz lietojuma procentu.",
+        "noWindow": "Temps nav pieejams: sis avots nesniedz loga ilgumu vai atiestates laiku.",
+        "notStarted": "Temps nav pieejams: sis kvotas logs vel nav sacies.",
+        "staleReset": "Temps nav pieejams: atiestates laiks ir novecojis; atsvaidziniet avotu."
+      }
+    },
+    "duration": {
+      "daysHours": "{days} d {hours} h",
+      "hoursMinutes": "{hours} h {minutes} min",
+      "minutes": "{minutes} min"
+    },
+    "gauge": {
+      "title": "Pašreizējais lietojums",
+      "projectedValue": "prognoze {percent}%",
+      "unavailable": "Prognoze nav pieejama",
+      "aria": "{label} prognozētais beigu lietojums"
+    },
+    "viewToggleAria": "Pašreizējā lietojuma vizualizācija",
+    "view": {
+      "tachometer": "Mērītājs",
+      "bar": "Josla"
+    },
+    "remainingUntilReset": "Resets in {remaining} · Reset {time}",
+    "glmFiveHourTokens": "5h tokens",
+    "glmWeekly": "Weekly quota",
+    "glmMcpMonthly": "Monthly MCP"
+  },
+  "tokens": {
+    "input": "Ievade",
+    "cacheCreation": "Kešatmiņas izveide",
+    "cachedInput": "Kešota ievade",
+    "output": "Izvade",
+    "reasoningOutput": "Reasoning izvade",
+    "total": "Kopā"
+  },
+  "format": {
+    "billion": "mljrd.",
+    "million": "milj.",
+    "thousand": "tūkst.",
+    "lessThanSharePercent": "<0,1%",
+    "lessThanCent": "< 0,01 EUR",
+    "usdPerMillion": "{value} $/M",
+    "cacheReadWrite": "{read} lasīšana / {write} rakstīšana",
+    "cacheSameAsInput": "kā ievade",
+    "perMonth": "{amount}/mo",
+    "fromPerMonth": "no {amount}/mēn."
+  },
+  "settings": {
+    "heading": "Iestatījumi",
+    "language": {
+      "label": "Valoda"
+    },
+    "theme": {
+      "label": "Motīvs",
+      "system": "Sistēma",
+      "light": "Gaišs",
+      "dark": "Tumšs"
+    },
+    "notifications": {
+      "title": "Limits & warnings",
+      "description": "Warnings use real 5-hour and weekly provider windows plus projections; they are separate from monthly subscription/API cost comparisons.",
+      "enabled": "Enable notifications",
+      "pacingLabel": "Pacing warning at projected provider-window usage (%)",
+      "hardLimitLabel": "Hard warning at measured provider-window usage (%)",
+      "save": "Save",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "diagTitle": "Notification diagnostics",
+      "diagLastCheck": "Last check",
+      "diagDuration": "Duration",
+      "diagAlerts": "Alerts found",
+      "diagLastShown": "Last notification sent",
+      "diagSkipped": "Skip reason",
+      "diagError": "Last error",
+      "diagSupported": "Notifications supported",
+      "diagNone": "None",
+      "diagNever": "Never",
+      "diagYes": "Yes",
+      "diagNo": "No",
+      "testBtn": "Send test notification",
+      "testQueued": "Test requested. If no real system banner appears, open system notifications, allow LLM Pulse, restart the app, then run the test again.",
+      "testError": "Could not send test notification.",
+      "testResultLabel": "Last test result",
+      "testResultAt": "At",
+      "testResultOutcome": "Outcome",
+      "testResult_shown": "Reported as shown by an older build",
+      "testResult_not_supported": "Not supported on this system",
+      "testResult_error": "Error",
+      "diagPermission": "Browser permission (not a macOS banner guarantee)",
+      "permission_granted": "Granted for browser API",
+      "permission_default": "Not asked yet",
+      "permission_denied": "Denied",
+      "permission_unsupported": "Unsupported",
+      "permission_unknown": "Unknown",
+      "permission_error": "Permission check failed",
+      "permissionNotGranted": "Notification permission was not granted. System notification settings were opened; allow LLM Pulse, restart the app, then run the test again.",
+      "permissionUnsupported": "This app runtime does not expose desktop notification permission.",
+      "testResult_sent": "Queued with Electron (banner not confirmed)",
+      "testQueuedRendererError": "Native macOS notification queued, but the immediate browser notification failed: {error}",
+      "testTitle": "LLM Pulse - Test",
+      "testBody": "Desktop notifications are working correctly.",
+      "inAppTestTitle": "In-app test notification",
+      "inAppTestErrorTitle": "Notification test needs attention",
+      "inAppTestBody": "This in-app fallback confirms the test ran. It is not a system banner; native banners may require system notification permission, a fresh app restart, and a properly signed build.",
+      "diagNativeDelivery": "Native system delivery",
+      "nativeDelivery_ready": "Signed app: native banners should be available",
+      "nativeDelivery_ad_hoc": "Ad-hoc build: native banners may not appear",
+      "nativeDelivery_gatekeeper_rejected": "Gatekeeper rejected: native banners may not appear",
+      "nativeDelivery_unverified": "Unverified",
+      "nativeDelivery_not_applicable": "Not applicable on this platform",
+      "nativeDelivery_unknown": "Unknown",
+      "openSettingsBtn": "Open system notification settings",
+      "openSettingsQueued": "System notification settings opened. Allow notifications for LLM Pulse, restart the app if you just changed the setting, then run the test again.",
+      "openSettingsError": "Could not open system notification settings from this runtime.",
+      "systemGuideTitle": "System notifications need attention",
+      "systemGuideDefault": "Allow notifications for LLM Pulse in system settings, restart the app if you just changed the setting, then run the test again.",
+      "systemGuidePermission": "This app does not yet have notification permission. System settings were opened; allow notifications for LLM Pulse there.",
+      "systemGuideUnsupported": "This runtime cannot read browser notification permission. Open system notification settings and allow notifications for LLM Pulse there.",
+      "systemGuideNativeUnverified": "Native banners are not reliably confirmed with this build. Check system notifications, allow LLM Pulse, then test again after restarting the app.",
+      "systemGuideTestFailed": "The last native notification attempt reported a failure. Check system notifications, restart the app, then run the test again.",
+      "systemGuideAfterTest": "If no real system banner appeared, check system notifications, allow LLM Pulse, restart the app, then send the test again.",
+      "thresholdsHelp": "Pacing uses the current consumption rate; hard warning uses measured consumption in the relevant 5h or weekly provider window.",
+      "nativeAlertTitle": "Limita brīdinājums: {window}",
+      "nativeUsedPercent": "Izmantoti {percent}%.",
+      "nativeHardLimit": "Limits gandrīz izsmelts.",
+      "nativePacingProjected": "Izmantoti {usedPercent}%; pašreizējais temps prognozē {projectedPercent}%.",
+      "nativeEstimatedExhaustion": "Paredzamā izsmelšana pēc {time}.",
+      "nativeDurationHoursMinutes": "{hours} st. {minutes} min.",
+      "nativeDurationHours": "{hours} st.",
+      "nativeDurationMinutes": "{minutes} min.",
+      "nativeWindowFiveHour": "5 stundu logs",
+      "nativeWindowWeekly": "Nedēļas limits",
+      "nativeWindowSonnetOnly": "Tikai Sonnet limits",
+      "nativeWindowClaudeDesign": "Claude Design limits",
+      "nativeWindowGeneric": "Limits"
+    },
+    "subscriptions": {
+      "title": "Subscription costs",
+      "planLabel": "Plan",
+      "monthlyCostLabel": "Monthly cost (EUR)",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "description": "Detected plans and costs come from safe local signals. Missing data is not counted as real cost.",
+      "detectedOnly": "Manual values are not normal setup. Use Advanced only as a fallback estimate when local detection is unavailable.",
+      "advancedTitle": "Advanced fallback estimates",
+      "advancedDescription": "These values are saved fallback estimates. Cards and cost views label them as estimates, not automatically detected costs."
+    },
+    "sources": {
+      "title": "Data sources & diagnostics",
+      "description": "Manage connected sources, recheck access, and copy ACL commands for other local users.",
+      "recheck": "Recheck access",
+      "recheckOne": "Recheck access",
+      "recheckPending": "Checking...",
+      "rechecked": "Source diagnostics refreshed.",
+      "recheckError": "Could not refresh source diagnostics.",
+      "currentUser": "current user",
+      "summaryStatus": "Status: {status}",
+      "summaryCounts": "{connected} usable · {candidates} additional candidates",
+      "connectedTitle": "Usable sources",
+      "candidatesTitle": "Additional detected sources",
+      "connectedEmpty": "No usable sources detected yet.",
+      "candidatesEmpty": "No additional source candidates detected right now.",
+      "owner": "Owner: {owner}",
+      "discovery": "Discovery: {method} · confidence {confidence}",
+      "access": {
+        "readable": "Readable",
+        "mixed": "Partially readable",
+        "denied": "Access denied",
+        "missing": "Missing",
+        "process_only": "Process only",
+        "service_only": "Service only"
+      },
+      "permissions": {
+        "readable": "Readable",
+        "denied": "Denied",
+        "missing": "Missing",
+        "unknown": "Unknown",
+        "optionalMissing": "Optional missing"
+      },
+      "roles": {
+        "sessions": "Sessions",
+        "archived_sessions": "Archived sessions",
+        "projects": "Projects",
+        "session_state": "Session state",
+        "telemetry": "Telemetry",
+        "chats": "Chats",
+        "tmp": "Temporary files",
+        "usage_file": "Usage file",
+        "home": "Home"
+      },
+      "noPaths": "No direct filesystem path available.",
+      "connect": "Connect",
+      "connectPending": "Connecting...",
+      "connectSuccess": "Source connected. Running a fresh diagnostics pass now.",
+      "connectError": "Could not connect source.",
+      "disable": "Disable",
+      "disablePending": "Disabling...",
+      "disableSuccess": "Source disabled. Usage totals were refreshed.",
+      "disableError": "Could not disable source.",
+      "grantCommands": "Grant commands",
+      "revokeCommands": "Revoke commands",
+      "copyGrant": "Copy grant commands",
+      "copyRevoke": "Copy revoke commands",
+      "copyGrantSuccess": "Grant commands copied to the clipboard.",
+      "copyRevokeSuccess": "Revoke commands copied to the clipboard.",
+      "copyError": "Could not copy commands to the clipboard.",
+      "automatic": "used automatically"
+    },
+    "supportReport": {
+      "title": "Support report",
+      "description": "Generate a redacted support report for Multica or WhatsApp when local sources are missing or usage does not appear.",
+      "privacyNote": "The report contains only metadata and redacted paths, no raw logs, prompts, secrets, or provider payloads.",
+      "downloadJson": "Save JSON report",
+      "copySummary": "Copy summary",
+      "summaryLabel": "Compact summary",
+      "emptySummary": "Generate a report to preview the compact support summary.",
+      "preparing": "Preparing support report...",
+      "downloaded": "Support report saved.",
+      "copied": "Support summary copied to the clipboard.",
+      "generateError": "Could not generate support report: {message}",
+      "copyError": "Could not copy support summary to the clipboard."
+    },
+    "updates": {
+      "title": "App updates",
+      "description": "Automatic update checks are always active for supported packaged desktop builds; only preview releases are optional.",
+      "enabled": "Automatic update checks are always active",
+      "allowPrerelease": "Include preview releases",
+      "saved": "Saved.",
+      "saveError": "Could not save update settings.",
+      "diagTitle": "Update diagnostics",
+      "diagState": "State",
+      "diagSupport": "Support",
+      "diagLastCheck": "Last check",
+      "diagVersion": "App version",
+      "diagAvailable": "Available version",
+      "diagError": "Last error",
+      "diagNone": "None",
+      "checkNow": "Check now",
+      "checkQueued": "Update check queued.",
+      "checkError": "Could not request update check.",
+      "noticeTitle": "Update attention needed",
+      "noticeMacSigning": "macOS automatic updates require a signed app. This unsigned build can run after manual approval, but the updater will stay disabled until Developer ID signing and notarization are configured.",
+      "noticeDevelopment": "Automatic updates run only from a packaged desktop app, not from the development runtime.",
+      "noticeUnsupported": "Automatic updates are not supported on this platform/package.",
+      "noticeGatekeeper": "The app is signed, but Gatekeeper did not fully accept it. If updates behave oddly, reinstall a notarized build.",
+      "noticeDownloaded": "An update has been downloaded. Restart the app to install it.",
+      "noticeError": "The last update check failed. Check the error line, network access, and release assets.",
+      "state_unknown": "Unknown",
+      "state_disabled": "Disabled",
+      "state_checking": "Checking",
+      "state_available": "Update available",
+      "state_downloading": "Downloading",
+      "state_up_to_date": "Up to date",
+      "state_downloaded": "Downloaded",
+      "state_error": "Error",
+      "state_not_electron": "Not running in desktop app",
+      "state_development_build": "Development build",
+      "state_macos_signing_required": "macOS signing required",
+      "state_unsupported_platform": "Unsupported platform",
+      "support_ready": "Ready",
+      "support_development_build": "Development build",
+      "support_macos_signing_required": "macOS signing required",
+      "support_macos_gatekeeper_warning": "Signed, but Gatekeeper warning",
+      "support_unsupported_platform": "Unsupported platform",
+      "support_electron_updater_missing": "Updater package missing",
+      "support_unknown": "Unknown",
+      "state_electron_updater_missing": "Updater package missing",
+      "alwaysOn": "Automatic update checks are always active."
+    },
+    "saving": "Saving..."
+  },
+  "errors": {
+    "loadUsage": "Kļūda"
+  },
+  "diagnostics": {
+    "ariaLabel": "Source diagnostics",
+    "eyebrow": "Local sources",
+    "heading": "Diagnostics & connection",
+    "recheck": "Recheck access",
+    "loading": "Loading source diagnostics...",
+    "meta": "User {user} · Checked {checkedAt} · {platform} · {support}",
+    "support": {
+      "full": "full host discovery",
+      "partial_container": "limited container discovery",
+      "stub": "platform check unavailable",
+      "unsupported": "unsupported platform"
+    },
+    "supportShort": {
+      "full": "Full",
+      "partial_container": "Limited",
+      "stub": "Unavailable",
+      "unsupported": "Unavailable"
+    },
+    "supportDescriptions": {
+      "full": "Host file access, process hints, and permissions are measured on this machine.",
+      "partial_container": "Container discovery can miss host users, services, and homes; mounted logs can still be read.",
+      "stub": "Host source discovery is not available on this platform build; current-user configured logs may still be read.",
+      "unsupported": "Host source discovery is unavailable here; use Settings or a supported host build for source setup."
+    },
+    "quality": {
+      "measured": "Measured",
+      "configured": "Configured",
+      "detected": "Detected",
+      "limited": "Limited",
+      "unavailable": "Unavailable"
+    },
+    "facets": {
+      "logs": {
+        "title": "Readable log sources",
+        "available": "The app can read at least one local usage source.",
+        "empty": "No readable token log source was found in this scan."
+      },
+      "savedSources": {
+        "title": "Saved extra sources",
+        "available": "These are additional sources saved in Settings.",
+        "empty": "Zero saved sources is OK: current-user log history can still appear below."
+      },
+      "permissions": {
+        "title": "Permission fixes",
+        "blocked": "At least one plausible source exists, but this app cannot read it yet.",
+        "clear": "No denied source path was found in this scan."
+      },
+      "runtimeHints": {
+        "title": "Process/service hints",
+        "available": "A supported tool is visible only as a process or service, not as readable logs.",
+        "empty": "No process-only or service-only source hints were found."
+      },
+      "platform": {
+        "title": "Platform coverage"
+      }
+    },
+    "errors": {
+      "load": "Could not load source diagnostics: {message}"
+    },
+    "statuses": {
+      "connected_live": {
+        "title": "Local data is available",
+        "body": "Readable local sources are available. Saved extra-source counts only track sources you connected manually."
+      },
+      "current_user_empty": {
+        "title": "Current-user logs empty",
+        "body": "The current desktop user was scanned, but no local usage files with token data were found yet."
+      },
+      "candidates_readable_empty": {
+        "title": "Readable candidates found",
+        "body": "Known tool folders are readable, but they currently look empty or are not saved as extra sources."
+      },
+      "candidates_denied": {
+        "title": "Permission action needed",
+        "body": "A plausible source was found, but this app cannot read it with the current account."
+      },
+      "runtime_hints_only": {
+        "title": "Tool seen without readable logs",
+        "body": "A supported tool process or service was detected, but no readable log folder was found for it yet."
+      },
+      "no_tools_found": {
+        "title": "No local tools found",
+        "body": "No supported local tool folders, related processes, or service hints were detected on this machine."
+      },
+      "other_dashboard_found": {
+        "title": "Other dashboard instance found",
+        "body": "Another local LLM Pulse instance is running and may already be reading local usage data."
+      },
+      "partial_unsupported": {
+        "title": "Discovery is limited here",
+        "body": "This runtime can only do limited source discovery, so some users, services, or homes may stay invisible."
+      },
+      "discovery_error": {
+        "title": "Discovery error",
+        "body": "Source discovery did not finish cleanly."
+      }
+    },
+    "nextActions": {
+      "connected_live": "No action is needed; local data below can come from default current-user logs even with zero saved extra sources.",
+      "current_user_empty": "No action is needed unless you expected history; start a supported tool or inspect sources in Settings.",
+      "candidates_readable_empty": "Open Settings > Local sources if you want to save one of these readable sources.",
+      "candidates_denied": "Open Settings > Local sources, copy the ACL command for the denied source, run it as an admin, then recheck.",
+      "runtime_hints_only": "Wait for the tool to write usage logs, or configure the readable source in Settings and recheck.",
+      "no_tools_found": "Start a supported local tool or add a source in Settings, then recheck.",
+      "other_dashboard_found": "Use the already running dashboard window or stop it before checking this instance again.",
+      "partial_unsupported": "Run the desktop app on the host OS for fuller discovery; mounted local logs can still be shown below.",
+      "discovery_error": "Recheck access. If it fails again, check the backend error and source settings."
+    },
+    "recheckResults": {
+      "checking": "Checking...",
+      "ready": "Recheck complete: {status}",
+      "action": "Action needed: {status}",
+      "error": "Recheck failed: {message}",
+      "empty": "Recheck did not return diagnostics."
+    },
+    "instances": {
+      "title": "Other dashboard instances",
+      "item": "{user} has another dashboard instance running."
+    }
+  },
+  "subscriptions": {
+    "plan": "Plan: {plan}",
+    "planUnknown": "Plan unknown",
+    "costUnknown": "Cost unknown",
+    "source": "Source: {source}",
+    "updated": "Updated {time}",
+    "qualityLabel": "Cost quality",
+    "sourceLabel": "Source",
+    "quality": {
+      "automatic": "Automatically detected",
+      "manual": "Saved fallback estimate",
+      "estimated": "Estimated / partial",
+      "unknown": "Unknown",
+      "catalog": "Kataloga vērtība",
+      "official": "Oficiālā saraksta cena",
+      "officialStarting": "Oficiālā sākuma cenrāža cena"
+    },
+    "sources": {
+      "local_settings": "saved fallback",
+      "account": "konta/norēķinu avots",
+      "codex_app_server": "Codex local app-server",
+      "codex_local_logs": "Codex local logs",
+      "claude_statusline": "Claude Code statusline",
+      "claude_auth_status": "Claude CLI auth status",
+      "claudeCode_local_signal": "Claude Code local signal",
+      "codex_local_signal": "Codex local signal",
+      "copilot_local_signal": "Copilot local signal",
+      "gemini_local_signal": "Gemini local signal",
+      "openai_api": "OpenAI API metadata",
+      "anthropic_api": "Anthropic API metadata",
+      "unknown": "unknown",
+      "openai_public_catalog": "OpenAI publiskais abonementu katalogs",
+      "anthropic_public_catalog": "Anthropic publiskais abonementu katalogs",
+      "claude_browser_sync": "Claude parluka/konta sinhronizacija",
+      "claude_api": "Claude konta lietojuma API",
+      "browser": "parluka konta avots",
+      "official_pricing_page": "oficiāla cenu lapa",
+      "cached_official_snapshot": "kešots oficiāls momentuzņēmums",
+      "bundled_catalog": "iekļauts katalogs",
+      "account_billing": "konta/norēķinu avots"
+    },
+    "catalogReviewed": "Katalogs pārskatīts {date}",
+    "costReasons": {
+      "catalogMissing": "Nav uzticamas kataloga vai konta cenas sim noteiktajam planam.",
+      "catalogMissingCodexAppServer": "Vietejais Codex app-server paradija planu, bet ne menesa cenu; nav atbilstosas uzticamas kataloga cenas.",
+      "catalogMissingClaudeStatusline": "Claude statusline paradija planu, bet ne menesa cenu; parluka/konta dati trukst vai nerada cenu.",
+      "catalogMissingClaudeAuth": "Claude CLI auth paradija planu, bet ne menesa cenu; parluka/konta dati trukst vai nerada cenu.",
+      "catalogMissingClaudeBrowser": "{source} tika parbaudits, bet nerada menesa plana cenu."
+    },
+    "costActions": {
+      "addFallback": "Atjauniniet kataloga/konta avotu vai pievienojiet rezerves aplēsi sadaļā Advanced."
+    },
+    "planSource": "Plāns/limiti no {source}",
+    "planSourceLabel": "Plāna/limitu avots",
+    "catalogFallbackNote": "Mēneša cena ir kataloga rezerves vērtība; tikai lasāmi lietotnes/konta avoti sniedz plāna, limitu vai kredītu datus, bet ne uzticamu mēneša cenu.",
+    "sourceAudit": {
+      "heading": "Tikai lasāmi cenu avoti",
+      "safePriceDetected": "atrasta uzticama mēneša cena",
+      "planOnlyNoPrice": "tikai plāns/limiti; mēneša cena nav pieejama",
+      "browserNoPrice": "pārbaudīts; uzticama mēneša cena nav pieejama",
+      "catalogFallback": "kataloga rezerves cena",
+      "notConfigured": "nav šajā izpildē",
+      "notAvailable": "nav droša tikai lasāma cenu avota",
+      "notUsed": "netiek izmantots",
+      "officialListPrice": "oficiālā saraksta cena",
+      "accountSourceExpired": "konta avotam beidzies derīgums",
+      "accountSourceUnavailable": "konta avots nav pieejams"
+    },
+    "officialListPriceNote": "Oficiālā saraksta cena; faktiskā maksa var atšķirties PVN/nodokļu, gada atlaižu, vietu, kuponu, reģionālo cenu vai Enterprise līgumu dēļ.",
+    "fetched": "Nolasīts {time}",
+    "sourceUrl": "URL: {url}",
+    "planKey": "Plāna atslēga: {key}",
+    "parserStatus": "Parseris: {status}",
+    "priceSourceTypeLabel": "Cenas avota tips",
+    "sourceUrlLabel": "Avota URL",
+    "fetchedLabel": "Nolasīšanas/datu laiks",
+    "planKeyLabel": "Plāna atslēga",
+    "parserStatusLabel": "Parsera statuss",
+    "parserStatuses": {
+      "parsed": "parsēts",
+      "parse_failed": "parsēšana neizdevās",
+      "cached_after_fetch_error": "kešs pēc nolasīšanas kļūdas",
+      "bundled": "iekļauts rezerves variants",
+      "missing": "trūkst",
+      "unknown": "nezināms"
+    },
+    "officialStartingListPriceNote": "Oficiālā sākuma cenrāža cena; faktiskā konta rēķina summa netika nolasīta un var atšķirties līmeņa, PVN/nodokļu, gada atlaides, vietu, kuponu, reģionālo cenu, papildinājumu vai enterprise līgumu dēļ.",
+    "tierVariant": "Līmenis/variants: {variant}",
+    "actualBilling": "Faktiskais rēķins zināms: {status}",
+    "tierVariantLabel": "Līmenis/variants",
+    "actualBillingKnownLabel": "Faktiskais rēķins zināms",
+    "priceVariants": {
+      "from": "minimums / no",
+      "pro_5x": "Pro 5x",
+      "pro_5x_20x": "Pro 5x/20x",
+      "pro_20x": "Pro 20x",
+      "max_5x": "Claude Max 5x",
+      "max_5x_20x": "Claude Max 5x/20x",
+      "max_20x": "Claude Max 20x",
+      "unknown": "nezināms"
+    },
+    "actualBillingKnown": {
+      "yes": "jā",
+      "no": "nē"
+    },
+    "connectionActions": {
+      "refresh": "Atsvaidzināt",
+      "claudeLogin": "Pierakstīties Claude un nolasīt plānu",
+      "claudeRefresh": "Vēlreiz nolasīt Claude plānu",
+      "chatgptLogin": "Pierakstīties ChatGPT un nolasīt plānu",
+      "chatgptRefresh": "Vēlreiz nolasīt ChatGPT plānu",
+      "rereadPlan": "Nolasīt plānu tagad"
+    },
+    "connectionStatus": {
+      "refreshRequired": "Nepieciešama savienojuma atsvaidzināšana",
+      "claudeLoginRequired": "Nepieciešama Claude pierakstīšanās",
+      "claudeRefreshRequired": "Atsvaidziniet Claude savienojumu",
+      "chatgptLoginRequired": "Nepieciešama ChatGPT pierakstīšanās",
+      "chatgptRefreshRequired": "Atsvaidziniet ChatGPT Billing savienojumu",
+      "claudeConflict": "Claude Max: pretrunīgi avoti ({details})"
+    },
+    "connectionHelp": "Atveriet pakalpojuma sniedzēja lapu, ja vajag, pierakstieties un atgriezieties šeit. Lietotne vēlreiz nolasīs plānu, kad atgūs fokusu, vai izmantojiet pogu."
+  },
+  "gptAccounts": {
+    "ariaLabel": "GPT accounts",
+    "eyebrow": "Local account registry",
+    "heading": "GPT accounts",
+    "recheck": "Re-scan accounts",
+    "checking": "Scanning Codex and OpenCode accounts…",
+    "rechecked": "Account scan complete.",
+    "recheckError": "Account scan failed: {message}",
+    "recheckErrorFallback": "Unknown error",
+    "summary": "{active} active of {count} known accounts · scanned {time}",
+    "notScanned": "Accounts have not been scanned yet.",
+    "empty": "No ChatGPT account found yet",
+    "guidance": "Sign in with Codex or OpenCode, then re-scan. Accounts seen previously remain in this list as history.",
+    "active": "Active",
+    "historical": "Previous",
+    "lifetimeTokens": "Codex lifetime tokens",
+    "limit": "Limit",
+    "lastSeen": "Last seen {time}",
+    "activeSourceCount": "{count} active sources",
+    "attributionNote": "OpenCode tokens are measured for OpenCode as a whole because its message database does not record which account produced each message.",
+    "sources": {
+      "codex": "Codex",
+      "openCode": "OpenCode"
+    },
+    "activeSourceCountOne": "1 active source",
+    "add": "Pievienot GPT kontu",
+    "signIn": "Pierakstīties OpenAI",
+    "removeLogin": "Noņemt saglabāto pierakstīšanos",
+    "login": {
+      "waiting": "Pabeidziet pierakstīšanos OpenAI. Pārlūkā izvēlieties vajadzīgo kontu.",
+      "complete": "Konts savienots.",
+      "failed": "Pierakstīšanās nav pieejama. Instalējiet Codex CLI vai mēģiniet vēlreiz."
+    },
+    "connectionHelp": "Esošās Codex un OpenCode pierakstīšanās tiek atrastas automātiski. Pievienojiet GPT kontus, tās neaizstājot.",
+    "loginPrivacy": "Pierakstīšanās sazinās ar OpenAI. Akreditācijas dati paliek atsevišķā lokālā profilā un netiek sūtīti izstrādātājam vai savienotām ierīcēm."
+  },
+  "codexResets": {
+    "title": "Codex · Atiestatīšanas vēsture",
+    "period": "Periods",
+    "last10": "Pēdējie 10 logi",
+    "last30": "Pēdējie 30 logi",
+    "all": "Visi logi",
+    "credits": "Pieejamie atiestatīšanas kredīti",
+    "earlyCount": "Priekšlaicīgas atiestatīšanas",
+    "averageDuration": "Vidējais ilgums ≈",
+    "averageUsage": "Vidējais patēriņš",
+    "days": "{value} dienas",
+    "windows": "no {count} logiem",
+    "maximum": "Augstākais novērotais patēriņš",
+    "start": "Sākums ≈",
+    "plannedReset": "Paziņotā atiestatīšana",
+    "end": "Beigas ≈",
+    "duration": "Ilgums ≈",
+    "usage": "Maks. patēriņš",
+    "result": "Atiestatīšanas pierādījums",
+    "early": "Priekšlaicīga",
+    "regular": "Plānota",
+    "uncertain": "Neskaidra",
+    "estimated": "Rekonstruēta",
+    "confirmed": "Kredīts izmantots: apstiprināts",
+    "inferred": "Kredīts izmantots: secināts",
+    "live": "Ierakstīšana aktīva",
+    "stale": "Ieraksts novecojis",
+    "unavailable": "Tiešsaistes dati nav pieejami",
+    "loading": "Ielādē vēsturi…",
+    "empty": "Pabeigti logi vēl nav novēroti.",
+    "note": "Vecie žurnāli rekonstruē logus bez konta piesaistes. Ilgums un beigas ir aplēses; patēriņš ir augstākā novērotā vērtība. Ierakstīšana turpinās, kamēr lietotne darbojas. Personas un ierīces nevar identificēt.",
+    "durationBasis": "{count} izmantojami logi · paredzēts: 7 dienas",
+    "recordingSince": "Ierakstīšana kopš {time}",
+    "redemptions": "Kredīti: {confirmed} apstiprināti · {inferred} secināti lietojumi",
+    "expires": "Derīgs līdz {time}",
+    "coverage": "{uncertain} neskaidri logi · {gaps} nepilnības",
+    "current": "Pašlaik: atiestatīšana {time} · maks. {percent} %",
+    "events": "Kredītu notikumi · pēdējie 30",
+    "granted": "Kredīts piešķirts",
+    "expired": "Kredīts beidzies",
+    "creditUnknown": "Kredīta izmaiņa: neskaidra",
+    "cause": "Atiestatīšanas iemesls",
+    "causeManual": "Manuāli · kupons",
+    "causeProvider": "OpenAI · secināts",
+    "causeScheduled": "Plānots",
+    "causeUnknown": "Nezināms",
+    "causeMissing": "Trūkst kupona vai pārejas pierādījumu",
+    "causeNoCredit": "Priekšlaicīgi bez novērotas kupona izmantošanas",
+    "causeConfirmed": "Apstiprināts",
+    "causeInferred": "Secināts",
+    "causeSummary": "Iemesli: {manual} kupons · {provider} OpenAI (secināts) · {scheduled} plānots · {unknown} nezināms",
+    "causeNote": "Agrīns laiks nenorāda iemeslu. OpenAI secina tikai tad, ja pilns kuponu saraksts paliek nemainīgs cieši novērotas kvotas atiestatīšanas laikā. Vecie žurnāli neatšķir manuālas un OpenAI atiestatīšanas. Persona, kas to izraisīja, nav zināma."
+  },
+  "deviceSync": {
+    "heading": "Savienojiet savas ierīces",
+    "enabled": "Iespējot tiešo sinhronizāciju",
+    "name": "Ierīces nosaukums",
+    "invite": "Izveidot savienošanas kodu",
+    "code": "Savienošanas kods",
+    "copy": "Kopēt kodu",
+    "join": "Savienot ierīci",
+    "forget": "Atvienot ierīci",
+    "view": "Ierīces",
+    "local": "Šī ierīce",
+    "all": "Visas savienotās ierīces",
+    "copied": "Kods nokopēts.",
+    "working": "Savieno…",
+    "ready": "Gatavs.",
+    "inviteReady": "Kods der piecas minūtes. Ielīmējiet to otrā ierīcē.",
+    "errors": {
+      "default": "Savienojums nav pieejams. Iepriekš saņemtie dati paliek šajā ierīcē.",
+      "peer_unreachable": "Savienojums nav pieejams. Iepriekš saņemtie dati paliek šajā ierīcē.",
+      "invalid_pairing_code": "Savienojums nav pieejams. Iepriekš saņemtie dati paliek šajā ierīcē.",
+      "network_unavailable": "Savienojums nav pieejams. Iepriekš saņemtie dati paliek šajā ierīcē.",
+      "sync_disabled": "Savienojums nav pieejams. Iepriekš saņemtie dati paliek šajā ierīcē.",
+      "capture_failed": "Savienojums nav pieejams. Iepriekš saņemtie dati paliek šajā ierīcē.",
+      "storage_unavailable": "Savienojums nav pieejams. Iepriekš saņemtie dati paliek šajā ierīcē.",
+      "discovery_unavailable": "Savienojums nav pieejams. Iepriekš saņemtie dati paliek šajā ierīcē."
+    },
+    "privacy": "Lietojuma un akreditācijas dati netiek sūtīti izstrādātājam. Šifrēti mērījumi tiek kopīgoti tikai ar skaidri savienotām ierīcēm. Atvienošana neizdzēš saņemtās kopijas.",
+    "networkLimit": "Tiešie savienojumi izmanto lokālo tīklu vai esošu privātu VPN bez starpnieka, atklāšanas servera vai maršrutētāja izmaiņām. Tīkli, kas tos bloķē, nepieļauj automātisku sinhronizāciju.",
+    "coverage": "{count} unikāli ieraksti · {duplicates} dublikāti noņemti · {excluded} ieraksti paliek lokāli bez uzticama identifikatora. Kontu limiti paliek atsevišķi; API summas netiek pievienotas."
+  },
+  "connections": {
+    "accounts": "Konti",
+    "installations": "Instalācijas",
+    "general": "Vispārīgi",
+    "advanced": "Papildu",
+    "addAccount": "Pievienot kontu",
+    "chooseProvider": "Izvēlieties pakalpojumu sniedzēju",
+    "detectedDetails": "Atrastie GPT konti un informācija",
+    "back": "Atpakaļ",
+    "accountLabel": "Nosaukums (neobligāti)",
+    "apiKey": "API atslēga",
+    "adminKey": "Administratora API atslēga",
+    "region": "Reģions",
+    "global": "Starptautisks",
+    "china": "Ķīna",
+    "setupHelp": "Iestatīšanas norādījumi",
+    "connect": "Savienot",
+    "openSignIn": "Atvērt pieteikšanos",
+    "connectInstallation": "Savienot instalāciju",
+    "haveCode": "Man ir kods",
+    "syncOptions": "Sinhronizācija un privātums",
+    "remove": "Noņemt",
+    "automatic": "Atrasts automātiski",
+    "empty": "Vēl nav pievienotu kontu.",
+    "apiAccount": "API konts",
+    "subscription": "Abonements / programmēšanas plāns",
+    "thisInstallation": "Šī instalācija",
+    "syncOn": "Sinhronizācija ieslēgta",
+    "syncOff": "Sinhronizācija izslēgta",
+    "local": "Lokāla",
+    "waitingSync": "Gaida pirmo sinhronizāciju",
+    "viaPeer": "Caur pārī savienotu instalāciju",
+    "balance": "Atlikums",
+    "privacy": "Pieteikšanās dati paliek šajā ierīcē. Lietojuma dati izstrādātājam netiek sūtīti.",
+    "installationsHelp": "Savienojiet savas instalācijas, lai kopā skatītu to lietojumu.",
+    "pairHelp": "Otrā ierīcē atveriet Instalācijas. Šeit izveidojiet kodu vai ielīmējiet otras ierīces kodu. Ierīcēm jābūt tieši sasniedzamām.",
+    "adminKeyHelp": "Pārskatiem nepieciešama organizācijas administratora API atslēga, atsevišķi no tērzēšanas abonementa.",
+    "glmHelp": "Izmantojiet GLM Coding Plan atslēgu un izvēlieties tās reģionu.",
+    "browserHelp": "Turpiniet ar pakalpojumu sniedzēja oficiālo pieteikšanos.",
+    "keyPrivacy": "Atslēga tiek glabāta lokāli un izmantota tikai pieprasījumiem šim pakalpojumu sniedzējam.",
+    "needsSetup": "Vispirms instalējiet oficiālo CLI un atsvaidziniet sarakstu.",
+    "claudeHelp": "Claude Code pārvalda pieteikšanos šajā ierīcē. Jābūt instalētam Claude Code CLI.",
+    "kimiHelp": "Izmantojiet oficiālo Kimi Code pieteikšanos vai Kimi Code plāna atslēgu.",
+    "moonshotHelp": "Izmantojiet Moonshot API atslēgu API atlikuma nolasīšanai, atsevišķi no Kimi Code.",
+    "loginWaiting": "Pabeidziet pieteikšanos pie pakalpojumu sniedzēja. Atstājiet šo logu atvērtu.",
+    "loginComplete": "Konts savienots. Mērījumi tiek automātiski atjaunināti.",
+    "claudeSignIn": "Savienot ar Claude Code",
+    "providers": {
+      "gpt": "ChatGPT / Codex",
+      "claude": "Claude / Anthropic",
+      "kimi": "Kimi Code",
+      "glm": "GLM / Z.AI",
+      "openai": "OpenAI API",
+      "anthropic": "Anthropic API",
+      "moonshot": "Moonshot API"
+    },
+    "browser": "Pieteikties",
+    "failed": "Pieteikšanās neizdevās",
+    "checking": "Savieno…",
+    "installation": "Instalācijas",
+    "status": {
+      "connected": "Aktīvs",
+      "detected": "Atrasts",
+      "historical": "Iepriekšējs",
+      "auth_required": "Jāpiesakās",
+      "error": "Kļūda",
+      "unavailable": "Nav pieejams",
+      "unknown": "Nav pieejams"
+    },
+    "errors": {
+      "invalid_account": "Konts nav atrasts. Atsvaidziniet kontu sarakstu.",
+      "invalid_key": "Atslēga noraidīta. Pārbaudiet atslēgu un izvēlēto pakalpojumu sniedzēju.",
+      "permission_denied": "Atslēgai nav piekļuves lietojuma pārskatiem. Izmantojiet atslēgu ar vajadzīgajām atļaujām.",
+      "unsupported_key": "Šis atslēgas veids nevar nolasīt lietojumu. Ievērojiet pakalpojumu sniedzēja iestatīšanas norādījumus.",
+      "account_limit": "Sasniegts kontu limits. Vispirms noņemiet neizmantotu kontu.",
+      "connection_unavailable": "Pakalpojumu sniedzējs nav sasniedzams. Pārbaudiet savienojumu un mēģiniet vēlreiz.",
+      "account_storage_unavailable": "Lokālā kontu krātuve nav pieejama. Pārbaudiet lietotnes failu atļaujas.",
+      "profile_remove_failed": "Saglabāto pieteikšanos neizdevās noņemt. Aizveriet pieteikšanās logu un mēģiniet vēlreiz.",
+      "unsupported_platform": "Pieteikšanās pārlūkā šajā platformā nav pieejama. Izmantojiet pieejamu atslēgas metodi."
+    },
+    "kimiHelperHelp": "Pirmajā pieteikšanās reizē lietotne lejupielādē oficiālo Kimi palīgrīku tieši no Kimi. Tas darbojas lokāli; panelis nesūta telemetriju.",
+    "lastSeen": "Pēdējoreiz redzēts {time}"
+  },
+  "history": {
+    "refreshing": "Saglabātā vēsture · {time}. Atjaunināšana fonā."
+  },
+  "quotaIntegrity": {
+    "title": "Kvotu integritāte",
+    "period": "Laika periods",
+    "range24h": "Pēdējās 24 stundas",
+    "range7d": "Pēdējās 7 dienas",
+    "range30d": "Pēdējās 30 dienas",
+    "loading": "Ielādē kvotu integritāti…",
+    "unavailable": "Kvotu integritātes dati nav pieejami.",
+    "intro": "Neparasti kvotu novērojumi, cik labi tos aptver dati un vai tos var izskaidrot vietējā tokenu aktivitāte. Neparasts novērojums ir jāpārbauda, taču tas nav pierādījums problēmai pakalpojuma sniedzēja pusē.",
+    "status": {
+      "attention": "Nepieciešama uzmanība",
+      "no_anomaly_detected": "Anomālijas nav konstatētas",
+      "insufficient_data": "Datu vēl nepietiek"
+    },
+    "collector": "Codex reāllaika vācējs",
+    "noData": "Nav datu",
+    "lastSample": "Pēdējais paraugs {time}",
+    "noSample": "Nav reāllaika parauga",
+    "findings": "Konstatējumi",
+    "findingsDetail": "{warnings} brīdinājumi · {info} informatīvi",
+    "observations": "Novērojumi",
+    "observationsDetail": "{samples} momentuzņēmumi · {events} vēstures ieraksti",
+    "localData": "Vietējās aktivitātes dati",
+    "localDataDetail": "{slots} intervāli · atjaunināts {time}",
+    "neverRefreshed": "vēl nav ierakstīts",
+    "gaps": "Vākšanas robi",
+    "gapsDetail": "{count} šajā periodā",
+    "measured": "Izmērīts",
+    "estimate": "Novērtējums",
+    "hypothesis": "Hipotēze",
+    "confidence": "Pārliecība: {level}",
+    "level": {
+      "medium": "vidēja",
+      "low": "zema"
+    },
+    "confidenceWord": {
+      "confirmed": "apstiprināts",
+      "inferred": "secināts",
+      "possible": "iespējams"
+    },
+    "chartTitle": "Codex nedēļas izmantošana laika gaitā",
+    "chartAria": "Līniju diagramma par Codex nedēļas kvotas izmantošanu procentos: {points} ierakstīti punkti, {findings} atzīmēti konstatējumi.",
+    "chartEmpty": "Šajā periodā Codex nedēļas kvotas izmaiņas nav ierakstītas.",
+    "legendWarning": "Brīdinājums",
+    "legendInfo": "Informācija",
+    "legendGap": "Vākšanas robs",
+    "types": {
+      "usage_rolled_back": "Paziņotā izmantošana samazinājās",
+      "reset_deadline_changed_early": "Atiestatīšanas laiks mainījās pirms termiņa",
+      "usage_increase_without_local_activity": "Izmantošana pieauga bez vietējās aktivitātes",
+      "collector_gap": "Vācējs nav pieejams",
+      "observation_gap": "Nav novērojumu",
+      "account_changed": "Konta darbības joma mainījās",
+      "stale_codex_snapshot": "Reāllaika dati ir novecojuši",
+      "no_live_codex_samples": "Nav Codex reāllaika datu"
+    },
+    "fact": {
+      "usageChange": "Izmantotā kvota {from}% → {to}% ({delta} punkti)",
+      "between": "Novērots starp {from} un {to}",
+      "deadlineShift": "Atiestatīšanas laiks pārbīdījās par {minutes} min: {from} → {to}",
+      "noActivity": "Jau {minutes} min nav ierakstīta vietējā tokenu aktivitāte ({basis})",
+      "basisPlateau": "kopš iepriekšējā vērtība pirmoreiz tika novērota",
+      "basisWindow": "kopš kvotas loga sākuma",
+      "localCounts": "Vietējie notikumi: {events} · vietējie tokeni: {tokens}",
+      "gapSpan": "Nav datu {minutes} min ({from} → {to})",
+      "gapOngoing": "Nav datu jau {minutes} min, kopš {from} (turpinās)",
+      "failures": "Ierakstīti neveiksmīgi vākšanas mēģinājumi: {count}",
+      "staleAge": "Pēdējais reāllaika paraugs bija pirms {minutes} min"
+    },
+    "evidence": {
+      "heading": "Pierādījumi datos",
+      "credit": "Starp šiem novērojumiem tika izmantots atiestatīšanas kredīts ({confidence}).",
+      "account": "Reāllaika momentuzņēmums aptuveni šajā laikā pārslēdzās uz citu kontu (iespējams).",
+      "resetNoCredit": "Priekšlaicīga atiestatīšana bez izmantota kredīta (secināts)."
+    },
+    "hypothesesHeading": "Iespējamie skaidrojumi (hipotēzes, nevis konstatējumi)",
+    "hypotheses": {
+      "other_device_or_surface": "Izmantošana citā ierīcē, tīmekļa lietotnē, IDE paplašinājumā vai mākoņuzdevumos, ko vietējie žurnāli neredz",
+      "other_account_or_profile": "Izmantošana no cita konta vai profila, kas dala šo kvotu",
+      "provider_accounting_or_adjustment": "Pakalpojuma sniedzēja uzskaites kavēšanās, noapaļošana vai korekcija",
+      "local_logs_incomplete": "Vietējie žurnāli ir nepilnīgi, rotēti vai netiek vākti",
+      "ledger_not_account_scoped": "Šī kvotu vēsture nav piesaistīta vienam kontam",
+      "reset_credit_or_plan_change": "Atiestatīšanas kredīts, plāna maiņa vai cita kvotas korekcija",
+      "inconsistent_source_data": "Pretrunīgi dati no kvotas avota"
+    },
+    "noFindings": "Šajā periodā konstatējumu nav.",
+    "stepStatus": {
+      "activity_present": "Vietējā aktivitāte ir",
+      "shared_source_activity": "Tikai cits vietējais aģents",
+      "no_local_activity": "Vietējā aktivitāte nav ierakstīta",
+      "not_assessable": "Nav iespējams novērtēt"
+    },
+    "reason": {
+      "history_start": "Vēsture sākas no šī punkta",
+      "no_local_history": "Nav vietējo žurnālu vēstures",
+      "before_local_history": "Vietējie žurnāli sākas vēlāk",
+      "ingest_pending": "Vietējie žurnāli vēl nav pārlasīti"
+    },
+    "steps": {
+      "heading": "Kvotas pieaugumi salīdzinājumā ar vietējo aktivitāti",
+      "summary": "{present} ar vietējo aktivitāti · {shared} tikai cits vietējais aģents · {none} bez tās · {unknown} nav iespējams novērtēt",
+      "note": "Katra rinda ir paziņotās izmantošanas pieaugums. Vietējo tokenu skaits nāk tikai no šī datora žurnāliem un nav kvotas pārrēķins.",
+      "empty": "Šajā periodā izmantošanas pieaugumu nav."
+    },
+    "estimateText": "Salīdzināmie soļi uzrādīja mediānu {median} vietējo tokenu uz vienu kvotas punktu (vidējā puse {low}–{high}, {samples} soļi). Sniedzēji atšķirīgi vērtē modeļus un kešatmiņā glabātos ievaddatus, tāpēc tā ir aptuvena skala, nevis pārrēķins.",
+    "localValue": "{events} notikumi · {tokens} tokeni",
+    "colTime": "Laiks",
+    "colChange": "Izmantotā kvota",
+    "colLocal": "Vietējā aktivitāte",
+    "colTokens": "Notikumi · tokeni",
+    "colWindow": "Logs",
+    "colUsed": "Izmantots",
+    "colResets": "Atiestatīšana",
+    "colLastChange": "Pēdējā izmaiņa",
+    "gapKind": {
+      "collector_unavailable": "Vācējs nav pieejams",
+      "no_observations": "Nav novērojumu (lietotne bija aizvērta vai dators miega režīmā)"
+    },
+    "ongoing": "turpinās",
+    "minutes": "{value} min",
+    "gapsEmpty": "Šajā periodā vākšanas robu nav.",
+    "windows": {
+      "heading": "Novērotie kvotu logi",
+      "note": "Kvotu vēsture ieraksta tikai izmaiņas, tāpēc mierīgs periods nav robs.",
+      "empty": "Šajā periodā kvotu logi nav ierakstīti."
+    },
+    "privacyNote": "Tiek analizēti tikai kvotu laiki un tokenu skaits. Uzvednes, atšifrējumi, kontu identifikatori un failu ceļi nekad netiek iekļauti."
+  },
+  "workspace": {
+    "openPalette": "Open command palette",
+    "paletteShortcut": "Command palette · Ctrl+K",
+    "focusMode": "Toggle focus mode",
+    "focusShortcut": "Focus mode · Alt+Shift+F",
+    "compactMode": "Toggle compact layout",
+    "paletteTitle": "Command palette",
+    "paletteSearch": "Search actions or jump to a section…",
+    "paletteClose": "Close command palette",
+    "focusOn": "Focus mode enabled",
+    "focusOff": "Focus mode disabled",
+    "compactOn": "Compact layout enabled",
+    "compactOff": "Comfortable layout enabled",
+    "glassOn": "Glass effect enabled",
+    "glassOff": "Glass effect disabled",
+    "motionOn": "Reduced motion enabled",
+    "motionOff": "Full motion enabled"
+  }
+}

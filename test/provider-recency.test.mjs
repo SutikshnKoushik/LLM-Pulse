@@ -1,0 +1,2163 @@
+import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { mkdtemp, mkdir, rm, writeFile, readFile, readdir } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import vm from "node:vm";
+import { createRequire } from "node:module";
+import { fileURLToPath } from "node:url";
+
+process.env.CODEX_LIVE_RATE_LIMITS = "false";
+
+const require = createRequire(import.meta.url);
+const { readCodexUsage, _test } = require("../server.js");
+const { aggregateUsageEvents } = require("../lib/usage-events.js");
+const { detectOpenAiPlanType, detectClaudePlanType, hasPlanProbeSignal, normalizePlanKey } = require("../lib/subscription-plan-detection");
+const rootDir = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+
+await assertSubscriptionPlanDetection();
+await assertProviderVisibility();
+await assertGlmUsageImport();
+await assertFrontendUsageIntelligence();
+await assertSubscriptionConnectionLocalization();
+await assertNotificationLocalizationRegression();
+await assertUpdateSettingsAlwaysOn();
+await assertCodexSparkRateLimitDoesNotMoveGpt55Usage();
+await assertForbiddenThirdPartyPlanSourceAbsent();
+
+async function assertSubscriptionPlanDetection() {
+  assert.equal(normalizePlanKey("Pro 20 x"), "pro 20x");
+  assert.equal(detectOpenAiPlanType("Pro 20 x", { explicit: true }), "Pro 20x");
+  assert.equal(detectOpenAiPlanType("ChatGPT Pro 20x Your plan auto-renews", { explicit: true, allowGeneric: false }), "Pro 20x");
+  assert.equal(
+    detectOpenAiPlanType("Usage & billing Your plan Pro plan $200/mo View plans", { explicit: true, allowGeneric: false }),
+    "Pro 20x"
+  );
+  assert.equal(hasPlanProbeSignal("Usage & billing Your plan"), false);
+  assert.equal(hasPlanProbeSignal("Usage & billing Your plan Pro plan $200/mo View plans"), true);
+  assert.equal(detectOpenAiPlanType("Team workspace metadata without a plan field"), null);
+  assert.equal(detectOpenAiPlanType("Team", { explicit: true }), "Team");
+  assert.equal(detectOpenAiPlanType("ChatGPT Pro 5 x 20 x $100 $200", { allowGeneric: false }), null);
+  assert.equal(
+    detectOpenAiPlanType("ChatGPT Pro 5 x 20 x $200 / Monat Dein aktueller Plan 20x höheres Nutzungskontingent", {
+      allowGeneric: false
+    }),
+    "Pro 20x"
+  );
+  assert.equal(
+    detectOpenAiPlanType("ChatGPT Pro 5 x 20 x $100 / Monat Dein aktueller Plan 5x höheres Nutzungskontingent", {
+      allowGeneric: false
+    }),
+    "Pro 5x"
+  );
+  assert.equal(detectClaudePlanType("Choose a Claude plan Max 5x $100 Max 20x $200", { allowGeneric: false }), null);
+  assert.equal(detectClaudePlanType("Pro capacity comparison text without current plan"), null);
+  assert.equal(detectClaudePlanType("Claude Team", { explicit: true }), "Claude Team");
+  const germanClaudeMaxBilling = "Max Plan 20-mal mehr Nutzung als Pro Ihr Abonnement verlängert sich automatisch. Nutzungsguthaben Kaufe Nutzungsguthaben, damit dein Team Claude auch dann weiter nutzen kann.";
+  assert.equal(
+    detectClaudePlanType(germanClaudeMaxBilling, { explicit: true, allowGeneric: false }),
+    "Claude Max 20x"
+  );
+  assert.equal(hasPlanProbeSignal(germanClaudeMaxBilling), true);
+  assert.equal(
+    detectClaudePlanType("Max Plan 5-mal mehr Nutzung als Pro Guthaben für dein Team", { explicit: true, allowGeneric: false }),
+    "Claude Max 5x"
+  );
+  assert.equal(
+    detectClaudePlanType("Claude Max $200 Current plan 20x Pro capacity per session", { allowGeneric: false }),
+    "Claude Max 20x"
+  );
+  assert.equal(
+    detectClaudePlanType("max_payment_success=true&previous_tier=default_claude_max_5x", { allowGeneric: false }),
+    null
+  );
+  assert.equal(detectClaudePlanType("max_20x", { explicit: true }), "Claude Max 20x");
+  assert.equal(detectClaudePlanType("Claude Max 20x Current subscription", { explicit: true, allowGeneric: false }), "Claude Max 20x");
+  const electronMain = await readFile(path.join(rootDir, "electron", "main.js"), "utf8");
+  assert.match(
+    electronMain,
+    /detectOpenAiPlanType\(text, \{ explicit: true, allowGeneric: false \}\)/,
+    "ChatGPT browser account probe must use explicit plan detection"
+  );
+  assert.match(
+    electronMain,
+    /detectClaudePlanType\(text, \{ explicit: true, allowGeneric: false \}\)/,
+    "Claude browser account probe must use explicit plan detection"
+  );
+  assert.match(
+    electronMain,
+    /host_key = '\$\{escapedDomain\}' or host_key = '\.\$\{escapedDomain\}'/,
+    "Browser plan probes must not mix cookies from unrelated subdomains"
+  );
+  assert.match(
+    electronMain,
+    /if \(row\.topFrameSiteKey\) continue;/,
+    "Browser plan probes must ignore partitioned cookies they cannot reproduce"
+  );
+  const openAiProbeStart = electronMain.indexOf("async function fetchOpenAiPlanFromBrowserSession");
+  const claudeProbeStart = electronMain.indexOf("async function fetchClaudePlanFromBrowserSession");
+  const detectProbeStart = electronMain.indexOf("async function detectPlanWithBrowserSession");
+  const openAiProbeFunction = openAiProbeStart >= 0 && claudeProbeStart > openAiProbeStart
+    ? electronMain.slice(openAiProbeStart, claudeProbeStart)
+    : "";
+  const claudeProbeFunction = claudeProbeStart >= 0 && detectProbeStart > claudeProbeStart
+    ? electronMain.slice(claudeProbeStart, detectProbeStart)
+    : "";
+  assert(!openAiProbeFunction.includes("OPENAI_PRICING_URL"), "ChatGPT concrete account-plan probe must not infer variants from public pricing pages");
+  assert(!claudeProbeFunction.includes("claude.ai/upgrade"), "Claude concrete account-plan probe must not infer variants from public upgrade comparison pages");
+}
+
+async function assertProviderVisibility() {
+  const appPath = path.join(rootDir, "public", "app.js");
+  const appSource = await readFile(appPath, "utf8");
+  const code = appSource.replace("\ninit();", "\n// init disabled for provider visibility test");
+  assert.notEqual(code, appSource, "provider visibility test must disable app bootstrap");
+
+  const context = createAppContext();
+  const result = JSON.parse(vm.runInNewContext(
+    `${code}
+state.translations = {
+  filter: {
+    showAllNoticeTitle: "All providers view",
+    showAllNoticeBody: "Inactive, empty, setup-only, and historical provider cards are visible. Active only is the normal view."
+  }
+};
+state.fallbackTranslations = {};
+state.providerOrder = [];
+state.usage = {
+  claudeCode: {},
+  anthropic: {},
+  codex: {
+    status: "live",
+    totals: {
+      allTime: { totalTokens: 100 },
+      last5h: { totalTokens: 0 },
+      last24h: { totalTokens: 0 },
+      last7d: { totalTokens: 0 }
+    },
+    limits: {
+      fiveHour: { usedPercent: 11, remainingPercent: 89 },
+      weekly: { usedPercent: 16, remainingPercent: 84 }
+    },
+    spark: {
+      status: "live",
+      totals: {
+        allTime: { totalTokens: 0 },
+        last5h: { totalTokens: 0 },
+        last24h: { totalTokens: 0 },
+        last7d: { totalTokens: 0 }
+      },
+      limits: {
+        fiveHour: { usedPercent: 0, remainingPercent: 100 },
+        weekly: { usedPercent: 0, remainingPercent: 100 }
+      }
+    }
+  },
+  copilot: {
+    status: "live",
+    totals: {
+      allTime: { totalTokens: 0 },
+      last5h: { totalTokens: 0 },
+      last24h: { totalTokens: 0 },
+      last7d: { totalTokens: 0 }
+    },
+    limits: {
+      rows: [
+        { key: "copilotChat", label: "Copilot chat", usedPercent: 0, remainingPercent: 100, valueLabel: "0 / 200" },
+        { key: "copilotCompletions", label: "Completions", usedPercent: 0, remainingPercent: 100, valueLabel: "0 / 2000" }
+      ]
+    }
+  },
+  ollama: {},
+  openCode: {
+    status: "empty",
+    totals: {
+      allTime: { totalTokens: 0 },
+      last24h: { totalTokens: 0 }
+    },
+    source: { hasConfiguredSource: true }
+  },
+  openai: {},
+  glm: {},
+  gemini: {}
+};
+state.showAllProviders = false;
+const activeIds = currentVisibleProviderIds();
+state.showAllProviders = true;
+const allIds = currentVisibleProviderIds();
+updateProviderViewNotice(orderProviders(buildProviders(state.usage)));
+const showAllNoticeVisible = !els.providerViewNotice.hidden;
+const showAllNoticeHtml = els.providerViewNotice.innerHTML;
+state.showAllProviders = false;
+updateProviderViewNotice(orderProviders(buildProviders(state.usage)));
+const normalNoticeHidden = els.providerViewNotice.hidden;
+const staleCopilotUsageAt = new Date(Date.now() - 31 * 24 * 60 * 60 * 1000).toISOString();
+const recentCopilotUsageAt = new Date().toISOString();
+JSON.stringify({
+  neutralCopilot: providerHasUsage({
+    id: "copilot",
+    status: "live",
+    todayTokens: 0,
+    apiTokens: 0,
+    cost: 0,
+    limitRows: [
+      { key: "copilotChat", label: "Copilot chat", usedPercent: 0, remainingPercent: 100, valueLabel: "0 / 200" },
+      { key: "copilotCompletions", label: "Completions", usedPercent: 0, remainingPercent: 100, valueLabel: "0 / 2000" }
+    ],
+    creditRows: []
+  }),
+  staleQuotaCopilot: providerHasUsage({
+    id: "copilot",
+    status: "live",
+    todayTokens: 0,
+    apiTokens: 0,
+    cost: 0,
+    usageUpdatedAt: staleCopilotUsageAt,
+    limitRows: [
+      { key: "copilotChat", label: "Copilot chat", usedPercent: 0.1, remainingPercent: 99.9, valueLabel: "0 / 200" }
+    ],
+    creditRows: []
+  }),
+  staleFullCopilot: providerHasUsage({
+    id: "copilot",
+    status: "live",
+    todayTokens: 0,
+    apiTokens: 0,
+    cost: 0,
+    usageUpdatedAt: staleCopilotUsageAt,
+    limitRows: [
+      { key: "copilotPremiumInteractions", label: "Premium requests", usedPercent: 100, remainingPercent: 0, valueLabel: "16 / 16" }
+    ],
+    limitAlert: { title: "Limit full", text: "Premium requests is full." },
+    creditRows: []
+  }),
+  recentFullCopilot: providerHasUsage({
+    id: "copilot",
+    status: "live",
+    todayTokens: 0,
+    apiTokens: 0,
+    cost: 0,
+    usageUpdatedAt: recentCopilotUsageAt,
+    limitRows: [
+      { key: "copilotPremiumInteractions", label: "Premium requests", usedPercent: 100, remainingPercent: 0, valueLabel: "16 / 16" }
+    ],
+    limitAlert: { title: "Limit full", text: "Premium requests is full." },
+    creditRows: []
+  }),
+  neutralSpark: providerHasUsage({
+    id: "codexSpark",
+    status: "live",
+    todayTokens: 0,
+    apiTokens: 0,
+    cost: 0,
+    fiveHour: { usedPercent: 0, remainingPercent: 100 },
+    weekly: { usedPercent: 0, remainingPercent: 100 },
+    planType: "Pro Max",
+    subscription: { monthlyCost: 200 },
+    limitRows: [],
+    creditRows: []
+  }),
+  activeCodexLimit: providerHasUsage({
+    id: "codex",
+    status: "live",
+    todayTokens: 0,
+    apiTokens: 0,
+    cost: 0,
+    fiveHour: { usedPercent: 11, remainingPercent: 89 },
+    weekly: { usedPercent: 16, remainingPercent: 84 },
+    limitRows: [],
+    creditRows: []
+  }),
+  weeklyUsageWithoutCurrentActivity: providerHasUsage({
+    id: "claudeCode",
+    status: "empty",
+    todayTokens: 0,
+    weekTokens: 12345,
+    apiTokens: 0,
+    cost: 0,
+    limitRows: [],
+    creditRows: []
+  }),
+  configuredGlmZero: providerHasUsage({
+    id: "glm",
+    status: "empty",
+    todayTokens: 0,
+    apiTokens: 0,
+    cost: 0,
+    configuredSource: true,
+    limitRows: [],
+    creditRows: []
+  }),
+  activeIds,
+  allIds,
+  showAllNoticeVisible,
+  showAllNoticeHtml,
+  normalNoticeHidden,
+  restoredNormalView: state.showAllProviders === false
+});`,
+    context,
+    { filename: appPath }
+  ));
+
+  assert.equal(result.neutralCopilot, false);
+  assert.equal(result.staleQuotaCopilot, false);
+  assert.equal(result.staleFullCopilot, false);
+  assert.equal(result.recentFullCopilot, true);
+  assert.equal(result.neutralSpark, false);
+  assert.equal(result.activeCodexLimit, true);
+  assert.equal(result.weeklyUsageWithoutCurrentActivity, true);
+  assert.equal(result.configuredGlmZero, false);
+  assert(result.activeIds.includes("codex"));
+  assert(!result.activeIds.includes("copilot"));
+  assert(!result.activeIds.includes("codexSpark"));
+  assert(!result.activeIds.includes("glm"));
+  assert(!result.activeIds.includes("openCode"));
+  assert(result.allIds.includes("copilot"));
+  assert(result.allIds.includes("codexSpark"));
+  assert(result.allIds.includes("glm"));
+  assert(result.allIds.includes("openCode"));
+  assert.equal(result.showAllNoticeVisible, true);
+  assert.match(result.showAllNoticeHtml, /All providers view/);
+  assert.match(result.showAllNoticeHtml, /Inactive, empty, setup-only, and historical provider cards/);
+  assert.equal(result.normalNoticeHidden, true);
+  assert.equal(result.restoredNormalView, true);
+}
+
+async function assertGlmUsageImport() {
+  const root = await mkdtemp(path.join(os.tmpdir(), "glm-usage-"));
+  try {
+    const jsonl = path.join(root, "glm-events.jsonl");
+    const csv = path.join(root, "glm-events.csv");
+    await writeFile(
+      jsonl,
+      [
+        JSON.stringify({
+          id: "glm-jsonl-1",
+          provider: "z.ai",
+          created: 1783512000,
+          model: "glm-5.2",
+          usage: {
+            prompt_tokens: 1000,
+            prompt_tokens_details: { cached_tokens: 200 },
+            completion_tokens: 300,
+            completion_tokens_details: { reasoning_tokens: 50 },
+            total_tokens: 1350
+          }
+        }),
+        JSON.stringify({
+          id: "openai-jsonl-1",
+          provider: "openai",
+          created: 1783512000,
+          model: "gpt-5.5",
+          usage: { prompt_tokens: 10, completion_tokens: 5, total_tokens: 15 }
+        })
+      ].join("\n") + "\n"
+    );
+    await writeFile(
+      csv,
+      [
+        "timestamp,provider,model,input_tokens,cached_input_tokens,output_tokens,total_tokens",
+        "2026-07-08T13:00:00.000Z,glm,glm-4.7-flashx,100,10,20,130"
+      ].join("\n") + "\n"
+    );
+
+    const result = await _test.readGlmUsage({
+      sources: [
+        {
+          id: "test-glm",
+          providerId: "glm",
+          paths: [
+            { role: "usage_events_jsonl", path: jsonl },
+            { role: "usage_events_csv", path: csv }
+          ]
+        }
+      ]
+    });
+
+    assert.equal(result.status, "live");
+    assert.equal(result._usageEvents.length, 2);
+    assert.equal(result.totals.allTime.totalTokens, 1480);
+    assert.equal(result.byModel[0].model, "glm-5.2");
+    assert.equal(result.byModel[1].model, "glm-4.7-flashx");
+    assert(result._usageEvents.every((event) => event.providerId === "glm"));
+    assert(result._usageEvents.every((event) => event.metadata.sourceGroupId === "glm"));
+
+    const aggregate = aggregateUsageEvents(result._usageEvents, { now: Date.parse("2026-07-08T14:00:00.000Z") });
+    const glmSource = aggregate.sources.find((source) => source.id === "glm");
+    assert.equal(glmSource?.totalTokens, 1480);
+    assert.equal(aggregate.slots.slotMinutes, 15);
+    assert.equal(aggregate.slots.last24h.length, 96);
+    assert.equal(aggregate.slots.today.length, 57);
+    const noonSlot = aggregate.slots.today.find((slot) => slot.slotStart === "2026-07-08T12:00:00.000Z");
+    assert.equal(noonSlot?.totalTokens, 1350);
+    assert.equal(noonSlot?.sources[0]?.models[0]?.model, "glm-5.2");
+    const day = aggregate.daily.find((row) => row.date === "2026-07-08");
+    const source = day?.sources.find((entry) => entry.id === "glm");
+    assert.equal(source?.models.length, 2);
+    assert(source.models.some((row) => row.model === "glm-5.2" && row.totalTokens === 1350));
+    assert(source.models.some((row) => row.model === "glm-4.7-flashx" && row.totalTokens === 130));
+
+    const sqliteLookup = spawnSync(process.platform === "win32" ? "where.exe" : "which", ["sqlite3"], { encoding: "utf8" });
+    const sqlite3 = typeof sqliteLookup.stdout === "string" ? sqliteLookup.stdout.trim().split(/\r?\n/)[0] : "";
+    if (sqlite3) {
+      const db = path.join(root, "opencode.db");
+      const quote = (value) => `'${String(value).replaceAll("'", "''")}'`;
+      const stepStarted = JSON.stringify({
+        sessionID: "session-glm",
+        assistantMessageID: "assistant-glm",
+        timestamp: "2026-07-08T15:00:00.000Z",
+        model: { providerID: "openrouter", modelID: "z-ai/glm-4.5" }
+      });
+      const stepEnded = JSON.stringify({
+        sessionID: "session-glm",
+        assistantMessageID: "assistant-glm",
+        timestamp: "2026-07-08T15:01:00.000Z",
+        finish: "stop",
+        tokens: {
+          input: 1000,
+          output: 100,
+          reasoning: 20,
+          cache: { read: 50, write: 60 }
+        }
+      });
+      const otherStarted = JSON.stringify({
+        sessionID: "session-openai",
+        assistantMessageID: "assistant-openai",
+        timestamp: "2026-07-08T16:00:00.000Z",
+        model: { providerID: "openai", modelID: "gpt-5.5" }
+      });
+      const otherEnded = JSON.stringify({
+        sessionID: "session-openai",
+        assistantMessageID: "assistant-openai",
+        timestamp: "2026-07-08T16:01:00.000Z",
+        tokens: { input: 10, output: 5, cache: { read: 0, write: 0 } }
+      });
+      const setup = spawnSync(
+        sqlite3,
+        [db],
+        {
+          encoding: "utf8",
+          input: [
+            "CREATE TABLE event (id text PRIMARY KEY, aggregate_id text NOT NULL, seq integer NOT NULL, type text NOT NULL, data text NOT NULL);",
+            `INSERT INTO event VALUES ('e1','session-glm',1,'session.next.step.started',${quote(stepStarted)});`,
+            `INSERT INTO event VALUES ('e2','session-glm',2,'session.next.step.ended',${quote(stepEnded)});`,
+            `INSERT INTO event VALUES ('e3','session-openai',1,'session.next.step.started',${quote(otherStarted)});`,
+            `INSERT INTO event VALUES ('e4','session-openai',2,'session.next.step.ended',${quote(otherEnded)});`
+          ].join("\n")
+        }
+      );
+      assert.equal(setup.status, 0, setup.stderr);
+
+      const openCode = await _test.readGlmUsage({
+        sources: [
+          {
+            id: "test-opencode",
+            providerId: "glm",
+            paths: [{ role: "opencode_database", path: db }]
+          }
+        ]
+      });
+
+      assert.equal(openCode.status, "live");
+      assert.equal(openCode.source.openCodeDatabasesScanned, 1);
+      assert.equal(openCode.source.openCodeDatabasesWithEvents, 1);
+      assert.equal(openCode.source.manualImportFilesScanned, 0);
+      assert.equal(openCode.totals.allTime.totalTokens, 1230);
+      assert.equal(openCode.byModel[0].model, "z-ai/glm-4.5");
+      assert(openCode._usageEvents.every((event) => event.metadata.sourceType === "opencode_step"));
+    }
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+}
+
+async function assertCodexSparkRateLimitDoesNotMoveGpt55Usage() {
+  await withTempCodexHome(async (sessionsDir) => {
+    const timestamp = new Date().toISOString();
+    const resetSeconds = Math.floor(Date.now() / 1000) + 3600;
+    const usage = { input_tokens: 10, output_tokens: 5, total_tokens: 15 };
+    const events = [
+      {
+        timestamp,
+        type: "turn_context",
+        payload: { model: "gpt-5.5" }
+      },
+      {
+        timestamp,
+        type: "event_msg",
+        payload: {
+          type: "token_count",
+          info: {
+            last_token_usage: usage,
+            total_token_usage: usage
+          },
+          rate_limits: {
+            limit_id: "codex_bengalfox",
+            limit_name: "GPT-5.3-Codex-Spark",
+            primary: { used_percent: 0, resets_at: resetSeconds },
+            secondary: { used_percent: 0, resets_at: resetSeconds + 86400 }
+          }
+        }
+      }
+    ];
+    await writeFile(path.join(sessionsDir, "rollout-spark-bucket.jsonl"), `${events.map(JSON.stringify).join("\n")}\n`);
+
+    const result = await readCodexUsage({
+      sources: [
+        {
+          id: "test-codex",
+          paths: [{ role: "sessions", path: sessionsDir }]
+        }
+      ]
+    });
+
+    assert.equal(result.totals.allTime.totalTokens, 15);
+    assert.equal(result.spark.totals.allTime.totalTokens, 0);
+    assert.equal(result._usageEvents.length, 1);
+    assert.equal(result._usageEvents[0].model, "gpt-5.5");
+    assert.equal(result._usageEvents[0].metadata.sourceGroupId, "codex");
+  });
+}
+
+async function assertForbiddenThirdPartyPlanSourceAbsent() {
+  const forbiddenName = ["Codex", "Bar"].join("");
+  const forbiddenKey = ["codex", "bar_dashboard_snapshot"].join("");
+  const files = [
+    "server.js",
+    "electron/main.js",
+    "public/app.js",
+    "test/account-billing-source.test.mjs"
+  ];
+  const localeFiles = await readdir(path.join(rootDir, "public", "i18n"));
+  for (const file of localeFiles.filter((name) => name.endsWith(".json"))) {
+    files.push(path.join("public", "i18n", file));
+  }
+  for (const file of files) {
+    const text = await readFile(path.join(rootDir, file), "utf8");
+    assert.equal(text.includes(forbiddenName), false, `${file} must not mention the forbidden third-party source name`);
+    assert.equal(text.includes(forbiddenKey), false, `${file} must not expose the forbidden third-party source key`);
+  }
+}
+
+async function assertSubscriptionConnectionLocalization() {
+  const localeFiles = await readdir(path.join(rootDir, "public", "i18n"));
+  for (const file of localeFiles.filter((name) => name.endsWith(".json"))) {
+    const translations = JSON.parse(await readFile(path.join(rootDir, "public", "i18n", file), "utf8"));
+    assert.equal(typeof translations.subscriptions.connectionHelp, "string", `${file} needs subscription connection help`);
+    assert(translations.subscriptions.connectionHelp.length > 20, `${file} connection help must be meaningful`);
+    for (const key of ["rereadPlan", "claudeLogin", "claudeRefresh", "chatgptLogin", "chatgptRefresh"]) {
+      assert.equal(typeof translations.subscriptions.connectionActions[key], "string", `${file} missing connection action ${key}`);
+      assert(translations.subscriptions.connectionActions[key].length > 4, `${file} connection action ${key} must be meaningful`);
+    }
+  }
+  const de = JSON.parse(await readFile(path.join(rootDir, "public", "i18n", "de.json"), "utf8"));
+  assert.equal(de.subscriptions.connectionActions.chatgptLogin, "Bei ChatGPT einloggen und Plan neu lesen");
+  assert.equal(de.subscriptions.connectionActions.claudeLogin, "Bei Claude einloggen und Plan neu lesen");
+  assert.equal(de.subscriptions.connectionActions.rereadPlan, "Plan jetzt neu auslesen");
+}
+
+async function assertFrontendUsageIntelligence() {
+  const appPath = path.join(rootDir, "public", "app.js");
+  const appSource = await readFile(appPath, "utf8");
+  const code = appSource.replace("\ninit();", "\n// init disabled for usage intelligence test");
+  assert.notEqual(code, appSource, "usage intelligence test must disable app bootstrap");
+  assert.equal(appSource.includes("function renderRings"), false, "legacy quota ring renderer must stay removed");
+  assert.equal(appSource.includes("function renderRing("), false, "legacy quota ring renderer must stay removed");
+  const stylesSource = await readFile(path.join(rootDir, "public", "styles.css"), "utf8");
+  const indexSource = await readFile(path.join(rootDir, "public", "index.html"), "utf8");
+  assert.match(stylesSource, /\.topbar \.icon-button\s*\{[^}]*background:\s*var\(--strong-surface\)[^}]*color:\s*var\(--strong-ink\)/su, "header icon buttons must keep their high-contrast theme treatment");
+  assert.match(stylesSource, /\.limit-bars\s*\{[^}]*width:\s*100%/su, "Current Usage grid must stretch to provider card width");
+  assert.match(stylesSource, /\.limit-bars-grid\s*\{[^}]*repeat\(2,\s*minmax\(0,\s*1fr\)\)/su, "5h/week grid must use full-width equal columns");
+  assert.match(stylesSource, /\.limit-tachometer-svg\s*\{[^}]*max-width:\s*none/su, "tachometer SVG must not keep a narrow fixed max-width");
+  assert.match(stylesSource, /\.overview-history-chart svg\s*\{[^}]*height:\s*108px/su, "compact history chart must be exactly twice the previous 54px height");
+  assert.match(stylesSource, /\.overview-history-frame\s*\{[^}]*grid-template-columns:\s*58px minmax\(0,\s*1fr\)/su, "compact history must keep value labels fixed beside the scrollable chart");
+  assert.match(stylesSource, /\.history-slot-line\s*\{/u, "today and last-24h history must render as a timeline line");
+  assert.doesNotMatch(stylesSource, /\.history-slot-backdrop\s*\{/u, "today and last-24h history must not render slot backdrops as bars");
+  assert.match(indexSource, /id="overviewHistoryFilterBar"/u, "compact history must expose time filters above the chart");
+  assert.match(indexSource, /id="overviewHistoryModeToggle"/u, "compact history must expose a local tokens/costs toggle beside its filters");
+  assert.match(indexSource, /id="overviewHistoryPanel"[^>]*data-dashboard-panel-id="overview-history"/u, "compact history must be a movable dashboard section");
+  assert.equal(indexSource.indexOf('id="overviewHistoryPanel"') < indexSource.indexOf('id="summaryStrip"'), true, "compact history must default before summary tiles");
+  assert.doesNotMatch(indexSource, /data-i18n="app\.heading"/u, "dashboard must not render the oversized title header before usage content");
+  assert.doesNotMatch(indexSource, /overviewHistorySummary/u, "compact history summary header must stay removed");
+  assert.match(appSource, /overviewHistoryModeToggle\.innerHTML = renderChartModeToggle\(\)/u, "compact history mode toggle must reuse the chart tokens/costs mode");
+  assert.match(appSource, /overviewChartScrollToLatest:\s*true/u, "compact history must default to the latest/current time window");
+  assert.match(appSource, /function requestChartLatestForRangeChange\(\) \{[\s\S]*?state\.overviewChartScrollToLatest = true/u, "compact history must scroll to the latest slot after range changes");
+  assert.match(appSource, /function requestOverviewHistoryLatestForViewChange\(\) \{\s*state\.overviewChartScrollToLatest = true;/u, "compact history must reset to the latest window when toggling tokens/costs");
+  assert.match(appSource, /function isOverviewHistoryScrolledToLatest\([\s\S]*?CHART_LATEST_SCROLL_TOLERANCE_PX/u, "compact history must use the latest-scroll tolerance when preserving scroll intent");
+  assert.match(appSource, /function finishOverviewHistoryRenderScroll\([\s\S]*?CHART_SCROLL_SETTLE_ATTEMPTS[\s\S]*?finishOverviewHistoryRenderScroll\(previousScrollLeft,\s*true,\s*renderVersion,\s*attempt \+ 1\)/u, "compact history must keep retrying latest-scroll while layout settles");
+  assert.match(appSource, /finishOverviewHistoryRenderScroll\(previousScrollLeft,\s*shouldScrollToLatest,\s*renderVersion\)/u, "compact history render must use the settled latest-scroll helper");
+  assert.match(appSource, /renderOverviewHistory\(chartRows\);\s*updateDashboardLayoutMode\(\);/u, "compact history must refresh dashboard handles after becoming visible");
+  const translations = JSON.parse(await readFile(path.join(rootDir, "public", "i18n", "en.json"), "utf8"));
+  const today = new Date().toISOString().slice(0, 10);
+  const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const weekDate = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const monthDate = new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+  const result = JSON.parse(vm.runInNewContext(
+    `${code}
+state.translations = ${JSON.stringify(translations)};
+state.fallbackTranslations = {};
+const daily = [
+  {
+    date: "${yesterday}",
+    totalTokens: 500,
+    sources: [
+      { id: "claudeCode", totalTokens: 500, models: [{ model: "claude-fable-5", inputTokens: 200, cachedInputTokens: 40, outputTokens: 100, totalTokens: 340 }] }
+    ]
+  },
+  {
+    date: "${today}",
+    totalTokens: 222,
+    inputTokens: 100,
+    outputTokens: 80,
+    cachedInputTokens: 20,
+    sources: [
+      { id: "codex", totalTokens: 222, models: [{ model: "gpt-5.5", inputTokens: 120, cachedInputTokens: 20, outputTokens: 82, totalTokens: 222 }] }
+    ]
+  }
+];
+const multiProviderDaily = [
+  {
+    date: "${today}",
+    totalTokens: 1000,
+    sources: [
+      { id: "codex", totalTokens: 300, models: [{ model: "gpt-5.5", inputTokens: 160, cachedInputTokens: 20, outputTokens: 120, totalTokens: 300 }] },
+      { id: "claudeCode", totalTokens: 450, models: [{ model: "claude-fable-5", inputTokens: 260, cachedInputTokens: 40, outputTokens: 150, totalTokens: 450 }] },
+      { id: "glm", totalTokens: 125, models: [{ model: "glm-5.2", inputTokens: 80, outputTokens: 45, totalTokens: 125 }] },
+      { id: "copilot", totalTokens: 125, models: [{ model: "gpt-4.1-copilot", inputTokens: 70, outputTokens: 55, totalTokens: 125 }] }
+    ]
+  }
+];
+const local = {
+  daily,
+  totals: {
+    last24h: { totalTokens: 1234 },
+    last7d: { totalTokens: 3456 },
+    allTime: { totalTokens: 722 }
+  },
+  sources: [
+    { id: "claudeCode", totalTokens: 500 },
+    { id: "codex", totalTokens: 222 }
+  ]
+};
+const rangeDaily = [
+  { date: "${monthDate}", totalTokens: 10, sources: [{ id: "copilot", totalTokens: 10 }] },
+  { date: "${weekDate}", totalTokens: 20, sources: [{ id: "glm", totalTokens: 20 }] },
+  { date: "${yesterday}", totalTokens: 30, sources: [{ id: "claudeCode", totalTokens: 30 }] },
+  { date: "${today}", totalTokens: 40, sources: [{ id: "codex", totalTokens: 40 }] }
+];
+const rangeLocal = {
+  daily: rangeDaily,
+  totals: {
+    last24h: { totalTokens: 70 },
+    last7d: { totalTokens: 90 },
+    allTime: { totalTokens: 123 }
+  },
+  sources: [
+    { id: "codex", totalTokens: 40 },
+    { id: "claudeCode", totalTokens: 30 },
+    { id: "glm", totalTokens: 20 },
+    { id: "copilot", totalTokens: 10 }
+  ]
+};
+state.chartTimeFilter = "h24";
+const h24Total = usageTotalsForSelectedRange(local, filterDailyByRange(daily, "h24")).totalTokens;
+state.chartTimeFilter = "today";
+const todayTotal = usageTotalsForSelectedRange(local, filterDailyByRange(daily, "today")).totalTokens;
+const rangeTotals = {};
+for (const filter of ["today", "h24", "week", "month", "all"]) {
+  state.chartTimeFilter = filter;
+  rangeTotals[filter] = usageTotalsForSelectedRange(rangeLocal, filterDailyByRange(rangeDaily, filter)).totalTokens;
+}
+const todaySummaryTotal = usageTotalsForToday({ daily }, []).totalTokens;
+const recordDay = findRecordDay(daily);
+const fiveHourTile = document.getElementById("fiveHourTile");
+summaryMetricTileById = () => fiveHourTile;
+renderSummary([], local, filterDailyByRange(daily, "today"));
+const fiveHourTileHiddenWithoutLimit = fiveHourTile.hidden;
+renderSummary([{ id: "codex", todayTokens: 1, limitRows: [
+  { key: "fiveHour", windowMinutes: 300, usedPercent: 20, remainingPercent: 80 }
+] }], local, filterDailyByRange(daily, "today"));
+const fiveHourTileVisibleWithLimit = !fiveHourTile.hidden;
+const renderedTokensToday = document.getElementById("tokensToday").textContent;
+const renderedTokensTotal = document.getElementById("tokensTotal").textContent;
+const renderedTokensTodayNote = document.getElementById("tokensRangeNote").textContent;
+const renderedTokensTotalNote = document.getElementById("tokensTotalNote").textContent;
+const renderedRecordDayTokens = document.getElementById("recordDayTokens").textContent;
+const renderedRecordDayDate = document.getElementById("recordDayDate").textContent;
+const models = summarizeModelUsageForDaily(daily);
+const rangeProviderRows = summarizeProviderUsageForDaily(rangeDaily).map((row) => ({
+  sourceId: row.sourceId,
+  totalTokens: row.totalTokens
+}));
+const providedSlotRows = buildHistoryRowsForFilter({
+  slots: {
+    today: [
+      {
+        date: "${today}",
+        slotStart: "${today}T10:00:00.000Z",
+        slotEnd: "${today}T10:15:00.000Z",
+        totalTokens: 100,
+        sources: [
+          { id: "codex", totalTokens: 100, models: [{ model: "gpt-5.5", inputTokens: 40, outputTokens: 60, totalTokens: 100 }] }
+        ]
+      },
+      {
+        date: "${today}",
+        slotStart: "${today}T10:15:00.000Z",
+        slotEnd: "${today}T10:30:00.000Z",
+        totalTokens: 0,
+        sources: []
+      }
+    ]
+  }
+}, daily, "today");
+const fallbackSlotRows = buildHistoryRowsForFilter({}, multiProviderDaily, "today");
+const fallbackSlotTotal = Math.round(fallbackSlotRows.reduce((sum, row) => sum + Number(row.totalTokens || 0), 0));
+const providedSlotCostRows = buildCostDaily(providedSlotRows);
+state.chartBreakdownMode = "provider";
+renderChart(providedSlotRows);
+const slotChartHtml = els.chart.innerHTML;
+renderOverviewHistory(providedSlotRows);
+const overviewSlotHtml = els.overviewHistoryChart.innerHTML;
+const overviewModeToggleHtml = els.overviewHistoryModeToggle.innerHTML;
+state.chartMode = "costs";
+renderOverviewHistory(providedSlotRows);
+const overviewCostSlotHtml = els.overviewHistoryChart.innerHTML;
+state.chartMode = "tokens";
+const manualSubscription = normalizeSubscription({ planType: "Pro", monthlyCost: 20, currency: "EUR", source: "local_settings" }, {}, "codex");
+const detectedSubscription = normalizeSubscription(null, { planType: "Pro", source: "codex_app_server" }, "codex");
+const missingCatalogSubscription = normalizeSubscription(null, { planType: "Enterprise", source: "codex_app_server" }, "codex");
+const claudeCatalogSubscription = normalizeSubscription(null, { planType: "Max", source: "claude_statusline" }, "claudeCode");
+const genericCodexOfficialSubscription = normalizeSubscription({
+  planType: "Pro 5x/20x",
+  monthlyCost: 100,
+  monthlyCostMin: 100,
+  monthlyCostMax: 200,
+  currency: "USD",
+  source: "official_pricing_page",
+  priceSourceType: "official_pricing_page",
+  sourceUrl: "https://developers.openai.com/codex/pricing",
+  fetchedAt: "${today}T10:00:00Z",
+  planKey: "pro",
+  parserStatus: "parsed",
+  priceType: "official_variant_range",
+  priceVariant: "pro_5x_20x",
+  tierVariant: "pro_5x_20x",
+  actualBillingKnown: false
+}, {}, "codex");
+const accountBillingSubscription = normalizeSubscription({
+  planType: "Pro 20x",
+  monthlyCost: 200,
+  currency: "USD",
+  source: "account_billing",
+  priceSourceType: "account_billing",
+  sourceUrl: "https://chatgpt.com/account/billing",
+  fetchedAt: "${today}T10:00:00Z",
+  planKey: "pro 20x",
+  parserStatus: "parsed",
+  actualBillingKnown: true,
+  accountBillingStatus: "available",
+  accountBillingFetchedAt: "${today}T10:00:00Z",
+  accountBillingParserStatus: "parsed",
+  accountBillingSourceType: "browser_account_snapshot"
+}, {}, "codex");
+const expiredAccountBillingSubscription = normalizeSubscription({
+  planType: "Pro 5x/20x",
+  monthlyCost: 100,
+  monthlyCostMin: 100,
+  monthlyCostMax: 200,
+  currency: "USD",
+  source: "official_pricing_page",
+  priceSourceType: "official_pricing_page",
+  sourceUrl: "https://developers.openai.com/codex/pricing",
+  fetchedAt: "${today}T10:00:00Z",
+  planKey: "pro",
+  parserStatus: "parsed",
+  priceType: "official_variant_range",
+  priceVariant: "pro_5x_20x",
+  tierVariant: "pro_5x_20x",
+  actualBillingKnown: false,
+  accountBillingStatus: "expired",
+  accountBillingFetchedAt: "2026-06-01T10:00:00Z",
+  accountBillingParserStatus: "expired",
+  accountBillingSourceType: "browser_account_snapshot"
+}, {}, "codex");
+const detectedSubscriptionCard = renderSubscriptionPricingCard({
+  provider: { id: "codex", name: "Codex", accent: providerMeta.codex.accent },
+  subscription: detectedSubscription,
+  previous: null
+});
+const genericCodexOfficialCard = renderSubscriptionPricingCard({
+  provider: { id: "codex", name: "Codex", accent: providerMeta.codex.accent },
+  subscription: genericCodexOfficialSubscription,
+  previous: null
+});
+const accountBillingCard = renderSubscriptionPricingCard({
+  provider: { id: "codex", name: "Codex", accent: providerMeta.codex.accent },
+  subscription: accountBillingSubscription,
+  previous: null
+});
+const expiredAccountBillingCard = renderSubscriptionPricingCard({
+  provider: { id: "codex", name: "Codex", accent: providerMeta.codex.accent },
+  subscription: expiredAccountBillingSubscription,
+  previous: null
+});
+const genericCodexOfficialProviderSummary = renderProviderSubscription({ subscription: genericCodexOfficialSubscription });
+const concretePlanBadgeOnlyProviderHtml = renderProvider({
+  id: "codex",
+  name: "Codex",
+  kicker: "CODEX",
+  accent: providerMeta.codex.accent,
+  status: "live",
+  planType: "Pro 20x",
+  subscription: accountBillingSubscription,
+  foot: [],
+  apiTokens: 100,
+  message: "Logged tokens"
+});
+const usedModelPricingHtml = renderUsedModelPricingView(daily);
+const unknownModelPricingHtml = renderUsedModelPricingView([
+  {
+    date: "${today}",
+    totalTokens: 25,
+    sources: [
+      { id: "local", totalTokens: 25, models: [{ model: "unpriced-local-model", inputTokens: 10, outputTokens: 15, totalTokens: 25 }] }
+    ]
+  }
+]);
+const glmModelPricingHtml = renderUsedModelPricingView([
+  {
+    date: "${today}",
+    totalTokens: 1350,
+    sources: [
+      { id: "glm", totalTokens: 1350, models: [{ model: "glm-5.2", inputTokens: 1000, cachedInputTokens: 200, outputTokens: 300, reasoningOutputTokens: 50, totalTokens: 1350 }] }
+    ]
+  }
+]);
+const mixedApiCostSummary = summarizeUsedModelApiCost([
+  { cost: { costed: true, eur: 1, currency: "EUR" } },
+  { cost: { costed: true, eur: 2, currency: "USD" } }
+]);
+const partialApiCostSummary = summarizeUsedModelApiCost([
+  { cost: { costed: true, eur: 1, currency: "EUR" } },
+  { cost: { costed: false, eur: null } }
+]);
+const noWindowLimit = { usedPercent: 85 };
+const earlyWeekReset = new Date(Date.now() + 6 * 24 * 60 * 60 * 1000).toISOString();
+const okFiveHourReset = new Date(Date.now() + 4 * 60 * 60 * 1000).toISOString();
+const earlyWeekLimit = { usedPercent: 50, windowMinutes: 10080, resetsAt: earlyWeekReset };
+const okFiveHourLimit = { usedPercent: 10, windowMinutes: 300, resetsAt: okFiveHourReset };
+const deterministicPaceNow = Date.parse("2026-07-09T10:00:00Z");
+const deterministicPaceReset = new Date(deterministicPaceNow + 6 * 24 * 60 * 60 * 1000).toISOString();
+const deterministicPaceHit = deterministicPaceNow + 24 * 60 * 60 * 1000;
+const deterministicPaceMessage = limitPaceAssessment(
+  { usedPercent: 50, windowMinutes: 10080, resetsAt: deterministicPaceReset },
+  deterministicPaceNow
+).message;
+const resetCopyNow = new Date(2026, 6, 9, 10, 0, 0);
+const fiveHourSameDayResetCopy = formatLimitResetDisplay(
+  new Date(2026, 6, 9, 14, 30, 0).toISOString(),
+  { label: "5h", windowMinutes: 300 },
+  resetCopyNow
+);
+const fiveHourTomorrowResetCopy = formatLimitResetDisplay(
+  new Date(2026, 6, 10, 1, 30, 0).toISOString(),
+  { label: "5h", windowMinutes: 300 },
+  resetCopyNow
+);
+const weeklyTomorrowResetCopy = formatLimitResetDisplay(
+  new Date(2026, 6, 10, 8, 45, 0).toISOString(),
+  { label: "Week", windowMinutes: 10080 },
+  resetCopyNow
+);
+const defaultUsageProjectionMode = state.usageProjectionMode;
+const sourceBarsHtml = renderTokenBreakdownSummary([
+  {
+    date: "${today}",
+    totalTokens: 300,
+    sources: [
+      { id: "codex", totalTokens: 200 },
+      { id: "claudeCode", totalTokens: 100 }
+    ]
+  }
+], "provider");
+state.chartBreakdownMode = "provider";
+renderChart(multiProviderDaily);
+const providerBreakdownChartHtml = els.chart.innerHTML;
+const providerBreakdownLegendHtml = els.chartLegend.innerHTML;
+state.chartBreakdownMode = "model";
+renderChart(multiProviderDaily);
+const modelBreakdownChartHtml = els.chart.innerHTML;
+const modelBreakdownLegendHtml = els.chartLegend.innerHTML;
+state.chartBreakdownMode = "total";
+renderChart(multiProviderDaily);
+const totalBreakdownChartHtml = els.chart.innerHTML;
+const totalBreakdownLegendHtml = els.chartLegend.innerHTML;
+const providerCardHtml = renderProvider({
+  id: "claudeCode",
+  name: "Claude Code",
+  kicker: "local CLI capture",
+  accent: providerMeta.claudeCode.accent,
+  status: "live",
+  limitRows: [
+    { label: "5h", usedPercent: 0, remainingPercent: 100, windowMinutes: 300, resetsAt: okFiveHourReset },
+    { label: "Week", usedPercent: 0, remainingPercent: 100, windowMinutes: 10080, resetsAt: earlyWeekReset }
+  ],
+  creditRows: [],
+  usageUpdatedAt: "${today}T10:15:00Z",
+  limitsUpdatedAt: "${today}T10:14:00Z",
+  catalogReviewedAt: "2026-07-07",
+  foot: [],
+  apiTokens: 100,
+  message: "Logged tokens"
+});
+const normalizedCodexConnectionCardHtml = renderProvider(normalizeCodexProvider({
+  status: "live",
+  planType: "pro",
+  totals: {
+    last24h: { totalTokens: 1000 },
+    allTime: { totalTokens: 1000 }
+  },
+  limits: {
+    fiveHour: { usedPercent: 8, remainingPercent: 92, windowMinutes: 300, resetsAt: okFiveHourReset },
+    weekly: { usedPercent: 11, remainingPercent: 89, windowMinutes: 10080, resetsAt: earlyWeekReset }
+  },
+  subscription: {
+    planType: null,
+    monthlyCost: 0,
+    source: "codex_app_server",
+    costStatus: "variant_required",
+    accountBillingStatus: "expired",
+    accountBillingReason: "account_billing_source_expired"
+  },
+  subscriptionConnectionAction: {
+    provider: "chatgpt",
+    mode: "login",
+    url: "https://chatgpt.com/#settings/Billing",
+    labelKey: "subscriptions.connectionActions.chatgptLogin",
+    statusKey: "subscriptions.connectionStatus.chatgptLoginRequired"
+  }
+}));
+const codexFallbackLimitTime = "${today}T09:00:00Z";
+const codexFallbackProvider = normalizeCodexProvider({
+  status: "live",
+  latest: { timestamp: "${today}T10:15:00Z" },
+  liveRateLimits: { status: "error", updatedAt: "${today}T10:14:00Z" },
+  limits: {
+    weekly: {
+      key: "weekly", label: "Week", windowMinutes: 10080,
+      usedPercent: 47, observedAt: codexFallbackLimitTime, resetsAt: earlyWeekReset
+    }
+  }
+});
+const normalizedCodexRefreshCardHtml = renderProvider({
+  id: "codex",
+  name: "Codex",
+  kicker: "local CLI capture",
+  accent: providerMeta.codex.accent,
+  status: "empty",
+  creditRows: [],
+  subscriptionConnectionAction: {
+    provider: "chatgpt",
+    mode: "refresh",
+    url: "https://chatgpt.com/#settings/Billing",
+    labelKey: "subscriptions.connectionActions.chatgptRefresh",
+    statusKey: "subscriptions.connectionStatus.chatgptRefreshRequired"
+  },
+  foot: [],
+  message: "Logged tokens"
+});
+const normalizedClaudeConnectionCardHtml = renderProvider(normalizeLocalProvider("claudeCode", {
+  status: "live",
+  limits: {
+    fiveHour: { usedPercent: 1, remainingPercent: 99, windowMinutes: 300, resetsAt: okFiveHourReset },
+    weekly: { usedPercent: 59, remainingPercent: 41, windowMinutes: 10080, resetsAt: earlyWeekReset }
+  },
+  totals: { last24h: { totalTokens: 100 }, allTime: { totalTokens: 500 } },
+  subscriptionConnectionAction: {
+    provider: "claude",
+    mode: "refresh",
+    url: "https://claude.ai/settings/billing",
+    labelKey: "subscriptions.connectionActions.claudeRefresh",
+    statusKey: "subscriptions.connectionActions.claudeRefresh",
+    rereadOnly: true
+  }
+}));
+const glmUnavailableCardHtml = renderProvider(normalizeLocalProvider("glm", {
+  status: "live",
+  message: "Official quota through OpenCode is not available.",
+  latest: {
+    timestamp: "${today}T11:00:00Z",
+    model: "z-ai/glm-4.5",
+    last: { inputTokens: 100, outputTokens: 20, totalTokens: 120 }
+  },
+  totals: {
+    last24h: { totalTokens: 120 },
+    allTime: { totalTokens: 120 }
+  },
+  limits: null,
+  source: {
+    hasConfiguredSource: true,
+    protocol: "opencode_sqlite_or_openai_compatible"
+  }
+}));
+const limitBarsHtml = renderLimitBars({
+  id: "codex",
+  accent: providerMeta.codex.accent,
+  limitRows: [
+    { label: "5h", usedPercent: 10, remainingPercent: 90, windowMinutes: 300, resetsAt: okFiveHourReset },
+    { label: "Week", usedPercent: 50, remainingPercent: 50, windowMinutes: 10080, resetsAt: earlyWeekReset }
+  ]
+});
+const claudeWithFableHtml = renderProvider(normalizeLocalProvider("claudeCode", {
+  status: "live",
+  planType: "max",
+  limits: {
+    fable: { usedPercent: 29, remainingPercent: 71, windowMinutes: 10080, resetsAt: earlyWeekReset, resetLabel: "in 6d" }
+  },
+  totals: { last24h: { totalTokens: 100 }, allTime: { totalTokens: 500 } }
+}));
+const riskLimitTachometerHtml = renderLimitBar({ label: "Week", usedPercent: 50, remainingPercent: 50, windowMinutes: 10080, resetsAt: earlyWeekReset }, providerMeta.codex.accent, "tachometer");
+let storedProjectionMode = "";
+localStorage.setItem = (key, value) => {
+  if (key === LEGACY_USAGE_PROJECTION_MODES_STORAGE_KEY) storedProjectionMode = value;
+};
+setUsageProjectionMode("tachometer", "claudeCode");
+const projectionModeAfterToggle = state.usageProjectionModes.claudeCode;
+const codexLimitBarsHtml = renderLimitBars({
+  id: "codex",
+  accent: providerMeta.codex.accent,
+  limitRows: [
+    { label: "5h", usedPercent: 10, remainingPercent: 90, windowMinutes: 300, resetsAt: okFiveHourReset },
+    { label: "Week", usedPercent: 50, remainingPercent: 50, windowMinutes: 10080, resetsAt: earlyWeekReset }
+  ]
+});
+const claudeTachometerLimitBarsHtml = renderLimitBars({
+  id: "claudeCode",
+  accent: providerMeta.claudeCode.accent,
+  limitRows: [
+    { label: "5h", usedPercent: 0, remainingPercent: 100, windowMinutes: 300, resetsAt: okFiveHourReset },
+    { label: "Week", usedPercent: 0, remainingPercent: 100, windowMinutes: 10080, resetsAt: earlyWeekReset }
+  ]
+});
+const claudeLoginCardHtml = renderProvider({
+  id: "claudeCode",
+  name: "Claude Code",
+  kicker: "local CLI capture",
+  accent: providerMeta.claudeCode.accent,
+  status: "empty",
+  creditRows: [],
+  subscriptionConnectionAction: {
+    provider: "claude",
+    mode: "refresh",
+    url: "https://claude.ai/settings/billing",
+    labelKey: "subscriptions.connectionActions.claudeRefresh",
+    statusKey: "subscriptions.connectionActions.claudeRefresh",
+    rereadOnly: true
+  },
+  foot: [],
+  message: "Logged tokens"
+});
+const duplicateOpenAiSubscriptionHtml = renderSubscriptionPricingView(
+  [
+    {
+      date: "2026-07-09",
+      totalTokens: 100,
+      sources: [{ id: "codex", totalTokens: 100, models: [{ model: "gpt-5.2-codex", totalTokens: 100 }] }]
+    }
+  ],
+  {
+    entries: [
+      { provider: "codex", planName: "Pro 20x", monthlyCost: 200, currency: "USD", effectiveFrom: "2026-07-09", effectiveTo: null },
+      { provider: "openai", planName: "Pro 20x", monthlyCost: 200, currency: "USD", effectiveFrom: "2026-07-09", effectiveTo: null }
+    ]
+  },
+  [
+    {
+      id: "codex",
+      name: "Codex",
+      accent: providerMeta.codex.accent,
+      subscription: { planType: "Pro 20x", monthlyCost: 200, currency: "USD", quality: "automatic" }
+    },
+    {
+      id: "openai",
+      name: providerMeta.openai.name,
+      accent: providerMeta.openai.accent,
+      subscription: { planType: "Pro 20x", monthlyCost: 200, currency: "USD", quality: "automatic" }
+    }
+  ]
+);
+const duplicateOpenAiPaidCost = calculatePaidSubscriptionCost(
+  {
+    entries: [
+      { provider: "codex", planName: "Pro 20x", monthlyCost: 200, currency: "USD", effectiveFrom: "2026-07-09", effectiveTo: null },
+      { provider: "openai", planName: "Pro 20x", monthlyCost: 200, currency: "USD", effectiveFrom: "2026-07-09", effectiveTo: null }
+    ]
+  },
+  "2026-07-09",
+  "2026-07-09"
+);
+const claudeConflictCardHtml = renderProvider({
+  id: "claudeCode",
+  name: "Claude Code",
+  kicker: "local CLI capture",
+  accent: providerMeta.claudeCode.accent,
+  status: "empty",
+  creditRows: [],
+  subscriptionConflict: {
+    status: "conflict",
+    sources: [
+      { source: "claude_statusline", planType: "Claude Max 20x", updatedAt: "${today}T08:00:00Z" },
+      { source: "claude_auth_status", planType: "Claude Max 5x", updatedAt: "${today}T10:00:00Z" }
+    ]
+  },
+  subscriptionConnectionAction: {
+    mode: "refresh",
+    url: "https://claude.ai/settings/billing",
+    labelKey: "subscriptions.connectionActions.claudeRefresh",
+    statusKey: "subscriptions.connectionActions.claudeRefresh",
+    rereadOnly: true
+  },
+  foot: [],
+  message: "Logged tokens"
+});
+const riskLimitBarHtml = renderLimitBar({ label: "Week", usedPercent: 50, remainingPercent: 50, windowMinutes: 10080, resetsAt: earlyWeekReset }, providerMeta.codex.accent, "bar");
+const zeroUsageLimit = normalizeLimitRow({ label: "Claude Code", usedPercent: "0%", remainingPercent: 100, windowMinutes: 300, resetsAt: okFiveHourReset });
+const zeroUsageLimitHtml = renderLimitBar(zeroUsageLimit, providerMeta.claudeCode.accent);
+const inactiveClaudeFiveHourLimit = normalizeLimitRow({ label: "5h", usedPercent: 0, remainingPercent: 100, windowMinutes: 300, resetsAt: null });
+const inactiveClaudeFiveHourHtml = renderLimitBar(inactiveClaudeFiveHourLimit, providerMeta.claudeCode.accent);
+const emptyUsageLimit = normalizeLimitRow({ label: "Claude Code", usedPercent: "", remainingPercent: 100, windowMinutes: 300, resetsAt: okFiveHourReset });
+const liveRateBase = Date.parse("${today}T10:00:00Z");
+const risingLiveRate = smoothedLiveTokenRateForDisplay({
+  timestamp: new Date(liveRateBase + 30_000).toISOString(),
+  tokensPerMinute: {
+    value: 900,
+    quality: "calculated",
+    input: { value: 500, quality: "calculated" },
+    output: { value: 300, quality: "calculated" },
+    cached: { value: 100, quality: "calculated" }
+  },
+  timeSeries: [
+    { timestamp: new Date(liveRateBase).toISOString(), tokensPerMinute: { total: 0, input: 0, output: 0, cached: 0 } },
+    { timestamp: new Date(liveRateBase + 15_000).toISOString(), tokensPerMinute: { total: 400, input: 220, output: 140, cached: 40 } },
+    { timestamp: new Date(liveRateBase + 30_000).toISOString(), tokensPerMinute: { total: 900, input: 500, output: 300, cached: 100 } }
+  ]
+}, liveRateBase + 31_000);
+const decayedLiveRate = smoothedLiveTokenRateForDisplay({
+  timestamp: new Date(liveRateBase).toISOString(),
+  tokensPerMinute: {
+    value: 600,
+    quality: "calculated",
+    input: { value: 300, quality: "calculated" },
+    output: { value: 300, quality: "calculated" },
+    cached: { value: 0, quality: "calculated" }
+  },
+  timeSeries: [
+    { timestamp: new Date(liveRateBase).toISOString(), tokensPerMinute: { total: 600, input: 300, output: 300, cached: 0 } }
+  ]
+}, liveRateBase + 60_000);
+const zeroLiveRate = smoothedLiveTokenRateForDisplay({
+  timestamp: new Date(liveRateBase).toISOString(),
+  tokensPerMinute: {
+    value: 0,
+    quality: "calculated",
+    input: { value: 0, quality: "calculated" },
+    output: { value: 0, quality: "calculated" },
+    cached: { value: 0, quality: "calculated" }
+  },
+  timeSeries: [
+    { timestamp: new Date(liveRateBase).toISOString(), tokensPerMinute: { total: 0, input: 0, output: 0, cached: 0 } }
+  ]
+}, liveRateBase + 10_000);
+const logoSamples = [
+  renderProviderMark("Z.AI"),
+  renderProviderMark("glm"),
+  renderProviderMark("MiniMax"),
+  renderProviderMark("DeepSeek"),
+  renderProviderMark("Alibaba"),
+  renderProviderMark("xAI"),
+  renderProviderMark("Mistral"),
+  renderProviderMark("StepFun"),
+  renderProviderMark("OpenAI"),
+  renderProviderMark("Anthropic"),
+  renderProviderMark("GitHub Copilot"),
+  renderProviderMark("Google")
+].join("");
+const mixedCurrencySubscriptionCard = renderSubscriptionPricingCard({
+  provider: { name: "Codex" },
+  subscription: detectedSubscription,
+  previous: { monthlyCost: 20, currency: "EUR" }
+});
+const sameCurrencySubscriptionCard = renderSubscriptionPricingCard({
+  provider: { name: "Codex" },
+  subscription: detectedSubscription,
+  previous: { monthlyCost: 80, currency: "USD" }
+});
+const forcedPlanReads = [];
+loadUsage = async (options = {}) => {
+  forcedPlanReads.push(options);
+};
+const subscriptionRefreshCalls = [];
+window.llmUsageDashboard = {
+  refreshSubscriptionProvider(provider) {
+    subscriptionRefreshCalls.push(provider);
+    return { ok: true, provider };
+  }
+};
+const openConnectionTarget = {
+  dataset: { subscriptionProvider: "claude", subscriptionMode: "login" },
+  closest(selector) {
+    return selector === "[data-subscription-provider-open]" ? this : null;
+  }
+};
+handleSubscriptionConnectionClick({ target: openConnectionTarget });
+const pendingPlanReadProvider = state.pendingSubscriptionReread?.provider;
+const autoPlanReadTriggered = handleSubscriptionRereadReturn();
+let manualPlanReadPrevented = false;
+const manualConnectionTarget = {
+  dataset: { subscriptionProvider: "chatgpt" },
+  closest(selector) {
+    return selector === "[data-subscription-reread]" ? this : null;
+  }
+};
+handleSubscriptionConnectionClick({
+  target: manualConnectionTarget,
+  preventDefault() {
+    manualPlanReadPrevented = true;
+  }
+});
+const manualPlanReadLoadingProvider = state.subscriptionRereadProvider;
+const loadingCodexConnectionHtml = renderProviderSubscriptionConnection({
+  id: "codex",
+  subscriptionConnectionAction: {
+    provider: "chatgpt",
+    mode: "login",
+    url: "https://chatgpt.com/#settings/Billing",
+    labelKey: "subscriptions.connectionActions.chatgptLogin",
+    statusKey: "subscriptions.connectionStatus.chatgptLoginRequired"
+  }
+});
+const relativeFreshnessText = providerFreshnessRows({
+  usageUpdatedAt: new Date(Date.now() - 12 * 60 * 1000).toISOString(),
+  limitsUpdatedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+  priceUpdatedAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString()
+}).map((row) => row.label).join(" ");
+JSON.stringify({
+  filters: CHART_FILTERS,
+  defaultDashboardOrder: DEFAULT_DASHBOARD_SECTION_ORDER,
+  defaultSummaryOrder: DEFAULT_SUMMARY_METRIC_ORDER,
+  oldDefaultSummaryOrder: OLD_DEFAULT_SUMMARY_METRIC_ORDER,
+  filterHtml: renderChartFilterBar(daily),
+  overviewHeight: OVERVIEW_HISTORY_HEIGHT,
+  providedSlotCount: providedSlotRows.length,
+  providedSlotLabels: providedSlotRows.map(formatHistoryRowTick),
+  providedSlotCostRowCount: providedSlotCostRows.length,
+  slotChartHtml,
+  overviewSlotHtml,
+  overviewModeToggleHtml,
+  overviewCostSlotHtml,
+  fallbackSlotCount: fallbackSlotRows.length,
+  fallbackSlotTotal,
+  fallbackSlotHasProviderSources: fallbackSlotRows.some((row) => row.sources.some((source) => source.id === "codex" || source.id === "claudeCode")),
+  h24Total,
+  todayTotal,
+  rangeTotals,
+  rangeProviderRows,
+  todaySummaryTotal,
+  recordDayTokens: recordDay?.totalTokens,
+  recordDayLabel: t("summary.recordDayLabel"),
+  recordDayFormattedDate: formatFullDate(recordDay?.date),
+  renderedTokensToday,
+  fiveHourTileHiddenWithoutLimit,
+  fiveHourTileVisibleWithLimit,
+  renderedTokensTotal,
+  renderedTokensTodayNote,
+  renderedTokensTotalNote,
+  renderedRecordDayTokens,
+  renderedRecordDayDate,
+  topModel: models[0]?.model,
+  topModelCosted: models[0]?.cost?.costed,
+  usedModelPricingHasTotal:
+    usedModelPricingHtml.includes("API cost total") &&
+    usedModelPricingHtml.includes("<tfoot>") &&
+    !usedModelPricingHtml.includes("Cost status") &&
+    !usedModelPricingHtml.includes("Scope"),
+  unknownModelPricingHonest: unknownModelPricingHtml.includes("No displayed row has a trusted API price"),
+  glmModelPricingCosted:
+    glmModelPricingHtml.includes("GLM/Z.AI") &&
+    glmModelPricingHtml.includes("glm-5.2") &&
+    glmModelPricingHtml.includes("GLM-5.2") &&
+    !glmModelPricingHtml.includes("Not priced"),
+  mixedApiCostStatus: mixedApiCostSummary.status,
+  mixedApiCostNote: mixedApiCostSummary.note,
+  partialApiCostStatus: partialApiCostSummary.status,
+  partialApiCostNote: partialApiCostSummary.note,
+  manualQuality: manualSubscription.quality,
+  detectedQuality: detectedSubscription.quality,
+  detectedCost: detectedSubscription.monthlyCost,
+  detectedCurrency: detectedSubscription.currency,
+  detectedSource: detectedSubscription.source,
+	  missingCatalogQuality: missingCatalogSubscription.quality,
+	  missingCatalogStatus: missingCatalogSubscription.costStatus,
+	  missingCatalogReason: renderProviderSubscription({ subscription: missingCatalogSubscription }),
+  claudeCatalogCopy: renderProviderSubscription({ subscription: claudeCatalogSubscription }),
+	  limitOk: limitDisplayStatus(okFiveHourLimit),
+	  limitNoWindow: limitDisplayStatus(noWindowLimit),
+	  limitEarlyWeekRisk: limitDisplayStatus(earlyWeekLimit),
+	  earlyWeekPaceMessage: limitPaceAssessment(earlyWeekLimit).message,
+	  okFiveHourPaceMessage: limitPaceAssessment(okFiveHourLimit).message,
+      deterministicPaceHasHitTime:
+        deterministicPaceMessage.includes("before reset") &&
+        deterministicPaceMessage.includes(formatDateTime(deterministicPaceHit)),
+      fiveHourSameDayResetCopy,
+      fiveHourTomorrowResetCopy,
+      weeklyTomorrowResetCopy,
+      limitDetailUsesResetAndRelative:
+        /<p class="limit-detail">[^<]*Resets in [^<]*Reset [^<]*<\\/p>/.test(riskLimitBarHtml) &&
+        !/<p class="limit-detail">[^<]*before reset/i.test(riskLimitBarHtml),
+	  limitFull: limitDisplayStatus({ usedPercent: 100 }),
+	  limitUnknown: limitDisplayStatus({ status: "unavailable" }),
+	  limitOkLabel: t("limits.status.ok"),
+	  limitRiskLabel: t("limits.status.risk"),
+  catalogQualityLabel: t("subscriptions.quality.catalog"),
+  manualQualityLabel: t("subscriptions.quality.manual"),
+  manualSourceLabel: subscriptionSourceLabel("local_settings"),
+  detectedSubscriptionRequiresVariant:
+    detectedSubscription.quality === "estimated" &&
+    renderProviderSubscription({ subscription: detectedSubscription }) === "" &&
+    !detectedSubscriptionCard.includes("Pro (Cost unknown)") &&
+    !detectedSubscriptionCard.includes("Pro 5x/20x"),
+  genericCodexProVariantRangeBlocked:
+    genericCodexOfficialSubscription.quality === "estimated" &&
+    genericCodexOfficialCard.includes("Plan unknown (Cost unknown)") &&
+    genericCodexOfficialProviderSummary === "" &&
+    !genericCodexOfficialCard.includes("Pro 5x/20x") &&
+    !genericCodexOfficialProviderSummary.includes("Pro 5x/20x"),
+  accountBillingActual:
+    accountBillingSubscription.quality === "automatic" &&
+    accountBillingCard.includes("Pro 20x ($200.00/mo)") &&
+    !accountBillingCard.includes("trusted monthly price detected"),
+  expiredAccountBillingAudit:
+    expiredAccountBillingSubscription.quality === "estimated" &&
+    expiredAccountBillingCard.includes("Plan unknown (Cost unknown)") &&
+    !expiredAccountBillingCard.includes("Pro 5x/20x"),
+  aliasesHiddenByDefault: renderPricingAliases(pricingModels[0]) === "",
+  aliasesCollapsedInDebug: /<details/.test(renderPricingAliases(pricingModels[0], { debug: true })),
+	  sourceBarsUseProviderColors:
+	    sourceBarsHtml.includes("--accent: " + providerMeta.codex.accent) &&
+	    sourceBarsHtml.includes("--accent: " + providerMeta.claudeCode.accent),
+  providerBreakdownSegments:
+    providerBreakdownChartHtml.includes('fill="' + providerMeta.codex.accent + '"') &&
+    providerBreakdownChartHtml.includes('fill="' + providerMeta.claudeCode.accent + '"') &&
+    providerBreakdownLegendHtml.includes("Codex") &&
+    providerBreakdownLegendHtml.includes("Claude Code"),
+  modelBreakdownSegments:
+    modelBreakdownChartHtml.includes("gpt-5.5") &&
+    modelBreakdownChartHtml.includes("claude-fable-5") &&
+    modelBreakdownLegendHtml.includes("gpt-5.5") &&
+    modelBreakdownLegendHtml.includes("claude-fable-5") &&
+    modelBreakdownLegendHtml.includes("provider-mark-codex") &&
+    modelBreakdownLegendHtml.includes("provider-mark-claudeCode"),
+  totalBreakdownProviderSegments:
+    totalBreakdownChartHtml.includes('fill="' + providerMeta.codex.accent + '"') &&
+    totalBreakdownChartHtml.includes('fill="' + providerMeta.claudeCode.accent + '"') &&
+    totalBreakdownLegendHtml.includes("Codex") &&
+    totalBreakdownLegendHtml.includes("Claude Code") &&
+    chartTokenSegmentEntries(multiProviderDaily, "total").every((entry) => entry.type === "provider"),
+	  providerCardUsesProviderAccent: providerCardHtml.includes("--provider-accent: " + providerMeta.claudeCode.accent),
+  providerCardUsesPlanBadgeOnly:
+    concretePlanBadgeOnlyProviderHtml.includes("plan-badge") &&
+    concretePlanBadgeOnlyProviderHtml.includes(">Pro 20x<") &&
+    !concretePlanBadgeOnlyProviderHtml.includes("subscription-summary") &&
+    !concretePlanBadgeOnlyProviderHtml.includes("$200.00/mo"),
+  providerCardHasLogo:
+    providerCardHtml.includes("provider-mark-claudeCode") &&
+    providerCardHtml.includes("assets/provider-logos/claude.svg"),
+  providerCardFreshness:
+    providerCardHtml.includes("provider-freshness") &&
+    providerCardHtml.includes("Usage") &&
+    providerCardHtml.includes("Limits") &&
+    providerCardHtml.includes("Prices"),
+  relativeFreshness:
+    /12 minutes ago/.test(relativeFreshnessText) &&
+    /2 hours ago/.test(relativeFreshnessText) &&
+    /3 days ago/.test(relativeFreshnessText),
+  codexFallbackUsesReadingTime: codexFallbackProvider.limitsUpdatedAt === codexFallbackLimitTime,
+  normalizedProviderConnectionActions:
+    normalizedCodexConnectionCardHtml.includes("Log in to ChatGPT and read plan") &&
+    normalizedCodexConnectionCardHtml.includes("https://chatgpt.com/#settings/Billing") &&
+    normalizedCodexConnectionCardHtml.includes("data-subscription-provider-open") &&
+    !normalizedCodexConnectionCardHtml.includes("data-subscription-reread") &&
+    !normalizedCodexConnectionCardHtml.includes("Read plan now") &&
+    !normalizedCodexConnectionCardHtml.includes("Pro (Cost unknown)") &&
+    !normalizedCodexConnectionCardHtml.includes("pro (Cost unknown)") &&
+    !/plan-badge[^>]*>\\s*pro\\s*</iu.test(normalizedCodexConnectionCardHtml),
+  normalizedClaudeConnectionAction:
+    normalizedClaudeConnectionCardHtml.includes("Read Claude plan again") &&
+    !normalizedClaudeConnectionCardHtml.includes("data-subscription-provider-open") &&
+    normalizedClaudeConnectionCardHtml.includes("data-subscription-reread") &&
+    !normalizedClaudeConnectionCardHtml.includes("Read plan now") &&
+    !normalizedClaudeConnectionCardHtml.includes("Log in to Claude.ai"),
+  normalizedCodexRefreshAction:
+    normalizedCodexRefreshCardHtml.includes("Read ChatGPT plan again") &&
+    normalizedCodexRefreshCardHtml.includes("data-subscription-reread") &&
+    !normalizedCodexRefreshCardHtml.includes("data-subscription-provider-open") &&
+    !normalizedCodexRefreshCardHtml.includes("Read plan now") &&
+    !normalizedCodexRefreshCardHtml.includes("Open the provider page"),
+  glmQuotaUnavailableCard:
+    glmUnavailableCardHtml.includes("Official quota through OpenCode is not available.") &&
+    !glmUnavailableCardHtml.includes("limit-bars") &&
+    !glmUnavailableCardHtml.includes("limit-tachometer-gauge"),
+  providerCardNoFableQuotaAudit:
+    !providerCardHtml.includes("Fable quota source") &&
+    !providerCardHtml.includes("no synthetic quota is shown") &&
+    providerCardHtml.includes("limit-projection-bar") &&
+    !providerCardHtml.includes("ring-row"),
+  claudeCodeUsesCurrentUsageComponent:
+    providerCardHtml.includes("limit-bars") &&
+    providerCardHtml.includes("usage-projection-toggle") &&
+    providerCardHtml.includes("data-usage-projection-mode=\\"tachometer\\"") &&
+    providerCardHtml.includes("data-usage-projection-mode=\\"bar\\"") &&
+    providerCardHtml.includes("limit-projection-bar") &&
+    !providerCardHtml.includes("ring-row") &&
+    !providerCardHtml.includes("ring-box") &&
+    !providerCardHtml.includes("ring-sub"),
+  logoSamplesCoverCatalogProviders:
+    logoSamples.includes("provider-mark-zai") &&
+    logoSamples.includes("assets/provider-logos/zai.svg") &&
+    logoSamples.includes("provider-mark-glm") &&
+    logoSamples.includes("provider-mark-minimax") &&
+    logoSamples.includes("assets/provider-logos/minimax.svg") &&
+    logoSamples.includes("provider-mark-deepseek") &&
+    logoSamples.includes("assets/provider-logos/deepseek.svg") &&
+    logoSamples.includes("provider-mark-alibaba") &&
+    logoSamples.includes("assets/provider-logos/qwen.svg") &&
+    logoSamples.includes("provider-mark-xai") &&
+    logoSamples.includes("assets/provider-logos/xai.svg") &&
+    logoSamples.includes("provider-mark-mistral") &&
+    logoSamples.includes("assets/provider-logos/mistral.svg") &&
+    logoSamples.includes("provider-mark-stepfun") &&
+    logoSamples.includes("assets/provider-logos/stepfun.svg") &&
+    logoSamples.includes("provider-mark-openai") &&
+    logoSamples.includes("assets/provider-logos/openai.svg") &&
+    logoSamples.includes("provider-mark-anthropic") &&
+    logoSamples.includes("assets/provider-logos/anthropic.svg") &&
+    logoSamples.includes("provider-mark-copilot") &&
+    logoSamples.includes("assets/provider-logos/github-copilot.svg") &&
+    logoSamples.includes("provider-mark-gemini") &&
+    logoSamples.includes("assets/provider-logos/gemini.svg"),
+	  riskLimitBarUsesProviderAccent:
+	    riskLimitTachometerHtml.includes("--accent: " + providerMeta.codex.accent) &&
+	    !riskLimitTachometerHtml.includes("--accent: #b76b00"),
+  defaultUsageProjectionMode,
+  projectionModeAfterToggle,
+  storedProjectionMode,
+  invalidProjectionModeFallsBack: normalizeUsageProjectionMode("bogus"),
+  limitBarsHasProjectionToggle:
+    limitBarsHtml.includes("usage-projection-toggle") &&
+    limitBarsHtml.includes("data-usage-projection-mode=\\"tachometer\\"") &&
+    limitBarsHtml.includes("data-usage-projection-mode=\\"bar\\"") &&
+    limitBarsHtml.includes("data-usage-projection-provider=\\"codex\\""),
+  providerProjectionModeIndependent:
+    codexLimitBarsHtml.includes("limit-bars-mode-bar") &&
+    codexLimitBarsHtml.includes("limit-projection-bar") &&
+    !codexLimitBarsHtml.includes("limit-tachometer-gauge") &&
+    claudeTachometerLimitBarsHtml.includes("limit-bars-mode-tachometer") &&
+    !claudeTachometerLimitBarsHtml.includes("limit-projection-bar") &&
+    claudeTachometerLimitBarsHtml.includes("limit-tachometer-gauge"),
+	    claudeLoginAction:
+		    claudeLoginCardHtml.includes("Read Claude plan again") &&
+		    !claudeLoginCardHtml.includes("Log in to Claude and read plan") &&
+		    !claudeLoginCardHtml.includes("Claude login required") &&
+		    !claudeLoginCardHtml.includes("data-subscription-provider-open") &&
+		    claudeLoginCardHtml.includes("data-subscription-reread") &&
+		    !claudeLoginCardHtml.includes("Read plan now") &&
+		    !claudeLoginCardHtml.includes("Open the provider page"),
+		  connectionRereadFlow:
+		    pendingPlanReadProvider === "claude" &&
+		    autoPlanReadTriggered === true &&
+		    manualPlanReadPrevented === true &&
+		    manualPlanReadLoadingProvider === "chatgpt" &&
+		    loadingCodexConnectionHtml.includes("is-loading") &&
+		    loadingCodexConnectionHtml.includes("aria-busy=\\\"true\\\"") &&
+		    loadingCodexConnectionHtml.includes("disabled") &&
+		    subscriptionRefreshCalls.join(",") === "claude,chatgpt" &&
+	    forcedPlanReads.length === 2 &&
+	    forcedPlanReads.every((entry) => entry.force === true && entry.showIndicator === true),
+	  claudeConflictAction:
+	    claudeConflictCardHtml.includes("Claude Max: conflicting sources") &&
+	    claudeConflictCardHtml.includes("Claude Max 20x") &&
+	    claudeConflictCardHtml.includes("Claude Max 5x") &&
+	    claudeConflictCardHtml.includes("Read Claude plan again") &&
+	    !claudeConflictCardHtml.includes("Read plan now") &&
+	    !claudeConflictCardHtml.includes("data-subscription-provider-open"),
+  rejectedPaceLegendRemoved: !limitBarsHtml.includes("limit-status-note"),
+  riskLimitBarHasTachometerGauge:
+    riskLimitTachometerHtml.includes("limit-tachometer-gauge") &&
+    riskLimitTachometerHtml.includes("limit-tachometer-svg") &&
+    riskLimitTachometerHtml.includes("100%") &&
+    riskLimitTachometerHtml.includes("projected"),
+  riskLimitBarHasProjectionBarMode:
+    riskLimitBarHtml.includes("limit-projection-bar") &&
+    !riskLimitBarHtml.includes("limit-tachometer-gauge") &&
+    riskLimitBarHtml.includes("limit-gauge-projection-callout") &&
+    riskLimitBarHtml.includes("100%") &&
+    riskLimitBarHtml.includes("projected"),
+  zeroUsageProjectionValid:
+    zeroUsageLimit?.usedPercent === 0 &&
+    limitProjectedEndPercent(zeroUsageLimit) === 0 &&
+    zeroUsageLimitHtml.includes("0% projected") &&
+    !zeroUsageLimitHtml.includes("Projection unavailable"),
+  inactiveClaudeWindowShowsAvailability:
+    limitProjectedEndPercent(inactiveClaudeFiveHourLimit) === 0 &&
+    inactiveClaudeFiveHourHtml.includes("100% left") &&
+    !inactiveClaudeFiveHourHtml.includes("Projection unavailable") &&
+    !inactiveClaudeFiveHourHtml.includes("Pace unavailable"),
+  emptyUsageProjectionUnavailable:
+    emptyUsageLimit === null,
+  liveRateRisesFromSamples:
+    risingLiveRate.value > 400 &&
+    risingLiveRate.value <= 900 &&
+    risingLiveRate.input.value > 0,
+  liveRateDecaysToZero: decayedLiveRate.value === 0,
+  liveRateKeepsZero: zeroLiveRate.value === 0,
+  fableLimitRowVisible:
+    claudeWithFableHtml.includes(">Fable<") &&
+    claudeWithFableHtml.includes("29% used"),
+	  mixedCurrencyDeltaHidden: !mixedCurrencySubscriptionCard.includes("<dd>Unknown</dd>"),
+  sameCurrencyDeltaHidden: !sameCurrencySubscriptionCard.includes("$20.00"),
+  duplicateOpenAiSubscriptionDeduped:
+    duplicateOpenAiSubscriptionHtml.includes("Codex") &&
+    !duplicateOpenAiSubscriptionHtml.includes(["OpenAI", " / ", "GPT"].join("")) &&
+    !duplicateOpenAiSubscriptionHtml.includes("OpenAI API"),
+  duplicateOpenAiPaidDeduped:
+    duplicateOpenAiPaidCost.known === true &&
+    Math.abs(duplicateOpenAiPaidCost.totalEur - (200 / USD_PER_EUR / 31)) < 0.000001
+});`,
+    createAppContext(),
+    { filename: appPath }
+  ));
+  const deTranslations = JSON.parse(await readFile(path.join(rootDir, "public", "i18n", "de.json"), "utf8"));
+  const germanResult = JSON.parse(vm.runInNewContext(
+    `${code}
+state.translations = ${JSON.stringify(deTranslations)};
+state.fallbackTranslations = {};
+const claudeMax20Label = subscriptionCompactLabel(normalizeSubscription({
+  planType: "Claude Max 20x",
+  monthlyCost: 180,
+  currency: "EUR",
+  source: "official_pricing_page",
+  priceType: "official_list_price",
+  priceVariant: "max_20x",
+  tierVariant: "max_20x",
+  actualBillingKnown: false
+}, {}, "claudeCode"));
+const codexPro20Label = subscriptionCompactLabel(normalizeSubscription({
+  planType: "Pro 20x",
+  monthlyCost: 229,
+  currency: "EUR",
+  source: "official_pricing_page",
+  priceType: "official_list_price",
+  priceVariant: "pro_20x",
+  tierVariant: "pro_20x",
+  actualBillingKnown: false
+}, {}, "codex"));
+JSON.stringify({ claudeMax20Label, codexPro20Label });`,
+    createAppContext(),
+    { filename: appPath }
+  ));
+
+  assert.deepEqual(result.filters, ["all", "month", "week", "today", "h24"]);
+  assert.equal(result.defaultDashboardOrder[0], "overview-history");
+  assert.equal(result.defaultDashboardOrder[1], "overview");
+  assert.deepEqual(result.defaultSummaryOrder, ["five-hour", "weekly", "tokens-today", "record-day", "tokens-total"]);
+  assert.deepEqual(result.oldDefaultSummaryOrder, ["five-hour", "weekly", "tokens-today", "tokens-total", "record-day"]);
+  assert.equal(result.filterHtml.indexOf('data-chart-filter="all"') < result.filterHtml.indexOf('data-chart-filter="h24"'), true);
+  assert.match(result.filterHtml, />All Time</u);
+  assert.equal(result.overviewHeight, 108);
+  assert.equal(result.providedSlotCount, 2);
+  assert.equal(result.providedSlotCostRowCount, 2);
+  assert.match(result.slotChartHtml, /history-slot-line/u);
+  assert.match(result.slotChartHtml, /history-slot-area/u);
+  assert.doesNotMatch(result.slotChartHtml, /history-slot-backdrop/u);
+  assert.match(result.overviewSlotHtml, /history-slot-line/u);
+  assert.match(result.overviewSlotHtml, /overview-history-frame/u);
+  assert.match(result.overviewSlotHtml, /chart-grid-line/u);
+  assert.match(result.overviewModeToggleHtml, /data-chart-mode="tokens"/u);
+  assert.match(result.overviewModeToggleHtml, /data-chart-mode="costs"/u);
+  assert.match(result.overviewCostSlotHtml, /history-slot-line/u);
+  assert.match(result.overviewCostSlotHtml, /chart-grid-line/u);
+  assert.doesNotMatch(result.overviewSlotHtml, /history-slot-backdrop/u);
+  assert.equal(result.providedSlotLabels.every(Boolean), true);
+  assert.equal(result.fallbackSlotCount > 0, true);
+  assert.equal(result.fallbackSlotTotal, 1000);
+  assert.equal(result.fallbackSlotHasProviderSources, true);
+  assert.equal(result.h24Total, 1234);
+  assert.equal(result.todayTotal, 222);
+  assert.deepEqual(result.rangeTotals, { today: 40, h24: 70, week: 90, month: 100, all: 123 });
+  assert.deepEqual(result.rangeProviderRows, [
+    { sourceId: "codex", totalTokens: 40 },
+    { sourceId: "claudeCode", totalTokens: 30 },
+    { sourceId: "glm", totalTokens: 20 },
+    { sourceId: "copilot", totalTokens: 10 }
+  ]);
+  assert.equal(result.todaySummaryTotal, 222);
+  assert.equal(result.recordDayTokens, 500);
+  assert.equal(result.recordDayLabel, "Record day");
+  assert.equal(result.renderedTokensToday, "222");
+  assert.equal(result.fiveHourTileHiddenWithoutLimit, true);
+  assert.equal(result.fiveHourTileVisibleWithLimit, true);
+  assert.equal(result.renderedTokensTotal, "722");
+  assert.equal(result.renderedTokensTodayNote.includes("not provider quota limits"), true);
+  assert.equal(result.renderedTokensTodayNote.includes("Codex: 222"), true);
+  assert.equal(result.renderedTokensTotalNote.includes("not provider quota limits"), true);
+  assert.equal(result.renderedTokensTotalNote.includes("Claude Code: 500"), true);
+  assert.equal(result.renderedTokensTotalNote.includes("Codex: 222"), true);
+  assert.equal(result.renderedRecordDayTokens, "500");
+  assert.equal(result.renderedRecordDayDate, result.recordDayFormattedDate);
+  assert.equal(result.topModel, "claude-fable-5");
+  assert.equal(result.topModelCosted, true);
+  assert.equal(result.usedModelPricingHasTotal, true);
+  assert.equal(result.unknownModelPricingHonest, true);
+  assert.equal(result.glmModelPricingCosted, true);
+  assert.equal(result.glmQuotaUnavailableCard, true);
+  assert.equal(result.mixedApiCostStatus, "mixed");
+  assert.equal(result.mixedApiCostNote.includes("multiple currencies"), true);
+  assert.equal(result.partialApiCostStatus, "partial");
+  assert.equal(result.partialApiCostNote.includes("partial"), true);
+  assert.equal(result.manualQuality, "manual");
+  assert.equal(result.detectedQuality, "estimated");
+  assert.equal(result.detectedCost, 0);
+  assert.equal(result.detectedCurrency, "EUR");
+  assert.equal(result.detectedSource, "codex_app_server");
+  assert.equal(result.missingCatalogQuality, "estimated");
+  assert.equal(result.missingCatalogStatus, "catalog_missing");
+  assert.equal(result.missingCatalogReason.includes("Enterprise (Cost unknown)"), true);
+  assert.equal(result.claudeCatalogCopy, "");
+  assert.equal(result.claudeCatalogCopy.includes("Max (Cost unknown)"), false);
+  assert.equal(result.claudeCatalogCopy.includes("Claude Max 5x/20x"), false);
+  assert.equal(result.claudeCatalogCopy.includes("Monthly price is a catalog fallback"), false);
+  assert.equal(result.limitOk, "ok");
+  assert.equal(result.limitNoWindow, "unknown");
+  assert.equal(result.limitEarlyWeekRisk, "risk");
+  assert.equal(result.earlyWeekPaceMessage.includes("before reset"), true);
+  assert.equal(result.okFiveHourPaceMessage.includes("remains by reset"), true);
+  assert.equal(result.deterministicPaceHasHitTime, true);
+  assert.equal(result.fiveHourSameDayResetCopy.includes("2026"), false);
+  assert.equal(result.fiveHourSameDayResetCopy.includes("tomorrow"), false);
+  assert.equal(result.fiveHourTomorrowResetCopy.includes("tomorrow"), true);
+  assert.equal(result.fiveHourTomorrowResetCopy.includes("2026"), false);
+  assert.equal(result.weeklyTomorrowResetCopy.includes("tomorrow"), true);
+  assert.equal(result.weeklyTomorrowResetCopy.includes("2026"), true);
+  assert.equal(result.limitDetailUsesResetAndRelative, true);
+  assert.equal(result.limitFull, "full");
+  assert.equal(result.limitUnknown, "unknown");
+  assert.equal(result.limitOkLabel, "On track");
+  assert.equal(result.limitRiskLabel, "Fast pace");
+  assert.equal(result.catalogQualityLabel, "Catalog value");
+  assert.equal(result.manualQualityLabel, "Saved fallback estimate");
+  assert.equal(result.manualSourceLabel, "saved fallback");
+  assert.equal(result.detectedSubscriptionRequiresVariant, true);
+  assert.equal(result.genericCodexProVariantRangeBlocked, true);
+  assert.equal(result.accountBillingActual, true);
+  assert.equal(result.expiredAccountBillingAudit, true);
+  assert.equal(result.aliasesHiddenByDefault, true);
+  assert.equal(result.aliasesCollapsedInDebug, true);
+  assert.equal(result.sourceBarsUseProviderColors, true);
+  assert.equal(result.providerBreakdownSegments, true);
+  assert.equal(result.modelBreakdownSegments, true);
+  assert.equal(result.totalBreakdownProviderSegments, true);
+  assert.equal(result.providerCardUsesProviderAccent, true);
+  assert.equal(result.providerCardUsesPlanBadgeOnly, true);
+  assert.equal(result.providerCardHasLogo, true);
+  assert.equal(result.providerCardFreshness, true);
+  assert.equal(result.relativeFreshness, true);
+  assert.equal(result.codexFallbackUsesReadingTime, true);
+  assert.equal(result.normalizedProviderConnectionActions, true);
+  assert.equal(result.normalizedClaudeConnectionAction, true);
+  assert.equal(result.normalizedCodexRefreshAction, true);
+  assert.equal(result.providerCardNoFableQuotaAudit, true);
+  assert.equal(result.claudeCodeUsesCurrentUsageComponent, true);
+  assert.equal(result.logoSamplesCoverCatalogProviders, true);
+  assert.equal(result.riskLimitBarUsesProviderAccent, true);
+  assert.equal(result.defaultUsageProjectionMode, "bar");
+  assert.equal(result.projectionModeAfterToggle, "tachometer");
+  assert.deepEqual(JSON.parse(result.storedProjectionMode), { claudeCode: "tachometer" });
+  assert.equal(result.invalidProjectionModeFallsBack, "bar");
+  assert.equal(result.limitBarsHasProjectionToggle, true);
+  assert.equal(result.providerProjectionModeIndependent, true);
+  assert.equal(result.claudeLoginAction, true);
+  assert.equal(result.connectionRereadFlow, true);
+  assert.equal(result.claudeConflictAction, true);
+  assert.equal(germanResult.claudeMax20Label.includes("Claude Max 20x"), true);
+  assert.equal(germanResult.claudeMax20Label.includes("180"), true);
+  assert.equal(germanResult.claudeMax20Label.includes("Monat"), true);
+  assert.equal(germanResult.claudeMax20Label.includes("5x/20x"), false);
+  assert.equal(germanResult.codexPro20Label.includes("Pro 20x"), true);
+  assert.equal(germanResult.codexPro20Label.includes("229"), true);
+  assert.equal(germanResult.codexPro20Label.includes("Monat"), true);
+  assert.equal(germanResult.codexPro20Label.includes("5x/20x"), false);
+  assert.equal(result.rejectedPaceLegendRemoved, true);
+  assert.equal(result.riskLimitBarHasTachometerGauge, true);
+  assert.equal(result.riskLimitBarHasProjectionBarMode, true);
+  assert.equal(result.zeroUsageProjectionValid, true);
+  assert.equal(result.inactiveClaudeWindowShowsAvailability, true);
+  assert.equal(result.emptyUsageProjectionUnavailable, true);
+  assert.equal(result.liveRateRisesFromSamples, true);
+  assert.equal(result.liveRateDecaysToZero, true);
+  assert.equal(result.liveRateKeepsZero, true);
+  assert.equal(result.fableLimitRowVisible, true);
+  assert.equal(result.mixedCurrencyDeltaHidden, true);
+  assert.equal(result.sameCurrencyDeltaHidden, true);
+  assert.equal(result.duplicateOpenAiSubscriptionDeduped, true);
+  assert.equal(result.duplicateOpenAiPaidDeduped, true);
+
+  const indexHtml = await readFile(path.join(rootDir, "public", "index.html"), "utf8");
+  assert.equal(indexHtml.includes('data-price-sort="region"'), false);
+
+  const browserSnapshot = _test.normalizeClaudeBrowserCreditsSnapshot({
+    subscription: { planType: "Max", monthlyPrice: 100, currency: "USD" }
+  });
+  assert.equal(browserSnapshot.status, "available");
+  assert.equal(browserSnapshot.subscription.planType, "Claude Max 5x");
+  assert.equal(browserSnapshot.subscription.monthlyCost, 100);
+  assert.equal(browserSnapshot.subscription.source, "claude_browser_sync");
+  const preservedBrowserSnapshot = _test.mergeClaudeBrowserCreditsSnapshots(
+    browserSnapshot,
+    _test.normalizeClaudeBrowserCreditsSnapshot({
+      status: "expired",
+      reason: "claude_login_required",
+      source: "chrome",
+      cookieName: "sessionKey",
+      updatedAt: "2026-07-08T00:30:00Z"
+    })
+  );
+  assert.equal(preservedBrowserSnapshot.status, "available");
+  assert.equal(preservedBrowserSnapshot.reason, null);
+  assert.equal(preservedBrowserSnapshot.subscription.planType, "Claude Max 5x");
+  assert.equal(preservedBrowserSnapshot.subscription.updatedAt, browserSnapshot.subscription.updatedAt);
+  const readableClaudeAction = _test.resolveClaudePlanSignals({
+    browserCredits: {
+      status: "expired",
+      reason: "claude_login_required",
+      source: "chrome",
+      cookieName: "sessionKey"
+    }
+  }).connectionAction;
+  assert.equal(readableClaudeAction.mode, "refresh");
+  assert.equal(readableClaudeAction.statusKey, readableClaudeAction.labelKey);
+  assert.equal(readableClaudeAction.rereadOnly, true);
+  const missingClaudeAction = _test.resolveClaudePlanSignals({
+    browserCredits: {
+      status: "expired",
+      reason: "claude_login_required"
+    }
+  }).connectionAction;
+  assert.equal(missingClaudeAction.mode, "login");
+  assert.equal(missingClaudeAction.rereadOnly, undefined);
+
+const browserScopedSnapshot = _test.normalizeClaudeBrowserCreditsSnapshot({
+    subscription: { name: "Claude Max", unit_amount: 10000, currency: "USD" }
+  });
+  assert.equal(browserScopedSnapshot.status, "available");
+  assert.equal(browserScopedSnapshot.subscription.planType, "Claude Max 5x");
+  assert.equal(browserScopedSnapshot.subscription.monthlyCost, 100);
+
+  const prepaidCreditsSnapshot = _test.normalizeClaudeBrowserCreditsSnapshot({
+    billingPayload: {
+      prepaidCredits: {
+        line_items: [{ name: "Prepaid credits", unit_amount: 2000, currency: "USD" }]
+      }
+    }
+  });
+  assert.equal(prepaidCreditsSnapshot.status, "missing");
+  assert.equal(prepaidCreditsSnapshot.subscription, null);
+
+  const openAiPricing = _test.parseOpenAiCodexPricingPage(
+    '<section><h3 class="heading-lg">Plus</h3><span class="heading-2xl">$20</span><span>/month</span></section>' +
+      '<section><h3 class="heading-lg">Pro</h3><span>From</span><span class="heading-2xl">$100</span><span>/month</span></section>',
+    { sourceUrl: "https://developers.openai.com/codex/pricing", fetchedAt: "2026-07-07T10:00:00Z" }
+  );
+  assert.equal(openAiPricing.parserStatus, "parsed");
+  assert.equal(openAiPricing.entries.find((entry) => entry.planKey === "plus").monthlyCost, 20);
+  assert.equal(openAiPricing.entries.find((entry) => entry.planKey === "pro").monthlyCost, 100);
+  assert.equal(openAiPricing.entries.find((entry) => entry.planKey === "pro").priceType, "official_starting_list_price");
+  assert.equal(openAiPricing.entries.find((entry) => entry.planKey === "pro").priceVariant, "from");
+  assert.equal(openAiPricing.entries.find((entry) => entry.planKey === "pro").actualBillingKnown, false);
+
+  const claudePricing = _test.parseClaudePricingPage(
+    '<span data-plan="pro_monthly">$20</span><div data-plan="max_5x_monthly">From $100</div><div data-plan="max_20x_monthly">$200</div>',
+    { sourceUrl: "https://claude.com/pricing", fetchedAt: "2026-07-07T10:00:00Z" }
+  );
+  assert.equal(claudePricing.parserStatus, "parsed");
+  assert.equal(claudePricing.entries.find((entry) => entry.planKey === "pro").monthlyCost, 20);
+  assert.equal(claudePricing.entries.find((entry) => entry.planKey === "max").monthlyCost, 100);
+  assert.equal(claudePricing.entries.find((entry) => entry.planKey === "max").priceType, "official_starting_list_price");
+  assert.equal(claudePricing.entries.find((entry) => entry.planKey === "max 5x").planName, "Claude Max 5x");
+  assert.equal(claudePricing.entries.find((entry) => entry.planKey === "max 5x").monthlyCost, 100);
+  assert.equal(claudePricing.entries.find((entry) => entry.planKey === "max 5x").priceType, "official_list_price");
+  assert.equal(claudePricing.entries.find((entry) => entry.planKey === "max 5x").tierVariant, "max_5x");
+  assert.equal(claudePricing.entries.find((entry) => entry.planKey === "max 20x").monthlyCost, 200);
+  assert.equal(claudePricing.entries.find((entry) => entry.planKey === "max 20x").priceType, "official_list_price");
+
+  const officialPricing = {
+    families: {
+      openai: openAiPricing,
+      anthropic: claudePricing
+    }
+  };
+  const genericPro = _test.officialSubscriptionPlan("codex", "pro", officialPricing);
+  assert.equal(genericPro.source, "official_pricing_page");
+  assert.equal(genericPro.planName, "Pro 5x/20x");
+  assert.equal(genericPro.monthlyCost, 100);
+  assert.equal(genericPro.monthlyCostMin, 100);
+  assert.equal(genericPro.monthlyCostMax, 200);
+  assert.equal(genericPro.priceType, "official_variant_range");
+  assert.equal(genericPro.priceVariant, "pro_5x_20x");
+  assert.equal(genericPro.tierVariant, "pro_5x_20x");
+  assert.equal(genericPro.actualBillingKnown, false);
+  assert.equal(_test.officialSubscriptionPlan("codex", "Pro 5x", officialPricing).priceType, "official_list_price");
+  assert.equal(_test.officialSubscriptionPlan("codex", "Pro 5x", officialPricing).tierVariant, "pro_5x");
+  assert.equal(_test.officialSubscriptionPlan("codex", "Pro 20 x", officialPricing).monthlyCost, 200);
+  assert.equal(_test.officialSubscriptionPlan("codex", "Pro Max", officialPricing).source, "official_pricing_page");
+  assert.equal(_test.officialSubscriptionPlan("codex", "Pro Max", officialPricing).monthlyCost, 200);
+  assert.equal(_test.officialSubscriptionPlan("codex", "Pro Max", officialPricing).priceType, "official_list_price");
+  assert.equal(_test.officialSubscriptionPlan("codex", "Pro Max", officialPricing).priceVariant, "pro_20x");
+  assert.equal(_test.officialSubscriptionPlan("codex", "Pro Max", officialPricing).actualBillingKnown, false);
+  const genericClaudeMax = _test.officialSubscriptionPlan("claudeCode", "max", officialPricing);
+  assert.equal(genericClaudeMax.planName, "Claude Max 5x/20x");
+  assert.equal(genericClaudeMax.monthlyCost, 100);
+  assert.equal(genericClaudeMax.monthlyCostMin, 100);
+  assert.equal(genericClaudeMax.monthlyCostMax, 200);
+  assert.equal(genericClaudeMax.priceType, "official_variant_range");
+  assert.equal(genericClaudeMax.priceVariant, "max_5x_20x");
+  assert.equal(_test.officialSubscriptionPlan("claudeCode", "Claude Max 5x", officialPricing).source, "official_pricing_page");
+  assert.equal(_test.officialSubscriptionPlan("claudeCode", "Claude Max 5x", officialPricing).planName, "Claude Max 5x");
+  assert.equal(_test.officialSubscriptionPlan("claudeCode", "Claude Max 5x", officialPricing).monthlyCost, 100);
+  assert.equal(_test.officialSubscriptionPlan("claudeCode", "Claude Max 5x", officialPricing).monthlyCostMax, undefined);
+  assert.equal(_test.officialSubscriptionPlan("claudeCode", "Claude Max 5x", officialPricing).priceVariant, "max_5x");
+  assert.equal(_test.officialSubscriptionPlan("claudeCode", "Claude Max 20 x", officialPricing).monthlyCost, 200);
+  assert.equal(_test.officialSubscriptionPlan("claudeCode", "Claude Max 20x", officialPricing).source, "official_pricing_page");
+  assert.equal(_test.officialSubscriptionPlan("claudeCode", "Claude Max 20x", officialPricing).monthlyCost, 200);
+  assert.equal(_test.officialSubscriptionPlan("claudeCode", "Claude Max 20x", officialPricing).priceVariant, "max_20x");
+  assert.equal(_test.parseOpenAiCodexPricingPage("<html>No pricing cards</html>", { sourceUrl: "https://developers.openai.com/codex/pricing" }).parserStatus, "parse_failed");
+
+  const missingAccountBilling = _test.sanitizeAccountBillingSnapshots({});
+  const officialMerged = _test.mergeProviderSubscription(
+    { id: "codex", status: "live", planType: "Pro", planSource: "codex_app_server" },
+    null,
+    "codex",
+    officialPricing,
+    missingAccountBilling
+  );
+  assert.equal(officialMerged.subscription.source, "official_pricing_page");
+  assert.equal(officialMerged.subscription.planSource, "codex_app_server");
+  assert.equal(officialMerged.subscription.planType, "Pro 5x/20x");
+  assert.equal(officialMerged.subscription.monthlyCost, 100);
+  assert.equal(officialMerged.subscription.monthlyCostMin, 100);
+  assert.equal(officialMerged.subscription.monthlyCostMax, 200);
+  assert.equal(officialMerged.subscription.priceType, "official_variant_range");
+  assert.equal(officialMerged.subscription.priceVariant, "pro_5x_20x");
+  assert.equal(officialMerged.subscription.tierVariant, "pro_5x_20x");
+  assert.equal(officialMerged.subscription.actualBillingKnown, false);
+  assert.equal(officialMerged.subscriptionConnectionAction, null);
+  const localizedOfficialMerged = _test.localizeUsageSubscriptionPrices({ codex: officialMerged }, "de").codex;
+  assert.equal(localizedOfficialMerged.subscription.planType, "Pro 5x/20x");
+  assert.equal(localizedOfficialMerged.subscription.monthlyCost, 115);
+  assert.equal(localizedOfficialMerged.subscription.monthlyCostMin, 115);
+  assert.equal(localizedOfficialMerged.subscription.monthlyCostMax, 229);
+  assert.equal(localizedOfficialMerged.subscription.priceType, "official_variant_range");
+  assert.equal(localizedOfficialMerged.subscription.costStatus, "official_pricing_page");
+  assert.equal(localizedOfficialMerged.subscriptionConnectionAction, null);
+  const bundledMerged = _test.mergeProviderSubscription({ id: "codex", status: "live", planType: "Pro 20x" }, null, "codex", officialPricing);
+  assert.equal(bundledMerged.subscription.source, "official_pricing_page");
+  assert.equal(bundledMerged.subscription.monthlyCost, 200);
+  assert.equal(bundledMerged.subscription.tierVariant, "pro_20x");
+  const officialVariantMerged = _test.mergeProviderSubscription({ id: "codex", status: "live", planType: "Pro Max" }, null, "codex", officialPricing);
+  assert.equal(officialVariantMerged.subscription.source, "official_pricing_page");
+  assert.equal(officialVariantMerged.subscription.monthlyCost, 200);
+  assert.equal(officialVariantMerged.subscription.priceType, "official_list_price");
+  assert.equal(officialVariantMerged.subscription.priceVariant, "pro_20x");
+  assert.equal(officialVariantMerged.subscription.actualBillingKnown, false);
+  const claudeFiveXMerged = _test.mergeProviderSubscription({ id: "claudeCode", status: "live", planType: "Claude Max 5x" }, null, "claudeCode", officialPricing);
+  assert.equal(claudeFiveXMerged.subscription.planType, "Claude Max 5x");
+  assert.equal(claudeFiveXMerged.subscription.monthlyCost, 100);
+  assert.equal(claudeFiveXMerged.subscription.monthlyCostMax, null);
+  assert.equal(claudeFiveXMerged.subscription.priceType, "official_list_price");
+  assert.equal(claudeFiveXMerged.subscription.priceVariant, "max_5x");
+  const localizedUsage = _test.localizeUsageSubscriptionPrices(
+    {
+      codex: officialVariantMerged,
+      claudeCode: _test.mergeProviderSubscription({ id: "claudeCode", status: "live", planType: "Claude Max 20x" }, null, "claudeCode", officialPricing),
+      anthropic: claudeFiveXMerged,
+      openai: _test.mergeProviderSubscription(
+        {
+          id: "openai",
+          status: "live",
+          planType: "Pro 20x",
+          subscription: {
+            planType: "Pro 20x",
+            monthlyCost: 250,
+            currency: "EUR",
+            source: "account_billing",
+            actualBillingKnown: true
+          }
+        },
+        null,
+        "openai",
+        officialPricing
+      )
+    },
+    "de"
+  );
+  assert.equal(localizedUsage.codex.subscription.monthlyCost, 229);
+  assert.equal(localizedUsage.codex.subscription.currency, "EUR");
+  assert.equal(localizedUsage.codex.subscription.priceRegion, "de_eur");
+  assert.equal(localizedUsage.codex.subscription.actualBillingKnown, false);
+  assert.equal(localizedUsage.claudeCode.subscription.monthlyCost, 180);
+  assert.equal(localizedUsage.claudeCode.subscription.currency, "EUR");
+  assert.equal(localizedUsage.anthropic.subscription.planType, "Claude Max 5x");
+  assert.equal(localizedUsage.anthropic.subscription.monthlyCost, 90);
+  assert.equal(localizedUsage.anthropic.subscription.currency, "EUR");
+  assert.equal(localizedUsage.openai.subscription.monthlyCost, 250);
+  assert.equal(localizedUsage.openai.subscription.actualBillingKnown, true);
+  assert.equal(_test.localizeUsageSubscriptionPrices({ codex: officialVariantMerged }, "en").codex.subscription.monthlyCost, 200);
+  const preferredPlan = _test.preferredCodexPlan("pro");
+  assert.equal(preferredPlan.planType, "pro");
+  assert.equal(preferredPlan.source, "codex_app_server");
+  const browserAccountPlanSnapshot = _test.sanitizeAccountBillingSnapshots(
+    {
+      fetchedAt: "2026-07-08T00:00:00Z",
+      providers: {
+        codex: {
+          status: "missing",
+          reason: "account_billing_amount_missing",
+          sourceType: "browser",
+          planType: "Pro 20x",
+          fetchedAt: "2026-07-08T00:00:00Z"
+        }
+      }
+    },
+    { nowMs: Date.parse("2026-07-08T00:01:00Z") }
+  );
+  const browserPlanMerged = _test.mergeProviderSubscription(
+    { id: "codex", status: "live", planType: preferredPlan.planType, planSource: preferredPlan.source },
+    null,
+    "codex",
+    officialPricing,
+    browserAccountPlanSnapshot
+  );
+  assert.equal(browserPlanMerged.planType, "Pro 20x");
+  assert.equal(browserPlanMerged.planSource, "browser");
+  assert.equal(browserPlanMerged.subscription.monthlyCost, 200);
+  assert.equal(browserPlanMerged.subscription.actualBillingKnown, false);
+  assert.equal(browserPlanMerged.subscriptionConnectionAction, null);
+  assert.equal(_test.localizeUsageSubscriptionPrices({ codex: browserPlanMerged }, "de").codex.subscription.monthlyCost, 229);
+  const thirdPartyPlanSnapshot = _test.sanitizeAccountBillingSnapshots(
+    {
+      fetchedAt: "2026-07-08T00:00:00Z",
+      providers: {
+        codex: {
+          status: "missing",
+          reason: "account_billing_amount_missing",
+          sourceType: "third_party_dashboard_snapshot",
+          planType: "Pro 20x",
+          fetchedAt: "2026-07-08T00:00:00Z"
+        }
+      }
+    },
+    { nowMs: Date.parse("2026-07-08T00:01:00Z") }
+  );
+  assert.equal(thirdPartyPlanSnapshot.providers.codex.status, "unavailable");
+  assert.equal(thirdPartyPlanSnapshot.providers.codex.sourceType, "untrusted_source");
+  const thirdPartyPlanMerged = _test.mergeProviderSubscription(
+    { id: "codex", status: "live", planType: preferredPlan.planType, planSource: preferredPlan.source },
+    null,
+    "codex",
+    officialPricing,
+    thirdPartyPlanSnapshot
+  );
+  assert.equal(thirdPartyPlanMerged.planType, preferredPlan.planType);
+  assert.equal(thirdPartyPlanMerged.planSource, preferredPlan.source);
+  assert.equal(thirdPartyPlanMerged.subscription.planType, "Pro 5x/20x");
+  assert.equal(thirdPartyPlanMerged.subscription.monthlyCost, 100);
+  assert.equal(thirdPartyPlanMerged.subscription.priceVariant, "pro_5x_20x");
+  assert.equal(thirdPartyPlanMerged.subscriptionConnectionAction, null);
+  const bundledGenericPro = _test.mergeProviderSubscription({ id: "codex", status: "live", planType: "Pro" }, null, "codex", { families: {} });
+  assert.equal(bundledGenericPro.subscription.source, null);
+  assert.equal(bundledGenericPro.subscription.planType, null);
+  assert.equal(bundledGenericPro.subscription.monthlyCost, 0);
+  assert.equal(bundledGenericPro.subscription.monthlyCostMin, null);
+  assert.equal(bundledGenericPro.subscription.monthlyCostMax, null);
+  assert.equal(bundledGenericPro.subscription.priceType, null);
+  assert.equal(bundledGenericPro.subscription.priceVariant, null);
+  assert.equal(bundledGenericPro.subscription.actualBillingKnown, false);
+  const unknownMerged = _test.mergeProviderSubscription({ id: "codex", status: "live", planType: "Enterprise" }, null, "codex", officialPricing);
+  assert.equal(unknownMerged.subscription.monthlyCost, 0);
+  assert.equal(unknownMerged.subscription.costStatus, "catalog_missing");
+  const manualCostWins = _test.mergeProviderSubscription(
+    { id: "codex", status: "live", planType: "Pro" },
+    { planType: "Pro", monthlyCost: 88, currency: "EUR" },
+    "codex",
+    officialPricing
+  );
+  assert.equal(manualCostWins.subscription.source, "local_settings");
+  assert.equal(manualCostWins.subscription.priceSourceType, "local_settings");
+  assert.equal(manualCostWins.subscription.costStatus, "local_settings");
+  assert.equal(manualCostWins.subscription.monthlyCost, 88);
+}
+
+async function assertNotificationLocalizationRegression() {
+  const electronMain = await readFile(path.join(rootDir, "electron", "main.js"), "utf8");
+  const deTranslations = JSON.parse(await readFile(path.join(rootDir, "public", "i18n", "de.json"), "utf8"));
+  const nativeNotificationCopy = [
+    "nativeAlertTitle",
+    "nativeUsedPercent",
+    "nativeHardLimit",
+    "nativePacingProjected",
+    "nativeEstimatedExhaustion",
+    "nativeWindowFiveHour",
+    "nativeWindowWeekly"
+  ].map((key) => deTranslations.settings.notifications[key]).join("\n");
+
+  for (const fragment of [
+    "Limit warning:",
+    "Limit nearly exhausted",
+    "pace projects",
+    "Estimated exhaustion in",
+    "% used"
+  ]) {
+    assert.equal(electronMain.includes(fragment), false, `Electron native notifications must not hardcode English fragment: ${fragment}`);
+    assert.equal(nativeNotificationCopy.includes(fragment), false, `German native notification copy must not contain English fragment: ${fragment}`);
+  }
+  assert.equal(electronMain.includes("settings.notifications.nativeAlertTitle"), true);
+  assert.equal(electronMain.includes("settings.notifications.nativePacingProjected"), true);
+  assert.equal(deTranslations.settings.notifications.nativeAlertTitle, "Limit-Warnung: {window}");
+  assert.equal(deTranslations.settings.notifications.nativeWindowWeekly, "Wochenlimit");
+
+  const reset = new Date(Date.now() + 60 * 60 * 1000).toISOString();
+  const alerts = _test.buildNotificationAlerts(
+    { hardLimitPercent: 80, pacingPercent: 90 },
+    { codex: { limits: { weekly: { key: "weekly", label: "Weekly Codex limit", usedPercent: 85, windowMinutes: 10080, resetsAt: reset } } } }
+  );
+  assert.equal(alerts[0]?.windowKey, "weekly");
+}
+
+function assertUpdateSettingsAlwaysOn() {
+  assert.equal(_test.sanitizeUpdateSettings({ enabled: false, allowPrerelease: false }).enabled, true);
+  assert.equal(_test.sanitizeUpdateSettings({ enabled: false, allowPrerelease: false }).allowPrerelease, false);
+  assert.deepEqual(
+    _test.mergeUpdateSettingsPatch({ enabled: true, allowPrerelease: true }, { enabled: false, allowPrerelease: false }),
+    { enabled: true, allowPrerelease: false }
+  );
+}
+
+async function withTempCodexHome(callback) {
+  const root = await mkdtemp(path.join(os.tmpdir(), "codex-provider-recency-"));
+  const sessionsDir = path.join(root, "sessions");
+  try {
+    await mkdir(sessionsDir, { recursive: true });
+    await callback(sessionsDir);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+}
+
+function createAppContext() {
+  const elements = new Map();
+  function makeElement(id = "") {
+    return {
+      id,
+      hidden: false,
+      disabled: false,
+      textContent: "",
+      innerHTML: "",
+      value: "",
+      checked: false,
+      dataset: {},
+      style: {},
+      classList: {
+        add() {},
+        remove() {},
+        toggle() {},
+        contains() {
+          return false;
+        }
+      },
+      addEventListener() {},
+      removeEventListener() {},
+      setAttribute() {},
+      removeAttribute() {},
+      toggleAttribute() {},
+      querySelector() {
+        return null;
+      },
+      querySelectorAll() {
+        return [];
+      },
+      closest() {
+        return null;
+      },
+      cloneNode() {
+        return makeElement(`${id}-clone`);
+      },
+      getBoundingClientRect() {
+        return { width: 100, height: 50, top: 0, left: 0 };
+      },
+      appendChild() {},
+      remove() {},
+      focus() {},
+      showModal() {},
+      close() {}
+    };
+  }
+  function getElementById(id) {
+    if (!elements.has(id)) elements.set(id, makeElement(id));
+    return elements.get(id);
+  }
+  const document = {
+    hidden: false,
+    documentElement: makeElement("html"),
+    body: makeElement("body"),
+    getElementById,
+    querySelector(selector) {
+      if (selector === "main.app-shell") return getElementById("appShell");
+      return makeElement(selector);
+    },
+    querySelectorAll() {
+      return [];
+    },
+    addEventListener() {},
+    createElement(tag) {
+      return makeElement(tag);
+    }
+  };
+  return {
+    console,
+    document,
+    navigator: { platform: "MacIntel", clipboard: { writeText: async () => {} } },
+    window: { lucide: null, requestAnimationFrame: (fn) => fn(), Notification: undefined, focus() {} },
+    localStorage: { getItem() { return null; }, setItem() {}, removeItem() {} },
+    setTimeout,
+    clearTimeout,
+    setInterval() {
+      return 0;
+    },
+    clearInterval() {},
+    URLSearchParams,
+    Intl,
+    Date,
+    Math,
+    Number,
+    String,
+    Boolean,
+    Array,
+    Object,
+    JSON,
+    Map,
+    Set,
+    RegExp,
+    Error
+  };
+}

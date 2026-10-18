@@ -1,0 +1,1372 @@
+{
+  "app": {
+    "title": "LLM Pulse — AI Usage Intelligence",
+    "eyebrow": "LLM Pulse",
+    "heading": "Limity a tokeny"
+  },
+  "actions": {
+    "refresh": "Obnoviť",
+    "settings": "Nastavenia",
+    "close": "Zavrieť"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "password": "Heslo",
+    "signIn": "Prihlásiť sa",
+    "loginFailed": "Prihlásenie zlyhalo"
+  },
+  "filter": {
+    "showAll": "Zobraziť všetko",
+    "showActive": "Iba aktívne",
+    "hideInactive": "Skryť neaktívnych poskytovateľov",
+    "showInactiveCount": "Zobraziť {count} neaktívnych poskytovateľov",
+    "allVisible": "Všetci poskytovatelia sú viditeľní",
+    "showAllNoticeTitle": "Zobrazenie všetkých poskytovateľov",
+    "showAllNoticeBody": "Viditeľné sú neaktívne, prázdne, iba nastavené a historické karty poskytovateľov. Iba aktívne je bežné zobrazenie."
+  },
+  "layout": {
+    "edit": "Edit layout",
+    "done": "Done",
+    "reset": "Default order",
+    "resetDone": "Default dashboard order restored.",
+    "dragHandle": "Move {name}",
+    "grabbed": "Moving {name}. Use arrow keys to move, Enter or Space to drop, Escape to cancel.",
+    "moved": "{name} moved to position {position} of {total}.",
+    "dropped": "{name} dropped at position {position} of {total}.",
+    "cancelled": "Move cancelled."
+  },
+  "summary": {
+    "ariaLabel": "Prehľad",
+    "fiveHourOpen": "5h quota free",
+    "weeklyOpen": "Week quota free",
+    "tokensToday": "Logged tokens today",
+    "tokensTotal": "Celkovo zalogované tokeny",
+    "recordDayLabel": "Rekordný deň",
+    "recordDay": "Rekordný deň: {date} · {tokens}",
+    "quotaWindowNote": "Provider quota window",
+    "tokensRange": "Logged tokens: {range}",
+    "todayLogNote": "Calendar day from local logs, not provider quota limits. {providers}",
+    "totalLogNote": "All local log history, not provider quota limits. {providers}",
+    "providerTokenDetail": "{provider}: {tokens}",
+    "providerBreakdownMore": "{providers} + {count} more",
+    "providerBreakdownEmpty": "No provider log tokens.",
+    "rangeNotes": {
+      "h24": "Rolling 24-hour total; chart bars are day-grained.",
+      "today": "Calendar day in local time.",
+      "week": "Last 7 days from local logs.",
+      "month": "Last 30 calendar days from local logs."
+    }
+  },
+  "chart": {
+    "eyebrow": "Local capture",
+    "heading": "História tokenov z logov",
+    "sourceTotalsAria": "Celkové použitie podľa poskytovateľa",
+    "legendAria": "Legenda",
+    "sourceTotalTitle": "Celkové použitie",
+    "svgAria": "História tokenov",
+    "costSummary": {
+      "title": "Cost summary",
+      "apiEquivalent": "API equivalent",
+      "paid": "Subscription fixed cost",
+      "saved": "Delta vs API",
+      "quote": "API difference",
+      "quality": "Data quality",
+      "qualityComplete": "Covered",
+      "qualityPartial": "Partially estimated",
+      "qualityUnavailable": "Unavailable",
+      "missingSubscriptions": "Subscription history or a reliable fixed-cost source is missing for this range.",
+      "estimatedSources": "Estimated providers: {providers}.",
+      "missingSources": "Not included: {providers}.",
+      "unsupportedCurrencies": "Unsupported currencies: {currencies}."
+    },
+    "costs": {
+      "svgAria": "Cost history",
+      "noData": "No cost data for the selected range."
+    },
+    "filters": {
+      "h24": "Last 24 hours",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all": "All Time"
+    },
+    "headingCosts": "Cost History from Logs",
+    "mode": {
+      "tokens": "Tokens",
+      "costs": "Costs"
+    },
+    "modeToggleAria": "Chart mode",
+    "filterBarAria": "Time range",
+    "insights": {
+      "ariaLabel": "Selected range statistics",
+      "total": "Total",
+      "selectedRange": "Selected range",
+      "avgActiveDay": "Ø active day",
+      "avgActiveDayDetail": "Based on {days} active days",
+      "activeDays": "Active days",
+      "activeDaysValue": "{active}/{days}",
+      "activeDaysDetail": "Days with usage",
+      "peakDay": "Peak day",
+      "noData": "No activity in the selected range.",
+      "selectedRangeDetail": "{range} shown with the selected range semantics."
+    },
+    "models": {
+      "heading": "Models used",
+      "range": "{range} model mix",
+      "topTokens": "Top by tokens: {model} · {tokens}",
+      "topCost": "Top by API-equivalent cost: {model} · {cost}",
+      "costUnknown": "API-equivalent cost unavailable for these models.",
+      "unknown": "Neznámy model"
+    },
+    "breakdown": {
+      "total": "Spolu",
+      "provider": "Poskytovateľ",
+      "model": "Modely",
+      "device": "Inštalácie",
+      "account": "Účtu"
+    },
+    "breakdownToggleAria": "Rozdelenie tokenov",
+    "overviewAria": "Compact token history by provider",
+    "breakdownSummary": {
+      "totalTitle": "Total window",
+      "providerTitle": "Provider share",
+      "modelTitle": "Model share",
+      "topProvider": "Top provider",
+      "topModel": "Top model",
+      "coverage": "Coverage",
+      "providerCount": "{count} providers",
+      "modelCount": "{count} models",
+      "noProvider": "No provider breakdown",
+      "noModel": "No model breakdown"
+    },
+    "providers": {
+      "heading": "Providers used",
+      "range": "{range} provider mix",
+      "topTokens": "Top by tokens: {provider} · {tokens}",
+      "topModel": "Top model: {model} · {tokens}",
+      "noModel": "No model details",
+      "columns": {
+        "provider": "Provider",
+        "tokens": "Tokens",
+        "share": "Share",
+        "topModel": "Top model"
+      }
+    },
+    "totalBreakdown": {
+      "heading": "Total summary",
+      "range": "{range} aggregate"
+    },
+    "attribution": {
+      "groupBy": "Zoskupiť podľa",
+      "unknownAccount": "Neznámy účet",
+      "unknownDevice": "Neznáma inštalácia",
+      "sharedDevice": "Nájdené vo viacerých inštaláciách",
+      "sharedDeviceHelp": "Započítané raz; pôvodná inštalácia je nejasná.",
+      "observed": "Nájdené v lokálnych protokoloch",
+      "observedOn": "Nájdené v inštaláciách",
+      "evidence": "Priradenie",
+      "observedHelp": "Inštalácie ukazujú, kde sa našli protokoly. Skopírované udalosti sa počítajú raz; pôvodný počítač môže byť neznámy.",
+      "accountHelp": "Účet sa priradí iba pri doložení v údajoch o využití. Ostatné tokeny zostávajú pod Neznámy účet."
+    }
+  },
+  "tokenMix": {
+    "eyebrow": "Token Mix",
+    "heading": "Zalogované spracovanie tokenov"
+  },
+  "liveMetrics": {
+    "ariaLabel": "Live system usage",
+    "eyebrow": "Live",
+    "heading": "Live Load",
+    "updated": "Updated {time}",
+    "notAvailable": "Not available",
+    "error": "Error",
+    "unavailable": "Not available",
+    "unavailableShort": "N/A",
+    "percentScale": "0-100%",
+    "cpu": "CPU",
+    "ram": "Memory",
+    "ramSub": "{used}/{total} GB used",
+    "aiLoad": "AI Load",
+    "aiLoadSub": "Heuristic",
+    "aiLoadHelp": "Estimated from CPU, memory, and token throughput. Not an exact measurement.",
+    "tokensPerMinute": "Tokens/min",
+    "noTokenWindow": "No measured window yet",
+    "noTokenBreakdown": "No reliable breakdown",
+    "historyHeading": "Trend",
+    "historyAria": "Live load trend",
+    "legendAria": "Live trend legend",
+    "historyLoading": "Collecting live data...",
+    "historyNoSeries": "No active series.",
+    "quality": {
+      "measured": "Measured",
+      "calculated": "From logs",
+      "estimated": "Estimated",
+      "unavailable": "Not available"
+    },
+    "series": {
+      "cpu": "CPU",
+      "ram": "Memory",
+      "aiLoad": "AI Load",
+      "tokensTotal": "Tokens/min",
+      "tokensInput": "Input",
+      "tokensOutput": "Output",
+      "tokensCached": "Cached",
+      "aiCpu": "AI CPU",
+      "aiMemory": "AI Memory",
+      "swap": "Swap"
+    },
+    "errors": {
+      "load": "Could not load live system metrics."
+    },
+    "tokensPerMinuteHelp": "Calculated from local Claude Code, Codex, Gemini, Copilot, and Ollama logs in the local aggregate. Multica Claude/Codex runs are included through those logs; API-only OpenAI/Anthropic billing is excluded to avoid double counting. Gemini agents may be missing when the Gemini CLI does not write token metadata.",
+    "systemCpu": "System CPU",
+    "systemRam": "System Memory",
+    "aiCpu": "AI CPU",
+    "aiCpuSub": "{count} AI processes",
+    "aiCpuHelp": "Aggregated CPU share of recognized local AI process groups. Commands and paths are not exposed.",
+    "aiMemory": "AI Memory",
+    "aiMemorySub": "{used} GB RSS",
+    "aiMemoryHelp": "Aggregated resident memory of recognized local AI process groups. Shared Electron and browser memory is approximate.",
+    "swap": "Swap",
+    "swapSub": "{used}/{total} GB used",
+    "swapHelp": "System swap usage. High swap can slow the Mac even when AI process memory is only part of the total.",
+    "noAiProcesses": "No AI process group found",
+    "processBreakdownHeading": "Running AI groups",
+    "processBreakdownHelp": "Safe aggregate view: running AI process groups and load shares without command lines, prompts, or paths.",
+    "processTotal": "AI total: {cpu} CPU · {memory} · {memoryShare} RAM · {count} running processes",
+    "processBreakdownUnavailable": "Process grouping is not available on this platform/runtime.",
+    "processBreakdownEmpty": "No recognized AI process group is currently running for the dashboard.",
+    "processColumns": {
+      "group": "Group",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "memoryShare": "RAM %",
+      "count": "Processes"
+    },
+    "recentRateWindow": "Živá sadzba, kĺzavých 60 s"
+  },
+  "pricing": {
+    "eyebrow": "Náklady API",
+    "heading": "Koľko by tvoje tokeny stáli cez API",
+    "meta": "Katalóg {catalogVersion} · {modelCount} modelov · EUR cez ECB {fxDate} · ceny API {pricingDate} · Arena Text {scoreDate}",
+    "modelFilter": {
+      "label": "Filtrovať podľa názvu modelu",
+      "placeholder": "Napríklad Sol, 6.1 alebo Claude",
+      "empty": "Nenašli sa žiadne modely s týmto názvom."
+    },
+    "qualityScoreTitle": "Arena Text {scoreDate}: {score} Elo",
+    "chinaBadge": "Čína",
+    "unknown": "Neznáme",
+    "notPriced": "Bez ceny",
+    "aliases": "Aliasy: {aliases}",
+    "limitSummary": "kontext {context} · výstup {output}",
+    "sourceReviewed": "Skontrolované {date}",
+    "regions": {
+      "apiDiscount": "Zľava API"
+    },
+    "columns": {
+      "model": "Model",
+      "score": "Skóre",
+      "region": "Región",
+      "limits": "Limity",
+      "input": "Vstup",
+      "cache": "Cache",
+      "output": "Výstup",
+      "today": "Last 24h",
+      "total": "Spolu",
+      "status": "Stav",
+      "source": "Zdroj"
+    },
+    "priceStatus": {
+      "official": "Oficiálna cena",
+      "estimated": "Odhadovaná cena",
+      "unknown": "Neznáma cena",
+      "mixed": "Zmiešané ceny"
+    },
+    "availability": {
+      "ga": "Všeobecne dostupné",
+      "preview": "Náhľad",
+      "deprecated": "Zastarané",
+      "unknown": "Neznáma dostupnosť"
+    },
+    "limitStatus": {
+      "official": "Oficiálne limity",
+      "estimated": "Odhadované limity",
+      "unknown": "Neznáme limity"
+    },
+    "viewToggleAria": "Cost view",
+    "aliasesSummary": "{count} aliases",
+    "views": {
+      "api": "API equivalent",
+      "models": "Used models",
+      "subscriptions": "Fixed costs"
+    },
+    "usedModels": {
+      "heading": "Used models in {range}",
+      "description": "Actual logged model usage matched to the local pricing catalog where possible.",
+      "empty": "No model-level token data is available for the selected range.",
+      "totalLabel": "Celkové náklady API",
+      "totalComplete": "Úplné",
+      "totalPartial": "Čiastočné",
+      "totalUnknown": "Neznáme",
+      "totalMixed": "Zmiešané meny",
+      "totalPartialNote": "Niektoré zobrazené riadky nemajú dôveryhodnú API cenu, takže súčet je čiastočný.",
+      "totalUnknownNote": "Žiadny zobrazený riadok nemá dôveryhodnú API cenu.",
+      "totalMixedNote": "Zobrazené riadky používajú viac mien; súčet sa nepočíta.",
+      "totalRow": "Celkové náklady API"
+    },
+    "subscriptions": {
+      "heading": "Subscription and fixed costs in {range}",
+      "description": "Shows monthly fixed costs only when safely detected locally or saved as fallback estimates. Missing data is not treated as real cost.",
+      "empty": "No subscription or fixed-cost data is available yet.",
+      "previous": "Previous cost",
+      "delta": "Change"
+    }
+  },
+  "providers": {
+    "codex": {
+      "kicker": "Codex"
+    },
+    "codexSpark": {
+      "kicker": "Codex Spark"
+    },
+    "claudeCode": {
+      "kicker": "Claude Code"
+    },
+    "anthropic": {
+      "kicker": "Použitie API"
+    },
+    "openai": {
+      "kicker": "API a kredity"
+    },
+    "gemini": {
+      "kicker": "Gemini"
+    },
+    "glm": {
+      "kicker": "OpenAI-compatible import"
+    },
+    "ollama": {
+      "kicker": "Ollama"
+    },
+    "local": {
+      "name": "Local capture"
+    },
+    "gridAria": "Poskytovatelia",
+    "messages": {
+      "sparkTokens24h": "Spark tokeny 24h",
+      "logTokens24h": "Log tokeny 24h",
+      "missingBackendKey": "Chýba backend kľúč",
+      "sevenDays": "7 dní",
+      "noCodexSparkEvents": "Nenašli sa žiadne udalosti Codex 5.3 Spark.",
+      "noGeminiLogs": "Nenašli sa žiadne lokálne Gemini usage logy.",
+      "glmImportTokens": "GLM/Z.AI tokens from local imports.",
+      "glmQuotaUnavailable": "Official quota through OpenCode is not available.",
+      "noGlmEvents": "No local GLM/Z.AI usage events found.",
+      "ollamaLogTokens": "Lokálne Ollama tokeny z logov",
+      "noOllamaLogs": "Nenašli sa žiadne lokálne Ollama logy.",
+      "copilotLogTokens": "Copilot CLI tokens 24h",
+      "noCopilotSessionMetrics": "No local Copilot CLI session metrics found.",
+      "claudeStatuslineNoQuotas": "Claude is sending data, but not official Pro/Max limit values yet.",
+      "claudeStatuslineMissing": "Stavový riadok Claude nie je nastavený. Zapnite príkaz statusline dashboardu pre živé kvóty Pro/Max.",
+      "claudeLiveLimitsMissing": "Claude live limits are not available from local telemetry yet.",
+      "claudeLimitsStale": "Claude live limits are out of date. Open Claude Code once to refresh them.",
+      "claudeOauthUnavailable": "Claude CLI/OAuth quota unavailable: {reason}.",
+      "claudeBrowserLoginHint": "Log in to Claude.ai in your browser to enable credit tracking.",
+      "glmQuotaAvailable": "Official GLM Coding Plan quota from OpenCode.",
+      "glmQuotaUnavailableReason": "Official GLM Coding Plan quota unavailable: {reason}.",
+      "noOpenCodeGptEvents": "No local OpenAI/GPT usage events found in OpenCode."
+    },
+    "emptyState": {
+      "eyebrow": "Poskytovateľ",
+      "heading": "Žiadne aktívne použitie",
+      "status": "Prázdne",
+      "message": "Žiadny poskytovateľ momentálne nemá zalogované tokeny ani údaje o limitoch.",
+      "visible": "Viditeľné",
+      "hidden": "Skryté",
+      "all": "Všetko"
+    },
+    "copilot": {
+      "kicker": "Copilot CLI"
+    },
+    "updateDelayHints": {
+      "default": "This provider has not produced a fresh local signal for more than {minutes} minutes. Some sources only update when their CLI or app writes new usage data.",
+      "codex": "Codex limits normally update through the local app-server. If this stays old, the app-server may be unavailable or Codex has not produced fresh live limit data.",
+      "codexSpark": "Codex Spark limits normally update through the local Codex app-server. If this stays old, Spark live limit data may not be exposed yet.",
+      "claudeCode": "This Claude Code card combines statusline, local logs, and Claude.ai billing or usage data. Updates can lag when Claude Code is closed, the statusline has not run, or Claude.ai cookies/API access are unavailable.",
+      "copilot": "GitHub Copilot CLI usage is written after sessions shut down, and live quota probing depends on the local Copilot CLI. The timestamp can lag while a session is still open or the probe is unavailable.",
+      "gemini": "Gemini local usage updates only when local log files contain new usage metadata.",
+      "glm": "GLM/Z.AI updates when local JSON, JSONL, or CSV usage imports contain OpenAI-compatible GLM token counts.",
+      "ollama": "Ollama usage updates only when requests pass through the dashboard's local proxy/log file."
+    },
+    "freshness": {
+      "ariaLabel": "Čas dát poskytovateľa",
+      "usage": "Použitie {time}",
+      "limits": "Limity {time}",
+      "prices": "Ceny {time}",
+      "catalog": "Katalóg {date}",
+      "unknown": "Čas dát neznámy"
+    },
+    "openCode": {
+      "kicker": "OpenCode GPT logs"
+    },
+    "kimi": {
+      "kicker": "Kimi Code"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "empty": "Prázdne",
+    "not_configured": "Nastavenie",
+    "error": "Chyba"
+  },
+  "labels": {
+    "today": "Dnes",
+    "fiveHourUsed": "5h použité",
+    "weekUsed": "Týždeň použitý",
+    "fiveHourLeft": "Zostáva 5 h",
+    "weekLeft": "Zostáva týždeň",
+    "since": "Od",
+    "updated": "Aktualizované",
+    "plan": "Plán",
+    "fiveHourTokens": "5h tokeny",
+    "total": "Celkovo",
+    "cost": "Náklad",
+    "tokens7d": "Tokeny 7 dní",
+    "cost7d": "Náklad 7 dní",
+    "limits": "Limity",
+    "updatedHelp": "Why this timestamp may be delayed",
+    "subscription": "Subscription",
+    "last24h": "Last 24h"
+  },
+  "credits": {
+    "title": "Kredity",
+    "monthlySpend": "Kredity použitia",
+    "monthlyLimit": "Mesačný limit",
+    "currentCredit": "Aktuálny kredit",
+    "autoTopUp": "Automatické dobitie",
+    "default": "Kredity",
+    "on": "Zap.",
+    "off": "Vyp."
+  },
+  "limits": {
+    "recentPace": {
+      "timeToLimit": "Čas do dosiahnutia limitu: {duration}",
+      "title": "Nedávne tempo",
+      "measured": "+{percent} percentuálnych bodov za {duration}",
+      "collecting": "Pre toto obdobie zatiaľ nie je dosť meraní.",
+      "flat": "V tomto období nie je merateľný nárast.",
+      "stale": "Posledný údaj o limite je zastaraný.",
+      "changed": "Údaje sa zmenili; odhad nie je k dispozícii.",
+      "possible": "Limit môže byť dosiahnutý pred obnovením; odhad je neistý.",
+      "note": "Odhad zo zaokrúhlených percent pri stálom tempe."
+    },
+    "fiveHour": "5h",
+    "weekly": "Týždeň",
+    "currentSession": "Aktuálna relácia",
+    "allModels": "Všetky modely",
+    "claudeDesign": "Claude Design",
+    "sonnetOnly": "Iba Sonnet",
+    "default": "Limit",
+    "resetPrefix": "Reset {time}",
+    "usedValue": "{percent}% použité",
+    "leftValue": "Zostáva {percent} %",
+    "freeLabel": "{label} dostupné",
+    "limitGroups": "{count} skupín limitov",
+    "noModelLimits": "Žiadne modelové limity",
+    "remainingShort": "{days}d {hours}h {minutes}m",
+    "fullTitle": "Limit full",
+    "fullDescription": "{limit} is full.",
+    "fullTokenDetail": "{tokens} tokens in {period}",
+    "fullPremiumRequestsDetail": "{requests} premium requests from local session logs",
+    "fullResetDetail": "Reset {time}",
+    "period5h": "5h",
+    "period7d": "7d",
+    "period24h": "24h",
+    "fullQuotaDetail": "{usage} used",
+    "status": {
+      "ok": "On track",
+      "risk": "Vysoke tempo",
+      "full": "Limit reached",
+      "unknown": "Unknown"
+    },
+    "pace": {
+      "remaining": "Pri sucasnom tempe zostane do resetu asi {percent}%.",
+      "shortfall": "Pri sucasnom tempe bude do resetu chybat asi {percent}%.",
+      "hitBeforeReset": "Pri sucasnom tempe bude limit dosiahnuty asi {duration} pred resetom. ({time})",
+      "fullWithReset": "Limit dosiahnuty; reset {time}.",
+      "fullNoReset": "Limit dosiahnuty; cas resetu nie je dostupny.",
+      "unavailable": {
+        "noUsage": "Tempo nie je dostupne: tento zdroj neposkytuje percento vyuzitia.",
+        "noWindow": "Tempo nie je dostupne: tento zdroj neposkytuje dlzku okna ani cas resetu.",
+        "notStarted": "Tempo nie je dostupne: toto kvotove okno sa este nezacalo.",
+        "staleReset": "Tempo nie je dostupne: cas resetu je zastarany; obnovte zdroj."
+      }
+    },
+    "duration": {
+      "daysHours": "{days} d {hours} h",
+      "hoursMinutes": "{hours} h {minutes} min",
+      "minutes": "{minutes} min"
+    },
+    "gauge": {
+      "title": "Aktuálne využitie",
+      "projectedValue": "projekcia {percent}%",
+      "unavailable": "Projekcia nie je dostupná",
+      "aria": "Projektované koncové využitie pre {label}"
+    },
+    "viewToggleAria": "Vizualizácia aktuálneho využitia",
+    "view": {
+      "tachometer": "Merač",
+      "bar": "Pruh"
+    },
+    "remainingUntilReset": "Resets in {remaining} · Reset {time}",
+    "glmFiveHourTokens": "5h tokens",
+    "glmWeekly": "Weekly quota",
+    "glmMcpMonthly": "Monthly MCP"
+  },
+  "tokens": {
+    "input": "Vstup",
+    "cacheCreation": "Vytvorenie cache",
+    "cachedInput": "Cachovaný vstup",
+    "output": "Výstup",
+    "reasoningOutput": "Reasoning výstup",
+    "total": "Celkovo"
+  },
+  "format": {
+    "billion": "mld.",
+    "million": "mil.",
+    "thousand": "tis.",
+    "lessThanSharePercent": "<0,1%",
+    "lessThanCent": "< 0,01 EUR",
+    "usdPerMillion": "{value} $/M",
+    "cacheReadWrite": "{read} čítanie / {write} zápis",
+    "cacheSameAsInput": "ako vstup",
+    "perMonth": "{amount}/mo",
+    "fromPerMonth": "od {amount}/mes."
+  },
+  "settings": {
+    "heading": "Nastavenia",
+    "language": {
+      "label": "Jazyk"
+    },
+    "theme": {
+      "label": "Motív",
+      "system": "Systém",
+      "light": "Svetlý",
+      "dark": "Tmavý"
+    },
+    "notifications": {
+      "title": "Limits & warnings",
+      "description": "Warnings use real 5-hour and weekly provider windows plus projections; they are separate from monthly subscription/API cost comparisons.",
+      "enabled": "Enable notifications",
+      "pacingLabel": "Pacing warning at projected provider-window usage (%)",
+      "hardLimitLabel": "Hard warning at measured provider-window usage (%)",
+      "save": "Save",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "diagTitle": "Notification diagnostics",
+      "diagLastCheck": "Last check",
+      "diagDuration": "Duration",
+      "diagAlerts": "Alerts found",
+      "diagLastShown": "Last notification sent",
+      "diagSkipped": "Skip reason",
+      "diagError": "Last error",
+      "diagSupported": "Notifications supported",
+      "diagNone": "None",
+      "diagNever": "Never",
+      "diagYes": "Yes",
+      "diagNo": "No",
+      "testBtn": "Send test notification",
+      "testQueued": "Test requested. If no real system banner appears, open system notifications, allow LLM Pulse, restart the app, then run the test again.",
+      "testError": "Could not send test notification.",
+      "testResultLabel": "Last test result",
+      "testResultAt": "At",
+      "testResultOutcome": "Outcome",
+      "testResult_shown": "Reported as shown by an older build",
+      "testResult_not_supported": "Not supported on this system",
+      "testResult_error": "Error",
+      "diagPermission": "Browser permission (not a macOS banner guarantee)",
+      "permission_granted": "Granted for browser API",
+      "permission_default": "Not asked yet",
+      "permission_denied": "Denied",
+      "permission_unsupported": "Unsupported",
+      "permission_unknown": "Unknown",
+      "permission_error": "Permission check failed",
+      "permissionNotGranted": "Notification permission was not granted. System notification settings were opened; allow LLM Pulse, restart the app, then run the test again.",
+      "permissionUnsupported": "This app runtime does not expose desktop notification permission.",
+      "testResult_sent": "Queued with Electron (banner not confirmed)",
+      "testQueuedRendererError": "Native macOS notification queued, but the immediate browser notification failed: {error}",
+      "testTitle": "LLM Pulse - Test",
+      "testBody": "Desktop notifications are working correctly.",
+      "inAppTestTitle": "In-app test notification",
+      "inAppTestErrorTitle": "Notification test needs attention",
+      "inAppTestBody": "This in-app fallback confirms the test ran. It is not a system banner; native banners may require system notification permission, a fresh app restart, and a properly signed build.",
+      "diagNativeDelivery": "Native system delivery",
+      "nativeDelivery_ready": "Signed app: native banners should be available",
+      "nativeDelivery_ad_hoc": "Ad-hoc build: native banners may not appear",
+      "nativeDelivery_gatekeeper_rejected": "Gatekeeper rejected: native banners may not appear",
+      "nativeDelivery_unverified": "Unverified",
+      "nativeDelivery_not_applicable": "Not applicable on this platform",
+      "nativeDelivery_unknown": "Unknown",
+      "openSettingsBtn": "Open system notification settings",
+      "openSettingsQueued": "System notification settings opened. Allow notifications for LLM Pulse, restart the app if you just changed the setting, then run the test again.",
+      "openSettingsError": "Could not open system notification settings from this runtime.",
+      "systemGuideTitle": "System notifications need attention",
+      "systemGuideDefault": "Allow notifications for LLM Pulse in system settings, restart the app if you just changed the setting, then run the test again.",
+      "systemGuidePermission": "This app does not yet have notification permission. System settings were opened; allow notifications for LLM Pulse there.",
+      "systemGuideUnsupported": "This runtime cannot read browser notification permission. Open system notification settings and allow notifications for LLM Pulse there.",
+      "systemGuideNativeUnverified": "Native banners are not reliably confirmed with this build. Check system notifications, allow LLM Pulse, then test again after restarting the app.",
+      "systemGuideTestFailed": "The last native notification attempt reported a failure. Check system notifications, restart the app, then run the test again.",
+      "systemGuideAfterTest": "If no real system banner appeared, check system notifications, allow LLM Pulse, restart the app, then send the test again.",
+      "thresholdsHelp": "Pacing uses the current consumption rate; hard warning uses measured consumption in the relevant 5h or weekly provider window.",
+      "nativeAlertTitle": "Upozornenie na limit: {window}",
+      "nativeUsedPercent": "Využité {percent}%.",
+      "nativeHardLimit": "Limit je takmer vyčerpaný.",
+      "nativePacingProjected": "Využité {usedPercent}%; aktuálne tempo predpokladá {projectedPercent}%.",
+      "nativeEstimatedExhaustion": "Odhadované vyčerpanie za {time}.",
+      "nativeDurationHoursMinutes": "{hours} h {minutes} min",
+      "nativeDurationHours": "{hours} h",
+      "nativeDurationMinutes": "{minutes} min",
+      "nativeWindowFiveHour": "5-hodinové okno",
+      "nativeWindowWeekly": "Týždenný limit",
+      "nativeWindowSonnetOnly": "Limit iba Sonnet",
+      "nativeWindowClaudeDesign": "Limit Claude Design",
+      "nativeWindowGeneric": "Limit"
+    },
+    "subscriptions": {
+      "title": "Subscription costs",
+      "planLabel": "Plan",
+      "monthlyCostLabel": "Monthly cost (EUR)",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "description": "Detected plans and costs come from safe local signals. Missing data is not counted as real cost.",
+      "detectedOnly": "Manual values are not normal setup. Use Advanced only as a fallback estimate when local detection is unavailable.",
+      "advancedTitle": "Advanced fallback estimates",
+      "advancedDescription": "These values are saved fallback estimates. Cards and cost views label them as estimates, not automatically detected costs."
+    },
+    "sources": {
+      "title": "Data sources & diagnostics",
+      "description": "Manage connected sources, recheck access, and copy ACL commands for other local users.",
+      "recheck": "Recheck access",
+      "recheckOne": "Recheck access",
+      "recheckPending": "Checking...",
+      "rechecked": "Source diagnostics refreshed.",
+      "recheckError": "Could not refresh source diagnostics.",
+      "currentUser": "current user",
+      "summaryStatus": "Status: {status}",
+      "summaryCounts": "{connected} usable · {candidates} additional candidates",
+      "connectedTitle": "Usable sources",
+      "candidatesTitle": "Additional detected sources",
+      "connectedEmpty": "No usable sources detected yet.",
+      "candidatesEmpty": "No additional source candidates detected right now.",
+      "owner": "Owner: {owner}",
+      "discovery": "Discovery: {method} · confidence {confidence}",
+      "access": {
+        "readable": "Readable",
+        "mixed": "Partially readable",
+        "denied": "Access denied",
+        "missing": "Missing",
+        "process_only": "Process only",
+        "service_only": "Service only"
+      },
+      "permissions": {
+        "readable": "Readable",
+        "denied": "Denied",
+        "missing": "Missing",
+        "unknown": "Unknown",
+        "optionalMissing": "Optional missing"
+      },
+      "roles": {
+        "sessions": "Sessions",
+        "archived_sessions": "Archived sessions",
+        "projects": "Projects",
+        "session_state": "Session state",
+        "telemetry": "Telemetry",
+        "chats": "Chats",
+        "tmp": "Temporary files",
+        "usage_file": "Usage file",
+        "home": "Home"
+      },
+      "noPaths": "No direct filesystem path available.",
+      "connect": "Connect",
+      "connectPending": "Connecting...",
+      "connectSuccess": "Source connected. Running a fresh diagnostics pass now.",
+      "connectError": "Could not connect source.",
+      "disable": "Disable",
+      "disablePending": "Disabling...",
+      "disableSuccess": "Source disabled. Usage totals were refreshed.",
+      "disableError": "Could not disable source.",
+      "grantCommands": "Grant commands",
+      "revokeCommands": "Revoke commands",
+      "copyGrant": "Copy grant commands",
+      "copyRevoke": "Copy revoke commands",
+      "copyGrantSuccess": "Grant commands copied to the clipboard.",
+      "copyRevokeSuccess": "Revoke commands copied to the clipboard.",
+      "copyError": "Could not copy commands to the clipboard.",
+      "automatic": "used automatically"
+    },
+    "supportReport": {
+      "title": "Support report",
+      "description": "Generate a redacted support report for Multica or WhatsApp when local sources are missing or usage does not appear.",
+      "privacyNote": "The report contains only metadata and redacted paths, no raw logs, prompts, secrets, or provider payloads.",
+      "downloadJson": "Save JSON report",
+      "copySummary": "Copy summary",
+      "summaryLabel": "Compact summary",
+      "emptySummary": "Generate a report to preview the compact support summary.",
+      "preparing": "Preparing support report...",
+      "downloaded": "Support report saved.",
+      "copied": "Support summary copied to the clipboard.",
+      "generateError": "Could not generate support report: {message}",
+      "copyError": "Could not copy support summary to the clipboard."
+    },
+    "updates": {
+      "title": "App updates",
+      "description": "Automatic update checks are always active for supported packaged desktop builds; only preview releases are optional.",
+      "enabled": "Automatic update checks are always active",
+      "allowPrerelease": "Include preview releases",
+      "saved": "Saved.",
+      "saveError": "Could not save update settings.",
+      "diagTitle": "Update diagnostics",
+      "diagState": "State",
+      "diagSupport": "Support",
+      "diagLastCheck": "Last check",
+      "diagVersion": "App version",
+      "diagAvailable": "Available version",
+      "diagError": "Last error",
+      "diagNone": "None",
+      "checkNow": "Check now",
+      "checkQueued": "Update check queued.",
+      "checkError": "Could not request update check.",
+      "noticeTitle": "Update attention needed",
+      "noticeMacSigning": "macOS automatic updates require a signed app. This unsigned build can run after manual approval, but the updater will stay disabled until Developer ID signing and notarization are configured.",
+      "noticeDevelopment": "Automatic updates run only from a packaged desktop app, not from the development runtime.",
+      "noticeUnsupported": "Automatic updates are not supported on this platform/package.",
+      "noticeGatekeeper": "The app is signed, but Gatekeeper did not fully accept it. If updates behave oddly, reinstall a notarized build.",
+      "noticeDownloaded": "An update has been downloaded. Restart the app to install it.",
+      "noticeError": "The last update check failed. Check the error line, network access, and release assets.",
+      "state_unknown": "Unknown",
+      "state_disabled": "Disabled",
+      "state_checking": "Checking",
+      "state_available": "Update available",
+      "state_downloading": "Downloading",
+      "state_up_to_date": "Up to date",
+      "state_downloaded": "Downloaded",
+      "state_error": "Error",
+      "state_not_electron": "Not running in desktop app",
+      "state_development_build": "Development build",
+      "state_macos_signing_required": "macOS signing required",
+      "state_unsupported_platform": "Unsupported platform",
+      "support_ready": "Ready",
+      "support_development_build": "Development build",
+      "support_macos_signing_required": "macOS signing required",
+      "support_macos_gatekeeper_warning": "Signed, but Gatekeeper warning",
+      "support_unsupported_platform": "Unsupported platform",
+      "support_electron_updater_missing": "Updater package missing",
+      "support_unknown": "Unknown",
+      "state_electron_updater_missing": "Updater package missing",
+      "alwaysOn": "Automatic update checks are always active."
+    },
+    "saving": "Saving..."
+  },
+  "errors": {
+    "loadUsage": "Chyba"
+  },
+  "diagnostics": {
+    "ariaLabel": "Source diagnostics",
+    "eyebrow": "Local sources",
+    "heading": "Diagnostics & connection",
+    "recheck": "Recheck access",
+    "loading": "Loading source diagnostics...",
+    "meta": "User {user} · Checked {checkedAt} · {platform} · {support}",
+    "support": {
+      "full": "full host discovery",
+      "partial_container": "limited container discovery",
+      "stub": "platform check unavailable",
+      "unsupported": "unsupported platform"
+    },
+    "supportShort": {
+      "full": "Full",
+      "partial_container": "Limited",
+      "stub": "Unavailable",
+      "unsupported": "Unavailable"
+    },
+    "supportDescriptions": {
+      "full": "Host file access, process hints, and permissions are measured on this machine.",
+      "partial_container": "Container discovery can miss host users, services, and homes; mounted logs can still be read.",
+      "stub": "Host source discovery is not available on this platform build; current-user configured logs may still be read.",
+      "unsupported": "Host source discovery is unavailable here; use Settings or a supported host build for source setup."
+    },
+    "quality": {
+      "measured": "Measured",
+      "configured": "Configured",
+      "detected": "Detected",
+      "limited": "Limited",
+      "unavailable": "Unavailable"
+    },
+    "facets": {
+      "logs": {
+        "title": "Readable log sources",
+        "available": "The app can read at least one local usage source.",
+        "empty": "No readable token log source was found in this scan."
+      },
+      "savedSources": {
+        "title": "Saved extra sources",
+        "available": "These are additional sources saved in Settings.",
+        "empty": "Zero saved sources is OK: current-user log history can still appear below."
+      },
+      "permissions": {
+        "title": "Permission fixes",
+        "blocked": "At least one plausible source exists, but this app cannot read it yet.",
+        "clear": "No denied source path was found in this scan."
+      },
+      "runtimeHints": {
+        "title": "Process/service hints",
+        "available": "A supported tool is visible only as a process or service, not as readable logs.",
+        "empty": "No process-only or service-only source hints were found."
+      },
+      "platform": {
+        "title": "Platform coverage"
+      }
+    },
+    "errors": {
+      "load": "Could not load source diagnostics: {message}"
+    },
+    "statuses": {
+      "connected_live": {
+        "title": "Local data is available",
+        "body": "Readable local sources are available. Saved extra-source counts only track sources you connected manually."
+      },
+      "current_user_empty": {
+        "title": "Current-user logs empty",
+        "body": "The current desktop user was scanned, but no local usage files with token data were found yet."
+      },
+      "candidates_readable_empty": {
+        "title": "Readable candidates found",
+        "body": "Known tool folders are readable, but they currently look empty or are not saved as extra sources."
+      },
+      "candidates_denied": {
+        "title": "Permission action needed",
+        "body": "A plausible source was found, but this app cannot read it with the current account."
+      },
+      "runtime_hints_only": {
+        "title": "Tool seen without readable logs",
+        "body": "A supported tool process or service was detected, but no readable log folder was found for it yet."
+      },
+      "no_tools_found": {
+        "title": "No local tools found",
+        "body": "No supported local tool folders, related processes, or service hints were detected on this machine."
+      },
+      "other_dashboard_found": {
+        "title": "Other dashboard instance found",
+        "body": "Another local LLM Pulse instance is running and may already be reading local usage data."
+      },
+      "partial_unsupported": {
+        "title": "Discovery is limited here",
+        "body": "This runtime can only do limited source discovery, so some users, services, or homes may stay invisible."
+      },
+      "discovery_error": {
+        "title": "Discovery error",
+        "body": "Source discovery did not finish cleanly."
+      }
+    },
+    "nextActions": {
+      "connected_live": "No action is needed; local data below can come from default current-user logs even with zero saved extra sources.",
+      "current_user_empty": "No action is needed unless you expected history; start a supported tool or inspect sources in Settings.",
+      "candidates_readable_empty": "Open Settings > Local sources if you want to save one of these readable sources.",
+      "candidates_denied": "Open Settings > Local sources, copy the ACL command for the denied source, run it as an admin, then recheck.",
+      "runtime_hints_only": "Wait for the tool to write usage logs, or configure the readable source in Settings and recheck.",
+      "no_tools_found": "Start a supported local tool or add a source in Settings, then recheck.",
+      "other_dashboard_found": "Use the already running dashboard window or stop it before checking this instance again.",
+      "partial_unsupported": "Run the desktop app on the host OS for fuller discovery; mounted local logs can still be shown below.",
+      "discovery_error": "Recheck access. If it fails again, check the backend error and source settings."
+    },
+    "recheckResults": {
+      "checking": "Checking...",
+      "ready": "Recheck complete: {status}",
+      "action": "Action needed: {status}",
+      "error": "Recheck failed: {message}",
+      "empty": "Recheck did not return diagnostics."
+    },
+    "instances": {
+      "title": "Other dashboard instances",
+      "item": "{user} has another dashboard instance running."
+    }
+  },
+  "subscriptions": {
+    "plan": "Plan: {plan}",
+    "planUnknown": "Plan unknown",
+    "costUnknown": "Cost unknown",
+    "source": "Source: {source}",
+    "updated": "Updated {time}",
+    "qualityLabel": "Cost quality",
+    "sourceLabel": "Source",
+    "quality": {
+      "automatic": "Automatically detected",
+      "manual": "Saved fallback estimate",
+      "estimated": "Estimated / partial",
+      "unknown": "Unknown",
+      "catalog": "Katalógová hodnota",
+      "official": "Oficiálna katalógová cena",
+      "officialStarting": "Oficiálna počiatočná cenníková cena"
+    },
+    "sources": {
+      "local_settings": "saved fallback",
+      "account": "zdroj účtu/fakturácie",
+      "codex_app_server": "Codex local app-server",
+      "codex_local_logs": "Codex local logs",
+      "claude_statusline": "Claude Code statusline",
+      "claude_auth_status": "Claude CLI auth status",
+      "claudeCode_local_signal": "Claude Code local signal",
+      "codex_local_signal": "Codex local signal",
+      "copilot_local_signal": "Copilot local signal",
+      "gemini_local_signal": "Gemini local signal",
+      "openai_api": "OpenAI API metadata",
+      "anthropic_api": "Anthropic API metadata",
+      "unknown": "unknown",
+      "openai_public_catalog": "verejný katalóg predplatného OpenAI",
+      "anthropic_public_catalog": "verejný katalóg predplatného Anthropic",
+      "claude_browser_sync": "synchronizacia prehliadaca/uctu Claude",
+      "claude_api": "API vyuzitia uctu Claude",
+      "browser": "zdroj uctu prehliadaca",
+      "official_pricing_page": "oficiálna stránka cien",
+      "cached_official_snapshot": "uložený oficiálny snapshot",
+      "bundled_catalog": "pribalený katalóg",
+      "account_billing": "zdroj účtu/fakturácie"
+    },
+    "catalogReviewed": "Katalóg skontrolovaný {date}",
+    "costReasons": {
+      "catalogMissing": "Ziadna doveryhodna katalogova ani uctova cena nezodpoveda tomuto zistenemu planu.",
+      "catalogMissingCodexAppServer": "Miestny app-server Codex zobrazil plan, ale nie mesacnu cenu; ziadna doveryhodna katalogova cena nesedi.",
+      "catalogMissingClaudeStatusline": "Claude statusline zobrazil plan, ale nie mesacnu cenu; data prehliadaca/uctu chybaju alebo cenu neobsahuju.",
+      "catalogMissingClaudeAuth": "Claude CLI auth zobrazil plan, ale nie mesacnu cenu; data prehliadaca/uctu chybaju alebo cenu neobsahuju.",
+      "catalogMissingClaudeBrowser": "{source} bol skontrolovany, ale neobsahuje mesacnu cenu planu."
+    },
+    "costActions": {
+      "addFallback": "Aktualizujte zdroj katalógu/účtu alebo pridajte záložný odhad v Advanced."
+    },
+    "planSource": "Plán/limity z {source}",
+    "planSourceLabel": "Zdroj plánu/limitov",
+    "catalogFallbackNote": "Mesačná cena je záložná hodnota z katalógu; read-only zdroje aplikácie/účtu poskytujú plán, limity alebo kredity, ale nie dôveryhodnú mesačnú cenu.",
+    "sourceAudit": {
+      "heading": "Zdroje cien iba na čítanie",
+      "safePriceDetected": "zistená dôveryhodná mesačná cena",
+      "planOnlyNoPrice": "iba plán/limity; mesačná cena nie je dostupná",
+      "browserNoPrice": "skontrolované; dôveryhodná mesačná cena nie je dostupná",
+      "catalogFallback": "záložná cena z katalógu",
+      "notConfigured": "v tomto behu nie je prítomné",
+      "notAvailable": "nie je dostupný bezpečný zdroj ceny iba na čítanie",
+      "notUsed": "nepoužité",
+      "officialListPrice": "oficiálna katalógová cena",
+      "accountSourceExpired": "zdroj účtu vypršal",
+      "accountSourceUnavailable": "zdroj účtu nie je dostupný"
+    },
+    "officialListPriceNote": "Oficiálna katalógová cena; skutočné účtovanie sa môže líšiť kvôli DPH/daniam, ročným zľavám, miestam, kupónom, regionálnym cenám alebo Enterprise zmluvám.",
+    "fetched": "Načítané {time}",
+    "sourceUrl": "URL: {url}",
+    "planKey": "Kľúč plánu: {key}",
+    "parserStatus": "Parser: {status}",
+    "priceSourceTypeLabel": "Typ zdroja ceny",
+    "sourceUrlLabel": "URL zdroja",
+    "fetchedLabel": "Čas načítania/dát",
+    "planKeyLabel": "Kľúč plánu",
+    "parserStatusLabel": "Stav parsera",
+    "parserStatuses": {
+      "parsed": "spracované",
+      "parse_failed": "spracovanie zlyhalo",
+      "cached_after_fetch_error": "cache po chybe načítania",
+      "bundled": "pribalený fallback",
+      "missing": "chýba",
+      "unknown": "neznáme"
+    },
+    "officialStartingListPriceNote": "Oficiálna počiatočná cenníková cena; skutočná faktúra účtu nebola načítaná a môže sa líšiť pre úroveň, DPH/dane, ročné zľavy, miesta, kupóny, regionálne ceny, doplnky alebo enterprise zmluvy.",
+    "tierVariant": "Úroveň/variant: {variant}",
+    "actualBilling": "Skutočná fakturácia známa: {status}",
+    "tierVariantLabel": "Úroveň/variant",
+    "actualBillingKnownLabel": "Skutočná fakturácia známa",
+    "priceVariants": {
+      "from": "minimum / od",
+      "pro_5x": "Pro 5x",
+      "pro_5x_20x": "Pro 5x/20x",
+      "pro_20x": "Pro 20x",
+      "max_5x": "Claude Max 5x",
+      "max_5x_20x": "Claude Max 5x/20x",
+      "max_20x": "Claude Max 20x",
+      "unknown": "neznáme"
+    },
+    "actualBillingKnown": {
+      "yes": "áno",
+      "no": "nie"
+    },
+    "connectionActions": {
+      "refresh": "Aktualizovať",
+      "claudeLogin": "Prihlásiť sa do Claude a načítať plán",
+      "claudeRefresh": "Znova načítať plán Claude",
+      "chatgptLogin": "Prihlásiť sa do ChatGPT a načítať plán",
+      "chatgptRefresh": "Znova načítať plán ChatGPT",
+      "rereadPlan": "Načítať plán teraz"
+    },
+    "connectionStatus": {
+      "refreshRequired": "Je potrebná aktualizácia pripojenia",
+      "claudeLoginRequired": "Je potrebné prihlásenie do Claude",
+      "claudeRefreshRequired": "Aktualizujte pripojenie Claude",
+      "chatgptLoginRequired": "Je potrebné prihlásenie do ChatGPT",
+      "chatgptRefreshRequired": "Aktualizujte pripojenie ChatGPT Billing",
+      "claudeConflict": "Claude Max: protichodné zdroje ({details})"
+    },
+    "connectionHelp": "Otvorte stránku poskytovateľa, podľa potreby sa prihláste a vráťte sa sem. Aplikácia znova načíta plán pri návrate fokusu alebo použite tlačidlo."
+  },
+  "gptAccounts": {
+    "ariaLabel": "GPT accounts",
+    "eyebrow": "Local account registry",
+    "heading": "GPT accounts",
+    "recheck": "Re-scan accounts",
+    "checking": "Scanning Codex and OpenCode accounts…",
+    "rechecked": "Account scan complete.",
+    "recheckError": "Account scan failed: {message}",
+    "recheckErrorFallback": "Unknown error",
+    "summary": "{active} active of {count} known accounts · scanned {time}",
+    "notScanned": "Accounts have not been scanned yet.",
+    "empty": "No ChatGPT account found yet",
+    "guidance": "Sign in with Codex or OpenCode, then re-scan. Accounts seen previously remain in this list as history.",
+    "active": "Active",
+    "historical": "Previous",
+    "lifetimeTokens": "Codex lifetime tokens",
+    "limit": "Limit",
+    "lastSeen": "Last seen {time}",
+    "activeSourceCount": "{count} active sources",
+    "attributionNote": "OpenCode tokens are measured for OpenCode as a whole because its message database does not record which account produced each message.",
+    "sources": {
+      "codex": "Codex",
+      "openCode": "OpenCode"
+    },
+    "activeSourceCountOne": "1 active source",
+    "add": "Pridať účet GPT",
+    "signIn": "Prihlásiť sa do OpenAI",
+    "removeLogin": "Odstrániť uložené prihlásenie",
+    "login": {
+      "waiting": "Dokončite prihlásenie do OpenAI. V prehliadači vyberte požadovaný účet.",
+      "complete": "Účet pripojený.",
+      "failed": "Prihlásenie nie je dostupné. Nainštalujte Codex CLI alebo skúste znova."
+    },
+    "connectionHelp": "Existujúce prihlásenia Codex a OpenCode sa zistia automaticky. Pridajte ďalšie účty GPT bez ich nahradenia.",
+    "loginPrivacy": "Prihlásenie komunikuje s OpenAI. Prihlasovacie údaje zostávajú v samostatnom miestnom profile a neposielajú sa vývojárovi ani spárovaným zariadeniam."
+  },
+  "codexResets": {
+    "title": "Codex · História resetov",
+    "period": "Obdobie",
+    "last10": "Posledných 10 okien",
+    "last30": "Posledných 30 okien",
+    "all": "Všetky okná",
+    "credits": "Dostupné kredity na reset",
+    "earlyCount": "Predčasné resety",
+    "averageDuration": "Priemerná dĺžka ≈",
+    "averageUsage": "Priemerné využitie",
+    "days": "{value} dní",
+    "windows": "z {count} okien",
+    "maximum": "Najvyššie pozorované využitie",
+    "start": "Začiatok ≈",
+    "plannedReset": "Ohlásený reset",
+    "end": "Koniec ≈",
+    "duration": "Dĺžka ≈",
+    "usage": "Max. využitie",
+    "result": "Doklad resetu",
+    "early": "Predčasný",
+    "regular": "Plánovaný",
+    "uncertain": "Neistý",
+    "estimated": "Rekonštruovaný",
+    "confirmed": "Kredit použitý: potvrdené",
+    "inferred": "Kredit použitý: odvodené",
+    "live": "Záznam aktívny",
+    "stale": "Záznam zastaraný",
+    "unavailable": "Živé údaje nedostupné",
+    "loading": "Načítava sa história…",
+    "empty": "Zatiaľ neboli pozorované dokončené okná.",
+    "note": "Staré logy rekonštruujú okná bez priradenia k účtu. Dĺžka a koniec sú odhady; využitie je najvyššia pozorovaná hodnota. Záznam prebieha, kým aplikácia beží. Osoby ani zariadenia nemožno určiť.",
+    "durationBasis": "{count} použiteľných okien · plán: 7 dní",
+    "recordingSince": "Záznam od {time}",
+    "redemptions": "Kredity: {confirmed} potvrdených · {inferred} odvodených použití",
+    "expires": "Platí do {time}",
+    "coverage": "{uncertain} neistých okien · {gaps} medzier",
+    "current": "Aktuálne: reset {time} · max. {percent} %",
+    "events": "Udalosti kreditov · posledných 30",
+    "granted": "Kredit pridelený",
+    "expired": "Kredit vypršal",
+    "creditUnknown": "Zmena kreditu: nejasná",
+    "cause": "Príčina resetu",
+    "causeManual": "Ručne · poukaz",
+    "causeProvider": "OpenAI · odvodené",
+    "causeScheduled": "Plánovaný",
+    "causeUnknown": "Neznáma",
+    "causeMissing": "Chýba dôkaz o poukaze alebo prechode",
+    "causeNoCredit": "Predčasne bez pozorovaného použitia poukazu",
+    "causeConfirmed": "Potvrdené",
+    "causeInferred": "Odvodené",
+    "causeSummary": "Príčiny: {manual} poukaz · {provider} OpenAI (odvodené) · {scheduled} plánované · {unknown} neznáme",
+    "causeNote": "Predčasný čas neurčuje príčinu. OpenAI sa odvodzuje len vtedy, ak sa úplný zoznam poukazov nezmení pri tesne sledovanom resete kvóty. Staré záznamy nerozlišujú ručné resety a OpenAI. Osoba, ktorá reset spustila, je neznáma."
+  },
+  "deviceSync": {
+    "heading": "Prepojiť vlastné zariadenia",
+    "enabled": "Zapnúť priamu synchronizáciu",
+    "name": "Názov zariadenia",
+    "invite": "Vytvoriť párovací kód",
+    "code": "Párovací kód",
+    "copy": "Kopírovať kód",
+    "join": "Pripojiť zariadenie",
+    "forget": "Odpojiť zariadenie",
+    "view": "Zariadenia",
+    "local": "Toto zariadenie",
+    "all": "Všetky pripojené zariadenia",
+    "copied": "Kód skopírovaný.",
+    "working": "Pripájanie…",
+    "ready": "Pripravené.",
+    "inviteReady": "Kód platí päť minút. Vložte ho na druhom zariadení.",
+    "errors": {
+      "default": "Spojenie nie je dostupné. Predtým prijaté údaje zostávajú na tomto zariadení.",
+      "peer_unreachable": "Spojenie nie je dostupné. Predtým prijaté údaje zostávajú na tomto zariadení.",
+      "invalid_pairing_code": "Spojenie nie je dostupné. Predtým prijaté údaje zostávajú na tomto zariadení.",
+      "network_unavailable": "Spojenie nie je dostupné. Predtým prijaté údaje zostávajú na tomto zariadení.",
+      "sync_disabled": "Spojenie nie je dostupné. Predtým prijaté údaje zostávajú na tomto zariadení.",
+      "capture_failed": "Spojenie nie je dostupné. Predtým prijaté údaje zostávajú na tomto zariadení.",
+      "storage_unavailable": "Spojenie nie je dostupné. Predtým prijaté údaje zostávajú na tomto zariadení.",
+      "discovery_unavailable": "Spojenie nie je dostupné. Predtým prijaté údaje zostávajú na tomto zariadení."
+    },
+    "privacy": "Vývojárovi sa neposielajú údaje o používaní ani prihlasovacie údaje. Šifrované merania sa zdieľajú len s výslovne spárovanými zariadeniami. Odpojenie neodstráni prijaté kópie.",
+    "networkLimit": "Priame spojenia využívajú miestnu sieť alebo existujúcu súkromnú VPN, bez relay, vyhľadávacieho servera a zmien routera. Siete blokujúce tieto spojenia znemožňujú automatickú synchronizáciu.",
+    "coverage": "{count} jedinečných záznamov · odstránených {duplicates} duplikátov · {excluded} záznamov zostáva miestnych bez spoľahlivej identifikácie. Limity účtov zostávajú oddelené; súčty API sa nepripočítavajú."
+  },
+  "connections": {
+    "accounts": "Účty",
+    "installations": "Inštalácie",
+    "general": "Všeobecné",
+    "advanced": "Pokročilé",
+    "addAccount": "Pridať účet",
+    "chooseProvider": "Vyberte poskytovateľa",
+    "detectedDetails": "Nájdené účty GPT a podrobnosti",
+    "back": "Späť",
+    "accountLabel": "Názov (voliteľné)",
+    "apiKey": "API kľúč",
+    "adminKey": "Administrátorský API kľúč",
+    "region": "Oblasť",
+    "global": "Medzinárodná",
+    "china": "Čína",
+    "setupHelp": "Pokyny na nastavenie",
+    "connect": "Pripojiť",
+    "openSignIn": "Otvoriť prihlásenie",
+    "connectInstallation": "Prepojiť inštaláciu",
+    "haveCode": "Mám kód",
+    "syncOptions": "Synchronizácia a súkromie",
+    "remove": "Odstrániť",
+    "automatic": "Automaticky nájdené",
+    "empty": "Zatiaľ nie sú pripojené žiadne účty.",
+    "apiAccount": "API účet",
+    "subscription": "Predplatné / programovací plán",
+    "thisInstallation": "Táto inštalácia",
+    "syncOn": "Synchronizácia zapnutá",
+    "syncOff": "Synchronizácia vypnutá",
+    "local": "Lokálna",
+    "waitingSync": "Čakanie na prvú synchronizáciu",
+    "viaPeer": "Cez spárovanú inštaláciu",
+    "balance": "Zostatok",
+    "privacy": "Prihlasovacie údaje zostávajú na tomto zariadení. Údaje o využití sa vývojárovi neposielajú.",
+    "installationsHelp": "Prepojte vlastné inštalácie a zobrazte ich využitie spoločne.",
+    "pairHelp": "Na druhom zariadení otvorte Inštalácie. Vytvorte tu kód alebo vložte jeho kód. Zariadenia musia byť priamo dostupné.",
+    "adminKeyHelp": "Prehľady vyžadujú administrátorský API kľúč organizácie, nezávislý od predplatného chatu.",
+    "glmHelp": "Použite kľúč GLM Coding Plan a vyberte jeho oblasť.",
+    "browserHelp": "Pokračujte oficiálnym prihlásením poskytovateľa.",
+    "keyPrivacy": "Kľúč sa ukladá lokálne a používa sa len na požiadavky tomuto poskytovateľovi.",
+    "needsSetup": "Najprv nainštalujte oficiálne CLI poskytovateľa a obnovte zoznam.",
+    "claudeHelp": "Claude Code zabezpečuje prihlásenie na tomto zariadení. Je potrebné CLI Claude Code.",
+    "kimiHelp": "Použite oficiálne prihlásenie Kimi Code alebo kľúč plánu Kimi Code.",
+    "moonshotHelp": "Kľúčom API Moonshot načítate zostatok API, nezávislý od Kimi Code.",
+    "loginWaiting": "Dokončite prihlásenie poskytovateľa. Nechajte toto okno otvorené.",
+    "loginComplete": "Účet pripojený. Merania sa obnovujú automaticky.",
+    "claudeSignIn": "Pripojiť cez Claude Code",
+    "providers": {
+      "gpt": "ChatGPT / Codex",
+      "claude": "Claude / Anthropic",
+      "kimi": "Kimi Code",
+      "glm": "GLM / Z.AI",
+      "openai": "OpenAI API",
+      "anthropic": "Anthropic API",
+      "moonshot": "Moonshot API"
+    },
+    "browser": "Prihlásiť sa",
+    "failed": "Prihlásenie zlyhalo",
+    "checking": "Pripájanie…",
+    "installation": "Inštalácie",
+    "status": {
+      "connected": "Aktívny",
+      "detected": "Nájdený",
+      "historical": "Predchádzajúci",
+      "auth_required": "Vyžaduje prihlásenie",
+      "error": "Chyba",
+      "unavailable": "Nedostupné",
+      "unknown": "Nedostupné"
+    },
+    "errors": {
+      "invalid_account": "Účet sa nenašiel. Obnovte zoznam účtov.",
+      "invalid_key": "Kľúč bol odmietnutý. Skontrolujte kľúč a vybraného poskytovateľa.",
+      "permission_denied": "Tento kľúč nemá prístup k prehľadom využitia. Použite kľúč s potrebnými oprávneniami.",
+      "unsupported_key": "Tento typ kľúča nedokáže čítať využitie. Postupujte podľa pokynov poskytovateľa.",
+      "account_limit": "Dosiahli ste limit účtov. Najprv odstráňte nepoužívaný účet.",
+      "connection_unavailable": "Poskytovateľ nie je dostupný. Skontrolujte pripojenie a skúste znova.",
+      "account_storage_unavailable": "Lokálne úložisko účtov nie je dostupné. Skontrolujte oprávnenia aplikácie k súborom.",
+      "profile_remove_failed": "Uložené prihlásenie sa nepodarilo odstrániť. Zatvorte prihlasovacie okno a skúste znova.",
+      "unsupported_platform": "Prihlásenie v prehliadači nie je na tejto platforme dostupné. Použite dostupnú metódu s kľúčom."
+    },
+    "kimiHelperHelp": "Pri prvom prihlásení aplikácia stiahne oficiálny pomocný program Kimi priamo od Kimi. Beží lokálne; dashboard neposiela telemetriu.",
+    "lastSeen": "Naposledy zaznamenané {time}"
+  },
+  "history": {
+    "refreshing": "Uložená história · {time}. Aktualizácia prebieha na pozadí."
+  },
+  "quotaIntegrity": {
+    "title": "Integrita kvót",
+    "period": "Časové obdobie",
+    "range24h": "Posledných 24 hodín",
+    "range7d": "Posledných 7 dní",
+    "range30d": "Posledných 30 dní",
+    "loading": "Načítava sa integrita kvót…",
+    "unavailable": "Údaje o integrite kvót nie sú k dispozícii.",
+    "intro": "Nezvyčajné pozorovania kvót, ako dobre ich pokrývajú údaje a či ich dokáže vysvetliť lokálna aktivita tokenov. Nezvyčajné pozorovanie je dôvod na preverenie, nie dôkaz problému na strane poskytovateľa.",
+    "status": {
+      "attention": "Vyžaduje pozornosť",
+      "no_anomaly_detected": "Nezistila sa žiadna anomália",
+      "insufficient_data": "Zatiaľ nedostatok údajov"
+    },
+    "collector": "Živý kolektor Codexu",
+    "noData": "Žiadne údaje",
+    "lastSample": "Posledná vzorka {time}",
+    "noSample": "Žiadna živá vzorka",
+    "findings": "Zistenia",
+    "findingsDetail": "{warnings} varovaní · {info} informácií",
+    "observations": "Pozorovania",
+    "observationsDetail": "{samples} vzoriek · {events} záznamov histórie",
+    "localData": "Údaje o lokálnej aktivite",
+    "localDataDetail": "{slots} intervalov · aktualizované {time}",
+    "neverRefreshed": "zatiaľ nezaznamenané",
+    "gaps": "Medzery v zbere",
+    "gapsDetail": "{count} v tomto období",
+    "measured": "Namerané",
+    "estimate": "Odhad",
+    "hypothesis": "Hypotéza",
+    "confidence": "Istota: {level}",
+    "level": {
+      "medium": "stredná",
+      "low": "nízka"
+    },
+    "confidenceWord": {
+      "confirmed": "potvrdené",
+      "inferred": "odvodené",
+      "possible": "možné"
+    },
+    "chartTitle": "Týždenné využitie Codexu v čase",
+    "chartAria": "Čiarový graf týždenného využitia kvóty Codexu v percentách: {points} zaznamenaných bodov, {findings} označených zistení.",
+    "chartEmpty": "V tomto období sa nezaznamenali žiadne zmeny týždennej kvóty Codexu.",
+    "legendWarning": "Varovanie",
+    "legendInfo": "Informácia",
+    "legendGap": "Medzera v zbere",
+    "types": {
+      "usage_rolled_back": "Hlásené využitie kleslo",
+      "reset_deadline_changed_early": "Čas resetu sa zmenil predčasne",
+      "usage_increase_without_local_activity": "Využitie vzrástlo bez lokálnej aktivity",
+      "collector_gap": "Kolektor nie je dostupný",
+      "observation_gap": "Žiadne pozorovania",
+      "account_changed": "Zmenil sa rozsah účtu",
+      "stale_codex_snapshot": "Živé údaje sú zastarané",
+      "no_live_codex_samples": "Žiadne živé údaje Codexu"
+    },
+    "fact": {
+      "usageChange": "Využitá kvóta {from} % → {to} % ({delta} bodov)",
+      "between": "Pozorované medzi {from} a {to}",
+      "deadlineShift": "Čas resetu sa posunul o {minutes} min: {from} → {to}",
+      "noActivity": "Už {minutes} min sa nezaznamenala žiadna lokálna aktivita tokenov ({basis})",
+      "basisPlateau": "od prvého zaznamenania predchádzajúcej hodnoty",
+      "basisWindow": "od začiatku okna kvóty",
+      "localCounts": "Lokálne udalosti: {events} · lokálne tokeny: {tokens}",
+      "gapSpan": "Žiadne údaje počas {minutes} min ({from} → {to})",
+      "gapOngoing": "Žiadne údaje už {minutes} min, od {from} (prebieha)",
+      "failures": "Zaznamenaných neúspešných pokusov o zber: {count}",
+      "staleAge": "Posledná živá vzorka bola pred {minutes} min"
+    },
+    "evidence": {
+      "heading": "Dôkazy v údajoch",
+      "credit": "Medzi týmito pozorovaniami bol uplatnený kredit na reset ({confidence}).",
+      "account": "Živý snímok sa približne v tomto čase prepol na iný účet (možné).",
+      "resetNoCredit": "Predčasný reset bez využitého kreditu (odvodené)."
+    },
+    "hypothesesHeading": "Možné vysvetlenia (hypotézy, nie zistenia)",
+    "hypotheses": {
+      "other_device_or_surface": "Využitie na inom zariadení, vo webovej aplikácii, v rozšírení IDE alebo v cloudových úlohách, ktoré lokálne logy nevidia",
+      "other_account_or_profile": "Využitie iným účtom alebo profilom, ktorý zdieľa túto kvótu",
+      "provider_accounting_or_adjustment": "Oneskorenie účtovania, zaokrúhlenie alebo úprava na strane poskytovateľa",
+      "local_logs_incomplete": "Lokálne logy sú neúplné, rotované alebo sa nezbierajú",
+      "ledger_not_account_scoped": "Táto história kvóty nie je viazaná na jediný účet",
+      "reset_credit_or_plan_change": "Kredit na reset, zmena tarify alebo iná úprava kvóty",
+      "inconsistent_source_data": "Nekonzistentné údaje zo zdroja kvóty"
+    },
+    "noFindings": "V tomto období žiadne zistenia.",
+    "stepStatus": {
+      "activity_present": "Lokálna aktivita prítomná",
+      "shared_source_activity": "Iba iný lokálny agent",
+      "no_local_activity": "Žiadna lokálna aktivita nezaznamenaná",
+      "not_assessable": "Nedá sa posúdiť"
+    },
+    "reason": {
+      "history_start": "História začína v tomto bode",
+      "no_local_history": "Žiadna história lokálnych logov",
+      "before_local_history": "Lokálne logy začínajú neskôr",
+      "ingest_pending": "Lokálne logy ešte neboli znova načítané"
+    },
+    "steps": {
+      "heading": "Nárasty kvóty v porovnaní s lokálnou aktivitou",
+      "summary": "{present} s lokálnou aktivitou · {shared} iba iný lokálny agent · {none} bez nej · {unknown} nedá sa posúdiť",
+      "note": "Každý riadok je nárast hláseného využitia. Počty lokálnych tokenov pochádzajú len z logov tohto počítača a nie sú prepočtom kvóty.",
+      "empty": "V tomto období žiadne nárasty využitia."
+    },
+    "estimateText": "Porovnateľné kroky zaznamenali medián {median} lokálnych tokenov na bod kvóty (stredná polovica {low}–{high}, {samples} krokov). Poskytovatelia vážia modely a vstupy z vyrovnávacej pamäte rôzne, takže ide o hrubé meradlo, nie prepočet.",
+    "localValue": "{events} udalostí · {tokens} tokenov",
+    "colTime": "Čas",
+    "colChange": "Využitá kvóta",
+    "colLocal": "Lokálna aktivita",
+    "colTokens": "Udalosti · tokeny",
+    "colWindow": "Okno",
+    "colUsed": "Využité",
+    "colResets": "Reset",
+    "colLastChange": "Posledná zmena",
+    "gapKind": {
+      "collector_unavailable": "Kolektor nie je dostupný",
+      "no_observations": "Žiadne pozorovania (aplikácia zatvorená alebo počítač v režime spánku)"
+    },
+    "ongoing": "prebieha",
+    "minutes": "{value} min",
+    "gapsEmpty": "V tomto období žiadne medzery v zbere.",
+    "windows": {
+      "heading": "Pozorované okná kvót",
+      "note": "História kvót zaznamenáva len zmeny, pokojné obdobie teda nie je medzera.",
+      "empty": "V tomto období neboli zaznamenané žiadne okná kvót."
+    },
+    "privacyNote": "Analyzujú sa iba časy kvót a počty tokenov. Prompty, prepisy, identifikátory účtov ani cesty k súborom sa nikdy nezahŕňajú."
+  },
+  "workspace": {
+    "openPalette": "Open command palette",
+    "paletteShortcut": "Command palette · Ctrl+K",
+    "focusMode": "Toggle focus mode",
+    "focusShortcut": "Focus mode · Alt+Shift+F",
+    "compactMode": "Toggle compact layout",
+    "paletteTitle": "Command palette",
+    "paletteSearch": "Search actions or jump to a section…",
+    "paletteClose": "Close command palette",
+    "focusOn": "Focus mode enabled",
+    "focusOff": "Focus mode disabled",
+    "compactOn": "Compact layout enabled",
+    "compactOff": "Comfortable layout enabled",
+    "glassOn": "Glass effect enabled",
+    "glassOff": "Glass effect disabled",
+    "motionOn": "Reduced motion enabled",
+    "motionOff": "Full motion enabled"
+  }
+}

@@ -1,0 +1,1372 @@
+{
+  "app": {
+    "title": "LLM Pulse — AI Usage Intelligence",
+    "eyebrow": "LLM Pulse",
+    "heading": "Korlátok és tokenek"
+  },
+  "actions": {
+    "refresh": "Frissítés",
+    "settings": "Beállítások",
+    "close": "Bezárás"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "password": "Jelszó",
+    "signIn": "Bejelentkezés",
+    "loginFailed": "Sikertelen bejelentkezés"
+  },
+  "filter": {
+    "showAll": "Összes megjelenítése",
+    "showActive": "Csak aktívak",
+    "hideInactive": "Inaktív szolgáltatók elrejtése",
+    "showInactiveCount": "{count} inaktív szolgáltató megjelenítése",
+    "allVisible": "Minden szolgáltató látható",
+    "showAllNoticeTitle": "Összes szolgáltató nézete",
+    "showAllNoticeBody": "Az inaktív, üres, csak beállított és korábbi szolgáltatók kártyái is látszanak. A Csak aktívak a normál nézet."
+  },
+  "layout": {
+    "edit": "Edit layout",
+    "done": "Done",
+    "reset": "Default order",
+    "resetDone": "Default dashboard order restored.",
+    "dragHandle": "Move {name}",
+    "grabbed": "Moving {name}. Use arrow keys to move, Enter or Space to drop, Escape to cancel.",
+    "moved": "{name} moved to position {position} of {total}.",
+    "dropped": "{name} dropped at position {position} of {total}.",
+    "cancelled": "Move cancelled."
+  },
+  "summary": {
+    "ariaLabel": "Áttekintés",
+    "fiveHourOpen": "5h quota free",
+    "weeklyOpen": "Week quota free",
+    "tokensToday": "Logged tokens today",
+    "tokensTotal": "Összes naplózott token",
+    "recordDayLabel": "Rekordnap",
+    "recordDay": "Rekordnap: {date} · {tokens}",
+    "quotaWindowNote": "Provider quota window",
+    "tokensRange": "Logged tokens: {range}",
+    "todayLogNote": "Calendar day from local logs, not provider quota limits. {providers}",
+    "totalLogNote": "All local log history, not provider quota limits. {providers}",
+    "providerTokenDetail": "{provider}: {tokens}",
+    "providerBreakdownMore": "{providers} + {count} more",
+    "providerBreakdownEmpty": "No provider log tokens.",
+    "rangeNotes": {
+      "h24": "Rolling 24-hour total; chart bars are day-grained.",
+      "today": "Calendar day in local time.",
+      "week": "Last 7 days from local logs.",
+      "month": "Last 30 calendar days from local logs."
+    }
+  },
+  "chart": {
+    "eyebrow": "Local capture",
+    "heading": "Tokenelőzmények naplókból",
+    "sourceTotalsAria": "Teljes használat szolgáltató szerint",
+    "legendAria": "Jelmagyarázat",
+    "sourceTotalTitle": "Teljes használat",
+    "svgAria": "Tokenelőzmények",
+    "costSummary": {
+      "title": "Cost summary",
+      "apiEquivalent": "API equivalent",
+      "paid": "Subscription fixed cost",
+      "saved": "Delta vs API",
+      "quote": "API difference",
+      "quality": "Data quality",
+      "qualityComplete": "Covered",
+      "qualityPartial": "Partially estimated",
+      "qualityUnavailable": "Unavailable",
+      "missingSubscriptions": "Subscription history or a reliable fixed-cost source is missing for this range.",
+      "estimatedSources": "Estimated providers: {providers}.",
+      "missingSources": "Not included: {providers}.",
+      "unsupportedCurrencies": "Unsupported currencies: {currencies}."
+    },
+    "costs": {
+      "svgAria": "Cost history",
+      "noData": "No cost data for the selected range."
+    },
+    "filters": {
+      "h24": "Last 24 hours",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all": "All Time"
+    },
+    "headingCosts": "Cost History from Logs",
+    "mode": {
+      "tokens": "Tokens",
+      "costs": "Costs"
+    },
+    "modeToggleAria": "Chart mode",
+    "filterBarAria": "Time range",
+    "insights": {
+      "ariaLabel": "Selected range statistics",
+      "total": "Total",
+      "selectedRange": "Selected range",
+      "avgActiveDay": "Ø active day",
+      "avgActiveDayDetail": "Based on {days} active days",
+      "activeDays": "Active days",
+      "activeDaysValue": "{active}/{days}",
+      "activeDaysDetail": "Days with usage",
+      "peakDay": "Peak day",
+      "noData": "No activity in the selected range.",
+      "selectedRangeDetail": "{range} shown with the selected range semantics."
+    },
+    "models": {
+      "heading": "Models used",
+      "range": "{range} model mix",
+      "topTokens": "Top by tokens: {model} · {tokens}",
+      "topCost": "Top by API-equivalent cost: {model} · {cost}",
+      "costUnknown": "API-equivalent cost unavailable for these models.",
+      "unknown": "Ismeretlen modell"
+    },
+    "breakdown": {
+      "total": "Összes",
+      "provider": "Szolgáltató",
+      "model": "Modell",
+      "device": "Telepítés",
+      "account": "Fiók"
+    },
+    "breakdownToggleAria": "Tokenbontás",
+    "overviewAria": "Compact token history by provider",
+    "breakdownSummary": {
+      "totalTitle": "Total window",
+      "providerTitle": "Provider share",
+      "modelTitle": "Model share",
+      "topProvider": "Top provider",
+      "topModel": "Top model",
+      "coverage": "Coverage",
+      "providerCount": "{count} providers",
+      "modelCount": "{count} models",
+      "noProvider": "No provider breakdown",
+      "noModel": "No model breakdown"
+    },
+    "providers": {
+      "heading": "Providers used",
+      "range": "{range} provider mix",
+      "topTokens": "Top by tokens: {provider} · {tokens}",
+      "topModel": "Top model: {model} · {tokens}",
+      "noModel": "No model details",
+      "columns": {
+        "provider": "Provider",
+        "tokens": "Tokens",
+        "share": "Share",
+        "topModel": "Top model"
+      }
+    },
+    "totalBreakdown": {
+      "heading": "Total summary",
+      "range": "{range} aggregate"
+    },
+    "attribution": {
+      "groupBy": "Csoportosítás",
+      "unknownAccount": "Ismeretlen fiók",
+      "unknownDevice": "Ismeretlen telepítés",
+      "sharedDevice": "Több telepítésen észlelve",
+      "sharedDeviceHelp": "Egyszer számítva; az eredeti telepítés nem egyértelmű.",
+      "observed": "Helyi naplókban észlelve",
+      "observedOn": "Telepítéseken észlelve",
+      "evidence": "Hozzárendelés",
+      "observedHelp": "A telepítések a naplók megtalálási helyét mutatják. A másolt események egyszer számítanak; az eredeti számítógép ismeretlen lehet.",
+      "accountHelp": "Fiókot csak a használati adatokban rögzített bizonyíték alapján rendelünk hozzá. A többi token az Ismeretlen fiók alatt marad."
+    }
+  },
+  "tokenMix": {
+    "eyebrow": "Token Mix",
+    "heading": "Naplózott tokenfeldolgozás"
+  },
+  "liveMetrics": {
+    "ariaLabel": "Live system usage",
+    "eyebrow": "Live",
+    "heading": "Live Load",
+    "updated": "Updated {time}",
+    "notAvailable": "Not available",
+    "error": "Error",
+    "unavailable": "Not available",
+    "unavailableShort": "N/A",
+    "percentScale": "0-100%",
+    "cpu": "CPU",
+    "ram": "Memory",
+    "ramSub": "{used}/{total} GB used",
+    "aiLoad": "AI Load",
+    "aiLoadSub": "Heuristic",
+    "aiLoadHelp": "Estimated from CPU, memory, and token throughput. Not an exact measurement.",
+    "tokensPerMinute": "Tokens/min",
+    "noTokenWindow": "No measured window yet",
+    "noTokenBreakdown": "No reliable breakdown",
+    "historyHeading": "Trend",
+    "historyAria": "Live load trend",
+    "legendAria": "Live trend legend",
+    "historyLoading": "Collecting live data...",
+    "historyNoSeries": "No active series.",
+    "quality": {
+      "measured": "Measured",
+      "calculated": "From logs",
+      "estimated": "Estimated",
+      "unavailable": "Not available"
+    },
+    "series": {
+      "cpu": "CPU",
+      "ram": "Memory",
+      "aiLoad": "AI Load",
+      "tokensTotal": "Tokens/min",
+      "tokensInput": "Input",
+      "tokensOutput": "Output",
+      "tokensCached": "Cached",
+      "aiCpu": "AI CPU",
+      "aiMemory": "AI Memory",
+      "swap": "Swap"
+    },
+    "errors": {
+      "load": "Could not load live system metrics."
+    },
+    "tokensPerMinuteHelp": "Calculated from local Claude Code, Codex, Gemini, Copilot, and Ollama logs in the local aggregate. Multica Claude/Codex runs are included through those logs; API-only OpenAI/Anthropic billing is excluded to avoid double counting. Gemini agents may be missing when the Gemini CLI does not write token metadata.",
+    "systemCpu": "System CPU",
+    "systemRam": "System Memory",
+    "aiCpu": "AI CPU",
+    "aiCpuSub": "{count} AI processes",
+    "aiCpuHelp": "Aggregated CPU share of recognized local AI process groups. Commands and paths are not exposed.",
+    "aiMemory": "AI Memory",
+    "aiMemorySub": "{used} GB RSS",
+    "aiMemoryHelp": "Aggregated resident memory of recognized local AI process groups. Shared Electron and browser memory is approximate.",
+    "swap": "Swap",
+    "swapSub": "{used}/{total} GB used",
+    "swapHelp": "System swap usage. High swap can slow the Mac even when AI process memory is only part of the total.",
+    "noAiProcesses": "No AI process group found",
+    "processBreakdownHeading": "Running AI groups",
+    "processBreakdownHelp": "Safe aggregate view: running AI process groups and load shares without command lines, prompts, or paths.",
+    "processTotal": "AI total: {cpu} CPU · {memory} · {memoryShare} RAM · {count} running processes",
+    "processBreakdownUnavailable": "Process grouping is not available on this platform/runtime.",
+    "processBreakdownEmpty": "No recognized AI process group is currently running for the dashboard.",
+    "processColumns": {
+      "group": "Group",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "memoryShare": "RAM %",
+      "count": "Processes"
+    },
+    "recentRateWindow": "Élő ráta, gördülő 60 mp"
+  },
+  "pricing": {
+    "eyebrow": "API-költségek",
+    "heading": "Mennyibe kerültek volna a tokenjeid az API-n keresztül",
+    "meta": "Katalógus {catalogVersion} · {modelCount} modell · EUR az ECB alapján {fxDate} · API-árak {pricingDate} · Arena Text {scoreDate}",
+    "modelFilter": {
+      "label": "Szűrés modellnév szerint",
+      "placeholder": "Például Sol, 6.1 vagy Claude",
+      "empty": "Nem található modell ezzel a névvel."
+    },
+    "qualityScoreTitle": "Arena Text {scoreDate}: {score} Elo",
+    "chinaBadge": "Kína",
+    "unknown": "Ismeretlen",
+    "notPriced": "Nincs árazva",
+    "aliases": "Aliasok: {aliases}",
+    "limitSummary": "kontextus {context} · kimenet {output}",
+    "sourceReviewed": "Ellenőrizve {date}",
+    "regions": {
+      "apiDiscount": "API-kedvezmény"
+    },
+    "columns": {
+      "model": "Modell",
+      "score": "Pontszám",
+      "region": "Régió",
+      "limits": "Limitek",
+      "input": "Bemenet",
+      "cache": "Gyorsítótár",
+      "output": "Kimenet",
+      "today": "Last 24h",
+      "total": "Összesen",
+      "status": "Állapot",
+      "source": "Forrás"
+    },
+    "priceStatus": {
+      "official": "Hivatalos ár",
+      "estimated": "Becsült ár",
+      "unknown": "Ár ismeretlen",
+      "mixed": "Vegyes árak"
+    },
+    "availability": {
+      "ga": "Általánosan elérhető",
+      "preview": "Előzetes",
+      "deprecated": "Elavult",
+      "unknown": "Elérhetőség ismeretlen"
+    },
+    "limitStatus": {
+      "official": "Hivatalos limitek",
+      "estimated": "Becsült limitek",
+      "unknown": "Ismeretlen limitek"
+    },
+    "viewToggleAria": "Cost view",
+    "aliasesSummary": "{count} aliases",
+    "views": {
+      "api": "API equivalent",
+      "models": "Used models",
+      "subscriptions": "Fixed costs"
+    },
+    "usedModels": {
+      "heading": "Used models in {range}",
+      "description": "Actual logged model usage matched to the local pricing catalog where possible.",
+      "empty": "No model-level token data is available for the selected range.",
+      "totalLabel": "API-költség összesen",
+      "totalComplete": "Teljes",
+      "totalPartial": "Részleges",
+      "totalUnknown": "Ismeretlen",
+      "totalMixed": "Vegyes pénznemek",
+      "totalPartialNote": "Néhány megjelenített sorhoz nincs megbízható API-ár, ezért az összeg részleges.",
+      "totalUnknownNote": "Egyetlen megjelenített sorhoz sincs megbízható API-ár.",
+      "totalMixedNote": "A megjelenített sorok több pénznemet használnak; összeg nem kerül kiszámításra.",
+      "totalRow": "API-költség összesen"
+    },
+    "subscriptions": {
+      "heading": "Subscription and fixed costs in {range}",
+      "description": "Shows monthly fixed costs only when safely detected locally or saved as fallback estimates. Missing data is not treated as real cost.",
+      "empty": "No subscription or fixed-cost data is available yet.",
+      "previous": "Previous cost",
+      "delta": "Change"
+    }
+  },
+  "providers": {
+    "codex": {
+      "kicker": "Codex"
+    },
+    "codexSpark": {
+      "kicker": "Codex Spark"
+    },
+    "claudeCode": {
+      "kicker": "Claude Code"
+    },
+    "anthropic": {
+      "kicker": "API-használat"
+    },
+    "openai": {
+      "kicker": "API és kreditek"
+    },
+    "gemini": {
+      "kicker": "Gemini"
+    },
+    "glm": {
+      "kicker": "OpenAI-compatible import"
+    },
+    "ollama": {
+      "kicker": "Ollama"
+    },
+    "local": {
+      "name": "Local capture"
+    },
+    "gridAria": "Szolgáltatók",
+    "messages": {
+      "sparkTokens24h": "Spark tokenek 24h",
+      "logTokens24h": "Napló tokenek 24h",
+      "missingBackendKey": "Hiányzik a backend kulcs",
+      "sevenDays": "7 nap",
+      "noCodexSparkEvents": "Nem találhatók Codex 5.3 Spark események.",
+      "noGeminiLogs": "Nem találhatók helyi Gemini használati naplók.",
+      "glmImportTokens": "GLM/Z.AI tokens from local imports.",
+      "glmQuotaUnavailable": "Official quota through OpenCode is not available.",
+      "noGlmEvents": "No local GLM/Z.AI usage events found.",
+      "ollamaLogTokens": "Helyi Ollama tokenek naplókból",
+      "noOllamaLogs": "Nem találhatók helyi Ollama naplók.",
+      "copilotLogTokens": "Copilot CLI tokens 24h",
+      "noCopilotSessionMetrics": "No local Copilot CLI session metrics found.",
+      "claudeStatuslineNoQuotas": "Claude is sending data, but not official Pro/Max limit values yet.",
+      "claudeStatuslineMissing": "A Claude statusline nincs beállítva. Kapcsold be az irányítópult statusline parancsát az élő Pro/Max kvótákhoz.",
+      "claudeLiveLimitsMissing": "Claude live limits are not available from local telemetry yet.",
+      "claudeLimitsStale": "Claude live limits are out of date. Open Claude Code once to refresh them.",
+      "claudeOauthUnavailable": "Claude CLI/OAuth quota unavailable: {reason}.",
+      "claudeBrowserLoginHint": "Log in to Claude.ai in your browser to enable credit tracking.",
+      "glmQuotaAvailable": "Official GLM Coding Plan quota from OpenCode.",
+      "glmQuotaUnavailableReason": "Official GLM Coding Plan quota unavailable: {reason}.",
+      "noOpenCodeGptEvents": "No local OpenAI/GPT usage events found in OpenCode."
+    },
+    "emptyState": {
+      "eyebrow": "Szolgáltató",
+      "heading": "Nincs aktív használat",
+      "status": "Üres",
+      "message": "Jelenleg egyik szolgáltatónál sincs naplózott token vagy korlátadat.",
+      "visible": "Látható",
+      "hidden": "Rejtett",
+      "all": "Összes"
+    },
+    "copilot": {
+      "kicker": "Copilot CLI"
+    },
+    "updateDelayHints": {
+      "default": "This provider has not produced a fresh local signal for more than {minutes} minutes. Some sources only update when their CLI or app writes new usage data.",
+      "codex": "Codex limits normally update through the local app-server. If this stays old, the app-server may be unavailable or Codex has not produced fresh live limit data.",
+      "codexSpark": "Codex Spark limits normally update through the local Codex app-server. If this stays old, Spark live limit data may not be exposed yet.",
+      "claudeCode": "This Claude Code card combines statusline, local logs, and Claude.ai billing or usage data. Updates can lag when Claude Code is closed, the statusline has not run, or Claude.ai cookies/API access are unavailable.",
+      "copilot": "GitHub Copilot CLI usage is written after sessions shut down, and live quota probing depends on the local Copilot CLI. The timestamp can lag while a session is still open or the probe is unavailable.",
+      "gemini": "Gemini local usage updates only when local log files contain new usage metadata.",
+      "glm": "GLM/Z.AI updates when local JSON, JSONL, or CSV usage imports contain OpenAI-compatible GLM token counts.",
+      "ollama": "Ollama usage updates only when requests pass through the dashboard's local proxy/log file."
+    },
+    "freshness": {
+      "ariaLabel": "Szolgáltatói adatok ideje",
+      "usage": "Használat {time}",
+      "limits": "Korlátok {time}",
+      "prices": "Árak {time}",
+      "catalog": "Katalógus {date}",
+      "unknown": "Adatidő ismeretlen"
+    },
+    "openCode": {
+      "kicker": "OpenCode GPT logs"
+    },
+    "kimi": {
+      "kicker": "Kimi Code"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "empty": "Üres",
+    "not_configured": "Beállítás",
+    "error": "Hiba"
+  },
+  "labels": {
+    "today": "Ma",
+    "fiveHourUsed": "5h felhasználva",
+    "weekUsed": "Hét felhasználva",
+    "fiveHourLeft": "5 óra maradt",
+    "weekLeft": "Hét maradt",
+    "since": "Ettől",
+    "updated": "Frissítve",
+    "plan": "Csomag",
+    "fiveHourTokens": "5h tokenek",
+    "total": "Összesen",
+    "cost": "Költség",
+    "tokens7d": "Tokenek 7 nap",
+    "cost7d": "Költség 7 nap",
+    "limits": "Korlátok",
+    "updatedHelp": "Why this timestamp may be delayed",
+    "subscription": "Subscription",
+    "last24h": "Last 24h"
+  },
+  "credits": {
+    "title": "Kreditek",
+    "monthlySpend": "Használati kreditek",
+    "monthlyLimit": "Havi korlát",
+    "currentCredit": "Aktuális kredit",
+    "autoTopUp": "Automatikus feltöltés",
+    "default": "Kreditek",
+    "on": "Be",
+    "off": "Ki"
+  },
+  "limits": {
+    "recentPace": {
+      "timeToLimit": "A korlát eléréséig: {duration}",
+      "title": "Közelmúltbeli ütem",
+      "measured": "+{percent} százalékpont {duration} alatt",
+      "collecting": "Ehhez az időszakhoz még nincs elég mérés.",
+      "flat": "Nincs mérhető növekedés ebben az időszakban.",
+      "stale": "A legutóbbi kvótaadat túl régi.",
+      "changed": "Az értékek megváltoztak; nincs előrejelzés.",
+      "possible": "A limit a visszaállítás előtt elfogyhat; a becslés bizonytalan.",
+      "note": "Becslés kerekített százalékokból, változatlan ütemmel."
+    },
+    "fiveHour": "5h",
+    "weekly": "Hét",
+    "currentSession": "Aktuális munkamenet",
+    "allModels": "Minden modell",
+    "claudeDesign": "Claude Design",
+    "sonnetOnly": "Csak Sonnet",
+    "default": "Korlát",
+    "resetPrefix": "Visszaállítás {time}",
+    "usedValue": "{percent}% felhasználva",
+    "leftValue": "{percent}% maradt",
+    "freeLabel": "{label} elérhető",
+    "limitGroups": "{count} korlátcsoport",
+    "noModelLimits": "Nincsenek modellkorlátok",
+    "remainingShort": "{days}d {hours}h {minutes}m",
+    "fullTitle": "Limit full",
+    "fullDescription": "{limit} is full.",
+    "fullTokenDetail": "{tokens} tokens in {period}",
+    "fullPremiumRequestsDetail": "{requests} premium requests from local session logs",
+    "fullResetDetail": "Reset {time}",
+    "period5h": "5h",
+    "period7d": "7d",
+    "period24h": "24h",
+    "fullQuotaDetail": "{usage} used",
+    "status": {
+      "ok": "On track",
+      "risk": "Magas tempo",
+      "full": "Limit reached",
+      "unknown": "Unknown"
+    },
+    "pace": {
+      "remaining": "A jelenlegi tempoval a visszaallitasig kb. {percent}% marad.",
+      "shortfall": "A jelenlegi tempoval a visszaallitasig kb. {percent}% hianyzik.",
+      "hitBeforeReset": "A jelenlegi tempoval a limit kb. {duration} idovel a visszaallitas elott elerheto. ({time})",
+      "fullWithReset": "Limit elerve; visszaallitas {time}.",
+      "fullNoReset": "Limit elerve; a visszaallitas ideje nem elerheto.",
+      "unavailable": {
+        "noUsage": "Tempo nem elerheto: ez a forras nem ad hasznalati szazalekot.",
+        "noWindow": "Tempo nem elerheto: ez a forras nem ad ablak-hosszt vagy visszaallitasi idot.",
+        "notStarted": "Tempo nem elerheto: ez a kvotaablak meg nem indult el.",
+        "staleReset": "Tempo nem elerheto: a visszaallitasi ido elavult; frissitse a forrast."
+      }
+    },
+    "duration": {
+      "daysHours": "{days} n {hours} o",
+      "hoursMinutes": "{hours} o {minutes} p",
+      "minutes": "{minutes} p"
+    },
+    "gauge": {
+      "title": "Aktuális használat",
+      "projectedValue": "{percent}% előrejelzés",
+      "unavailable": "Előrejelzés nem érhető el",
+      "aria": "{label} előrejelzett végső használata"
+    },
+    "viewToggleAria": "Aktuális használat megjelenítése",
+    "view": {
+      "tachometer": "Mérő",
+      "bar": "Sáv"
+    },
+    "remainingUntilReset": "Resets in {remaining} · Reset {time}",
+    "glmFiveHourTokens": "5h tokens",
+    "glmWeekly": "Weekly quota",
+    "glmMcpMonthly": "Monthly MCP"
+  },
+  "tokens": {
+    "input": "Bemenet",
+    "cacheCreation": "Gyorsítótár létrehozása",
+    "cachedInput": "Gyorsítótárazott bemenet",
+    "output": "Kimenet",
+    "reasoningOutput": "Reasoning kimenet",
+    "total": "Összesen"
+  },
+  "format": {
+    "billion": "mrd",
+    "million": "M",
+    "thousand": "ezer",
+    "lessThanSharePercent": "<0,1%",
+    "lessThanCent": "< 0,01 EUR",
+    "usdPerMillion": "{value} $/M",
+    "cacheReadWrite": "{read} olvasás / {write} írás",
+    "cacheSameAsInput": "mint a bemenet",
+    "perMonth": "{amount}/mo",
+    "fromPerMonth": "ettől: {amount}/hó"
+  },
+  "settings": {
+    "heading": "Beállítások",
+    "language": {
+      "label": "Nyelv"
+    },
+    "theme": {
+      "label": "Téma",
+      "system": "Rendszer",
+      "light": "Világos",
+      "dark": "Sötét"
+    },
+    "notifications": {
+      "title": "Limits & warnings",
+      "description": "Warnings use real 5-hour and weekly provider windows plus projections; they are separate from monthly subscription/API cost comparisons.",
+      "enabled": "Enable notifications",
+      "pacingLabel": "Pacing warning at projected provider-window usage (%)",
+      "hardLimitLabel": "Hard warning at measured provider-window usage (%)",
+      "save": "Save",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "diagTitle": "Notification diagnostics",
+      "diagLastCheck": "Last check",
+      "diagDuration": "Duration",
+      "diagAlerts": "Alerts found",
+      "diagLastShown": "Last notification sent",
+      "diagSkipped": "Skip reason",
+      "diagError": "Last error",
+      "diagSupported": "Notifications supported",
+      "diagNone": "None",
+      "diagNever": "Never",
+      "diagYes": "Yes",
+      "diagNo": "No",
+      "testBtn": "Send test notification",
+      "testQueued": "Test requested. If no real system banner appears, open system notifications, allow LLM Pulse, restart the app, then run the test again.",
+      "testError": "Could not send test notification.",
+      "testResultLabel": "Last test result",
+      "testResultAt": "At",
+      "testResultOutcome": "Outcome",
+      "testResult_shown": "Reported as shown by an older build",
+      "testResult_not_supported": "Not supported on this system",
+      "testResult_error": "Error",
+      "diagPermission": "Browser permission (not a macOS banner guarantee)",
+      "permission_granted": "Granted for browser API",
+      "permission_default": "Not asked yet",
+      "permission_denied": "Denied",
+      "permission_unsupported": "Unsupported",
+      "permission_unknown": "Unknown",
+      "permission_error": "Permission check failed",
+      "permissionNotGranted": "Notification permission was not granted. System notification settings were opened; allow LLM Pulse, restart the app, then run the test again.",
+      "permissionUnsupported": "This app runtime does not expose desktop notification permission.",
+      "testResult_sent": "Queued with Electron (banner not confirmed)",
+      "testQueuedRendererError": "Native macOS notification queued, but the immediate browser notification failed: {error}",
+      "testTitle": "LLM Pulse - Test",
+      "testBody": "Desktop notifications are working correctly.",
+      "inAppTestTitle": "In-app test notification",
+      "inAppTestErrorTitle": "Notification test needs attention",
+      "inAppTestBody": "This in-app fallback confirms the test ran. It is not a system banner; native banners may require system notification permission, a fresh app restart, and a properly signed build.",
+      "diagNativeDelivery": "Native system delivery",
+      "nativeDelivery_ready": "Signed app: native banners should be available",
+      "nativeDelivery_ad_hoc": "Ad-hoc build: native banners may not appear",
+      "nativeDelivery_gatekeeper_rejected": "Gatekeeper rejected: native banners may not appear",
+      "nativeDelivery_unverified": "Unverified",
+      "nativeDelivery_not_applicable": "Not applicable on this platform",
+      "nativeDelivery_unknown": "Unknown",
+      "openSettingsBtn": "Open system notification settings",
+      "openSettingsQueued": "System notification settings opened. Allow notifications for LLM Pulse, restart the app if you just changed the setting, then run the test again.",
+      "openSettingsError": "Could not open system notification settings from this runtime.",
+      "systemGuideTitle": "System notifications need attention",
+      "systemGuideDefault": "Allow notifications for LLM Pulse in system settings, restart the app if you just changed the setting, then run the test again.",
+      "systemGuidePermission": "This app does not yet have notification permission. System settings were opened; allow notifications for LLM Pulse there.",
+      "systemGuideUnsupported": "This runtime cannot read browser notification permission. Open system notification settings and allow notifications for LLM Pulse there.",
+      "systemGuideNativeUnverified": "Native banners are not reliably confirmed with this build. Check system notifications, allow LLM Pulse, then test again after restarting the app.",
+      "systemGuideTestFailed": "The last native notification attempt reported a failure. Check system notifications, restart the app, then run the test again.",
+      "systemGuideAfterTest": "If no real system banner appeared, check system notifications, allow LLM Pulse, restart the app, then send the test again.",
+      "thresholdsHelp": "Pacing uses the current consumption rate; hard warning uses measured consumption in the relevant 5h or weekly provider window.",
+      "nativeAlertTitle": "Limitfigyelmeztetés: {window}",
+      "nativeUsedPercent": "{percent}% felhasználva.",
+      "nativeHardLimit": "A limit majdnem kimerült.",
+      "nativePacingProjected": "{usedPercent}% felhasználva; a jelenlegi tempó {projectedPercent}%-ot jelez előre.",
+      "nativeEstimatedExhaustion": "Becsült kimerülés {time} múlva.",
+      "nativeDurationHoursMinutes": "{hours} ó {minutes} p",
+      "nativeDurationHours": "{hours} ó",
+      "nativeDurationMinutes": "{minutes} p",
+      "nativeWindowFiveHour": "5 órás ablak",
+      "nativeWindowWeekly": "Heti limit",
+      "nativeWindowSonnetOnly": "Csak Sonnet-limit",
+      "nativeWindowClaudeDesign": "Claude Design-limit",
+      "nativeWindowGeneric": "Limit"
+    },
+    "subscriptions": {
+      "title": "Subscription costs",
+      "planLabel": "Plan",
+      "monthlyCostLabel": "Monthly cost (EUR)",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "description": "Detected plans and costs come from safe local signals. Missing data is not counted as real cost.",
+      "detectedOnly": "Manual values are not normal setup. Use Advanced only as a fallback estimate when local detection is unavailable.",
+      "advancedTitle": "Advanced fallback estimates",
+      "advancedDescription": "These values are saved fallback estimates. Cards and cost views label them as estimates, not automatically detected costs."
+    },
+    "sources": {
+      "title": "Data sources & diagnostics",
+      "description": "Manage connected sources, recheck access, and copy ACL commands for other local users.",
+      "recheck": "Recheck access",
+      "recheckOne": "Recheck access",
+      "recheckPending": "Checking...",
+      "rechecked": "Source diagnostics refreshed.",
+      "recheckError": "Could not refresh source diagnostics.",
+      "currentUser": "current user",
+      "summaryStatus": "Status: {status}",
+      "summaryCounts": "{connected} usable · {candidates} additional candidates",
+      "connectedTitle": "Usable sources",
+      "candidatesTitle": "Additional detected sources",
+      "connectedEmpty": "No usable sources detected yet.",
+      "candidatesEmpty": "No additional source candidates detected right now.",
+      "owner": "Owner: {owner}",
+      "discovery": "Discovery: {method} · confidence {confidence}",
+      "access": {
+        "readable": "Readable",
+        "mixed": "Partially readable",
+        "denied": "Access denied",
+        "missing": "Missing",
+        "process_only": "Process only",
+        "service_only": "Service only"
+      },
+      "permissions": {
+        "readable": "Readable",
+        "denied": "Denied",
+        "missing": "Missing",
+        "unknown": "Unknown",
+        "optionalMissing": "Optional missing"
+      },
+      "roles": {
+        "sessions": "Sessions",
+        "archived_sessions": "Archived sessions",
+        "projects": "Projects",
+        "session_state": "Session state",
+        "telemetry": "Telemetry",
+        "chats": "Chats",
+        "tmp": "Temporary files",
+        "usage_file": "Usage file",
+        "home": "Home"
+      },
+      "noPaths": "No direct filesystem path available.",
+      "connect": "Connect",
+      "connectPending": "Connecting...",
+      "connectSuccess": "Source connected. Running a fresh diagnostics pass now.",
+      "connectError": "Could not connect source.",
+      "disable": "Disable",
+      "disablePending": "Disabling...",
+      "disableSuccess": "Source disabled. Usage totals were refreshed.",
+      "disableError": "Could not disable source.",
+      "grantCommands": "Grant commands",
+      "revokeCommands": "Revoke commands",
+      "copyGrant": "Copy grant commands",
+      "copyRevoke": "Copy revoke commands",
+      "copyGrantSuccess": "Grant commands copied to the clipboard.",
+      "copyRevokeSuccess": "Revoke commands copied to the clipboard.",
+      "copyError": "Could not copy commands to the clipboard.",
+      "automatic": "used automatically"
+    },
+    "supportReport": {
+      "title": "Support report",
+      "description": "Generate a redacted support report for Multica or WhatsApp when local sources are missing or usage does not appear.",
+      "privacyNote": "The report contains only metadata and redacted paths, no raw logs, prompts, secrets, or provider payloads.",
+      "downloadJson": "Save JSON report",
+      "copySummary": "Copy summary",
+      "summaryLabel": "Compact summary",
+      "emptySummary": "Generate a report to preview the compact support summary.",
+      "preparing": "Preparing support report...",
+      "downloaded": "Support report saved.",
+      "copied": "Support summary copied to the clipboard.",
+      "generateError": "Could not generate support report: {message}",
+      "copyError": "Could not copy support summary to the clipboard."
+    },
+    "updates": {
+      "title": "App updates",
+      "description": "Automatic update checks are always active for supported packaged desktop builds; only preview releases are optional.",
+      "enabled": "Automatic update checks are always active",
+      "allowPrerelease": "Include preview releases",
+      "saved": "Saved.",
+      "saveError": "Could not save update settings.",
+      "diagTitle": "Update diagnostics",
+      "diagState": "State",
+      "diagSupport": "Support",
+      "diagLastCheck": "Last check",
+      "diagVersion": "App version",
+      "diagAvailable": "Available version",
+      "diagError": "Last error",
+      "diagNone": "None",
+      "checkNow": "Check now",
+      "checkQueued": "Update check queued.",
+      "checkError": "Could not request update check.",
+      "noticeTitle": "Update attention needed",
+      "noticeMacSigning": "macOS automatic updates require a signed app. This unsigned build can run after manual approval, but the updater will stay disabled until Developer ID signing and notarization are configured.",
+      "noticeDevelopment": "Automatic updates run only from a packaged desktop app, not from the development runtime.",
+      "noticeUnsupported": "Automatic updates are not supported on this platform/package.",
+      "noticeGatekeeper": "The app is signed, but Gatekeeper did not fully accept it. If updates behave oddly, reinstall a notarized build.",
+      "noticeDownloaded": "An update has been downloaded. Restart the app to install it.",
+      "noticeError": "The last update check failed. Check the error line, network access, and release assets.",
+      "state_unknown": "Unknown",
+      "state_disabled": "Disabled",
+      "state_checking": "Checking",
+      "state_available": "Update available",
+      "state_downloading": "Downloading",
+      "state_up_to_date": "Up to date",
+      "state_downloaded": "Downloaded",
+      "state_error": "Error",
+      "state_not_electron": "Not running in desktop app",
+      "state_development_build": "Development build",
+      "state_macos_signing_required": "macOS signing required",
+      "state_unsupported_platform": "Unsupported platform",
+      "support_ready": "Ready",
+      "support_development_build": "Development build",
+      "support_macos_signing_required": "macOS signing required",
+      "support_macos_gatekeeper_warning": "Signed, but Gatekeeper warning",
+      "support_unsupported_platform": "Unsupported platform",
+      "support_electron_updater_missing": "Updater package missing",
+      "support_unknown": "Unknown",
+      "state_electron_updater_missing": "Updater package missing",
+      "alwaysOn": "Automatic update checks are always active."
+    },
+    "saving": "Saving..."
+  },
+  "errors": {
+    "loadUsage": "Hiba"
+  },
+  "diagnostics": {
+    "ariaLabel": "Source diagnostics",
+    "eyebrow": "Local sources",
+    "heading": "Diagnostics & connection",
+    "recheck": "Recheck access",
+    "loading": "Loading source diagnostics...",
+    "meta": "User {user} · Checked {checkedAt} · {platform} · {support}",
+    "support": {
+      "full": "full host discovery",
+      "partial_container": "limited container discovery",
+      "stub": "platform check unavailable",
+      "unsupported": "unsupported platform"
+    },
+    "supportShort": {
+      "full": "Full",
+      "partial_container": "Limited",
+      "stub": "Unavailable",
+      "unsupported": "Unavailable"
+    },
+    "supportDescriptions": {
+      "full": "Host file access, process hints, and permissions are measured on this machine.",
+      "partial_container": "Container discovery can miss host users, services, and homes; mounted logs can still be read.",
+      "stub": "Host source discovery is not available on this platform build; current-user configured logs may still be read.",
+      "unsupported": "Host source discovery is unavailable here; use Settings or a supported host build for source setup."
+    },
+    "quality": {
+      "measured": "Measured",
+      "configured": "Configured",
+      "detected": "Detected",
+      "limited": "Limited",
+      "unavailable": "Unavailable"
+    },
+    "facets": {
+      "logs": {
+        "title": "Readable log sources",
+        "available": "The app can read at least one local usage source.",
+        "empty": "No readable token log source was found in this scan."
+      },
+      "savedSources": {
+        "title": "Saved extra sources",
+        "available": "These are additional sources saved in Settings.",
+        "empty": "Zero saved sources is OK: current-user log history can still appear below."
+      },
+      "permissions": {
+        "title": "Permission fixes",
+        "blocked": "At least one plausible source exists, but this app cannot read it yet.",
+        "clear": "No denied source path was found in this scan."
+      },
+      "runtimeHints": {
+        "title": "Process/service hints",
+        "available": "A supported tool is visible only as a process or service, not as readable logs.",
+        "empty": "No process-only or service-only source hints were found."
+      },
+      "platform": {
+        "title": "Platform coverage"
+      }
+    },
+    "errors": {
+      "load": "Could not load source diagnostics: {message}"
+    },
+    "statuses": {
+      "connected_live": {
+        "title": "Local data is available",
+        "body": "Readable local sources are available. Saved extra-source counts only track sources you connected manually."
+      },
+      "current_user_empty": {
+        "title": "Current-user logs empty",
+        "body": "The current desktop user was scanned, but no local usage files with token data were found yet."
+      },
+      "candidates_readable_empty": {
+        "title": "Readable candidates found",
+        "body": "Known tool folders are readable, but they currently look empty or are not saved as extra sources."
+      },
+      "candidates_denied": {
+        "title": "Permission action needed",
+        "body": "A plausible source was found, but this app cannot read it with the current account."
+      },
+      "runtime_hints_only": {
+        "title": "Tool seen without readable logs",
+        "body": "A supported tool process or service was detected, but no readable log folder was found for it yet."
+      },
+      "no_tools_found": {
+        "title": "No local tools found",
+        "body": "No supported local tool folders, related processes, or service hints were detected on this machine."
+      },
+      "other_dashboard_found": {
+        "title": "Other dashboard instance found",
+        "body": "Another local LLM Pulse instance is running and may already be reading local usage data."
+      },
+      "partial_unsupported": {
+        "title": "Discovery is limited here",
+        "body": "This runtime can only do limited source discovery, so some users, services, or homes may stay invisible."
+      },
+      "discovery_error": {
+        "title": "Discovery error",
+        "body": "Source discovery did not finish cleanly."
+      }
+    },
+    "nextActions": {
+      "connected_live": "No action is needed; local data below can come from default current-user logs even with zero saved extra sources.",
+      "current_user_empty": "No action is needed unless you expected history; start a supported tool or inspect sources in Settings.",
+      "candidates_readable_empty": "Open Settings > Local sources if you want to save one of these readable sources.",
+      "candidates_denied": "Open Settings > Local sources, copy the ACL command for the denied source, run it as an admin, then recheck.",
+      "runtime_hints_only": "Wait for the tool to write usage logs, or configure the readable source in Settings and recheck.",
+      "no_tools_found": "Start a supported local tool or add a source in Settings, then recheck.",
+      "other_dashboard_found": "Use the already running dashboard window or stop it before checking this instance again.",
+      "partial_unsupported": "Run the desktop app on the host OS for fuller discovery; mounted local logs can still be shown below.",
+      "discovery_error": "Recheck access. If it fails again, check the backend error and source settings."
+    },
+    "recheckResults": {
+      "checking": "Checking...",
+      "ready": "Recheck complete: {status}",
+      "action": "Action needed: {status}",
+      "error": "Recheck failed: {message}",
+      "empty": "Recheck did not return diagnostics."
+    },
+    "instances": {
+      "title": "Other dashboard instances",
+      "item": "{user} has another dashboard instance running."
+    }
+  },
+  "subscriptions": {
+    "plan": "Plan: {plan}",
+    "planUnknown": "Plan unknown",
+    "costUnknown": "Cost unknown",
+    "source": "Source: {source}",
+    "updated": "Updated {time}",
+    "qualityLabel": "Cost quality",
+    "sourceLabel": "Source",
+    "quality": {
+      "automatic": "Automatically detected",
+      "manual": "Saved fallback estimate",
+      "estimated": "Estimated / partial",
+      "unknown": "Unknown",
+      "catalog": "Katalógusérték",
+      "official": "Hivatalos listaár",
+      "officialStarting": "Hivatalos induló listaár"
+    },
+    "sources": {
+      "local_settings": "saved fallback",
+      "account": "fiók-/számlázási forrás",
+      "codex_app_server": "Codex local app-server",
+      "codex_local_logs": "Codex local logs",
+      "claude_statusline": "Claude Code statusline",
+      "claude_auth_status": "Claude CLI auth status",
+      "claudeCode_local_signal": "Claude Code local signal",
+      "codex_local_signal": "Codex local signal",
+      "copilot_local_signal": "Copilot local signal",
+      "gemini_local_signal": "Gemini local signal",
+      "openai_api": "OpenAI API metadata",
+      "anthropic_api": "Anthropic API metadata",
+      "unknown": "unknown",
+      "openai_public_catalog": "OpenAI nyilvános előfizetési katalógusa",
+      "anthropic_public_catalog": "Anthropic nyilvános előfizetési katalógusa",
+      "claude_browser_sync": "Claude bongeszo-/fiokszinkron",
+      "claude_api": "Claude fiokhasznalati API",
+      "browser": "bongeszofiok-forras",
+      "official_pricing_page": "hivatalos ároldal",
+      "cached_official_snapshot": "gyorsítótárazott hivatalos pillanatkép",
+      "bundled_catalog": "beépített katalógus",
+      "account_billing": "fiók-/számlázási forrás"
+    },
+    "catalogReviewed": "Katalógus ellenőrizve: {date}",
+    "costReasons": {
+      "catalogMissing": "Nincs megbizhato katalogus- vagy fiokar ehhez az eszlelt csomaghoz.",
+      "catalogMissingCodexAppServer": "A helyi Codex app-server megadta a csomagot, de nem havi arat; nincs megbizhato katalogusar.",
+      "catalogMissingClaudeStatusline": "A Claude statusline megadta a csomagot, de nem havi arat; a bongeszo-/fiokadat hianyzik vagy nem tartalmaz arat.",
+      "catalogMissingClaudeAuth": "A Claude CLI auth megadta a csomagot, de nem havi arat; a bongeszo-/fiokadat hianyzik vagy nem tartalmaz arat.",
+      "catalogMissingClaudeBrowser": "{source} ellenorizve lett, de nem ad havi csomagarat."
+    },
+    "costActions": {
+      "addFallback": "Frissítse a katalógus-/fiókforrást, vagy adjon meg egy tartalék becslést az Advanced részben."
+    },
+    "planSource": "Csomag/limitek innen: {source}",
+    "planSourceLabel": "Csomag-/limitforrás",
+    "catalogFallbackNote": "A havi ár katalógusos tartalékérték; az írásvédett app-/fiókforrások csomag-, limit- vagy kreditét adatot adnak, de nem megbízható havi árat.",
+    "sourceAudit": {
+      "heading": "Csak olvasható árforrások",
+      "safePriceDetected": "megbízható havi ár észlelve",
+      "planOnlyNoPrice": "csak csomag/korlátok; havi ár nincs megadva",
+      "browserNoPrice": "ellenőrizve; nincs megbízható havi ár",
+      "catalogFallback": "katalógus tartalékár",
+      "notConfigured": "ebben a futásban nincs jelen",
+      "notAvailable": "nem érhető el biztonságos, csak olvasható árforrás",
+      "notUsed": "nincs használva",
+      "officialListPrice": "hivatalos listaár",
+      "accountSourceExpired": "a fiókforrás lejárt",
+      "accountSourceUnavailable": "a fiókforrás nem érhető el"
+    },
+    "officialListPriceNote": "Hivatalos listaár; a tényleges számla eltérhet ÁFA/adók, éves kedvezmények, licencek, kuponok, regionális árak vagy Enterprise szerződések miatt.",
+    "fetched": "Lekérve {time}",
+    "sourceUrl": "URL: {url}",
+    "planKey": "Csomagkulcs: {key}",
+    "parserStatus": "Parser: {status}",
+    "priceSourceTypeLabel": "Árforrás típusa",
+    "sourceUrlLabel": "Forrás URL",
+    "fetchedLabel": "Lekérési/adatidő",
+    "planKeyLabel": "Csomagkulcs",
+    "parserStatusLabel": "Parser állapota",
+    "parserStatuses": {
+      "parsed": "feldolgozva",
+      "parse_failed": "feldolgozás sikertelen",
+      "cached_after_fetch_error": "cache lekérési hiba után",
+      "bundled": "beépített tartalék",
+      "missing": "hiányzik",
+      "unknown": "ismeretlen"
+    },
+    "officialStartingListPriceNote": "Hivatalos induló listaár; a tényleges fiókszámla nem lett beolvasva, és eltérhet csomagszint, áfa/adók, éves kedvezmények, helyek, kuponok, regionális árak, kiegészítők vagy enterprise szerződések miatt.",
+    "tierVariant": "Csomagszint/változat: {variant}",
+    "actualBilling": "Tényleges számla ismert: {status}",
+    "tierVariantLabel": "Csomagszint/változat",
+    "actualBillingKnownLabel": "Tényleges számla ismert",
+    "priceVariants": {
+      "from": "minimum / ettől",
+      "pro_5x": "Pro 5x",
+      "pro_5x_20x": "Pro 5x/20x",
+      "pro_20x": "Pro 20x",
+      "max_5x": "Claude Max 5x",
+      "max_5x_20x": "Claude Max 5x/20x",
+      "max_20x": "Claude Max 20x",
+      "unknown": "ismeretlen"
+    },
+    "actualBillingKnown": {
+      "yes": "igen",
+      "no": "nem"
+    },
+    "connectionActions": {
+      "refresh": "Frissítés",
+      "claudeLogin": "Jelentkezzen be a Claude-ba és olvassa ki a csomagot",
+      "claudeRefresh": "Claude-csomag újraolvasása",
+      "chatgptLogin": "Jelentkezzen be a ChatGPT-be és olvassa ki a csomagot",
+      "chatgptRefresh": "ChatGPT-csomag újraolvasása",
+      "rereadPlan": "Csomag olvasása most"
+    },
+    "connectionStatus": {
+      "refreshRequired": "A kapcsolat frissítése szükséges",
+      "claudeLoginRequired": "Claude-bejelentkezés szükséges",
+      "claudeRefreshRequired": "Frissítse a Claude-kapcsolatot",
+      "chatgptLoginRequired": "ChatGPT-bejelentkezés szükséges",
+      "chatgptRefreshRequired": "Frissítse a ChatGPT Billing kapcsolatot",
+      "claudeConflict": "Claude Max: ellentmondó források ({details})"
+    },
+    "connectionHelp": "Nyissa meg a szolgáltató oldalát, jelentkezzen be, ha szükséges, majd térjen vissza ide. Az app fókuszba kerüléskor újraolvassa a csomagot, vagy használja a gombot."
+  },
+  "gptAccounts": {
+    "ariaLabel": "GPT accounts",
+    "eyebrow": "Local account registry",
+    "heading": "GPT accounts",
+    "recheck": "Re-scan accounts",
+    "checking": "Scanning Codex and OpenCode accounts…",
+    "rechecked": "Account scan complete.",
+    "recheckError": "Account scan failed: {message}",
+    "recheckErrorFallback": "Unknown error",
+    "summary": "{active} active of {count} known accounts · scanned {time}",
+    "notScanned": "Accounts have not been scanned yet.",
+    "empty": "No ChatGPT account found yet",
+    "guidance": "Sign in with Codex or OpenCode, then re-scan. Accounts seen previously remain in this list as history.",
+    "active": "Active",
+    "historical": "Previous",
+    "lifetimeTokens": "Codex lifetime tokens",
+    "limit": "Limit",
+    "lastSeen": "Last seen {time}",
+    "activeSourceCount": "{count} active sources",
+    "attributionNote": "OpenCode tokens are measured for OpenCode as a whole because its message database does not record which account produced each message.",
+    "sources": {
+      "codex": "Codex",
+      "openCode": "OpenCode"
+    },
+    "activeSourceCountOne": "1 active source",
+    "add": "GPT-fiók hozzáadása",
+    "signIn": "Bejelentkezés az OpenAI-ba",
+    "removeLogin": "Mentett bejelentkezés eltávolítása",
+    "login": {
+      "waiting": "Fejezze be az OpenAI-bejelentkezést. Válassza ki a kívánt fiókot a böngészőben.",
+      "complete": "Fiók csatlakoztatva.",
+      "failed": "A bejelentkezés nem érhető el. Telepítse a Codex CLI-t, vagy próbálja újra."
+    },
+    "connectionHelp": "A meglévő Codex- és OpenCode-bejelentkezések automatikusan felismerhetők. Adjon hozzá GPT-fiókokat a meglévők cseréje nélkül.",
+    "loginPrivacy": "A bejelentkezés az OpenAI-val kommunikál. A hitelesítő adatok külön helyi profilban maradnak, és nem kerülnek a fejlesztőhöz vagy párosított eszközökre."
+  },
+  "codexResets": {
+    "title": "Codex · Visszaállítási előzmények",
+    "period": "Időszak",
+    "last10": "Utolsó 10 időablak",
+    "last30": "Utolsó 30 időablak",
+    "all": "Minden időablak",
+    "credits": "Elérhető visszaállítási kreditek",
+    "earlyCount": "Korai visszaállítások",
+    "averageDuration": "Átlagos időtartam ≈",
+    "averageUsage": "Átlagos használat",
+    "days": "{value} nap",
+    "windows": "{count} időablakból",
+    "maximum": "Legmagasabb megfigyelt használat",
+    "start": "Kezdet ≈",
+    "plannedReset": "Bejelentett visszaállítás",
+    "end": "Vég ≈",
+    "duration": "Időtartam ≈",
+    "usage": "Max. használat",
+    "result": "Visszaállítás bizonyítéka",
+    "early": "Korai",
+    "regular": "Tervezett",
+    "uncertain": "Bizonytalan",
+    "estimated": "Rekonstruált",
+    "confirmed": "Kredit felhasználva: megerősített",
+    "inferred": "Kredit felhasználva: következtetett",
+    "live": "Rögzítés aktív",
+    "stale": "Rögzítés elavult",
+    "unavailable": "Élő adatok nem érhetők el",
+    "loading": "Előzmények betöltése…",
+    "empty": "Még nincs megfigyelt lezárt időablak.",
+    "note": "A régi naplók fiókhozzárendelés nélkül rekonstruálják az időablakokat. Az időtartam és a vég becslés; a használat a legmagasabb megfigyelt érték. A rögzítés az alkalmazás futása alatt működik. Személyek és eszközök nem azonosíthatók.",
+    "durationBasis": "{count} használható időablak · várható: 7 nap",
+    "recordingSince": "Rögzítés kezdete: {time}",
+    "redemptions": "Kreditek: {confirmed} megerősített · {inferred} következtetett felhasználás",
+    "expires": "Lejár: {time}",
+    "coverage": "{uncertain} bizonytalan időablak · {gaps} rögzítési hiány",
+    "current": "Jelenleg: visszaállítás {time} · max. {percent} %",
+    "events": "Kreditesemények · utolsó 30",
+    "granted": "Kredit jóváírva",
+    "expired": "Kredit lejárt",
+    "creditUnknown": "Kreditváltozás: nem egyértelmű",
+    "cause": "Visszaállítás oka",
+    "causeManual": "Kézi · kupon",
+    "causeProvider": "OpenAI · következtetett",
+    "causeScheduled": "Ütemezett",
+    "causeUnknown": "Ismeretlen",
+    "causeMissing": "Hiányzik a kupon vagy az átmenet bizonyítéka",
+    "causeNoCredit": "Korai, megfigyelt kuponhasználat nélkül",
+    "causeConfirmed": "Megerősített",
+    "causeInferred": "Következtetett",
+    "causeSummary": "Okok: {manual} kupon · {provider} OpenAI (következtetett) · {scheduled} ütemezett · {unknown} ismeretlen",
+    "causeNote": "A korai időpont nem mutatja az okot. OpenAI csak akkor következtethető, ha a teljes kuponlista változatlan marad egy szorosan megfigyelt kvóta-visszaállítás során. A régi naplók nem választják szét a kézi és OpenAI-visszaállításokat. A kiváltó személy ismeretlen."
+  },
+  "deviceSync": {
+    "heading": "Saját eszközök összekapcsolása",
+    "enabled": "Közvetlen szinkronizálás engedélyezése",
+    "name": "Eszköz neve",
+    "invite": "Párosítási kód létrehozása",
+    "code": "Párosítási kód",
+    "copy": "Kód másolása",
+    "join": "Eszköz csatlakoztatása",
+    "forget": "Eszköz leválasztása",
+    "view": "Eszközök",
+    "local": "Ez az eszköz",
+    "all": "Minden csatlakoztatott eszköz",
+    "copied": "Kód másolva.",
+    "working": "Csatlakozás…",
+    "ready": "Kész.",
+    "inviteReady": "A kód öt percig érvényes. Illessze be a másik eszközön.",
+    "errors": {
+      "default": "A kapcsolat nem érhető el. A korábban fogadott adatok ezen az eszközön maradnak.",
+      "peer_unreachable": "A kapcsolat nem érhető el. A korábban fogadott adatok ezen az eszközön maradnak.",
+      "invalid_pairing_code": "A kapcsolat nem érhető el. A korábban fogadott adatok ezen az eszközön maradnak.",
+      "network_unavailable": "A kapcsolat nem érhető el. A korábban fogadott adatok ezen az eszközön maradnak.",
+      "sync_disabled": "A kapcsolat nem érhető el. A korábban fogadott adatok ezen az eszközön maradnak.",
+      "capture_failed": "A kapcsolat nem érhető el. A korábban fogadott adatok ezen az eszközön maradnak.",
+      "storage_unavailable": "A kapcsolat nem érhető el. A korábban fogadott adatok ezen az eszközön maradnak.",
+      "discovery_unavailable": "A kapcsolat nem érhető el. A korábban fogadott adatok ezen az eszközön maradnak."
+    },
+    "privacy": "Használati és hitelesítő adatok nem kerülnek a fejlesztőhöz. Titkosított méréseket csak kifejezetten párosított eszközökkel osztunk meg. A leválasztás nem törli a már megkapott másolatokat.",
+    "networkLimit": "A közvetlen kapcsolatok a helyi hálózatot vagy meglévő privát VPN-t használják, közvetítő, keresőszerver és routermódosítás nélkül. Az ezeket blokkoló hálózatok megakadályozzák az automatikus szinkronizálást.",
+    "coverage": "{count} egyedi rekord · {duplicates} ismétlődés eltávolítva · {excluded} rekord helyben marad megbízható azonosító nélkül. A fiókkorlátok külön maradnak; az API-összesítések nem adódnak hozzá."
+  },
+  "connections": {
+    "accounts": "Fiókok",
+    "installations": "Telepítések",
+    "general": "Általános",
+    "advanced": "Speciális",
+    "addAccount": "Fiók hozzáadása",
+    "chooseProvider": "Válasszon szolgáltatót",
+    "detectedDetails": "Észlelt GPT-fiókok és részletek",
+    "back": "Vissza",
+    "accountLabel": "Név (nem kötelező)",
+    "apiKey": "API-kulcs",
+    "adminKey": "Adminisztrátori API-kulcs",
+    "region": "Régió",
+    "global": "Nemzetközi",
+    "china": "Kína",
+    "setupHelp": "Beállítási útmutató",
+    "connect": "Csatlakoztatás",
+    "openSignIn": "Bejelentkezés megnyitása",
+    "connectInstallation": "Telepítés összekapcsolása",
+    "haveCode": "Van kódom",
+    "syncOptions": "Szinkronizálás és adatvédelem",
+    "remove": "Eltávolítás",
+    "automatic": "Automatikusan észlelve",
+    "empty": "Még nincs csatlakoztatott fiók.",
+    "apiAccount": "API-fiók",
+    "subscription": "Előfizetés / programozási csomag",
+    "thisInstallation": "Ez a telepítés",
+    "syncOn": "Szinkronizálás bekapcsolva",
+    "syncOff": "Szinkronizálás kikapcsolva",
+    "local": "Helyi",
+    "waitingSync": "Várakozás az első szinkronizálásra",
+    "viaPeer": "Párosított telepítésen keresztül",
+    "balance": "Egyenleg",
+    "privacy": "A bejelentkezési adatok ezen az eszközön maradnak. A használati adatokat nem küldjük el a fejlesztőnek.",
+    "installationsHelp": "Kapcsolja össze saját telepítéseit a használat közös megtekintéséhez.",
+    "pairHelp": "Nyissa meg a Telepítések lapot a másik eszközön. Itt hozzon létre kódot vagy illessze be annak kódját. Az eszközöknek közvetlenül elérhetőnek kell lenniük.",
+    "adminKeyHelp": "A jelentésekhez a szervezet adminisztrátori API-kulcsa kell, a csevegés-előfizetéstől függetlenül.",
+    "glmHelp": "Használja a GLM Coding Plan kulcsát, és válassza ki a régióját.",
+    "browserHelp": "Folytassa a szolgáltató hivatalos bejelentkezésével.",
+    "keyPrivacy": "A kulcs helyben tárolódik, és csak ehhez a szolgáltatóhoz küldött kérésekhez használjuk.",
+    "needsSetup": "Először telepítse a szolgáltató hivatalos CLI-jét, majd frissítse a listát.",
+    "claudeHelp": "A Claude Code végzi a bejelentkezést ezen az eszközön. Telepített Claude Code CLI szükséges.",
+    "kimiHelp": "Használja a hivatalos Kimi Code bejelentkezést vagy egy Kimi Code csomagkulcsot.",
+    "moonshotHelp": "Moonshot API-kulccsal olvashatja az API-egyenleget, a Kimi Code-tól függetlenül.",
+    "loginWaiting": "Fejezze be a szolgáltatói bejelentkezést. Tartsa nyitva ezt az ablakot.",
+    "loginComplete": "Fiók csatlakoztatva. A mérések automatikusan frissülnek.",
+    "claudeSignIn": "Csatlakozás Claude Code-dal",
+    "providers": {
+      "gpt": "ChatGPT / Codex",
+      "claude": "Claude / Anthropic",
+      "kimi": "Kimi Code",
+      "glm": "GLM / Z.AI",
+      "openai": "OpenAI API",
+      "anthropic": "Anthropic API",
+      "moonshot": "Moonshot API"
+    },
+    "browser": "Bejelentkezés",
+    "failed": "Sikertelen bejelentkezés",
+    "checking": "Csatlakozás…",
+    "installation": "Telepítések",
+    "status": {
+      "connected": "Aktív",
+      "detected": "Észlelve",
+      "historical": "Korábbi",
+      "auth_required": "Bejelentkezés szükséges",
+      "error": "Hiba",
+      "unavailable": "Nem érhető el",
+      "unknown": "Nem érhető el"
+    },
+    "errors": {
+      "invalid_account": "A fiók nem található. Frissítse a fióklistát.",
+      "invalid_key": "A kulcs elutasítva. Ellenőrizze a kulcsot és a kiválasztott szolgáltatót.",
+      "permission_denied": "A kulcs nem fér hozzá a használati jelentésekhez. Használjon megfelelő jogosultságú kulcsot.",
+      "unsupported_key": "Ez a kulcstípus nem tudja olvasni a használatot. Kövesse a szolgáltató beállítási útmutatóját.",
+      "account_limit": "Elérte a fiókkorlátot. Először távolítson el egy nem használt fiókot.",
+      "connection_unavailable": "A szolgáltató nem érhető el. Ellenőrizze a kapcsolatot és próbálja újra.",
+      "account_storage_unavailable": "A helyi fióktároló nem elérhető. Ellenőrizze az alkalmazás fájljogosultságait.",
+      "profile_remove_failed": "A mentett bejelentkezés nem távolítható el. Zárja be a bejelentkezési ablakot és próbálja újra.",
+      "unsupported_platform": "A böngészős bejelentkezés nem érhető el ezen a platformon. Használjon elérhető kulcsos módszert."
+    },
+    "kimiHelperHelp": "Az első bejelentkezéskor az alkalmazás közvetlenül a Kimitől tölti le a hivatalos Kimi-segédprogramot. Helyben fut; az irányítópult nem küld telemetriát.",
+    "lastSeen": "Utoljára észlelve: {time}"
+  },
+  "history": {
+    "refreshing": "Mentett előzmények · {time}. Frissítés a háttérben."
+  },
+  "quotaIntegrity": {
+    "title": "Kvóták integritása",
+    "period": "Időszak",
+    "range24h": "Elmúlt 24 óra",
+    "range7d": "Elmúlt 7 nap",
+    "range30d": "Elmúlt 30 nap",
+    "loading": "Kvótaintegritás betöltése…",
+    "unavailable": "A kvótaintegritási adatok nem érhetők el.",
+    "intro": "Szokatlan kvótamegfigyelések, mennyire fedik le őket adatok, és megmagyarázhatja-e őket a helyi tokentevékenység. A szokatlan megfigyelés vizsgálatra ad okot, nem bizonyítéka a szolgáltató oldali hibának.",
+    "status": {
+      "attention": "Figyelmet igényel",
+      "no_anomaly_detected": "Nem észleltünk anomáliát",
+      "insufficient_data": "Még nincs elég adat"
+    },
+    "collector": "Codex élő gyűjtő",
+    "noData": "Nincs adat",
+    "lastSample": "Utolsó minta: {time}",
+    "noSample": "Nincs élő minta",
+    "findings": "Megállapítások",
+    "findingsDetail": "{warnings} figyelmeztetés · {info} tájékoztató",
+    "observations": "Megfigyelések",
+    "observationsDetail": "{samples} pillanatkép · {events} előzménybejegyzés",
+    "localData": "Helyi tevékenységi adatok",
+    "localDataDetail": "{slots} időszelet · frissítve: {time}",
+    "neverRefreshed": "még nincs rögzítve",
+    "gaps": "Gyűjtési hiányok",
+    "gapsDetail": "{count} ebben az időszakban",
+    "measured": "Mért",
+    "estimate": "Becslés",
+    "hypothesis": "Hipotézis",
+    "confidence": "Megbízhatóság: {level}",
+    "level": {
+      "medium": "közepes",
+      "low": "alacsony"
+    },
+    "confidenceWord": {
+      "confirmed": "megerősített",
+      "inferred": "következtetett",
+      "possible": "lehetséges"
+    },
+    "chartTitle": "A Codex heti használata az idő függvényében",
+    "chartAria": "Vonaldiagram a Codex heti kvótahasználatáról százalékban: {points} rögzített pont, {findings} megjelölt megállapítás.",
+    "chartEmpty": "Ebben az időszakban nem rögzítettek változást a Codex heti kvótájában.",
+    "legendWarning": "Figyelmeztetés",
+    "legendInfo": "Tájékoztatás",
+    "legendGap": "Gyűjtési hiány",
+    "types": {
+      "usage_rolled_back": "A jelentett használat csökkent",
+      "reset_deadline_changed_early": "A visszaállítási idő idő előtt megváltozott",
+      "usage_increase_without_local_activity": "A használat helyi tevékenység nélkül nőtt",
+      "collector_gap": "A gyűjtő nem érhető el",
+      "observation_gap": "Nincs megfigyelés",
+      "account_changed": "A fiók hatóköre megváltozott",
+      "stale_codex_snapshot": "Az élő adatok elavultak",
+      "no_live_codex_samples": "Nincs élő Codex-adat"
+    },
+    "fact": {
+      "usageChange": "Felhasznált kvóta: {from}% → {to}% ({delta} pont)",
+      "between": "Megfigyelve {from} és {to} között",
+      "deadlineShift": "A visszaállítási idő {minutes} perccel eltolódott: {from} → {to}",
+      "noActivity": "{minutes} perce nincs rögzített helyi tokentevékenység ({basis})",
+      "basisPlateau": "az előző érték első megfigyelése óta",
+      "basisWindow": "a kvótaablak kezdete óta",
+      "localCounts": "Helyi események: {events} · helyi tokenek: {tokens}",
+      "gapSpan": "Nincs adat {minutes} percig ({from} → {to})",
+      "gapOngoing": "Nincs adat {minutes} perce, {from} óta (folyamatban)",
+      "failures": "{count} sikertelen gyűjtési kísérlet rögzítve",
+      "staleAge": "Az utolsó élő minta {minutes} perccel ezelőtti volt"
+    },
+    "evidence": {
+      "heading": "Bizonyítékok az adatokban",
+      "credit": "E megfigyelések között beváltottak egy visszaállítási jóváírást ({confidence}).",
+      "account": "Az élő pillanatkép nagyjából ekkor másik fiókra váltott (lehetséges).",
+      "resetNoCredit": "Korai visszaállítás felhasznált jóváírás nélkül (következtetett)."
+    },
+    "hypothesesHeading": "Lehetséges magyarázatok (hipotézisek, nem megállapítások)",
+    "hypotheses": {
+      "other_device_or_surface": "Használat másik eszközön, a webes alkalmazásban, IDE-bővítményben vagy felhőfeladatokban, amelyeket a helyi naplók nem látnak",
+      "other_account_or_profile": "Más fiók vagy profil használata, amely osztozik ezen a kvótán",
+      "provider_accounting_or_adjustment": "Szolgáltatói oldali elszámolási késés, kerekítés vagy korrekció",
+      "local_logs_incomplete": "A helyi naplók hiányosak, rotáltak vagy nem gyűjtöttek",
+      "ledger_not_account_scoped": "Ez a kvótaelőzmény nem köthető egyetlen fiókhoz",
+      "reset_credit_or_plan_change": "Visszaállítási jóváírás, csomagváltás vagy más kvótakorrekció",
+      "inconsistent_source_data": "Ellentmondó adatok a kvótaforrásból"
+    },
+    "noFindings": "Ebben az időszakban nincs megállapítás.",
+    "stepStatus": {
+      "activity_present": "Van helyi tevékenység",
+      "shared_source_activity": "Csak másik helyi ágens",
+      "no_local_activity": "Nincs rögzített helyi tevékenység",
+      "not_assessable": "Nem értékelhető"
+    },
+    "reason": {
+      "history_start": "Az előzmények ennél a pontnál kezdődnek",
+      "no_local_history": "Nincs helyi naplóelőzmény",
+      "before_local_history": "A helyi naplók később kezdődnek",
+      "ingest_pending": "A helyi naplókat még nem olvasták újra"
+    },
+    "steps": {
+      "heading": "Kvótanövekedések a helyi tevékenységgel összevetve",
+      "summary": "{present} helyi tevékenységgel · {shared} csak másik helyi ágens · {none} nélküle · {unknown} nem értékelhető",
+      "note": "Minden sor a jelentett használat növekedése. A helyi tokenszámok csak e számítógép naplóiból származnak, és nem a kvóta átváltásai.",
+      "empty": "Ebben az időszakban nincs használatnövekedés."
+    },
+    "estimateText": "Az összehasonlítható lépések mediánja {median} helyi token kvótapontonként (középső fele {low}–{high}, {samples} lépés). A szolgáltatók másként súlyozzák a modelleket és a gyorsítótárazott bemenetet, ezért ez durva nagyságrend, nem átváltás.",
+    "localValue": "{events} esemény · {tokens} token",
+    "colTime": "Idő",
+    "colChange": "Felhasznált kvóta",
+    "colLocal": "Helyi tevékenység",
+    "colTokens": "Események · tokenek",
+    "colWindow": "Ablak",
+    "colUsed": "Felhasználva",
+    "colResets": "Visszaállítás",
+    "colLastChange": "Utolsó változás",
+    "gapKind": {
+      "collector_unavailable": "A gyűjtő nem érhető el",
+      "no_observations": "Nincs megfigyelés (az alkalmazás zárva volt vagy a számítógép alvó módban)"
+    },
+    "ongoing": "folyamatban",
+    "minutes": "{value} perc",
+    "gapsEmpty": "Ebben az időszakban nincs gyűjtési hiány.",
+    "windows": {
+      "heading": "Megfigyelt kvótaablakok",
+      "note": "A kvótaelőzmények csak a változásokat rögzítik, ezért egy csendes időszak nem hiány.",
+      "empty": "Ebben az időszakban nem rögzítettek kvótaablakot."
+    },
+    "privacyNote": "Csak a kvótaidőpontokat és a tokenszámokat elemezzük. Promptok, átiratok, fiókazonosítók és fájlelérési utak soha nem kerülnek bele."
+  },
+  "workspace": {
+    "openPalette": "Open command palette",
+    "paletteShortcut": "Command palette · Ctrl+K",
+    "focusMode": "Toggle focus mode",
+    "focusShortcut": "Focus mode · Alt+Shift+F",
+    "compactMode": "Toggle compact layout",
+    "paletteTitle": "Command palette",
+    "paletteSearch": "Search actions or jump to a section…",
+    "paletteClose": "Close command palette",
+    "focusOn": "Focus mode enabled",
+    "focusOff": "Focus mode disabled",
+    "compactOn": "Compact layout enabled",
+    "compactOff": "Comfortable layout enabled",
+    "glassOn": "Glass effect enabled",
+    "glassOff": "Glass effect disabled",
+    "motionOn": "Reduced motion enabled",
+    "motionOff": "Full motion enabled"
+  }
+}

@@ -1,0 +1,1372 @@
+{
+  "app": {
+    "title": "LLM Pulse — AI Usage Intelligence",
+    "eyebrow": "LLM Pulse",
+    "heading": "Limiti u tokens"
+  },
+  "actions": {
+    "refresh": "Aġġorna",
+    "settings": "Settings",
+    "close": "Agħlaq"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "password": "Password",
+    "signIn": "Idħol",
+    "loginFailed": "Il-login falla"
+  },
+  "filter": {
+    "showAll": "Uri kollox",
+    "showActive": "Attivi biss",
+    "hideInactive": "Aħbi fornituri inattivi",
+    "showInactiveCount": "Uri {count} fornituri inattivi",
+    "allVisible": "Il-fornituri kollha huma viżibbli",
+    "showAllNoticeTitle": "Dehra tal-fornituri kollha",
+    "showAllNoticeBody": "Karti ta’ fornituri inattivi, vojta, ta’ setup biss u storiċi huma viżibbli. Attivi biss hija d-dehra normali."
+  },
+  "layout": {
+    "edit": "Edit layout",
+    "done": "Done",
+    "reset": "Default order",
+    "resetDone": "Default dashboard order restored.",
+    "dragHandle": "Move {name}",
+    "grabbed": "Moving {name}. Use arrow keys to move, Enter or Space to drop, Escape to cancel.",
+    "moved": "{name} moved to position {position} of {total}.",
+    "dropped": "{name} dropped at position {position} of {total}.",
+    "cancelled": "Move cancelled."
+  },
+  "summary": {
+    "ariaLabel": "Ħarsa ġenerali",
+    "fiveHourOpen": "5h quota free",
+    "weeklyOpen": "Week quota free",
+    "tokensToday": "Logged tokens today",
+    "tokensTotal": "Tokens illoggjati b’kollox",
+    "recordDayLabel": "Jum rekord",
+    "recordDay": "Jum rekord: {date} · {tokens}",
+    "quotaWindowNote": "Provider quota window",
+    "tokensRange": "Logged tokens: {range}",
+    "todayLogNote": "Calendar day from local logs, not provider quota limits. {providers}",
+    "totalLogNote": "All local log history, not provider quota limits. {providers}",
+    "providerTokenDetail": "{provider}: {tokens}",
+    "providerBreakdownMore": "{providers} + {count} more",
+    "providerBreakdownEmpty": "No provider log tokens.",
+    "rangeNotes": {
+      "h24": "Rolling 24-hour total; chart bars are day-grained.",
+      "today": "Calendar day in local time.",
+      "week": "Last 7 days from local logs.",
+      "month": "Last 30 calendar days from local logs."
+    }
+  },
+  "chart": {
+    "eyebrow": "Local capture",
+    "heading": "Storja tat-tokens mil-logs",
+    "sourceTotalsAria": "Użu totali skont il-fornitur",
+    "legendAria": "Leġġenda",
+    "sourceTotalTitle": "Użu totali",
+    "svgAria": "Storja tat-tokens",
+    "costSummary": {
+      "title": "Cost summary",
+      "apiEquivalent": "API equivalent",
+      "paid": "Subscription fixed cost",
+      "saved": "Delta vs API",
+      "quote": "API difference",
+      "quality": "Data quality",
+      "qualityComplete": "Covered",
+      "qualityPartial": "Partially estimated",
+      "qualityUnavailable": "Unavailable",
+      "missingSubscriptions": "Subscription history or a reliable fixed-cost source is missing for this range.",
+      "estimatedSources": "Estimated providers: {providers}.",
+      "missingSources": "Not included: {providers}.",
+      "unsupportedCurrencies": "Unsupported currencies: {currencies}."
+    },
+    "costs": {
+      "svgAria": "Cost history",
+      "noData": "No cost data for the selected range."
+    },
+    "filters": {
+      "h24": "Last 24 hours",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all": "All Time"
+    },
+    "headingCosts": "Cost History from Logs",
+    "mode": {
+      "tokens": "Tokens",
+      "costs": "Costs"
+    },
+    "modeToggleAria": "Chart mode",
+    "filterBarAria": "Time range",
+    "insights": {
+      "ariaLabel": "Selected range statistics",
+      "total": "Total",
+      "selectedRange": "Selected range",
+      "avgActiveDay": "Ø active day",
+      "avgActiveDayDetail": "Based on {days} active days",
+      "activeDays": "Active days",
+      "activeDaysValue": "{active}/{days}",
+      "activeDaysDetail": "Days with usage",
+      "peakDay": "Peak day",
+      "noData": "No activity in the selected range.",
+      "selectedRangeDetail": "{range} shown with the selected range semantics."
+    },
+    "models": {
+      "heading": "Models used",
+      "range": "{range} model mix",
+      "topTokens": "Top by tokens: {model} · {tokens}",
+      "topCost": "Top by API-equivalent cost: {model} · {cost}",
+      "costUnknown": "API-equivalent cost unavailable for these models.",
+      "unknown": "Mudell mhux magħruf"
+    },
+    "breakdown": {
+      "total": "Kollox",
+      "provider": "Fornitur",
+      "model": "Mudell",
+      "device": "Installazzjoni",
+      "account": "Kont"
+    },
+    "breakdownToggleAria": "Tqassim tat-tokens",
+    "overviewAria": "Compact token history by provider",
+    "breakdownSummary": {
+      "totalTitle": "Total window",
+      "providerTitle": "Provider share",
+      "modelTitle": "Model share",
+      "topProvider": "Top provider",
+      "topModel": "Top model",
+      "coverage": "Coverage",
+      "providerCount": "{count} providers",
+      "modelCount": "{count} models",
+      "noProvider": "No provider breakdown",
+      "noModel": "No model breakdown"
+    },
+    "providers": {
+      "heading": "Providers used",
+      "range": "{range} provider mix",
+      "topTokens": "Top by tokens: {provider} · {tokens}",
+      "topModel": "Top model: {model} · {tokens}",
+      "noModel": "No model details",
+      "columns": {
+        "provider": "Provider",
+        "tokens": "Tokens",
+        "share": "Share",
+        "topModel": "Top model"
+      }
+    },
+    "totalBreakdown": {
+      "heading": "Total summary",
+      "range": "{range} aggregate"
+    },
+    "attribution": {
+      "groupBy": "Aggruppa skont",
+      "unknownAccount": "Kont mhux magħruf",
+      "unknownDevice": "Installazzjoni mhux magħrufa",
+      "sharedDevice": "Misjub f’diversi installazzjonijiet",
+      "sharedDeviceHelp": "Jingħadd darba; l-installazzjoni oriġinali mhix ċara.",
+      "observed": "Misjub fil-logs lokali",
+      "observedOn": "Misjub fuq installazzjonijiet",
+      "evidence": "Attribuzzjoni",
+      "observedHelp": "L-installazzjonijiet juru fejn instabu l-logs. Avvenimenti kkupjati jingħaddu darba; il-kompjuter oriġinali jista’ jkun mhux magħruf.",
+      "accountHelp": "Kont jiġi attribwit biss meta jkun irreġistrat fid-data tal-użu. Tokens oħra jibqgħu taħt Kont mhux magħruf."
+    }
+  },
+  "tokenMix": {
+    "eyebrow": "Token Mix",
+    "heading": "Ipproċessar tat-tokens illoggjat"
+  },
+  "liveMetrics": {
+    "ariaLabel": "Live system usage",
+    "eyebrow": "Live",
+    "heading": "Live Load",
+    "updated": "Updated {time}",
+    "notAvailable": "Not available",
+    "error": "Error",
+    "unavailable": "Not available",
+    "unavailableShort": "N/A",
+    "percentScale": "0-100%",
+    "cpu": "CPU",
+    "ram": "Memory",
+    "ramSub": "{used}/{total} GB used",
+    "aiLoad": "AI Load",
+    "aiLoadSub": "Heuristic",
+    "aiLoadHelp": "Estimated from CPU, memory, and token throughput. Not an exact measurement.",
+    "tokensPerMinute": "Tokens/min",
+    "noTokenWindow": "No measured window yet",
+    "noTokenBreakdown": "No reliable breakdown",
+    "historyHeading": "Trend",
+    "historyAria": "Live load trend",
+    "legendAria": "Live trend legend",
+    "historyLoading": "Collecting live data...",
+    "historyNoSeries": "No active series.",
+    "quality": {
+      "measured": "Measured",
+      "calculated": "From logs",
+      "estimated": "Estimated",
+      "unavailable": "Not available"
+    },
+    "series": {
+      "cpu": "CPU",
+      "ram": "Memory",
+      "aiLoad": "AI Load",
+      "tokensTotal": "Tokens/min",
+      "tokensInput": "Input",
+      "tokensOutput": "Output",
+      "tokensCached": "Cached",
+      "aiCpu": "AI CPU",
+      "aiMemory": "AI Memory",
+      "swap": "Swap"
+    },
+    "errors": {
+      "load": "Could not load live system metrics."
+    },
+    "tokensPerMinuteHelp": "Calculated from local Claude Code, Codex, Gemini, Copilot, and Ollama logs in the local aggregate. Multica Claude/Codex runs are included through those logs; API-only OpenAI/Anthropic billing is excluded to avoid double counting. Gemini agents may be missing when the Gemini CLI does not write token metadata.",
+    "systemCpu": "System CPU",
+    "systemRam": "System Memory",
+    "aiCpu": "AI CPU",
+    "aiCpuSub": "{count} AI processes",
+    "aiCpuHelp": "Aggregated CPU share of recognized local AI process groups. Commands and paths are not exposed.",
+    "aiMemory": "AI Memory",
+    "aiMemorySub": "{used} GB RSS",
+    "aiMemoryHelp": "Aggregated resident memory of recognized local AI process groups. Shared Electron and browser memory is approximate.",
+    "swap": "Swap",
+    "swapSub": "{used}/{total} GB used",
+    "swapHelp": "System swap usage. High swap can slow the Mac even when AI process memory is only part of the total.",
+    "noAiProcesses": "No AI process group found",
+    "processBreakdownHeading": "Running AI groups",
+    "processBreakdownHelp": "Safe aggregate view: running AI process groups and load shares without command lines, prompts, or paths.",
+    "processTotal": "AI total: {cpu} CPU · {memory} · {memoryShare} RAM · {count} running processes",
+    "processBreakdownUnavailable": "Process grouping is not available on this platform/runtime.",
+    "processBreakdownEmpty": "No recognized AI process group is currently running for the dashboard.",
+    "processColumns": {
+      "group": "Group",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "memoryShare": "RAM %",
+      "count": "Processes"
+    },
+    "recentRateWindow": "Rata live fuq 60 s li jiżżerżqu"
+  },
+  "pricing": {
+    "eyebrow": "Spejjeż API",
+    "heading": "Kemm kienu jiswew it-tokens tiegħek permezz tal-API",
+    "meta": "Katalgu {catalogVersion} · {modelCount} mudelli · EUR permezz tal-ECB {fxDate} · prezzijiet API {pricingDate} · Arena Text {scoreDate}",
+    "modelFilter": {
+      "label": "Iffiltra skont l-isem tal-mudell",
+      "placeholder": "Pereżempju Sol, 6.1 jew Claude",
+      "empty": "Ma nstab l-ebda mudell b’dan l-isem."
+    },
+    "qualityScoreTitle": "Arena Text {scoreDate}: {score} Elo",
+    "chinaBadge": "Iċ-Ċina",
+    "unknown": "Mhux magħruf",
+    "notPriced": "Mhux ipprezzat",
+    "aliases": "Ismijiet alternattivi: {aliases}",
+    "limitSummary": "kuntest {context} · output {output}",
+    "sourceReviewed": "Rivedut {date}",
+    "regions": {
+      "apiDiscount": "Skont API"
+    },
+    "columns": {
+      "model": "Mudell",
+      "score": "Punteġġ",
+      "region": "Reġjun",
+      "limits": "Limiti",
+      "input": "Daħħal",
+      "cache": "Memorja temporanja",
+      "output": "Riżultat",
+      "today": "Last 24h",
+      "total": "B’kollox",
+      "status": "Stat",
+      "source": "Sors"
+    },
+    "priceStatus": {
+      "official": "Prezz uffiċjali",
+      "estimated": "Prezz stmat",
+      "unknown": "Prezz mhux magħruf",
+      "mixed": "Prezzijiet imħallta"
+    },
+    "availability": {
+      "ga": "Disponibbli b’mod ġenerali",
+      "preview": "Previżjoni",
+      "deprecated": "Deprekat",
+      "unknown": "Disponibbiltà mhux magħrufa"
+    },
+    "limitStatus": {
+      "official": "Limiti uffiċjali",
+      "estimated": "Limiti stmati",
+      "unknown": "Limiti mhux magħrufa"
+    },
+    "viewToggleAria": "Cost view",
+    "aliasesSummary": "{count} aliases",
+    "views": {
+      "api": "API equivalent",
+      "models": "Used models",
+      "subscriptions": "Fixed costs"
+    },
+    "usedModels": {
+      "heading": "Used models in {range}",
+      "description": "Actual logged model usage matched to the local pricing catalog where possible.",
+      "empty": "No model-level token data is available for the selected range.",
+      "totalLabel": "Spiża API totali",
+      "totalComplete": "Komplut",
+      "totalPartial": "Parzjali",
+      "totalUnknown": "Mhux magħruf",
+      "totalMixed": "Muniti mħallta",
+      "totalPartialNote": "Xi ringieli murija m’għandhomx prezz API affidabbli, għalhekk it-total huwa parzjali.",
+      "totalUnknownNote": "L-ebda ringiela murija m’għandha prezz API affidabbli.",
+      "totalMixedNote": "Ir-ringieli murija jużaw diversi muniti; ma jiġi kkalkulat l-ebda total.",
+      "totalRow": "Spiża API totali"
+    },
+    "subscriptions": {
+      "heading": "Subscription and fixed costs in {range}",
+      "description": "Shows monthly fixed costs only when safely detected locally or saved as fallback estimates. Missing data is not treated as real cost.",
+      "empty": "No subscription or fixed-cost data is available yet.",
+      "previous": "Previous cost",
+      "delta": "Change"
+    }
+  },
+  "providers": {
+    "codex": {
+      "kicker": "Codex"
+    },
+    "codexSpark": {
+      "kicker": "Codex Spark"
+    },
+    "claudeCode": {
+      "kicker": "Claude Code"
+    },
+    "anthropic": {
+      "kicker": "Użu API"
+    },
+    "openai": {
+      "kicker": "API u krediti"
+    },
+    "gemini": {
+      "kicker": "Gemini"
+    },
+    "glm": {
+      "kicker": "OpenAI-compatible import"
+    },
+    "ollama": {
+      "kicker": "Ollama"
+    },
+    "local": {
+      "name": "Local capture"
+    },
+    "gridAria": "Fornituri",
+    "messages": {
+      "sparkTokens24h": "Spark tokens 24h",
+      "logTokens24h": "Log tokens 24h",
+      "missingBackendKey": "Backend key nieqsa",
+      "sevenDays": "7 ijiem",
+      "noCodexSparkEvents": "Ma nstabux avvenimenti Codex 5.3 Spark.",
+      "noGeminiLogs": "Ma nstabux Gemini usage logs lokali.",
+      "glmImportTokens": "GLM/Z.AI tokens from local imports.",
+      "glmQuotaUnavailable": "Official quota through OpenCode is not available.",
+      "noGlmEvents": "No local GLM/Z.AI usage events found.",
+      "ollamaLogTokens": "Tokens Ollama lokali mil-logs",
+      "noOllamaLogs": "Ma nstabux logs Ollama lokali.",
+      "copilotLogTokens": "Copilot CLI tokens 24h",
+      "noCopilotSessionMetrics": "No local Copilot CLI session metrics found.",
+      "claudeStatuslineNoQuotas": "Claude is sending data, but not official Pro/Max limit values yet.",
+      "claudeStatuslineMissing": "Il-statusline ta Claude mhuwiex ikkonfigurat. Attiva l-kmand statusline tad-dashboard għal kwoti Pro/Max live.",
+      "claudeLiveLimitsMissing": "Claude live limits are not available from local telemetry yet.",
+      "claudeLimitsStale": "Claude live limits are out of date. Open Claude Code once to refresh them.",
+      "claudeOauthUnavailable": "Claude CLI/OAuth quota unavailable: {reason}.",
+      "claudeBrowserLoginHint": "Log in to Claude.ai in your browser to enable credit tracking.",
+      "glmQuotaAvailable": "Official GLM Coding Plan quota from OpenCode.",
+      "glmQuotaUnavailableReason": "Official GLM Coding Plan quota unavailable: {reason}.",
+      "noOpenCodeGptEvents": "No local OpenAI/GPT usage events found in OpenCode."
+    },
+    "emptyState": {
+      "eyebrow": "Fornitur",
+      "heading": "Ebda użu attiv",
+      "status": "Vojt",
+      "message": "Bħalissa l-ebda fornitur m’għandu tokens illoggjati jew data tal-limiti.",
+      "visible": "Viżibbli",
+      "hidden": "Moħbi",
+      "all": "Kollha"
+    },
+    "copilot": {
+      "kicker": "Copilot CLI"
+    },
+    "updateDelayHints": {
+      "default": "This provider has not produced a fresh local signal for more than {minutes} minutes. Some sources only update when their CLI or app writes new usage data.",
+      "codex": "Codex limits normally update through the local app-server. If this stays old, the app-server may be unavailable or Codex has not produced fresh live limit data.",
+      "codexSpark": "Codex Spark limits normally update through the local Codex app-server. If this stays old, Spark live limit data may not be exposed yet.",
+      "claudeCode": "This Claude Code card combines statusline, local logs, and Claude.ai billing or usage data. Updates can lag when Claude Code is closed, the statusline has not run, or Claude.ai cookies/API access are unavailable.",
+      "copilot": "GitHub Copilot CLI usage is written after sessions shut down, and live quota probing depends on the local Copilot CLI. The timestamp can lag while a session is still open or the probe is unavailable.",
+      "gemini": "Gemini local usage updates only when local log files contain new usage metadata.",
+      "glm": "GLM/Z.AI updates when local JSON, JSONL, or CSV usage imports contain OpenAI-compatible GLM token counts.",
+      "ollama": "Ollama usage updates only when requests pass through the dashboard's local proxy/log file."
+    },
+    "freshness": {
+      "ariaLabel": "Ħin tad-dejta tal-fornitur",
+      "usage": "Użu {time}",
+      "limits": "Limiti {time}",
+      "prices": "Prezzijiet {time}",
+      "catalog": "Katalgu {date}",
+      "unknown": "Ħin tad-dejta mhux magħruf"
+    },
+    "openCode": {
+      "kicker": "OpenCode GPT logs"
+    },
+    "kimi": {
+      "kicker": "Kimi Code"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "empty": "Vojt",
+    "not_configured": "Setup",
+    "error": "Żball"
+  },
+  "labels": {
+    "today": "Illum",
+    "fiveHourUsed": "5h użati",
+    "weekUsed": "Ġimgħa użata",
+    "fiveHourLeft": "5 h fadal",
+    "weekLeft": "Ġimgħa fadal",
+    "since": "Minn",
+    "updated": "Aġġornat",
+    "plan": "Pjan",
+    "fiveHourTokens": "5h tokens",
+    "total": "Total",
+    "cost": "Spiża",
+    "tokens7d": "Tokens 7 ijiem",
+    "cost7d": "Spiża 7 ijiem",
+    "limits": "Limiti",
+    "updatedHelp": "Why this timestamp may be delayed",
+    "subscription": "Subscription",
+    "last24h": "Last 24h"
+  },
+  "credits": {
+    "title": "Krediti",
+    "monthlySpend": "Krediti tal-użu",
+    "monthlyLimit": "Limit fix-xahar",
+    "currentCredit": "Kreditu attwali",
+    "autoTopUp": "Top-up awtomatiku",
+    "default": "Krediti",
+    "on": "Mixgħul",
+    "off": "Mitfi"
+  },
+  "limits": {
+    "recentPace": {
+      "timeToLimit": "Ħin sal-limitu: {duration}",
+      "title": "Pass riċenti",
+      "measured": "+{percent} punti perċentwali f’{duration}",
+      "collecting": "Għad m’hemmx biżżejjed kejl għal dan il-perjodu.",
+      "flat": "Ebda żieda li tista’ titkejjel f’dan il-perjodu.",
+      "stale": "L-aħħar qari tal-kwota huwa antik wisq.",
+      "changed": "Il-qari nbidel; m’hemmx tbassir.",
+      "possible": "Il-limitu jista’ jintlaħaq qabel ir-reset; l-istima mhix ċerta.",
+      "note": "Stima minn perċentwali mqarrba b’pass kostanti."
+    },
+    "fiveHour": "5h",
+    "weekly": "Ġimgħa",
+    "currentSession": "Sessjoni attwali",
+    "allModels": "Il-mudelli kollha",
+    "claudeDesign": "Claude Design",
+    "sonnetOnly": "Biss Sonnet",
+    "default": "Limit",
+    "resetPrefix": "Reset {time}",
+    "usedValue": "{percent}% użat",
+    "leftValue": "{percent}% fadal",
+    "freeLabel": "{label} disponibbli",
+    "limitGroups": "{count} gruppi ta’ limiti",
+    "noModelLimits": "Ebda limiti tal-mudelli",
+    "remainingShort": "{days}d {hours}h {minutes}m",
+    "fullTitle": "Limit full",
+    "fullDescription": "{limit} is full.",
+    "fullTokenDetail": "{tokens} tokens in {period}",
+    "fullPremiumRequestsDetail": "{requests} premium requests from local session logs",
+    "fullResetDetail": "Reset {time}",
+    "period5h": "5h",
+    "period7d": "7d",
+    "period24h": "24h",
+    "fullQuotaDetail": "{usage} used",
+    "status": {
+      "ok": "On track",
+      "risk": "Ritmu gholi",
+      "full": "Limit reached",
+      "unknown": "Unknown"
+    },
+    "pace": {
+      "remaining": "Bir-ritmu attwali jibqa madwar {percent}% sal-reset.",
+      "shortfall": "Bir-ritmu attwali jonqos madwar {percent}% sal-reset.",
+      "hitBeforeReset": "Bir-ritmu attwali l-limitu jintlaħaq madwar {duration} qabel ir-reset. ({time})",
+      "fullWithReset": "Il-limitu ntlaħaq; reset {time}.",
+      "fullNoReset": "Il-limitu ntlaħaq; il-hin tar-reset mhux disponibbli.",
+      "unavailable": {
+        "noUsage": "Ritmu mhux disponibbli: dan is-sors ma jaghtix percentwal ta uzu.",
+        "noWindow": "Ritmu mhux disponibbli: dan is-sors ma jaghtix tul ta tieqa jew hin tar-reset.",
+        "notStarted": "Ritmu mhux disponibbli: din it-tieqa tal-kwota ghadha ma bdietx.",
+        "staleReset": "Ritmu mhux disponibbli: il-hin tar-reset qadim; aggorna s-sors."
+      }
+    },
+    "duration": {
+      "daysHours": "{days} j {hours} sieg",
+      "hoursMinutes": "{hours} sieg {minutes} min",
+      "minutes": "{minutes} min"
+    },
+    "gauge": {
+      "title": "Użu kurrenti",
+      "projectedValue": "{percent}% previst",
+      "unavailable": "Il-projezzjoni mhix disponibbli",
+      "aria": "Użu finali previst għal {label}"
+    },
+    "viewToggleAria": "Viżwalizzazzjoni tal-użu attwali",
+    "view": {
+      "tachometer": "Arloġġ",
+      "bar": "Strixxa"
+    },
+    "remainingUntilReset": "Resets in {remaining} · Reset {time}",
+    "glmFiveHourTokens": "5h tokens",
+    "glmWeekly": "Weekly quota",
+    "glmMcpMonthly": "Monthly MCP"
+  },
+  "tokens": {
+    "input": "Input",
+    "cacheCreation": "Ħolqien tal-cache",
+    "cachedInput": "Input fil-cache",
+    "output": "Output",
+    "reasoningOutput": "Output reasoning",
+    "total": "Total"
+  },
+  "format": {
+    "billion": "biljun",
+    "million": "miljun",
+    "thousand": "elf",
+    "lessThanSharePercent": "<0.1%",
+    "lessThanCent": "< 0.01 EUR",
+    "usdPerMillion": "{value} $/M",
+    "cacheReadWrite": "{read} qari / {write} kitba",
+    "cacheSameAsInput": "bħall-input",
+    "perMonth": "{amount}/mo",
+    "fromPerMonth": "minn {amount}/xahar"
+  },
+  "settings": {
+    "heading": "Settings",
+    "language": {
+      "label": "Lingwa"
+    },
+    "theme": {
+      "label": "Tema",
+      "system": "Sistema",
+      "light": "Ċar",
+      "dark": "Skur"
+    },
+    "notifications": {
+      "title": "Limits & warnings",
+      "description": "Warnings use real 5-hour and weekly provider windows plus projections; they are separate from monthly subscription/API cost comparisons.",
+      "enabled": "Enable notifications",
+      "pacingLabel": "Pacing warning at projected provider-window usage (%)",
+      "hardLimitLabel": "Hard warning at measured provider-window usage (%)",
+      "save": "Save",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "diagTitle": "Notification diagnostics",
+      "diagLastCheck": "Last check",
+      "diagDuration": "Duration",
+      "diagAlerts": "Alerts found",
+      "diagLastShown": "Last notification sent",
+      "diagSkipped": "Skip reason",
+      "diagError": "Last error",
+      "diagSupported": "Notifications supported",
+      "diagNone": "None",
+      "diagNever": "Never",
+      "diagYes": "Yes",
+      "diagNo": "No",
+      "testBtn": "Send test notification",
+      "testQueued": "Test requested. If no real system banner appears, open system notifications, allow LLM Pulse, restart the app, then run the test again.",
+      "testError": "Could not send test notification.",
+      "testResultLabel": "Last test result",
+      "testResultAt": "At",
+      "testResultOutcome": "Outcome",
+      "testResult_shown": "Reported as shown by an older build",
+      "testResult_not_supported": "Not supported on this system",
+      "testResult_error": "Error",
+      "diagPermission": "Browser permission (not a macOS banner guarantee)",
+      "permission_granted": "Granted for browser API",
+      "permission_default": "Not asked yet",
+      "permission_denied": "Denied",
+      "permission_unsupported": "Unsupported",
+      "permission_unknown": "Unknown",
+      "permission_error": "Permission check failed",
+      "permissionNotGranted": "Notification permission was not granted. System notification settings were opened; allow LLM Pulse, restart the app, then run the test again.",
+      "permissionUnsupported": "This app runtime does not expose desktop notification permission.",
+      "testResult_sent": "Queued with Electron (banner not confirmed)",
+      "testQueuedRendererError": "Native macOS notification queued, but the immediate browser notification failed: {error}",
+      "testTitle": "LLM Pulse - Test",
+      "testBody": "Desktop notifications are working correctly.",
+      "inAppTestTitle": "In-app test notification",
+      "inAppTestErrorTitle": "Notification test needs attention",
+      "inAppTestBody": "This in-app fallback confirms the test ran. It is not a system banner; native banners may require system notification permission, a fresh app restart, and a properly signed build.",
+      "diagNativeDelivery": "Native system delivery",
+      "nativeDelivery_ready": "Signed app: native banners should be available",
+      "nativeDelivery_ad_hoc": "Ad-hoc build: native banners may not appear",
+      "nativeDelivery_gatekeeper_rejected": "Gatekeeper rejected: native banners may not appear",
+      "nativeDelivery_unverified": "Unverified",
+      "nativeDelivery_not_applicable": "Not applicable on this platform",
+      "nativeDelivery_unknown": "Unknown",
+      "openSettingsBtn": "Open system notification settings",
+      "openSettingsQueued": "System notification settings opened. Allow notifications for LLM Pulse, restart the app if you just changed the setting, then run the test again.",
+      "openSettingsError": "Could not open system notification settings from this runtime.",
+      "systemGuideTitle": "System notifications need attention",
+      "systemGuideDefault": "Allow notifications for LLM Pulse in system settings, restart the app if you just changed the setting, then run the test again.",
+      "systemGuidePermission": "This app does not yet have notification permission. System settings were opened; allow notifications for LLM Pulse there.",
+      "systemGuideUnsupported": "This runtime cannot read browser notification permission. Open system notification settings and allow notifications for LLM Pulse there.",
+      "systemGuideNativeUnverified": "Native banners are not reliably confirmed with this build. Check system notifications, allow LLM Pulse, then test again after restarting the app.",
+      "systemGuideTestFailed": "The last native notification attempt reported a failure. Check system notifications, restart the app, then run the test again.",
+      "systemGuideAfterTest": "If no real system banner appeared, check system notifications, allow LLM Pulse, restart the app, then send the test again.",
+      "thresholdsHelp": "Pacing uses the current consumption rate; hard warning uses measured consumption in the relevant 5h or weekly provider window.",
+      "nativeAlertTitle": "Twissija tal-limitu: {window}",
+      "nativeUsedPercent": "Intuża {percent}%.",
+      "nativeHardLimit": "Il-limitu kważi ntuża kollu.",
+      "nativePacingProjected": "Intuża {usedPercent}%; ir-ritmu attwali jbassar {projectedPercent}%.",
+      "nativeEstimatedExhaustion": "Eżawriment stmat fi {time}.",
+      "nativeDurationHoursMinutes": "{hours} s {minutes} min",
+      "nativeDurationHours": "{hours} s",
+      "nativeDurationMinutes": "{minutes} min",
+      "nativeWindowFiveHour": "Tieqa ta' 5 sigħat",
+      "nativeWindowWeekly": "Limitu ta' kull ġimgħa",
+      "nativeWindowSonnetOnly": "Limitu Sonnet biss",
+      "nativeWindowClaudeDesign": "Limitu Claude Design",
+      "nativeWindowGeneric": "Limitu"
+    },
+    "subscriptions": {
+      "title": "Subscription costs",
+      "planLabel": "Plan",
+      "monthlyCostLabel": "Monthly cost (EUR)",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "description": "Detected plans and costs come from safe local signals. Missing data is not counted as real cost.",
+      "detectedOnly": "Manual values are not normal setup. Use Advanced only as a fallback estimate when local detection is unavailable.",
+      "advancedTitle": "Advanced fallback estimates",
+      "advancedDescription": "These values are saved fallback estimates. Cards and cost views label them as estimates, not automatically detected costs."
+    },
+    "sources": {
+      "title": "Data sources & diagnostics",
+      "description": "Manage connected sources, recheck access, and copy ACL commands for other local users.",
+      "recheck": "Recheck access",
+      "recheckOne": "Recheck access",
+      "recheckPending": "Checking...",
+      "rechecked": "Source diagnostics refreshed.",
+      "recheckError": "Could not refresh source diagnostics.",
+      "currentUser": "current user",
+      "summaryStatus": "Status: {status}",
+      "summaryCounts": "{connected} usable · {candidates} additional candidates",
+      "connectedTitle": "Usable sources",
+      "candidatesTitle": "Additional detected sources",
+      "connectedEmpty": "No usable sources detected yet.",
+      "candidatesEmpty": "No additional source candidates detected right now.",
+      "owner": "Owner: {owner}",
+      "discovery": "Discovery: {method} · confidence {confidence}",
+      "access": {
+        "readable": "Readable",
+        "mixed": "Partially readable",
+        "denied": "Access denied",
+        "missing": "Missing",
+        "process_only": "Process only",
+        "service_only": "Service only"
+      },
+      "permissions": {
+        "readable": "Readable",
+        "denied": "Denied",
+        "missing": "Missing",
+        "unknown": "Unknown",
+        "optionalMissing": "Optional missing"
+      },
+      "roles": {
+        "sessions": "Sessions",
+        "archived_sessions": "Archived sessions",
+        "projects": "Projects",
+        "session_state": "Session state",
+        "telemetry": "Telemetry",
+        "chats": "Chats",
+        "tmp": "Temporary files",
+        "usage_file": "Usage file",
+        "home": "Home"
+      },
+      "noPaths": "No direct filesystem path available.",
+      "connect": "Connect",
+      "connectPending": "Connecting...",
+      "connectSuccess": "Source connected. Running a fresh diagnostics pass now.",
+      "connectError": "Could not connect source.",
+      "disable": "Disable",
+      "disablePending": "Disabling...",
+      "disableSuccess": "Source disabled. Usage totals were refreshed.",
+      "disableError": "Could not disable source.",
+      "grantCommands": "Grant commands",
+      "revokeCommands": "Revoke commands",
+      "copyGrant": "Copy grant commands",
+      "copyRevoke": "Copy revoke commands",
+      "copyGrantSuccess": "Grant commands copied to the clipboard.",
+      "copyRevokeSuccess": "Revoke commands copied to the clipboard.",
+      "copyError": "Could not copy commands to the clipboard.",
+      "automatic": "used automatically"
+    },
+    "supportReport": {
+      "title": "Support report",
+      "description": "Generate a redacted support report for Multica or WhatsApp when local sources are missing or usage does not appear.",
+      "privacyNote": "The report contains only metadata and redacted paths, no raw logs, prompts, secrets, or provider payloads.",
+      "downloadJson": "Save JSON report",
+      "copySummary": "Copy summary",
+      "summaryLabel": "Compact summary",
+      "emptySummary": "Generate a report to preview the compact support summary.",
+      "preparing": "Preparing support report...",
+      "downloaded": "Support report saved.",
+      "copied": "Support summary copied to the clipboard.",
+      "generateError": "Could not generate support report: {message}",
+      "copyError": "Could not copy support summary to the clipboard."
+    },
+    "updates": {
+      "title": "App updates",
+      "description": "Automatic update checks are always active for supported packaged desktop builds; only preview releases are optional.",
+      "enabled": "Automatic update checks are always active",
+      "allowPrerelease": "Include preview releases",
+      "saved": "Saved.",
+      "saveError": "Could not save update settings.",
+      "diagTitle": "Update diagnostics",
+      "diagState": "State",
+      "diagSupport": "Support",
+      "diagLastCheck": "Last check",
+      "diagVersion": "App version",
+      "diagAvailable": "Available version",
+      "diagError": "Last error",
+      "diagNone": "None",
+      "checkNow": "Check now",
+      "checkQueued": "Update check queued.",
+      "checkError": "Could not request update check.",
+      "noticeTitle": "Update attention needed",
+      "noticeMacSigning": "macOS automatic updates require a signed app. This unsigned build can run after manual approval, but the updater will stay disabled until Developer ID signing and notarization are configured.",
+      "noticeDevelopment": "Automatic updates run only from a packaged desktop app, not from the development runtime.",
+      "noticeUnsupported": "Automatic updates are not supported on this platform/package.",
+      "noticeGatekeeper": "The app is signed, but Gatekeeper did not fully accept it. If updates behave oddly, reinstall a notarized build.",
+      "noticeDownloaded": "An update has been downloaded. Restart the app to install it.",
+      "noticeError": "The last update check failed. Check the error line, network access, and release assets.",
+      "state_unknown": "Unknown",
+      "state_disabled": "Disabled",
+      "state_checking": "Checking",
+      "state_available": "Update available",
+      "state_downloading": "Downloading",
+      "state_up_to_date": "Up to date",
+      "state_downloaded": "Downloaded",
+      "state_error": "Error",
+      "state_not_electron": "Not running in desktop app",
+      "state_development_build": "Development build",
+      "state_macos_signing_required": "macOS signing required",
+      "state_unsupported_platform": "Unsupported platform",
+      "support_ready": "Ready",
+      "support_development_build": "Development build",
+      "support_macos_signing_required": "macOS signing required",
+      "support_macos_gatekeeper_warning": "Signed, but Gatekeeper warning",
+      "support_unsupported_platform": "Unsupported platform",
+      "support_electron_updater_missing": "Updater package missing",
+      "support_unknown": "Unknown",
+      "state_electron_updater_missing": "Updater package missing",
+      "alwaysOn": "Automatic update checks are always active."
+    },
+    "saving": "Saving..."
+  },
+  "errors": {
+    "loadUsage": "Żball"
+  },
+  "diagnostics": {
+    "ariaLabel": "Source diagnostics",
+    "eyebrow": "Local sources",
+    "heading": "Diagnostics & connection",
+    "recheck": "Recheck access",
+    "loading": "Loading source diagnostics...",
+    "meta": "User {user} · Checked {checkedAt} · {platform} · {support}",
+    "support": {
+      "full": "full host discovery",
+      "partial_container": "limited container discovery",
+      "stub": "platform check unavailable",
+      "unsupported": "unsupported platform"
+    },
+    "supportShort": {
+      "full": "Full",
+      "partial_container": "Limited",
+      "stub": "Unavailable",
+      "unsupported": "Unavailable"
+    },
+    "supportDescriptions": {
+      "full": "Host file access, process hints, and permissions are measured on this machine.",
+      "partial_container": "Container discovery can miss host users, services, and homes; mounted logs can still be read.",
+      "stub": "Host source discovery is not available on this platform build; current-user configured logs may still be read.",
+      "unsupported": "Host source discovery is unavailable here; use Settings or a supported host build for source setup."
+    },
+    "quality": {
+      "measured": "Measured",
+      "configured": "Configured",
+      "detected": "Detected",
+      "limited": "Limited",
+      "unavailable": "Unavailable"
+    },
+    "facets": {
+      "logs": {
+        "title": "Readable log sources",
+        "available": "The app can read at least one local usage source.",
+        "empty": "No readable token log source was found in this scan."
+      },
+      "savedSources": {
+        "title": "Saved extra sources",
+        "available": "These are additional sources saved in Settings.",
+        "empty": "Zero saved sources is OK: current-user log history can still appear below."
+      },
+      "permissions": {
+        "title": "Permission fixes",
+        "blocked": "At least one plausible source exists, but this app cannot read it yet.",
+        "clear": "No denied source path was found in this scan."
+      },
+      "runtimeHints": {
+        "title": "Process/service hints",
+        "available": "A supported tool is visible only as a process or service, not as readable logs.",
+        "empty": "No process-only or service-only source hints were found."
+      },
+      "platform": {
+        "title": "Platform coverage"
+      }
+    },
+    "errors": {
+      "load": "Could not load source diagnostics: {message}"
+    },
+    "statuses": {
+      "connected_live": {
+        "title": "Local data is available",
+        "body": "Readable local sources are available. Saved extra-source counts only track sources you connected manually."
+      },
+      "current_user_empty": {
+        "title": "Current-user logs empty",
+        "body": "The current desktop user was scanned, but no local usage files with token data were found yet."
+      },
+      "candidates_readable_empty": {
+        "title": "Readable candidates found",
+        "body": "Known tool folders are readable, but they currently look empty or are not saved as extra sources."
+      },
+      "candidates_denied": {
+        "title": "Permission action needed",
+        "body": "A plausible source was found, but this app cannot read it with the current account."
+      },
+      "runtime_hints_only": {
+        "title": "Tool seen without readable logs",
+        "body": "A supported tool process or service was detected, but no readable log folder was found for it yet."
+      },
+      "no_tools_found": {
+        "title": "No local tools found",
+        "body": "No supported local tool folders, related processes, or service hints were detected on this machine."
+      },
+      "other_dashboard_found": {
+        "title": "Other dashboard instance found",
+        "body": "Another local LLM Pulse instance is running and may already be reading local usage data."
+      },
+      "partial_unsupported": {
+        "title": "Discovery is limited here",
+        "body": "This runtime can only do limited source discovery, so some users, services, or homes may stay invisible."
+      },
+      "discovery_error": {
+        "title": "Discovery error",
+        "body": "Source discovery did not finish cleanly."
+      }
+    },
+    "nextActions": {
+      "connected_live": "No action is needed; local data below can come from default current-user logs even with zero saved extra sources.",
+      "current_user_empty": "No action is needed unless you expected history; start a supported tool or inspect sources in Settings.",
+      "candidates_readable_empty": "Open Settings > Local sources if you want to save one of these readable sources.",
+      "candidates_denied": "Open Settings > Local sources, copy the ACL command for the denied source, run it as an admin, then recheck.",
+      "runtime_hints_only": "Wait for the tool to write usage logs, or configure the readable source in Settings and recheck.",
+      "no_tools_found": "Start a supported local tool or add a source in Settings, then recheck.",
+      "other_dashboard_found": "Use the already running dashboard window or stop it before checking this instance again.",
+      "partial_unsupported": "Run the desktop app on the host OS for fuller discovery; mounted local logs can still be shown below.",
+      "discovery_error": "Recheck access. If it fails again, check the backend error and source settings."
+    },
+    "recheckResults": {
+      "checking": "Checking...",
+      "ready": "Recheck complete: {status}",
+      "action": "Action needed: {status}",
+      "error": "Recheck failed: {message}",
+      "empty": "Recheck did not return diagnostics."
+    },
+    "instances": {
+      "title": "Other dashboard instances",
+      "item": "{user} has another dashboard instance running."
+    }
+  },
+  "subscriptions": {
+    "plan": "Plan: {plan}",
+    "planUnknown": "Plan unknown",
+    "costUnknown": "Cost unknown",
+    "source": "Source: {source}",
+    "updated": "Updated {time}",
+    "qualityLabel": "Cost quality",
+    "sourceLabel": "Source",
+    "quality": {
+      "automatic": "Automatically detected",
+      "manual": "Saved fallback estimate",
+      "estimated": "Estimated / partial",
+      "unknown": "Unknown",
+      "catalog": "Valur tal-katalgu",
+      "official": "Prezz uffiċjali tal-lista",
+      "officialStarting": "Prezz tal-lista uffiċjali tal-bidu"
+    },
+    "sources": {
+      "local_settings": "saved fallback",
+      "account": "sors tal-kont/kontijiet",
+      "codex_app_server": "Codex local app-server",
+      "codex_local_logs": "Codex local logs",
+      "claude_statusline": "Claude Code statusline",
+      "claude_auth_status": "Claude CLI auth status",
+      "claudeCode_local_signal": "Claude Code local signal",
+      "codex_local_signal": "Codex local signal",
+      "copilot_local_signal": "Copilot local signal",
+      "gemini_local_signal": "Gemini local signal",
+      "openai_api": "OpenAI API metadata",
+      "anthropic_api": "Anthropic API metadata",
+      "unknown": "unknown",
+      "openai_public_catalog": "katalgu pubbliku tal-abbonamenti ta' OpenAI",
+      "anthropic_public_catalog": "katalgu pubbliku tal-abbonamenti ta' Anthropic",
+      "claude_browser_sync": "sinkronizzazzjoni browser/kont Claude",
+      "claude_api": "API tal-uzu tal-kont Claude",
+      "browser": "sors tal-kont tal-browser",
+      "official_pricing_page": "paġna uffiċjali tal-prezzijiet",
+      "cached_official_snapshot": "snapshot uffiċjali fil-cache",
+      "bundled_catalog": "katalgu inkluż",
+      "account_billing": "sors tal-kont/fatturazzjoni"
+    },
+    "catalogReviewed": "Katalgu rivedut fil-{date}",
+    "costReasons": {
+      "catalogMissing": "L-ebda prezz affidabbli tal-katalogu jew tal-kont ma jaqbel ma dan il-pjan misjub.",
+      "catalogMissingCodexAppServer": "L-app-server lokali Codex wera l-pjan, imma mhux prezz fix-xahar; ma nstabx prezz affidabbli fil-katalogu.",
+      "catalogMissingClaudeStatusline": "Claude statusline wera l-pjan, imma mhux prezz fix-xahar; dejta tal-browser/kont nieqsa jew ma turix prezz.",
+      "catalogMissingClaudeAuth": "Claude CLI auth wera l-pjan, imma mhux prezz fix-xahar; dejta tal-browser/kont nieqsa jew ma turix prezz.",
+      "catalogMissingClaudeBrowser": "{source} gie ccekjat, imma ma jurix prezz fix-xahar tal-pjan."
+    },
+    "costActions": {
+      "addFallback": "Aġġorna s-sors tal-katalgu/kont jew żid stima ta' riżerva f'Advanced."
+    },
+    "planSource": "Pjan/limiti minn {source}",
+    "planSourceLabel": "Sors tal-pjan/limiti",
+    "catalogFallbackNote": "Il-prezz ta’ kull xahar huwa fallback tal-katalgu; sorsi tal-app/kont read-only jagħtu dejta tal-pjan, limiti jew krediti, iżda mhux prezz ta’ kull xahar affidabbli.",
+    "sourceAudit": {
+      "heading": "Sorsi tal-prezz għall-qari biss",
+      "safePriceDetected": "instab prezz ta’ kull xahar affidabbli",
+      "planOnlyNoPrice": "pjan/limiti biss; ebda prezz ta’ kull xahar espost",
+      "browserNoPrice": "iċċekkjat; ebda prezz ta’ kull xahar affidabbli espost",
+      "catalogFallback": "prezz ta’ riżerva mill-katalgu",
+      "notConfigured": "mhux preżenti f’din it-tħaddima",
+      "notAvailable": "m’hemmx sors sigur tal-prezz għall-qari biss",
+      "notUsed": "mhux użat",
+      "officialListPrice": "prezz uffiċjali tal-lista",
+      "accountSourceExpired": "is-sors tal-kont skada",
+      "accountSourceUnavailable": "is-sors tal-kont mhux disponibbli"
+    },
+    "officialListPriceNote": "Prezz uffiċjali tal-lista; il-kont reali jista’ jvarja minħabba VAT/taxxi, skontijiet annwali, seats, kupuni, prezzijiet reġjonali jew kuntratti Enterprise.",
+    "fetched": "Miġjub {time}",
+    "sourceUrl": "URL: {url}",
+    "planKey": "Ċavetta tal-pjan: {key}",
+    "parserStatus": "Parser: {status}",
+    "priceSourceTypeLabel": "Tip tas-sors tal-prezz",
+    "sourceUrlLabel": "URL tas-sors",
+    "fetchedLabel": "Ħin tal-qbid/dejta",
+    "planKeyLabel": "Ċavetta tal-pjan",
+    "parserStatusLabel": "Status tal-parser",
+    "parserStatuses": {
+      "parsed": "ipproċessat",
+      "parse_failed": "falliet il-parse",
+      "cached_after_fetch_error": "cache wara żball ta’ qbid",
+      "bundled": "fallback inkluż",
+      "missing": "nieqes",
+      "unknown": "mhux magħruf"
+    },
+    "officialStartingListPriceNote": "Prezz tal-lista uffiċjali tal-bidu; il-kont attwali tal-account ma nqrax u jista’ jvarja minħabba livell, VAT/taxxi, skontijiet annwali, seats, kupuni, prezzijiet reġjonali, add-ons jew kuntratti enterprise.",
+    "tierVariant": "Livell/varjant: {variant}",
+    "actualBilling": "Kont attwali magħruf: {status}",
+    "tierVariantLabel": "Livell/varjant",
+    "actualBillingKnownLabel": "Kont attwali magħruf",
+    "priceVariants": {
+      "from": "minimu / minn",
+      "pro_5x": "Pro 5x",
+      "pro_5x_20x": "Pro 5x/20x",
+      "pro_20x": "Pro 20x",
+      "max_5x": "Claude Max 5x",
+      "max_5x_20x": "Claude Max 5x/20x",
+      "max_20x": "Claude Max 20x",
+      "unknown": "mhux magħruf"
+    },
+    "actualBillingKnown": {
+      "yes": "iva",
+      "no": "le"
+    },
+    "connectionActions": {
+      "refresh": "Aġġorna",
+      "claudeLogin": "Idħol f’Claude u aqra l-pjan",
+      "claudeRefresh": "Aqra mill-ġdid il-pjan ta’ Claude",
+      "chatgptLogin": "Idħol f’ChatGPT u aqra l-pjan",
+      "chatgptRefresh": "Aqra mill-ġdid il-pjan ta’ ChatGPT",
+      "rereadPlan": "Aqra l-pjan issa"
+    },
+    "connectionStatus": {
+      "refreshRequired": "Meħtieġ aġġornament tal-konnessjoni",
+      "claudeLoginRequired": "Meħtieġ login ta’ Claude",
+      "claudeRefreshRequired": "Aġġorna l-konnessjoni Claude",
+      "chatgptLoginRequired": "Meħtieġ login ta’ ChatGPT",
+      "chatgptRefreshRequired": "Aġġorna l-konnessjoni ChatGPT Billing",
+      "claudeConflict": "Claude Max: sorsi kontradittorji ({details})"
+    },
+    "connectionHelp": "Iftaħ il-paġna tal-fornitur, idħol jekk hemm bżonn, u erġa’ lura hawn. L-app taqra l-pjan mill-ġdid meta terġa’ tikseb il-fokus, jew uża l-buttuna."
+  },
+  "gptAccounts": {
+    "ariaLabel": "GPT accounts",
+    "eyebrow": "Local account registry",
+    "heading": "GPT accounts",
+    "recheck": "Re-scan accounts",
+    "checking": "Scanning Codex and OpenCode accounts…",
+    "rechecked": "Account scan complete.",
+    "recheckError": "Account scan failed: {message}",
+    "recheckErrorFallback": "Unknown error",
+    "summary": "{active} active of {count} known accounts · scanned {time}",
+    "notScanned": "Accounts have not been scanned yet.",
+    "empty": "No ChatGPT account found yet",
+    "guidance": "Sign in with Codex or OpenCode, then re-scan. Accounts seen previously remain in this list as history.",
+    "active": "Active",
+    "historical": "Previous",
+    "lifetimeTokens": "Codex lifetime tokens",
+    "limit": "Limit",
+    "lastSeen": "Last seen {time}",
+    "activeSourceCount": "{count} active sources",
+    "attributionNote": "OpenCode tokens are measured for OpenCode as a whole because its message database does not record which account produced each message.",
+    "sources": {
+      "codex": "Codex",
+      "openCode": "OpenCode"
+    },
+    "activeSourceCountOne": "1 active source",
+    "add": "Żid kont GPT",
+    "signIn": "Idħol ma’ OpenAI",
+    "removeLogin": "Neħħi l-login salvat",
+    "login": {
+      "waiting": "Imla l-login ma’ OpenAI. Agħżel il-kont mixtieq fil-browser.",
+      "complete": "Kont konness.",
+      "failed": "Il-login mhux disponibbli. Installa Codex CLI jew erġa’ pprova."
+    },
+    "connectionHelp": "Il-logins eżistenti ta’ Codex u OpenCode jinstabu awtomatikament. Żid kontijiet GPT mingħajr ma tibdilhom.",
+    "loginPrivacy": "Il-login jikkomunika ma’ OpenAI. Il-kredenzjali jibqgħu fi profil lokali separat u ma jintbagħtux lill-iżviluppatur jew lill-apparati mqabbla."
+  },
+  "codexResets": {
+    "title": "Codex · Storja tar-resets",
+    "period": "Perjodu",
+    "last10": "L-aħħar 10 twieqi",
+    "last30": "L-aħħar 30 tieqa",
+    "all": "It-twieqi kollha",
+    "credits": "Krediti ta’ reset disponibbli",
+    "earlyCount": "Resets bikrin",
+    "averageDuration": "Tul medju ≈",
+    "averageUsage": "Użu medju",
+    "days": "{value} jiem",
+    "windows": "minn {count} twieqi",
+    "maximum": "L-ogħla użu osservat",
+    "start": "Bidu ≈",
+    "plannedReset": "Reset imħabbar",
+    "end": "Tmiem ≈",
+    "duration": "Tul ≈",
+    "usage": "Użu massimu",
+    "result": "Evidenza tar-reset",
+    "early": "Bikri",
+    "regular": "Skedat",
+    "uncertain": "Inċert",
+    "estimated": "Rikostruwit",
+    "confirmed": "Kreditu użat: ikkonfermat",
+    "inferred": "Kreditu użat: dedott",
+    "live": "Reġistrazzjoni attiva",
+    "stale": "Reġistrazzjoni skaduta",
+    "unavailable": "Dejta diretta mhux disponibbli",
+    "loading": "Qed titgħabba l-istorja…",
+    "empty": "Għadhom ma ġew osservati ebda twieqi kompluti.",
+    "note": "Il-logs qodma jirrikostruwixxu twieqi mingħajr attribuzzjoni lil kont. It-tul u t-tmiem huma stimi; l-użu huwa l-ogħla valur osservat. Ir-reġistrazzjoni tkompli waqt li l-app tkun qed taħdem. Il-persuni u l-apparati ma jistgħux jiġu identifikati.",
+    "durationBasis": "{count} twieqi li jistgħu jintużaw · mistenni: 7 jiem",
+    "recordingSince": "Reġistrazzjoni minn {time}",
+    "redemptions": "Krediti: {confirmed} użi kkonfermati · {inferred} dedotti",
+    "expires": "Jiskadi {time}",
+    "coverage": "{uncertain} twieqi inċerti · {gaps} lakuni",
+    "current": "Attwali: reset {time} · mass. {percent} %",
+    "events": "Avvenimenti tal-krediti · l-aħħar 30",
+    "granted": "Kreditu mogħti",
+    "expired": "Kreditu skadut",
+    "creditUnknown": "Bidla fil-kreditu: mhux ċara",
+    "cause": "Kawża tar-reset",
+    "causeManual": "Manwali · kupun",
+    "causeProvider": "OpenAI · inferit",
+    "causeScheduled": "Skedat",
+    "causeUnknown": "Mhux magħrufa",
+    "causeMissing": "Nieqsa evidenza tal-kupun jew tat-tranżizzjoni",
+    "causeNoCredit": "Kmieni mingħajr użu osservat ta’ kupun",
+    "causeConfirmed": "Ikkonfermat",
+    "causeInferred": "Inferit",
+    "causeSummary": "Kawżi: {manual} kupun · {provider} OpenAI (inferit) · {scheduled} skedat · {unknown} mhux magħrufa",
+    "causeNote": "Reset bikri ma jidentifikax il-kawża. OpenAI jiġi inferit biss meta l-lista sħiħa tal-kupuni tibqa’ l-istess waqt reset tal-kwota osservat mill-qrib. Logs qodma ma jisseparawx resets manwali minn OpenAI. Il-persuna li bdiet ir-reset mhix magħrufa."
+  },
+  "deviceSync": {
+    "heading": "Qabbad l-apparati tiegħek",
+    "enabled": "Attiva sinkronizzazzjoni diretta",
+    "name": "Isem tal-apparat",
+    "invite": "Oħloq kodiċi ta’ tqabbil",
+    "code": "Kodiċi ta’ tqabbil",
+    "copy": "Ikkopja l-kodiċi",
+    "join": "Qabbad l-apparat",
+    "forget": "Skonnettja l-apparat",
+    "view": "Apparati",
+    "local": "Dan l-apparat",
+    "all": "L-apparati kollha konnessi",
+    "copied": "Kodiċi kkupjat.",
+    "working": "Qed jikkonnettja…",
+    "ready": "Lest.",
+    "inviteReady": "Il-kodiċi jiskadi f’ħames minuti. Waħħlu fuq l-apparat l-ieħor.",
+    "errors": {
+      "default": "Il-konnessjoni mhix disponibbli. Id-data diġà riċevuta tibqa’ fuq dan l-apparat.",
+      "peer_unreachable": "Il-konnessjoni mhix disponibbli. Id-data diġà riċevuta tibqa’ fuq dan l-apparat.",
+      "invalid_pairing_code": "Il-konnessjoni mhix disponibbli. Id-data diġà riċevuta tibqa’ fuq dan l-apparat.",
+      "network_unavailable": "Il-konnessjoni mhix disponibbli. Id-data diġà riċevuta tibqa’ fuq dan l-apparat.",
+      "sync_disabled": "Il-konnessjoni mhix disponibbli. Id-data diġà riċevuta tibqa’ fuq dan l-apparat.",
+      "capture_failed": "Il-konnessjoni mhix disponibbli. Id-data diġà riċevuta tibqa’ fuq dan l-apparat.",
+      "storage_unavailable": "Il-konnessjoni mhix disponibbli. Id-data diġà riċevuta tibqa’ fuq dan l-apparat.",
+      "discovery_unavailable": "Il-konnessjoni mhix disponibbli. Id-data diġà riċevuta tibqa’ fuq dan l-apparat."
+    },
+    "privacy": "Data tal-użu u kredenzjali ma jintbagħtux lill-iżviluppatur. Kejl ikkriptat jinqasam biss ma’ apparati mqabbla espliċitament. L-iskonnessjoni ma tħassarx kopji riċevuti.",
+    "networkLimit": "Konnessjonijiet diretti jużaw in-netwerk lokali jew VPN privat eżistenti, mingħajr relay, server ta’ skoperta jew bidliet fir-router. Netwerks li jimblokkawhom jipprevjenu sinkronizzazzjoni awtomatika.",
+    "coverage": "{count} rekords distinti · {duplicates} duplikati mneħħija · {excluded} rekords jibqgħu lokali mingħajr identifikatur affidabbli. Il-limiti tal-kontijiet jinżammu separati; it-totali API ma jiżdiedux."
+  },
+  "connections": {
+    "accounts": "Kontijiet",
+    "installations": "Installazzjonijiet",
+    "general": "Ġenerali",
+    "advanced": "Avvanzat",
+    "addAccount": "Żid kont",
+    "chooseProvider": "Agħżel fornitur",
+    "detectedDetails": "Kontijiet GPT misjuba u dettalji",
+    "back": "Lura",
+    "accountLabel": "Isem (mhux obbligatorju)",
+    "apiKey": "Ċavetta API",
+    "adminKey": "Ċavetta API tal-amministratur",
+    "region": "Reġjun",
+    "global": "Internazzjonali",
+    "china": "Ċina",
+    "setupHelp": "Istruzzjonijiet tas-setup",
+    "connect": "Qabbad",
+    "openSignIn": "Iftaħ id-dħul",
+    "connectInstallation": "Qabbad installazzjoni",
+    "haveCode": "Għandi kodiċi",
+    "syncOptions": "Sinkronizzazzjoni u privatezza",
+    "remove": "Neħħi",
+    "automatic": "Misjub awtomatikament",
+    "empty": "Għad m’hemmx kontijiet konnessi.",
+    "apiAccount": "Kont API",
+    "subscription": "Abbonament / pjan ta’ programmar",
+    "thisInstallation": "Din l-installazzjoni",
+    "syncOn": "Sinkronizzazzjoni attivata",
+    "syncOff": "Sinkronizzazzjoni diżattivata",
+    "local": "Lokali",
+    "waitingSync": "Qed tistenna l-ewwel sinkronizzazzjoni",
+    "viaPeer": "Permezz ta’ installazzjoni mqabbda",
+    "balance": "Bilanċ",
+    "privacy": "Id-dettalji tad-dħul jibqgħu fuq dan l-apparat. L-użu ma jintbagħatx lill-iżviluppatur.",
+    "installationsHelp": "Qabbad l-installazzjonijiet tiegħek biex tara l-użu tagħhom flimkien.",
+    "pairHelp": "Iftaħ Installazzjonijiet fuq l-apparat l-ieħor. Oħloq kodiċi hawn jew waħħal il-kodiċi tiegħu. Iż-żewġ apparati jridu jkunu aċċessibbli direttament.",
+    "adminKeyHelp": "Ir-rapporti jeħtieġu ċavetta API tal-amministratur tal-organizzazzjoni, separata mill-abbonament taċ-chat.",
+    "glmHelp": "Uża ċ-ċavetta GLM Coding Plan tiegħek u agħżel ir-reġjun tagħha.",
+    "browserHelp": "Kompli permezz tad-dħul uffiċjali tal-fornitur.",
+    "keyPrivacy": "Iċ-ċavetta tinħażen lokalment u tintuża biss għal talbiet lil dan il-fornitur.",
+    "needsSetup": "L-ewwel installa s-CLI uffiċjali tal-fornitur u aġġorna l-lista.",
+    "claudeHelp": "Claude Code jimmaniġġja d-dħul fuq dan l-apparat. Jeħtieġ Claude Code CLI installat.",
+    "kimiHelp": "Uża d-dħul uffiċjali ta’ Kimi Code jew ċavetta tal-pjan Kimi Code.",
+    "moonshotHelp": "Uża ċavetta Moonshot API biex taqra l-bilanċ API, separat minn Kimi Code.",
+    "loginWaiting": "Lesti d-dħul tal-fornitur. Żomm din it-tieqa miftuħa.",
+    "loginComplete": "Il-kont huwa konness. Il-kejl jiġi aġġornat awtomatikament.",
+    "claudeSignIn": "Qabbad ma’ Claude Code",
+    "providers": {
+      "gpt": "ChatGPT / Codex",
+      "claude": "Claude / Anthropic",
+      "kimi": "Kimi Code",
+      "glm": "GLM / Z.AI",
+      "openai": "OpenAI API",
+      "anthropic": "Anthropic API",
+      "moonshot": "Moonshot API"
+    },
+    "browser": "Idħol",
+    "failed": "Il-login falla",
+    "checking": "Qed jikkonnettja…",
+    "installation": "Installazzjonijiet",
+    "status": {
+      "connected": "Attiv",
+      "detected": "Misjub",
+      "historical": "Preċedenti",
+      "auth_required": "Meħtieġ id-dħul",
+      "error": "Żball",
+      "unavailable": "Mhux disponibbli",
+      "unknown": "Mhux disponibbli"
+    },
+    "errors": {
+      "invalid_account": "Il-kont ma nstabx. Aġġorna l-lista tal-kontijiet.",
+      "invalid_key": "Iċ-ċavetta ġiet miċħuda. Iċċekkja ċ-ċavetta u l-fornitur magħżul.",
+      "permission_denied": "Din iċ-ċavetta m’għandhiex aċċess għar-rapporti tal-użu. Uża ċavetta bil-permessi meħtieġa.",
+      "unsupported_key": "Dan it-tip ta’ ċavetta ma jistax jaqra l-użu. Segwi l-istruzzjonijiet tal-fornitur.",
+      "account_limit": "Intlaħaq il-limitu tal-kontijiet. L-ewwel neħħi kont mhux użat.",
+      "connection_unavailable": "Il-fornitur mhux aċċessibbli. Iċċekkja l-konnessjoni u erġa’ pprova.",
+      "account_storage_unavailable": "Il-ħażna lokali tal-kontijiet mhix disponibbli. Iċċekkja l-permessi tal-fajls tal-app.",
+      "profile_remove_failed": "Id-dħul salvat ma setax jitneħħa. Agħlaq it-tieqa tad-dħul u erġa’ pprova.",
+      "unsupported_platform": "Id-dħul bil-browser mhuwiex disponibbli fuq din il-pjattaforma. Uża metodu disponibbli b’ċavetta."
+    },
+    "kimiHelperHelp": "Fl-ewwel dħul, l-app tniżżel l-għodda uffiċjali ta’ Kimi direttament mingħand Kimi. Taħdem lokalment; id-dashboard ma jibgħatx telemetrija.",
+    "lastSeen": "Deher l-aħħar {time}"
+  },
+  "history": {
+    "refreshing": "Storja ssejvjata · {time}. Aġġornament fl-isfond."
+  },
+  "quotaIntegrity": {
+    "title": "Integrità tal-kwoti",
+    "period": "Firxa ta' żmien",
+    "range24h": "L-aħħar 24 siegħa",
+    "range7d": "L-aħħar 7 ijiem",
+    "range30d": "L-aħħar 30 jum",
+    "loading": "Qed tittella' l-integrità tal-kwoti…",
+    "unavailable": "Id-data dwar l-integrità tal-kwoti mhijiex disponibbli.",
+    "intro": "Osservazzjonijiet mhux tas-soltu tal-kwoti, kemm huma koperti mid-data u jekk l-attività lokali tat-tokens tistax tispjegahom. Osservazzjoni mhux tas-soltu hija xi ħaġa li jeħtieġ tiġi investigata, mhux prova ta' problema min-naħa tal-fornitur.",
+    "status": {
+      "attention": "Teħtieġ attenzjoni",
+      "no_anomaly_detected": "Ma nstabet l-ebda anomalija",
+      "insufficient_data": "M'hemmx biżżejjed data għadu"
+    },
+    "collector": "Kollettur ħaj ta' Codex",
+    "noData": "Ebda data",
+    "lastSample": "L-aħħar kampjun {time}",
+    "noSample": "Ebda kampjun ħaj",
+    "findings": "Sejbiet",
+    "findingsDetail": "{warnings} twissijiet · {info} informazzjoni",
+    "observations": "Osservazzjonijiet",
+    "observationsDetail": "{samples} snapshots · {events} entrati fl-istorja",
+    "localData": "Data tal-attività lokali",
+    "localDataDetail": "{slots} intervalli · aġġornat {time}",
+    "neverRefreshed": "għadu ma ġiex irreġistrat",
+    "gaps": "Lakuni fil-ġbir",
+    "gapsDetail": "{count} f'din il-firxa",
+    "measured": "Imkejjel",
+    "estimate": "Stima",
+    "hypothesis": "Ipoteżi",
+    "confidence": "Fiduċja: {level}",
+    "level": {
+      "medium": "medja",
+      "low": "baxxa"
+    },
+    "confidenceWord": {
+      "confirmed": "ikkonfermat",
+      "inferred": "dedott",
+      "possible": "possibbli"
+    },
+    "chartTitle": "Użu ġimgħi ta' Codex maż-żmien",
+    "chartAria": "Tabella b'linja tal-użu tal-kwota ġimgħija ta' Codex bil-perċentwal: {points} punti rreġistrati, {findings} sejbiet immarkati.",
+    "chartEmpty": "Ma ġie rreġistrat l-ebda bidla fil-kwota ġimgħija ta' Codex f'din il-firxa.",
+    "legendWarning": "Twissija",
+    "legendInfo": "Informazzjoni",
+    "legendGap": "Lakuna fil-ġbir",
+    "types": {
+      "usage_rolled_back": "L-użu rrappurtat naqas",
+      "reset_deadline_changed_early": "Il-ħin tar-reset inbidel kmieni",
+      "usage_increase_without_local_activity": "L-użu żdied mingħajr attività lokali",
+      "collector_gap": "Il-kollettur mhuwiex disponibbli",
+      "observation_gap": "Ebda osservazzjoni",
+      "account_changed": "L-ambitu tal-kont inbidel",
+      "stale_codex_snapshot": "Id-data ħajja hija skaduta",
+      "no_live_codex_samples": "Ebda data ħajja ta' Codex"
+    },
+    "fact": {
+      "usageChange": "Kwota użata {from}% → {to}% ({delta} punti)",
+      "between": "Osservat bejn {from} u {to}",
+      "deadlineShift": "Il-ħin tar-reset imxiet b'{minutes} minuti: {from} → {to}",
+      "noActivity": "Ebda attività lokali ta' tokens irreġistrata għal {minutes} minuti ({basis})",
+      "basisPlateau": "minn meta ntlaqgħet l-ewwel darba l-valur preċedenti",
+      "basisWindow": "mill-bidu tat-tieqa tal-kwota",
+      "localCounts": "Avvenimenti lokali: {events} · tokens lokali: {tokens}",
+      "gapSpan": "Ebda data għal {minutes} minuti ({from} → {to})",
+      "gapOngoing": "Ebda data għal {minutes} minuti, minn {from} (għaddejja)",
+      "failures": "Ġew irreġistrati {count} tentattivi ta' ġbir li falliw",
+      "staleAge": "L-aħħar kampjun ħaj kien {minutes} minuti ilu"
+    },
+    "evidence": {
+      "heading": "Evidenza fid-data",
+      "credit": "Ġie mifdi kreditu ta' reset bejn dawn l-osservazzjonijiet ({confidence}).",
+      "account": "Is-snapshot ħaj bidel għal kont ieħor madwar dan iż-żmien (possibbli).",
+      "resetNoCredit": "Reset bikri mingħajr kreditu użat (dedott)."
+    },
+    "hypothesesHeading": "Spjegazzjonijiet possibbli (ipoteżijiet, mhux sejbiet)",
+    "hypotheses": {
+      "other_device_or_surface": "Użu fuq apparat ieħor, fl-app tal-web, f'estensjoni tal-IDE jew f'kompiti fil-cloud li l-logs lokali ma jarawx",
+      "other_account_or_profile": "Użu minn kont jew profil ieħor li jaqsam din il-kwota",
+      "provider_accounting_or_adjustment": "Dewmien fil-kontabilità, irrumblar jew aġġustament min-naħa tal-fornitur",
+      "local_logs_incomplete": "Logs lokali mhux kompluti, mdawra jew mhux miġbura",
+      "ledger_not_account_scoped": "Din l-istorja tal-kwota mhijiex marbuta ma' kont wieħed",
+      "reset_credit_or_plan_change": "Kreditu ta' reset, bidla fil-pjan jew aġġustament ieħor tal-kwota",
+      "inconsistent_source_data": "Data inkonsistenti mis-sors tal-kwota"
+    },
+    "noFindings": "Ebda sejba f'din il-firxa.",
+    "stepStatus": {
+      "activity_present": "Hemm attività lokali",
+      "shared_source_activity": "Agent lokali ieħor biss",
+      "no_local_activity": "Ebda attività lokali rreġistrata",
+      "not_assessable": "Ma tistax tiġi evalwata"
+    },
+    "reason": {
+      "history_start": "L-istorja tibda minn dan il-punt",
+      "no_local_history": "Ebda storja ta' logs lokali",
+      "before_local_history": "Il-logs lokali jibdew aktar tard",
+      "ingest_pending": "Il-logs lokali għadhom ma nqrawx mill-ġdid"
+    },
+    "steps": {
+      "heading": "Żidiet fil-kwota meta mqabbla mal-attività lokali",
+      "summary": "{present} b'attività lokali · {shared} agent lokali ieħor biss · {none} mingħajrha · {unknown} li ma jistgħux jiġu evalwati",
+      "note": "Kull ringiela hija żieda fl-użu rrappurtat. In-numri ta' tokens lokali jiġu biss mil-logs ta' dan il-kompjuter u mhumiex konverżjoni tal-kwota.",
+      "empty": "Ebda żieda fl-użu f'din il-firxa."
+    },
+    "estimateText": "Il-passi komparabbli rreġistraw medjan ta' {median} tokens lokali għal kull punt tal-kwota (nofs ċentrali {low}–{high}, {samples} passi). Il-fornituri jiżnu l-mudelli u l-input fil-cache b'mod differenti, għalhekk din hija skala mhux eżatta, mhux konverżjoni.",
+    "localValue": "{events} avvenimenti · {tokens} tokens",
+    "colTime": "Ħin",
+    "colChange": "Kwota użata",
+    "colLocal": "Attività lokali",
+    "colTokens": "Avvenimenti · tokens",
+    "colWindow": "Tieqa",
+    "colUsed": "Użat",
+    "colResets": "Reset",
+    "colLastChange": "L-aħħar bidla",
+    "gapKind": {
+      "collector_unavailable": "Il-kollettur mhuwiex disponibbli",
+      "no_observations": "Ebda osservazzjoni (l-app magħluqa jew il-kompjuter fil-modalità sleep)"
+    },
+    "ongoing": "għaddejja",
+    "minutes": "{value} min",
+    "gapsEmpty": "Ebda lakuna fil-ġbir f'din il-firxa.",
+    "windows": {
+      "heading": "Twieqi tal-kwota osservati",
+      "note": "L-istorja tal-kwoti tirreġistra biss bidliet, għalhekk perjodu kalm mhuwiex lakuna.",
+      "empty": "Ma ġiet irreġistrata ebda tieqa tal-kwota f'din il-firxa."
+    },
+    "privacyNote": "Jiġu analizzati biss l-ħinijiet tal-kwoti u n-numri ta' tokens. Prompts, traskrizzjonijiet, identifikaturi tal-kontijiet u mogħdijiet tal-fajls qatt ma jiġu inklużi."
+  },
+  "workspace": {
+    "openPalette": "Open command palette",
+    "paletteShortcut": "Command palette · Ctrl+K",
+    "focusMode": "Toggle focus mode",
+    "focusShortcut": "Focus mode · Alt+Shift+F",
+    "compactMode": "Toggle compact layout",
+    "paletteTitle": "Command palette",
+    "paletteSearch": "Search actions or jump to a section…",
+    "paletteClose": "Close command palette",
+    "focusOn": "Focus mode enabled",
+    "focusOff": "Focus mode disabled",
+    "compactOn": "Compact layout enabled",
+    "compactOff": "Comfortable layout enabled",
+    "glassOn": "Glass effect enabled",
+    "glassOff": "Glass effect disabled",
+    "motionOn": "Reduced motion enabled",
+    "motionOff": "Full motion enabled"
+  }
+}

@@ -147,3 +147,19 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+# LLM Pulse local data and credentials
+data/
+.agent_context/
+.multica/
+.claude/
+CLAUDE.md
+!.env.docker.example
+*.pem
+*.key
+*.db
+*.sqlite
+*.sqlite3
+.DS_Store
+
+# Diagnostic reports can contain local quota timing/history.
+quota-integrity-report.*

@@ -1,0 +1,1372 @@
+{
+  "app": {
+    "title": "LLM Pulse — AI Usage Intelligence",
+    "eyebrow": "LLM Pulse",
+    "heading": "Piirangud ja tokenid"
+  },
+  "actions": {
+    "refresh": "Värskenda",
+    "settings": "Seaded",
+    "close": "Sulge"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "password": "Parool",
+    "signIn": "Logi sisse",
+    "loginFailed": "Sisselogimine nurjus"
+  },
+  "filter": {
+    "showAll": "Kuva kõik",
+    "showActive": "Ainult aktiivsed",
+    "hideInactive": "Peida mitteaktiivsed pakkujad",
+    "showInactiveCount": "Kuva {count} mitteaktiivset pakkujat",
+    "allVisible": "Kõik pakkujad on nähtavad",
+    "showAllNoticeTitle": "Kõigi pakkujate vaade",
+    "showAllNoticeBody": "Nähtavad on mitteaktiivsed, tühjad, ainult seadistusega ja ajaloolised pakkujakaardid. Ainult aktiivsed on tavavaade."
+  },
+  "layout": {
+    "edit": "Edit layout",
+    "done": "Done",
+    "reset": "Default order",
+    "resetDone": "Default dashboard order restored.",
+    "dragHandle": "Move {name}",
+    "grabbed": "Moving {name}. Use arrow keys to move, Enter or Space to drop, Escape to cancel.",
+    "moved": "{name} moved to position {position} of {total}.",
+    "dropped": "{name} dropped at position {position} of {total}.",
+    "cancelled": "Move cancelled."
+  },
+  "summary": {
+    "ariaLabel": "Ülevaade",
+    "fiveHourOpen": "5h quota free",
+    "weeklyOpen": "Week quota free",
+    "tokensToday": "Logged tokens today",
+    "tokensTotal": "Logitud tokeneid kokku",
+    "recordDayLabel": "Rekordpäev",
+    "recordDay": "Rekordpäev: {date} · {tokens}",
+    "quotaWindowNote": "Provider quota window",
+    "tokensRange": "Logged tokens: {range}",
+    "todayLogNote": "Calendar day from local logs, not provider quota limits. {providers}",
+    "totalLogNote": "All local log history, not provider quota limits. {providers}",
+    "providerTokenDetail": "{provider}: {tokens}",
+    "providerBreakdownMore": "{providers} + {count} more",
+    "providerBreakdownEmpty": "No provider log tokens.",
+    "rangeNotes": {
+      "h24": "Rolling 24-hour total; chart bars are day-grained.",
+      "today": "Calendar day in local time.",
+      "week": "Last 7 days from local logs.",
+      "month": "Last 30 calendar days from local logs."
+    }
+  },
+  "chart": {
+    "eyebrow": "Local capture",
+    "heading": "Tokenite ajalugu logidest",
+    "sourceTotalsAria": "Kogukasutus pakkuja järgi",
+    "legendAria": "Legend",
+    "sourceTotalTitle": "Kogukasutus",
+    "svgAria": "Tokenite ajalugu",
+    "costSummary": {
+      "title": "Cost summary",
+      "apiEquivalent": "API equivalent",
+      "paid": "Subscription fixed cost",
+      "saved": "Delta vs API",
+      "quote": "API difference",
+      "quality": "Data quality",
+      "qualityComplete": "Covered",
+      "qualityPartial": "Partially estimated",
+      "qualityUnavailable": "Unavailable",
+      "missingSubscriptions": "Subscription history or a reliable fixed-cost source is missing for this range.",
+      "estimatedSources": "Estimated providers: {providers}.",
+      "missingSources": "Not included: {providers}.",
+      "unsupportedCurrencies": "Unsupported currencies: {currencies}."
+    },
+    "costs": {
+      "svgAria": "Cost history",
+      "noData": "No cost data for the selected range."
+    },
+    "filters": {
+      "h24": "Last 24 hours",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "all": "All Time"
+    },
+    "headingCosts": "Cost History from Logs",
+    "mode": {
+      "tokens": "Tokens",
+      "costs": "Costs"
+    },
+    "modeToggleAria": "Chart mode",
+    "filterBarAria": "Time range",
+    "insights": {
+      "ariaLabel": "Selected range statistics",
+      "total": "Total",
+      "selectedRange": "Selected range",
+      "avgActiveDay": "Ø active day",
+      "avgActiveDayDetail": "Based on {days} active days",
+      "activeDays": "Active days",
+      "activeDaysValue": "{active}/{days}",
+      "activeDaysDetail": "Days with usage",
+      "peakDay": "Peak day",
+      "noData": "No activity in the selected range.",
+      "selectedRangeDetail": "{range} shown with the selected range semantics."
+    },
+    "models": {
+      "heading": "Models used",
+      "range": "{range} model mix",
+      "topTokens": "Top by tokens: {model} · {tokens}",
+      "topCost": "Top by API-equivalent cost: {model} · {cost}",
+      "costUnknown": "API-equivalent cost unavailable for these models.",
+      "unknown": "Tundmatu mudel"
+    },
+    "breakdown": {
+      "total": "Kokku",
+      "provider": "Pakkuja",
+      "model": "Mudel",
+      "device": "Paigaldus",
+      "account": "Konto"
+    },
+    "breakdownToggleAria": "Tokenite jaotus",
+    "overviewAria": "Compact token history by provider",
+    "breakdownSummary": {
+      "totalTitle": "Total window",
+      "providerTitle": "Provider share",
+      "modelTitle": "Model share",
+      "topProvider": "Top provider",
+      "topModel": "Top model",
+      "coverage": "Coverage",
+      "providerCount": "{count} providers",
+      "modelCount": "{count} models",
+      "noProvider": "No provider breakdown",
+      "noModel": "No model breakdown"
+    },
+    "providers": {
+      "heading": "Providers used",
+      "range": "{range} provider mix",
+      "topTokens": "Top by tokens: {provider} · {tokens}",
+      "topModel": "Top model: {model} · {tokens}",
+      "noModel": "No model details",
+      "columns": {
+        "provider": "Provider",
+        "tokens": "Tokens",
+        "share": "Share",
+        "topModel": "Top model"
+      }
+    },
+    "totalBreakdown": {
+      "heading": "Total summary",
+      "range": "{range} aggregate"
+    },
+    "attribution": {
+      "groupBy": "Rühmita",
+      "unknownAccount": "Tundmatu konto",
+      "unknownDevice": "Tundmatu paigaldus",
+      "sharedDevice": "Leitud mitmest paigaldusest",
+      "sharedDeviceHelp": "Loendatud üks kord; algne paigaldus on ebaselge.",
+      "observed": "Leitud kohalikest logidest",
+      "observedOn": "Leitud paigaldustest",
+      "evidence": "Omistamine",
+      "observedHelp": "Paigaldused näitavad, kust logid leiti. Kopeeritud sündmusi loendatakse üks kord; algne arvuti võib olla tundmatu.",
+      "accountHelp": "Konto määratakse ainult kasutusandmetes oleva tõendi alusel. Muud tokenid jäävad Tundmatu konto alla."
+    }
+  },
+  "tokenMix": {
+    "eyebrow": "Token Mix",
+    "heading": "Logitud tokenitöötlus"
+  },
+  "liveMetrics": {
+    "ariaLabel": "Live system usage",
+    "eyebrow": "Live",
+    "heading": "Live Load",
+    "updated": "Updated {time}",
+    "notAvailable": "Not available",
+    "error": "Error",
+    "unavailable": "Not available",
+    "unavailableShort": "N/A",
+    "percentScale": "0-100%",
+    "cpu": "CPU",
+    "ram": "Memory",
+    "ramSub": "{used}/{total} GB used",
+    "aiLoad": "AI Load",
+    "aiLoadSub": "Heuristic",
+    "aiLoadHelp": "Estimated from CPU, memory, and token throughput. Not an exact measurement.",
+    "tokensPerMinute": "Tokens/min",
+    "noTokenWindow": "No measured window yet",
+    "noTokenBreakdown": "No reliable breakdown",
+    "historyHeading": "Trend",
+    "historyAria": "Live load trend",
+    "legendAria": "Live trend legend",
+    "historyLoading": "Collecting live data...",
+    "historyNoSeries": "No active series.",
+    "quality": {
+      "measured": "Measured",
+      "calculated": "From logs",
+      "estimated": "Estimated",
+      "unavailable": "Not available"
+    },
+    "series": {
+      "cpu": "CPU",
+      "ram": "Memory",
+      "aiLoad": "AI Load",
+      "tokensTotal": "Tokens/min",
+      "tokensInput": "Input",
+      "tokensOutput": "Output",
+      "tokensCached": "Cached",
+      "aiCpu": "AI CPU",
+      "aiMemory": "AI Memory",
+      "swap": "Swap"
+    },
+    "errors": {
+      "load": "Could not load live system metrics."
+    },
+    "tokensPerMinuteHelp": "Calculated from local Claude Code, Codex, Gemini, Copilot, and Ollama logs in the local aggregate. Multica Claude/Codex runs are included through those logs; API-only OpenAI/Anthropic billing is excluded to avoid double counting. Gemini agents may be missing when the Gemini CLI does not write token metadata.",
+    "systemCpu": "System CPU",
+    "systemRam": "System Memory",
+    "aiCpu": "AI CPU",
+    "aiCpuSub": "{count} AI processes",
+    "aiCpuHelp": "Aggregated CPU share of recognized local AI process groups. Commands and paths are not exposed.",
+    "aiMemory": "AI Memory",
+    "aiMemorySub": "{used} GB RSS",
+    "aiMemoryHelp": "Aggregated resident memory of recognized local AI process groups. Shared Electron and browser memory is approximate.",
+    "swap": "Swap",
+    "swapSub": "{used}/{total} GB used",
+    "swapHelp": "System swap usage. High swap can slow the Mac even when AI process memory is only part of the total.",
+    "noAiProcesses": "No AI process group found",
+    "processBreakdownHeading": "Running AI groups",
+    "processBreakdownHelp": "Safe aggregate view: running AI process groups and load shares without command lines, prompts, or paths.",
+    "processTotal": "AI total: {cpu} CPU · {memory} · {memoryShare} RAM · {count} running processes",
+    "processBreakdownUnavailable": "Process grouping is not available on this platform/runtime.",
+    "processBreakdownEmpty": "No recognized AI process group is currently running for the dashboard.",
+    "processColumns": {
+      "group": "Group",
+      "cpu": "CPU",
+      "memory": "Memory",
+      "memoryShare": "RAM %",
+      "count": "Processes"
+    },
+    "recentRateWindow": "Reaalaja 60 s libisev määr"
+  },
+  "pricing": {
+    "eyebrow": "API kulud",
+    "heading": "Mida sinu tokenid API kaudu maksnuksid",
+    "meta": "Kataloog {catalogVersion} · {modelCount} mudelit · EUR ECB järgi {fxDate} · API hinnad {pricingDate} · Arena Text {scoreDate}",
+    "modelFilter": {
+      "label": "Filtreeri mudeli nime järgi",
+      "placeholder": "Näiteks Sol, 6.1 või Claude",
+      "empty": "Selle nimega mudeleid ei leitud."
+    },
+    "qualityScoreTitle": "Arena Text {scoreDate}: {score} Elo",
+    "chinaBadge": "Hiina",
+    "unknown": "Teadmata",
+    "notPriced": "Hinnata",
+    "aliases": "Aliased: {aliases}",
+    "limitSummary": "kontekst {context} · väljund {output}",
+    "sourceReviewed": "Üle vaadatud {date}",
+    "regions": {
+      "apiDiscount": "API allahindlus"
+    },
+    "columns": {
+      "model": "Mudel",
+      "score": "Skoor",
+      "region": "Piirkond",
+      "limits": "Piirangud",
+      "input": "Sisend",
+      "cache": "Vahemälu",
+      "output": "Väljund",
+      "today": "Last 24h",
+      "total": "Kokku",
+      "status": "Olek",
+      "source": "Allikas"
+    },
+    "priceStatus": {
+      "official": "Ametlik hind",
+      "estimated": "Hinnanguline hind",
+      "unknown": "Hind teadmata",
+      "mixed": "Segahinnad"
+    },
+    "availability": {
+      "ga": "Üldiselt saadaval",
+      "preview": "Eelvaade",
+      "deprecated": "Aegunud",
+      "unknown": "Saadavus teadmata"
+    },
+    "limitStatus": {
+      "official": "Ametlikud piirangud",
+      "estimated": "Hinnangulised piirangud",
+      "unknown": "Piirangud teadmata"
+    },
+    "viewToggleAria": "Cost view",
+    "aliasesSummary": "{count} aliases",
+    "views": {
+      "api": "API equivalent",
+      "models": "Used models",
+      "subscriptions": "Fixed costs"
+    },
+    "usedModels": {
+      "heading": "Used models in {range}",
+      "description": "Actual logged model usage matched to the local pricing catalog where possible.",
+      "empty": "No model-level token data is available for the selected range.",
+      "totalLabel": "API kulu kokku",
+      "totalComplete": "Täielik",
+      "totalPartial": "Osaline",
+      "totalUnknown": "Teadmata",
+      "totalMixed": "Segatud valuutad",
+      "totalPartialNote": "Mõnel kuvatud real puudub usaldusväärne API hind, seega on kogusumma osaline.",
+      "totalUnknownNote": "Ühelgi kuvatud real pole usaldusväärset API hinda.",
+      "totalMixedNote": "Kuvatud read kasutavad mitut valuutat; kogusummat ei arvutata.",
+      "totalRow": "API kulu kokku"
+    },
+    "subscriptions": {
+      "heading": "Subscription and fixed costs in {range}",
+      "description": "Shows monthly fixed costs only when safely detected locally or saved as fallback estimates. Missing data is not treated as real cost.",
+      "empty": "No subscription or fixed-cost data is available yet.",
+      "previous": "Previous cost",
+      "delta": "Change"
+    }
+  },
+  "providers": {
+    "codex": {
+      "kicker": "Codex"
+    },
+    "codexSpark": {
+      "kicker": "Codex Spark"
+    },
+    "claudeCode": {
+      "kicker": "Claude Code"
+    },
+    "anthropic": {
+      "kicker": "API kasutus"
+    },
+    "openai": {
+      "kicker": "API ja krediidid"
+    },
+    "gemini": {
+      "kicker": "Gemini"
+    },
+    "glm": {
+      "kicker": "OpenAI-compatible import"
+    },
+    "ollama": {
+      "kicker": "Ollama"
+    },
+    "local": {
+      "name": "Local capture"
+    },
+    "gridAria": "Pakkujad",
+    "messages": {
+      "sparkTokens24h": "Spark tokenid 24h",
+      "logTokens24h": "Logi tokenid 24h",
+      "missingBackendKey": "Backend-võti puudub",
+      "sevenDays": "7 päeva",
+      "noCodexSparkEvents": "Codex 5.3 Spark sündmusi ei leitud.",
+      "noGeminiLogs": "Kohalikke Gemini kasutusloge ei leitud.",
+      "glmImportTokens": "GLM/Z.AI tokens from local imports.",
+      "glmQuotaUnavailable": "Official quota through OpenCode is not available.",
+      "noGlmEvents": "No local GLM/Z.AI usage events found.",
+      "ollamaLogTokens": "Kohalikud Ollama tokenid logidest",
+      "noOllamaLogs": "Kohalikke Ollama logisid ei leitud.",
+      "copilotLogTokens": "Copilot CLI tokens 24h",
+      "noCopilotSessionMetrics": "No local Copilot CLI session metrics found.",
+      "claudeStatuslineNoQuotas": "Claude is sending data, but not official Pro/Max limit values yet.",
+      "claudeStatuslineMissing": "Claude statusline pole seadistatud. Luba töölaua statusline käsk Pro/Max reaalajas kvootide jaoks.",
+      "claudeLiveLimitsMissing": "Claude live limits are not available from local telemetry yet.",
+      "claudeLimitsStale": "Claude live limits are out of date. Open Claude Code once to refresh them.",
+      "claudeOauthUnavailable": "Claude CLI/OAuth quota unavailable: {reason}.",
+      "claudeBrowserLoginHint": "Log in to Claude.ai in your browser to enable credit tracking.",
+      "glmQuotaAvailable": "Official GLM Coding Plan quota from OpenCode.",
+      "glmQuotaUnavailableReason": "Official GLM Coding Plan quota unavailable: {reason}.",
+      "noOpenCodeGptEvents": "No local OpenAI/GPT usage events found in OpenCode."
+    },
+    "emptyState": {
+      "eyebrow": "Pakkuja",
+      "heading": "Aktiivset kasutust pole",
+      "status": "Tühi",
+      "message": "Ühelgi pakkujal pole praegu logitud tokeneid ega piiranguandmeid.",
+      "visible": "Nähtav",
+      "hidden": "Peidetud",
+      "all": "Kõik"
+    },
+    "copilot": {
+      "kicker": "Copilot CLI"
+    },
+    "updateDelayHints": {
+      "default": "This provider has not produced a fresh local signal for more than {minutes} minutes. Some sources only update when their CLI or app writes new usage data.",
+      "codex": "Codex limits normally update through the local app-server. If this stays old, the app-server may be unavailable or Codex has not produced fresh live limit data.",
+      "codexSpark": "Codex Spark limits normally update through the local Codex app-server. If this stays old, Spark live limit data may not be exposed yet.",
+      "claudeCode": "This Claude Code card combines statusline, local logs, and Claude.ai billing or usage data. Updates can lag when Claude Code is closed, the statusline has not run, or Claude.ai cookies/API access are unavailable.",
+      "copilot": "GitHub Copilot CLI usage is written after sessions shut down, and live quota probing depends on the local Copilot CLI. The timestamp can lag while a session is still open or the probe is unavailable.",
+      "gemini": "Gemini local usage updates only when local log files contain new usage metadata.",
+      "glm": "GLM/Z.AI updates when local JSON, JSONL, or CSV usage imports contain OpenAI-compatible GLM token counts.",
+      "ollama": "Ollama usage updates only when requests pass through the dashboard's local proxy/log file."
+    },
+    "freshness": {
+      "ariaLabel": "Teenusepakkuja andmete aeg",
+      "usage": "Kasutus {time}",
+      "limits": "Piirangud {time}",
+      "prices": "Hinnad {time}",
+      "catalog": "Kataloog {date}",
+      "unknown": "Andmeaeg teadmata"
+    },
+    "openCode": {
+      "kicker": "OpenCode GPT logs"
+    },
+    "kimi": {
+      "kicker": "Kimi Code"
+    }
+  },
+  "status": {
+    "live": "Live",
+    "empty": "Tühi",
+    "not_configured": "Seadistus",
+    "error": "Viga"
+  },
+  "labels": {
+    "today": "Täna",
+    "fiveHourUsed": "5h kasutatud",
+    "weekUsed": "Nädal kasutatud",
+    "fiveHourLeft": "5 h alles",
+    "weekLeft": "Nädal alles",
+    "since": "Alates",
+    "updated": "Uuendatud",
+    "plan": "Plaan",
+    "fiveHourTokens": "5h tokenid",
+    "total": "Kokku",
+    "cost": "Kulu",
+    "tokens7d": "Tokenid 7 päeva",
+    "cost7d": "Kulu 7 päeva",
+    "limits": "Piirangud",
+    "updatedHelp": "Why this timestamp may be delayed",
+    "subscription": "Subscription",
+    "last24h": "Last 24h"
+  },
+  "credits": {
+    "title": "Krediidid",
+    "monthlySpend": "Kasutuskrediidid",
+    "monthlyLimit": "Kuulimiit",
+    "currentCredit": "Praegune krediit",
+    "autoTopUp": "Automaatne laadimine",
+    "default": "Krediidid",
+    "on": "Sees",
+    "off": "Väljas"
+  },
+  "limits": {
+    "recentPace": {
+      "timeToLimit": "Aeg limiidini: {duration}",
+      "title": "Hiljutine tempo",
+      "measured": "+{percent} protsendipunkti ajaga {duration}",
+      "collecting": "Selle perioodi kohta pole veel piisavalt mõõtmisi.",
+      "flat": "Sel perioodil pole mõõdetavat kasvu.",
+      "stale": "Viimane kvoodinäit on liiga vana.",
+      "changed": "Näidud muutusid; prognoos puudub.",
+      "possible": "Limiit võib täituda enne lähtestamist; hinnang on ebakindel.",
+      "note": "Hinnang ümardatud protsentide ja püsiva tempo põhjal."
+    },
+    "fiveHour": "5h",
+    "weekly": "Nädal",
+    "currentSession": "Praegune seanss",
+    "allModels": "Kõik mudelid",
+    "claudeDesign": "Claude Design",
+    "sonnetOnly": "Ainult Sonnet",
+    "default": "Piirang",
+    "resetPrefix": "Lähtestus {time}",
+    "usedValue": "{percent}% kasutatud",
+    "leftValue": "{percent}% alles",
+    "freeLabel": "{label} saadaval",
+    "limitGroups": "{count} piirangugruppi",
+    "noModelLimits": "Mudeli piiranguid pole",
+    "remainingShort": "{days}d {hours}h {minutes}m",
+    "fullTitle": "Limit full",
+    "fullDescription": "{limit} is full.",
+    "fullTokenDetail": "{tokens} tokens in {period}",
+    "fullPremiumRequestsDetail": "{requests} premium requests from local session logs",
+    "fullResetDetail": "Reset {time}",
+    "period5h": "5h",
+    "period7d": "7d",
+    "period24h": "24h",
+    "fullQuotaDetail": "{usage} used",
+    "status": {
+      "ok": "On track",
+      "risk": "Kiire tempo",
+      "full": "Limit reached",
+      "unknown": "Unknown"
+    },
+    "pace": {
+      "remaining": "Praeguse tempoga jaab lahtestamisel alles umbes {percent}%.",
+      "shortfall": "Praeguse tempoga jaab lahtestamisel puudu umbes {percent}%.",
+      "hitBeforeReset": "Praeguse tempoga saavutatakse piir umbes {duration} enne lahtestamist. ({time})",
+      "fullWithReset": "Piir saavutatud; lahtestus {time}.",
+      "fullNoReset": "Piir saavutatud; lahtestuse aeg pole saadaval.",
+      "unavailable": {
+        "noUsage": "Tempo pole saadaval: see allikas ei anna kasutusprotsenti.",
+        "noWindow": "Tempo pole saadaval: see allikas ei anna akna pikkust ega lahtestuse aega.",
+        "notStarted": "Tempo pole saadaval: see kvoodiaken pole veel alanud.",
+        "staleReset": "Tempo pole saadaval: lahtestuse aeg on aegunud; varskenda allikat."
+      }
+    },
+    "duration": {
+      "daysHours": "{days} p {hours} h",
+      "hoursMinutes": "{hours} h {minutes} min",
+      "minutes": "{minutes} min"
+    },
+    "gauge": {
+      "title": "Praegune kasutus",
+      "projectedValue": "{percent}% prognoos",
+      "unavailable": "Prognoos pole saadaval",
+      "aria": "{label} prognoositud lõppkasutus"
+    },
+    "viewToggleAria": "Praeguse kasutuse visualiseerimine",
+    "view": {
+      "tachometer": "Mõõdik",
+      "bar": "Riba"
+    },
+    "remainingUntilReset": "Resets in {remaining} · Reset {time}",
+    "glmFiveHourTokens": "5h tokens",
+    "glmWeekly": "Weekly quota",
+    "glmMcpMonthly": "Monthly MCP"
+  },
+  "tokens": {
+    "input": "Sisend",
+    "cacheCreation": "Vahemälu loomine",
+    "cachedInput": "Vahemällu salvestatud sisend",
+    "output": "Väljund",
+    "reasoningOutput": "Reasoning-väljund",
+    "total": "Kokku"
+  },
+  "format": {
+    "billion": "mld",
+    "million": "mln",
+    "thousand": "tuh",
+    "lessThanSharePercent": "<0,1%",
+    "lessThanCent": "< 0,01 EUR",
+    "usdPerMillion": "{value} $/M",
+    "cacheReadWrite": "{read} lugemine / {write} kirjutamine",
+    "cacheSameAsInput": "nagu sisend",
+    "perMonth": "{amount}/mo",
+    "fromPerMonth": "alates {amount}/kuu"
+  },
+  "settings": {
+    "heading": "Seaded",
+    "language": {
+      "label": "Keel"
+    },
+    "theme": {
+      "label": "Teema",
+      "system": "Süsteem",
+      "light": "Hele",
+      "dark": "Tume"
+    },
+    "notifications": {
+      "title": "Limits & warnings",
+      "description": "Warnings use real 5-hour and weekly provider windows plus projections; they are separate from monthly subscription/API cost comparisons.",
+      "enabled": "Enable notifications",
+      "pacingLabel": "Pacing warning at projected provider-window usage (%)",
+      "hardLimitLabel": "Hard warning at measured provider-window usage (%)",
+      "save": "Save",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "diagTitle": "Notification diagnostics",
+      "diagLastCheck": "Last check",
+      "diagDuration": "Duration",
+      "diagAlerts": "Alerts found",
+      "diagLastShown": "Last notification sent",
+      "diagSkipped": "Skip reason",
+      "diagError": "Last error",
+      "diagSupported": "Notifications supported",
+      "diagNone": "None",
+      "diagNever": "Never",
+      "diagYes": "Yes",
+      "diagNo": "No",
+      "testBtn": "Send test notification",
+      "testQueued": "Test requested. If no real system banner appears, open system notifications, allow LLM Pulse, restart the app, then run the test again.",
+      "testError": "Could not send test notification.",
+      "testResultLabel": "Last test result",
+      "testResultAt": "At",
+      "testResultOutcome": "Outcome",
+      "testResult_shown": "Reported as shown by an older build",
+      "testResult_not_supported": "Not supported on this system",
+      "testResult_error": "Error",
+      "diagPermission": "Browser permission (not a macOS banner guarantee)",
+      "permission_granted": "Granted for browser API",
+      "permission_default": "Not asked yet",
+      "permission_denied": "Denied",
+      "permission_unsupported": "Unsupported",
+      "permission_unknown": "Unknown",
+      "permission_error": "Permission check failed",
+      "permissionNotGranted": "Notification permission was not granted. System notification settings were opened; allow LLM Pulse, restart the app, then run the test again.",
+      "permissionUnsupported": "This app runtime does not expose desktop notification permission.",
+      "testResult_sent": "Queued with Electron (banner not confirmed)",
+      "testQueuedRendererError": "Native macOS notification queued, but the immediate browser notification failed: {error}",
+      "testTitle": "LLM Pulse - Test",
+      "testBody": "Desktop notifications are working correctly.",
+      "inAppTestTitle": "In-app test notification",
+      "inAppTestErrorTitle": "Notification test needs attention",
+      "inAppTestBody": "This in-app fallback confirms the test ran. It is not a system banner; native banners may require system notification permission, a fresh app restart, and a properly signed build.",
+      "diagNativeDelivery": "Native system delivery",
+      "nativeDelivery_ready": "Signed app: native banners should be available",
+      "nativeDelivery_ad_hoc": "Ad-hoc build: native banners may not appear",
+      "nativeDelivery_gatekeeper_rejected": "Gatekeeper rejected: native banners may not appear",
+      "nativeDelivery_unverified": "Unverified",
+      "nativeDelivery_not_applicable": "Not applicable on this platform",
+      "nativeDelivery_unknown": "Unknown",
+      "openSettingsBtn": "Open system notification settings",
+      "openSettingsQueued": "System notification settings opened. Allow notifications for LLM Pulse, restart the app if you just changed the setting, then run the test again.",
+      "openSettingsError": "Could not open system notification settings from this runtime.",
+      "systemGuideTitle": "System notifications need attention",
+      "systemGuideDefault": "Allow notifications for LLM Pulse in system settings, restart the app if you just changed the setting, then run the test again.",
+      "systemGuidePermission": "This app does not yet have notification permission. System settings were opened; allow notifications for LLM Pulse there.",
+      "systemGuideUnsupported": "This runtime cannot read browser notification permission. Open system notification settings and allow notifications for LLM Pulse there.",
+      "systemGuideNativeUnverified": "Native banners are not reliably confirmed with this build. Check system notifications, allow LLM Pulse, then test again after restarting the app.",
+      "systemGuideTestFailed": "The last native notification attempt reported a failure. Check system notifications, restart the app, then run the test again.",
+      "systemGuideAfterTest": "If no real system banner appeared, check system notifications, allow LLM Pulse, restart the app, then send the test again.",
+      "thresholdsHelp": "Pacing uses the current consumption rate; hard warning uses measured consumption in the relevant 5h or weekly provider window.",
+      "nativeAlertTitle": "Limiidi hoiatus: {window}",
+      "nativeUsedPercent": "Kasutatud {percent}%.",
+      "nativeHardLimit": "Limiit on peaaegu otsas.",
+      "nativePacingProjected": "Kasutatud {usedPercent}%; praegune tempo prognoosib {projectedPercent}%.",
+      "nativeEstimatedExhaustion": "Eeldatav ammendumine {time} pärast.",
+      "nativeDurationHoursMinutes": "{hours} h {minutes} min",
+      "nativeDurationHours": "{hours} h",
+      "nativeDurationMinutes": "{minutes} min",
+      "nativeWindowFiveHour": "5 tunni aken",
+      "nativeWindowWeekly": "Nädalalimiit",
+      "nativeWindowSonnetOnly": "Ainult Sonneti limiit",
+      "nativeWindowClaudeDesign": "Claude Designi limiit",
+      "nativeWindowGeneric": "Limiit"
+    },
+    "subscriptions": {
+      "title": "Subscription costs",
+      "planLabel": "Plan",
+      "monthlyCostLabel": "Monthly cost (EUR)",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved.",
+      "saveError": "Could not save.",
+      "description": "Detected plans and costs come from safe local signals. Missing data is not counted as real cost.",
+      "detectedOnly": "Manual values are not normal setup. Use Advanced only as a fallback estimate when local detection is unavailable.",
+      "advancedTitle": "Advanced fallback estimates",
+      "advancedDescription": "These values are saved fallback estimates. Cards and cost views label them as estimates, not automatically detected costs."
+    },
+    "sources": {
+      "title": "Data sources & diagnostics",
+      "description": "Manage connected sources, recheck access, and copy ACL commands for other local users.",
+      "recheck": "Recheck access",
+      "recheckOne": "Recheck access",
+      "recheckPending": "Checking...",
+      "rechecked": "Source diagnostics refreshed.",
+      "recheckError": "Could not refresh source diagnostics.",
+      "currentUser": "current user",
+      "summaryStatus": "Status: {status}",
+      "summaryCounts": "{connected} usable · {candidates} additional candidates",
+      "connectedTitle": "Usable sources",
+      "candidatesTitle": "Additional detected sources",
+      "connectedEmpty": "No usable sources detected yet.",
+      "candidatesEmpty": "No additional source candidates detected right now.",
+      "owner": "Owner: {owner}",
+      "discovery": "Discovery: {method} · confidence {confidence}",
+      "access": {
+        "readable": "Readable",
+        "mixed": "Partially readable",
+        "denied": "Access denied",
+        "missing": "Missing",
+        "process_only": "Process only",
+        "service_only": "Service only"
+      },
+      "permissions": {
+        "readable": "Readable",
+        "denied": "Denied",
+        "missing": "Missing",
+        "unknown": "Unknown",
+        "optionalMissing": "Optional missing"
+      },
+      "roles": {
+        "sessions": "Sessions",
+        "archived_sessions": "Archived sessions",
+        "projects": "Projects",
+        "session_state": "Session state",
+        "telemetry": "Telemetry",
+        "chats": "Chats",
+        "tmp": "Temporary files",
+        "usage_file": "Usage file",
+        "home": "Home"
+      },
+      "noPaths": "No direct filesystem path available.",
+      "connect": "Connect",
+      "connectPending": "Connecting...",
+      "connectSuccess": "Source connected. Running a fresh diagnostics pass now.",
+      "connectError": "Could not connect source.",
+      "disable": "Disable",
+      "disablePending": "Disabling...",
+      "disableSuccess": "Source disabled. Usage totals were refreshed.",
+      "disableError": "Could not disable source.",
+      "grantCommands": "Grant commands",
+      "revokeCommands": "Revoke commands",
+      "copyGrant": "Copy grant commands",
+      "copyRevoke": "Copy revoke commands",
+      "copyGrantSuccess": "Grant commands copied to the clipboard.",
+      "copyRevokeSuccess": "Revoke commands copied to the clipboard.",
+      "copyError": "Could not copy commands to the clipboard.",
+      "automatic": "used automatically"
+    },
+    "supportReport": {
+      "title": "Support report",
+      "description": "Generate a redacted support report for Multica or WhatsApp when local sources are missing or usage does not appear.",
+      "privacyNote": "The report contains only metadata and redacted paths, no raw logs, prompts, secrets, or provider payloads.",
+      "downloadJson": "Save JSON report",
+      "copySummary": "Copy summary",
+      "summaryLabel": "Compact summary",
+      "emptySummary": "Generate a report to preview the compact support summary.",
+      "preparing": "Preparing support report...",
+      "downloaded": "Support report saved.",
+      "copied": "Support summary copied to the clipboard.",
+      "generateError": "Could not generate support report: {message}",
+      "copyError": "Could not copy support summary to the clipboard."
+    },
+    "updates": {
+      "title": "App updates",
+      "description": "Automatic update checks are always active for supported packaged desktop builds; only preview releases are optional.",
+      "enabled": "Automatic update checks are always active",
+      "allowPrerelease": "Include preview releases",
+      "saved": "Saved.",
+      "saveError": "Could not save update settings.",
+      "diagTitle": "Update diagnostics",
+      "diagState": "State",
+      "diagSupport": "Support",
+      "diagLastCheck": "Last check",
+      "diagVersion": "App version",
+      "diagAvailable": "Available version",
+      "diagError": "Last error",
+      "diagNone": "None",
+      "checkNow": "Check now",
+      "checkQueued": "Update check queued.",
+      "checkError": "Could not request update check.",
+      "noticeTitle": "Update attention needed",
+      "noticeMacSigning": "macOS automatic updates require a signed app. This unsigned build can run after manual approval, but the updater will stay disabled until Developer ID signing and notarization are configured.",
+      "noticeDevelopment": "Automatic updates run only from a packaged desktop app, not from the development runtime.",
+      "noticeUnsupported": "Automatic updates are not supported on this platform/package.",
+      "noticeGatekeeper": "The app is signed, but Gatekeeper did not fully accept it. If updates behave oddly, reinstall a notarized build.",
+      "noticeDownloaded": "An update has been downloaded. Restart the app to install it.",
+      "noticeError": "The last update check failed. Check the error line, network access, and release assets.",
+      "state_unknown": "Unknown",
+      "state_disabled": "Disabled",
+      "state_checking": "Checking",
+      "state_available": "Update available",
+      "state_downloading": "Downloading",
+      "state_up_to_date": "Up to date",
+      "state_downloaded": "Downloaded",
+      "state_error": "Error",
+      "state_not_electron": "Not running in desktop app",
+      "state_development_build": "Development build",
+      "state_macos_signing_required": "macOS signing required",
+      "state_unsupported_platform": "Unsupported platform",
+      "support_ready": "Ready",
+      "support_development_build": "Development build",
+      "support_macos_signing_required": "macOS signing required",
+      "support_macos_gatekeeper_warning": "Signed, but Gatekeeper warning",
+      "support_unsupported_platform": "Unsupported platform",
+      "support_electron_updater_missing": "Updater package missing",
+      "support_unknown": "Unknown",
+      "state_electron_updater_missing": "Updater package missing",
+      "alwaysOn": "Automatic update checks are always active."
+    },
+    "saving": "Saving..."
+  },
+  "errors": {
+    "loadUsage": "Viga"
+  },
+  "diagnostics": {
+    "ariaLabel": "Source diagnostics",
+    "eyebrow": "Local sources",
+    "heading": "Diagnostics & connection",
+    "recheck": "Recheck access",
+    "loading": "Loading source diagnostics...",
+    "meta": "User {user} · Checked {checkedAt} · {platform} · {support}",
+    "support": {
+      "full": "full host discovery",
+      "partial_container": "limited container discovery",
+      "stub": "platform check unavailable",
+      "unsupported": "unsupported platform"
+    },
+    "supportShort": {
+      "full": "Full",
+      "partial_container": "Limited",
+      "stub": "Unavailable",
+      "unsupported": "Unavailable"
+    },
+    "supportDescriptions": {
+      "full": "Host file access, process hints, and permissions are measured on this machine.",
+      "partial_container": "Container discovery can miss host users, services, and homes; mounted logs can still be read.",
+      "stub": "Host source discovery is not available on this platform build; current-user configured logs may still be read.",
+      "unsupported": "Host source discovery is unavailable here; use Settings or a supported host build for source setup."
+    },
+    "quality": {
+      "measured": "Measured",
+      "configured": "Configured",
+      "detected": "Detected",
+      "limited": "Limited",
+      "unavailable": "Unavailable"
+    },
+    "facets": {
+      "logs": {
+        "title": "Readable log sources",
+        "available": "The app can read at least one local usage source.",
+        "empty": "No readable token log source was found in this scan."
+      },
+      "savedSources": {
+        "title": "Saved extra sources",
+        "available": "These are additional sources saved in Settings.",
+        "empty": "Zero saved sources is OK: current-user log history can still appear below."
+      },
+      "permissions": {
+        "title": "Permission fixes",
+        "blocked": "At least one plausible source exists, but this app cannot read it yet.",
+        "clear": "No denied source path was found in this scan."
+      },
+      "runtimeHints": {
+        "title": "Process/service hints",
+        "available": "A supported tool is visible only as a process or service, not as readable logs.",
+        "empty": "No process-only or service-only source hints were found."
+      },
+      "platform": {
+        "title": "Platform coverage"
+      }
+    },
+    "errors": {
+      "load": "Could not load source diagnostics: {message}"
+    },
+    "statuses": {
+      "connected_live": {
+        "title": "Local data is available",
+        "body": "Readable local sources are available. Saved extra-source counts only track sources you connected manually."
+      },
+      "current_user_empty": {
+        "title": "Current-user logs empty",
+        "body": "The current desktop user was scanned, but no local usage files with token data were found yet."
+      },
+      "candidates_readable_empty": {
+        "title": "Readable candidates found",
+        "body": "Known tool folders are readable, but they currently look empty or are not saved as extra sources."
+      },
+      "candidates_denied": {
+        "title": "Permission action needed",
+        "body": "A plausible source was found, but this app cannot read it with the current account."
+      },
+      "runtime_hints_only": {
+        "title": "Tool seen without readable logs",
+        "body": "A supported tool process or service was detected, but no readable log folder was found for it yet."
+      },
+      "no_tools_found": {
+        "title": "No local tools found",
+        "body": "No supported local tool folders, related processes, or service hints were detected on this machine."
+      },
+      "other_dashboard_found": {
+        "title": "Other dashboard instance found",
+        "body": "Another local LLM Pulse instance is running and may already be reading local usage data."
+      },
+      "partial_unsupported": {
+        "title": "Discovery is limited here",
+        "body": "This runtime can only do limited source discovery, so some users, services, or homes may stay invisible."
+      },
+      "discovery_error": {
+        "title": "Discovery error",
+        "body": "Source discovery did not finish cleanly."
+      }
+    },
+    "nextActions": {
+      "connected_live": "No action is needed; local data below can come from default current-user logs even with zero saved extra sources.",
+      "current_user_empty": "No action is needed unless you expected history; start a supported tool or inspect sources in Settings.",
+      "candidates_readable_empty": "Open Settings > Local sources if you want to save one of these readable sources.",
+      "candidates_denied": "Open Settings > Local sources, copy the ACL command for the denied source, run it as an admin, then recheck.",
+      "runtime_hints_only": "Wait for the tool to write usage logs, or configure the readable source in Settings and recheck.",
+      "no_tools_found": "Start a supported local tool or add a source in Settings, then recheck.",
+      "other_dashboard_found": "Use the already running dashboard window or stop it before checking this instance again.",
+      "partial_unsupported": "Run the desktop app on the host OS for fuller discovery; mounted local logs can still be shown below.",
+      "discovery_error": "Recheck access. If it fails again, check the backend error and source settings."
+    },
+    "recheckResults": {
+      "checking": "Checking...",
+      "ready": "Recheck complete: {status}",
+      "action": "Action needed: {status}",
+      "error": "Recheck failed: {message}",
+      "empty": "Recheck did not return diagnostics."
+    },
+    "instances": {
+      "title": "Other dashboard instances",
+      "item": "{user} has another dashboard instance running."
+    }
+  },
+  "subscriptions": {
+    "plan": "Plan: {plan}",
+    "planUnknown": "Plan unknown",
+    "costUnknown": "Cost unknown",
+    "source": "Source: {source}",
+    "updated": "Updated {time}",
+    "qualityLabel": "Cost quality",
+    "sourceLabel": "Source",
+    "quality": {
+      "automatic": "Automatically detected",
+      "manual": "Saved fallback estimate",
+      "estimated": "Estimated / partial",
+      "unknown": "Unknown",
+      "catalog": "Kataloogi väärtus",
+      "official": "Ametlik hinnakirja hind",
+      "officialStarting": "Ametlik alates-hinnakirja hind"
+    },
+    "sources": {
+      "local_settings": "saved fallback",
+      "account": "konto/arvelduse allikas",
+      "codex_app_server": "Codex local app-server",
+      "codex_local_logs": "Codex local logs",
+      "claude_statusline": "Claude Code statusline",
+      "claude_auth_status": "Claude CLI auth status",
+      "claudeCode_local_signal": "Claude Code local signal",
+      "codex_local_signal": "Codex local signal",
+      "copilot_local_signal": "Copilot local signal",
+      "gemini_local_signal": "Gemini local signal",
+      "openai_api": "OpenAI API metadata",
+      "anthropic_api": "Anthropic API metadata",
+      "unknown": "unknown",
+      "openai_public_catalog": "OpenAI avalik tellimuste kataloog",
+      "anthropic_public_catalog": "Anthropicu avalik tellimuste kataloog",
+      "claude_browser_sync": "Claude brauseri/konto sunkroon",
+      "claude_api": "Claude konto kasutuse API",
+      "browser": "brauserikonto allikas",
+      "official_pricing_page": "ametlik hinnaleht",
+      "cached_official_snapshot": "vahemällu salvestatud ametlik tõmmis",
+      "bundled_catalog": "kaasasolev kataloog",
+      "account_billing": "konto/arvelduse allikas"
+    },
+    "catalogReviewed": "Kataloog üle vaadatud {date}",
+    "costReasons": {
+      "catalogMissing": "Usaldusvaarset kataloogi voi konto hinda selle plaani jaoks ei leitud.",
+      "catalogMissingCodexAppServer": "Kohalik Codex app-server andis plaani, kuid mitte kuuhinda; sobivat usaldusvaarset kataloogihinda pole.",
+      "catalogMissingClaudeStatusline": "Claude statusline andis plaani, kuid mitte kuuhinda; brauseri/konto andmed puuduvad voi ei naita hinda.",
+      "catalogMissingClaudeAuth": "Claude CLI auth andis plaani, kuid mitte kuuhinda; brauseri/konto andmed puuduvad voi ei naita hinda.",
+      "catalogMissingClaudeBrowser": "{source} kontrolliti, kuid see ei naita plaani kuuhinda."
+    },
+    "costActions": {
+      "addFallback": "Uuenda kataloogi/konto allikat või lisa Advanced varuhinnang."
+    },
+    "planSource": "Plaan/piirangud allikast {source}",
+    "planSourceLabel": "Plaani/piirangute allikas",
+    "catalogFallbackNote": "Kuutasu pärineb kataloogi varuväärtusest; ainult loetavad rakenduse/konto allikad annavad plaani, piirangute või krediidi andmeid, kuid mitte usaldusväärset kuuhinda.",
+    "sourceAudit": {
+      "heading": "Ainult loetavad hinnaallikad",
+      "safePriceDetected": "usaldusväärne kuuhind tuvastatud",
+      "planOnlyNoPrice": "ainult plaan/piirangud; kuuhinda ei avaldata",
+      "browserNoPrice": "kontrollitud; usaldusväärset kuuhinda ei avaldata",
+      "catalogFallback": "kataloogi varuhind",
+      "notConfigured": "selles jooksus puudub",
+      "notAvailable": "turvalist ainult loetavat hinnaallikat pole",
+      "notUsed": "ei kasutata",
+      "officialListPrice": "ametlik hinnakirja hind",
+      "accountSourceExpired": "konto allikas on aegunud",
+      "accountSourceUnavailable": "konto allikas pole saadaval"
+    },
+    "officialListPriceNote": "Ametlik hinnakirja hind; tegelik arve võib erineda käibemaksu/maksude, aastasoodustuste, kohtade, kupongide, piirkondlike hindade või Enterprise-lepingute tõttu.",
+    "fetched": "Loetud {time}",
+    "sourceUrl": "URL: {url}",
+    "planKey": "Plaani võti: {key}",
+    "parserStatus": "Parser: {status}",
+    "priceSourceTypeLabel": "Hinnaallika tüüp",
+    "sourceUrlLabel": "Allika URL",
+    "fetchedLabel": "Lugemise/andmete aeg",
+    "planKeyLabel": "Plaani võti",
+    "parserStatusLabel": "Parseri olek",
+    "parserStatuses": {
+      "parsed": "parsitud",
+      "parse_failed": "parsimine nurjus",
+      "cached_after_fetch_error": "vahemälu pärast tõrget",
+      "bundled": "kaasasolev varuvariant",
+      "missing": "puudub",
+      "unknown": "teadmata"
+    },
+    "officialStartingListPriceNote": "Ametlik alates-hinnakirja hind; konto tegelikku arvet ei loetud ja see võib erineda paketi, käibemaksu/maksude, aastasoodustuste, kohtade, kupongide, piirkondlike hindade, lisade või enterprise-lepingute tõttu.",
+    "tierVariant": "Tase/variant: {variant}",
+    "actualBilling": "Tegelik arveldus teada: {status}",
+    "tierVariantLabel": "Tase/variant",
+    "actualBillingKnownLabel": "Tegelik arveldus teada",
+    "priceVariants": {
+      "from": "miinimum / alates",
+      "pro_5x": "Pro 5x",
+      "pro_5x_20x": "Pro 5x/20x",
+      "pro_20x": "Pro 20x",
+      "max_5x": "Claude Max 5x",
+      "max_5x_20x": "Claude Max 5x/20x",
+      "max_20x": "Claude Max 20x",
+      "unknown": "teadmata"
+    },
+    "actualBillingKnown": {
+      "yes": "jah",
+      "no": "ei"
+    },
+    "connectionActions": {
+      "refresh": "Värskenda",
+      "claudeLogin": "Logi Claude’i sisse ja loe pakett",
+      "claudeRefresh": "Loe Claude’i pakett uuesti",
+      "chatgptLogin": "Logi ChatGPT-sse ja loe pakett",
+      "chatgptRefresh": "Loe ChatGPT pakett uuesti",
+      "rereadPlan": "Loe pakett nüüd"
+    },
+    "connectionStatus": {
+      "refreshRequired": "Ühendust tuleb värskendada",
+      "claudeLoginRequired": "Claude’i sisselogimine on vajalik",
+      "claudeRefreshRequired": "Värskenda Claude’i ühendust",
+      "chatgptLoginRequired": "ChatGPT sisselogimine on vajalik",
+      "chatgptRefreshRequired": "Värskenda ChatGPT Billing ühendust",
+      "claudeConflict": "Claude Max: vastuolulised allikad ({details})"
+    },
+    "connectionHelp": "Ava teenusepakkuja leht, logi vajaduse korral sisse ja tule siia tagasi. Rakendus loeb paketi fookuse naasmisel uuesti või kasuta nuppu."
+  },
+  "gptAccounts": {
+    "ariaLabel": "GPT accounts",
+    "eyebrow": "Local account registry",
+    "heading": "GPT accounts",
+    "recheck": "Re-scan accounts",
+    "checking": "Scanning Codex and OpenCode accounts…",
+    "rechecked": "Account scan complete.",
+    "recheckError": "Account scan failed: {message}",
+    "recheckErrorFallback": "Unknown error",
+    "summary": "{active} active of {count} known accounts · scanned {time}",
+    "notScanned": "Accounts have not been scanned yet.",
+    "empty": "No ChatGPT account found yet",
+    "guidance": "Sign in with Codex or OpenCode, then re-scan. Accounts seen previously remain in this list as history.",
+    "active": "Active",
+    "historical": "Previous",
+    "lifetimeTokens": "Codex lifetime tokens",
+    "limit": "Limit",
+    "lastSeen": "Last seen {time}",
+    "activeSourceCount": "{count} active sources",
+    "attributionNote": "OpenCode tokens are measured for OpenCode as a whole because its message database does not record which account produced each message.",
+    "sources": {
+      "codex": "Codex",
+      "openCode": "OpenCode"
+    },
+    "activeSourceCountOne": "1 active source",
+    "add": "Lisa GPT-konto",
+    "signIn": "Logi OpenAI-sse sisse",
+    "removeLogin": "Eemalda salvestatud sisselogimine",
+    "login": {
+      "waiting": "Lõpeta OpenAI-sse sisselogimine. Vali brauseris soovitud konto.",
+      "complete": "Konto ühendatud.",
+      "failed": "Sisselogimine pole saadaval. Paigalda Codex CLI või proovi uuesti."
+    },
+    "connectionHelp": "Olemasolevad Codexi ja OpenCode’i sisselogimised tuvastatakse automaatselt. Lisa GPT-kontosid neid asendamata.",
+    "loginPrivacy": "Sisselogimine suhtleb OpenAI-ga. Volitused jäävad eraldi kohalikku profiili ega lähe arendajale ega seotud seadmetele."
+  },
+  "codexResets": {
+    "title": "Codex · Lähtestuste ajalugu",
+    "period": "Periood",
+    "last10": "Viimased 10 akent",
+    "last30": "Viimased 30 akent",
+    "all": "Kõik aknad",
+    "credits": "Saadaolevad lähtestuskrediidid",
+    "earlyCount": "Varajased lähtestused",
+    "averageDuration": "Keskmine kestus ≈",
+    "averageUsage": "Keskmine kasutus",
+    "days": "{value} päeva",
+    "windows": "{count} aknast",
+    "maximum": "Suurim täheldatud kasutus",
+    "start": "Algus ≈",
+    "plannedReset": "Teatatud lähtestus",
+    "end": "Lõpp ≈",
+    "duration": "Kestus ≈",
+    "usage": "Maks. kasutus",
+    "result": "Lähtestuse tõend",
+    "early": "Varajane",
+    "regular": "Planeeritud",
+    "uncertain": "Ebakindel",
+    "estimated": "Taastatud",
+    "confirmed": "Krediit kasutatud: kinnitatud",
+    "inferred": "Krediit kasutatud: järeldatud",
+    "live": "Salvestamine aktiivne",
+    "stale": "Salvestus aegunud",
+    "unavailable": "Reaalajaandmed pole saadaval",
+    "loading": "Ajaloo laadimine…",
+    "empty": "Lõpetatud aknaid pole veel täheldatud.",
+    "note": "Vanad logid taastavad aknaid kontot määramata. Kestus ja lõpp on hinnangud; kasutus on suurim täheldatud väärtus. Salvestamine toimub rakenduse töötamise ajal. Isikuid ja seadmeid ei saa tuvastada.",
+    "durationBasis": "{count} sobivat akent · oodatud: 7 päeva",
+    "recordingSince": "Salvestamine alates {time}",
+    "redemptions": "Krediidid: {confirmed} kinnitatud · {inferred} järeldatud kasutust",
+    "expires": "Aegub {time}",
+    "coverage": "{uncertain} ebakindlat akent · {gaps} lünka",
+    "current": "Praegu: lähtestus {time} · maks. {percent} %",
+    "events": "Krediidisündmused · viimased 30",
+    "granted": "Krediit antud",
+    "expired": "Krediit aegunud",
+    "creditUnknown": "Krediidimuutus: ebaselge",
+    "cause": "Lähtestamise põhjus",
+    "causeManual": "Käsitsi · kupong",
+    "causeProvider": "OpenAI · järeldatud",
+    "causeScheduled": "Plaaniline",
+    "causeUnknown": "Teadmata",
+    "causeMissing": "Kupongi või ülemineku tõend puudub",
+    "causeNoCredit": "Varajane ilma täheldatud kupongikasutuseta",
+    "causeConfirmed": "Kinnitatud",
+    "causeInferred": "Järeldatud",
+    "causeSummary": "Põhjused: {manual} kupong · {provider} OpenAI (järeldatud) · {scheduled} plaaniline · {unknown} teadmata",
+    "causeNote": "Varajane aeg ei näita põhjust. OpenAI järeldatakse ainult siis, kui täielik kupongiloend jääb tihedalt jälgitud kvoodi lähtestamisel samaks. Vanad logid ei erista käsitsi ja OpenAI lähtestamisi. Lähtestaja isik pole teada."
+  },
+  "deviceSync": {
+    "heading": "Ühenda oma seadmed",
+    "enabled": "Luba otsene sünkroonimine",
+    "name": "Seadme nimi",
+    "invite": "Loo sidumiskood",
+    "code": "Sidumiskood",
+    "copy": "Kopeeri kood",
+    "join": "Ühenda seade",
+    "forget": "Katkesta seadme ühendus",
+    "view": "Seadmed",
+    "local": "See seade",
+    "all": "Kõik ühendatud seadmed",
+    "copied": "Kood kopeeritud.",
+    "working": "Ühendamine…",
+    "ready": "Valmis.",
+    "inviteReady": "Kood aegub viie minuti pärast. Kleebi see oma teises seadmes.",
+    "errors": {
+      "default": "Ühendus pole saadaval. Varem saadud andmed jäävad sellesse seadmesse.",
+      "peer_unreachable": "Ühendus pole saadaval. Varem saadud andmed jäävad sellesse seadmesse.",
+      "invalid_pairing_code": "Ühendus pole saadaval. Varem saadud andmed jäävad sellesse seadmesse.",
+      "network_unavailable": "Ühendus pole saadaval. Varem saadud andmed jäävad sellesse seadmesse.",
+      "sync_disabled": "Ühendus pole saadaval. Varem saadud andmed jäävad sellesse seadmesse.",
+      "capture_failed": "Ühendus pole saadaval. Varem saadud andmed jäävad sellesse seadmesse.",
+      "storage_unavailable": "Ühendus pole saadaval. Varem saadud andmed jäävad sellesse seadmesse.",
+      "discovery_unavailable": "Ühendus pole saadaval. Varem saadud andmed jäävad sellesse seadmesse."
+    },
+    "privacy": "Kasutusandmeid ja volitusi ei saadeta arendajale. Krüptitud mõõtmisi jagatakse ainult selgelt seotud seadmetega. Ühenduse katkestamine ei kustuta saadud koopiaid.",
+    "networkLimit": "Otseühendused kasutavad kohalikku võrku või olemasolevat privaatset VPN-i ilma vahendusserveri, otsinguserveri või ruuterimuudatusteta. Neid blokeerivad võrgud takistavad automaatset sünkroonimist.",
+    "coverage": "{count} unikaalset kirjet · {duplicates} duplikaati eemaldatud · {excluded} kirjet jäävad kohaliku usaldusväärse tunnuseta. Kontode limiidid hoitakse eraldi; API kogusummasid ei lisata."
+  },
+  "connections": {
+    "accounts": "Kontod",
+    "installations": "Paigaldused",
+    "general": "Üldine",
+    "advanced": "Täpsem",
+    "addAccount": "Lisa konto",
+    "chooseProvider": "Vali teenusepakkuja",
+    "detectedDetails": "Leitud GPT kontod ja üksikasjad",
+    "back": "Tagasi",
+    "accountLabel": "Nimi (valikuline)",
+    "apiKey": "API võti",
+    "adminKey": "Administraatori API võti",
+    "region": "Piirkond",
+    "global": "Rahvusvaheline",
+    "china": "Hiina",
+    "setupHelp": "Seadistamisjuhised",
+    "connect": "Ühenda",
+    "openSignIn": "Ava sisselogimine",
+    "connectInstallation": "Ühenda paigaldus",
+    "haveCode": "Mul on kood",
+    "syncOptions": "Sünkroonimine ja privaatsus",
+    "remove": "Eemalda",
+    "automatic": "Automaatselt leitud",
+    "empty": "Ühtegi kontot pole veel ühendatud.",
+    "apiAccount": "API konto",
+    "subscription": "Tellimus / programmeerimisplaan",
+    "thisInstallation": "See paigaldus",
+    "syncOn": "Sünkroonimine lubatud",
+    "syncOff": "Sünkroonimine keelatud",
+    "local": "Kohalik",
+    "waitingSync": "Esimese sünkroonimise ootel",
+    "viaPeer": "Seotud paigalduse kaudu",
+    "balance": "Saldo",
+    "privacy": "Sisselogimisandmed jäävad sellesse seadmesse. Kasutusandmeid arendajale ei saadeta.",
+    "installationsHelp": "Ühenda oma paigaldused, et näha nende kasutust koos.",
+    "pairHelp": "Ava teises seadmes Paigaldused. Loo siin kood või kleebi teise seadme kood. Seadmed peavad olema otse ühendatavad.",
+    "adminKeyHelp": "Kasutusaruanded nõuavad organisatsiooni administraatori API võtit, eraldi vestlustellimusest.",
+    "glmHelp": "Kasuta GLM Coding Plani võtit ja vali selle piirkond.",
+    "browserHelp": "Jätka teenusepakkuja ametliku sisselogimisega.",
+    "keyPrivacy": "Võti salvestatakse kohapeal ja seda kasutatakse ainult selle teenusepakkuja päringuteks.",
+    "needsSetup": "Paigalda esmalt teenusepakkuja ametlik CLI ja värskenda loendit.",
+    "claudeHelp": "Claude Code haldab selles seadmes sisselogimist. Vajalik on paigaldatud Claude Code CLI.",
+    "kimiHelp": "Kasuta Kimi Code’i ametlikku sisselogimist või Kimi Code’i plaani võtit.",
+    "moonshotHelp": "Kasuta Moonshot API võtit API saldo lugemiseks, eraldi Kimi Code’ist.",
+    "loginWaiting": "Lõpeta teenusepakkuja sisselogimine. Hoia see aken avatuna.",
+    "loginComplete": "Konto on ühendatud. Mõõtmisi värskendatakse automaatselt.",
+    "claudeSignIn": "Ühenda Claude Code’iga",
+    "providers": {
+      "gpt": "ChatGPT / Codex",
+      "claude": "Claude / Anthropic",
+      "kimi": "Kimi Code",
+      "glm": "GLM / Z.AI",
+      "openai": "OpenAI API",
+      "anthropic": "Anthropic API",
+      "moonshot": "Moonshot API"
+    },
+    "browser": "Logi sisse",
+    "failed": "Sisselogimine nurjus",
+    "checking": "Ühendamine…",
+    "installation": "Paigaldused",
+    "status": {
+      "connected": "Aktiivne",
+      "detected": "Leitud",
+      "historical": "Varasem",
+      "auth_required": "Sisselogimine vajalik",
+      "error": "Viga",
+      "unavailable": "Pole saadaval",
+      "unknown": "Pole saadaval"
+    },
+    "errors": {
+      "invalid_account": "Kontot ei leitud. Värskenda kontode loendit.",
+      "invalid_key": "Võti lükati tagasi. Kontrolli võtit ja valitud teenusepakkujat.",
+      "permission_denied": "Võtmel puudub juurdepääs kasutusaruannetele. Kasuta vajalike õigustega võtit.",
+      "unsupported_key": "See võtmetüüp ei saa kasutust lugeda. Järgi teenusepakkuja seadistamisjuhiseid.",
+      "account_limit": "Kontode piirang on täis. Eemalda esmalt kasutamata konto.",
+      "connection_unavailable": "Teenusepakkujat ei saa kätte. Kontrolli ühendust ja proovi uuesti.",
+      "account_storage_unavailable": "Kohalik kontode salvestus pole saadaval. Kontrolli rakenduse failiõigusi.",
+      "profile_remove_failed": "Salvestatud sisselogimist ei saanud eemaldada. Sulge sisselogimisaken ja proovi uuesti.",
+      "unsupported_platform": "Brauseriga sisselogimine pole sellel platvormil saadaval. Kasuta saadaolevat võtmega meetodit."
+    },
+    "kimiHelperHelp": "Esimesel sisselogimisel laadib rakendus ametliku Kimi abiprogrammi otse Kimilt. See töötab kohapeal; juhtpaneel ei saada telemeetriat.",
+    "lastSeen": "Viimati nähtud {time}"
+  },
+  "history": {
+    "refreshing": "Salvestatud ajalugu · {time}. Uuendamine toimub taustal."
+  },
+  "quotaIntegrity": {
+    "title": "Kvootide terviklikkus",
+    "period": "Ajavahemik",
+    "range24h": "Viimased 24 tundi",
+    "range7d": "Viimased 7 päeva",
+    "range30d": "Viimased 30 päeva",
+    "loading": "Kvootide terviklikkust laaditakse…",
+    "unavailable": "Kvootide terviklikkuse andmed pole saadaval.",
+    "intro": "Ebatavalised kvoodivaatlused, kui hästi andmed neid katavad ja kas kohalik tokenitegevus suudab neid selgitada. Ebatavaline vaatlus vajab uurimist, kuid ei tõenda teenusepakkuja poolset probleemi.",
+    "status": {
+      "attention": "Vajab tähelepanu",
+      "no_anomaly_detected": "Anomaaliaid ei tuvastatud",
+      "insufficient_data": "Andmeid pole veel piisavalt"
+    },
+    "collector": "Codexi reaalajas koguja",
+    "noData": "Andmed puuduvad",
+    "lastSample": "Viimane proov {time}",
+    "noSample": "Reaalajas proovi pole",
+    "findings": "Tähelepanekud",
+    "findingsDetail": "{warnings} hoiatust · {info} teavet",
+    "observations": "Vaatlused",
+    "observationsDetail": "{samples} hetktõmmist · {events} ajalookirjet",
+    "localData": "Kohaliku tegevuse andmed",
+    "localDataDetail": "{slots} ajavahemikku · värskendatud {time}",
+    "neverRefreshed": "pole veel salvestatud",
+    "gaps": "Kogumislüngad",
+    "gapsDetail": "{count} selles vahemikus",
+    "measured": "Mõõdetud",
+    "estimate": "Hinnang",
+    "hypothesis": "Hüpotees",
+    "confidence": "Kindlus: {level}",
+    "level": {
+      "medium": "keskmine",
+      "low": "madal"
+    },
+    "confidenceWord": {
+      "confirmed": "kinnitatud",
+      "inferred": "järeldatud",
+      "possible": "võimalik"
+    },
+    "chartTitle": "Codexi nädalane kasutus ajas",
+    "chartAria": "Joondiagramm Codexi nädalakvoodi kasutusest protsentides: {points} salvestatud punkti, {findings} märgitud tähelepanekut.",
+    "chartEmpty": "Selles vahemikus ei salvestatud Codexi nädalakvoodi muutusi.",
+    "legendWarning": "Hoiatus",
+    "legendInfo": "Teave",
+    "legendGap": "Kogumislünk",
+    "types": {
+      "usage_rolled_back": "Teatatud kasutus vähenes",
+      "reset_deadline_changed_early": "Lähtestusaeg muutus enneaegselt",
+      "usage_increase_without_local_activity": "Kasutus kasvas ilma kohaliku tegevuseta",
+      "collector_gap": "Koguja pole saadaval",
+      "observation_gap": "Vaatlusi pole",
+      "account_changed": "Konto ulatus muutus",
+      "stale_codex_snapshot": "Reaalajas andmed on aegunud",
+      "no_live_codex_samples": "Codexi reaalajas andmeid pole"
+    },
+    "fact": {
+      "usageChange": "Kasutatud kvoot {from}% → {to}% ({delta} punkti)",
+      "between": "Vaadeldud ajavahemikus {from} – {to}",
+      "deadlineShift": "Lähtestusaeg nihkus {minutes} minutit: {from} → {to}",
+      "noActivity": "Kohalikku tokenitegevust pole {minutes} minuti jooksul salvestatud ({basis})",
+      "basisPlateau": "alates hetkest, mil eelmine väärtus esimest korda nähti",
+      "basisWindow": "alates kvoodiakna algusest",
+      "localCounts": "Kohalikud sündmused: {events} · kohalikud tokenid: {tokens}",
+      "gapSpan": "Andmed puuduvad {minutes} minutit ({from} → {to})",
+      "gapOngoing": "Andmed puuduvad {minutes} minutit, alates {from} (kestab)",
+      "failures": "Salvestatud {count} ebaõnnestunud kogumiskatset",
+      "staleAge": "Viimane reaalajas proov oli {minutes} minutit tagasi"
+    },
+    "evidence": {
+      "heading": "Tõendid andmetes",
+      "credit": "Nende vaatluste vahel lunastati lähtestuskrediit ({confidence}).",
+      "account": "Reaalajas hetktõmmis vahetus umbes sel ajal teisele kontole (võimalik).",
+      "resetNoCredit": "Enneaegne lähtestus ilma kasutatud krediidita (järeldatud)."
+    },
+    "hypothesesHeading": "Võimalikud selgitused (hüpoteesid, mitte tähelepanekud)",
+    "hypotheses": {
+      "other_device_or_surface": "Kasutus teises seadmes, veebirakenduses, IDE laiendis või pilveülesannetes, mida kohalikud logid ei näe",
+      "other_account_or_profile": "Kasutus teise konto või profiili poolt, mis jagab seda kvooti",
+      "provider_accounting_or_adjustment": "Teenusepakkuja poolne arvestuse viivitus, ümardamine või korrigeerimine",
+      "local_logs_incomplete": "Kohalikud logid on puudulikud, roteeritud või neid ei koguta",
+      "ledger_not_account_scoped": "See kvoodiajalugu ei ole seotud ühe kontoga",
+      "reset_credit_or_plan_change": "Lähtestuskrediit, paketi vahetus või muu kvoodi korrigeerimine",
+      "inconsistent_source_data": "Vastuolulised andmed kvoodi allikast"
+    },
+    "noFindings": "Selles vahemikus tähelepanekuid pole.",
+    "stepStatus": {
+      "activity_present": "Kohalik tegevus on olemas",
+      "shared_source_activity": "Ainult teine kohalik agent",
+      "no_local_activity": "Kohalikku tegevust ei salvestatud",
+      "not_assessable": "Hinnata ei saa"
+    },
+    "reason": {
+      "history_start": "Ajalugu algab sellest punktist",
+      "no_local_history": "Kohalikku logiajalugu pole",
+      "before_local_history": "Kohalikud logid algavad hiljem",
+      "ingest_pending": "Kohalikke logisid pole veel uuesti loetud"
+    },
+    "steps": {
+      "heading": "Kvoodi kasv võrreldes kohaliku tegevusega",
+      "summary": "{present} kohaliku tegevusega · {shared} ainult teine kohalik agent · {none} ilma · {unknown} ei saa hinnata",
+      "note": "Iga rida on teatatud kasutuse kasv. Kohalike tokenite arv pärineb ainult selle arvuti logidest ega ole kvoodi ümberarvestus.",
+      "empty": "Selles vahemikus kasutuse kasvu pole."
+    },
+    "estimateText": "Võrreldavate sammude mediaan oli {median} kohalikku tokenit kvoodipunkti kohta (keskmine pool {low}–{high}, {samples} sammu). Teenusepakkujad kaaluvad mudeleid ja vahemällu salvestatud sisendit erinevalt, seega on see ligikaudne skaala, mitte ümberarvestus.",
+    "localValue": "{events} sündmust · {tokens} tokenit",
+    "colTime": "Aeg",
+    "colChange": "Kasutatud kvoot",
+    "colLocal": "Kohalik tegevus",
+    "colTokens": "Sündmused · tokenid",
+    "colWindow": "Aken",
+    "colUsed": "Kasutatud",
+    "colResets": "Lähtestus",
+    "colLastChange": "Viimane muutus",
+    "gapKind": {
+      "collector_unavailable": "Koguja pole saadaval",
+      "no_observations": "Vaatlusi pole (rakendus oli suletud või arvuti ootel)"
+    },
+    "ongoing": "kestab",
+    "minutes": "{value} min",
+    "gapsEmpty": "Selles vahemikus kogumislünki pole.",
+    "windows": {
+      "heading": "Vaadeldud kvoodiaknad",
+      "note": "Kvoodiajalugu salvestab ainult muutusi, seega vaikne periood ei ole lünk.",
+      "empty": "Selles vahemikus kvoodiaknaid ei salvestatud."
+    },
+    "privacyNote": "Analüüsitakse ainult kvootide ajastust ja tokenite arvu. Viipasid, transkriptsioone, konto identifikaatoreid ega failiteid ei kaasata kunagi."
+  },
+  "workspace": {
+    "openPalette": "Open command palette",
+    "paletteShortcut": "Command palette · Ctrl+K",
+    "focusMode": "Toggle focus mode",
+    "focusShortcut": "Focus mode · Alt+Shift+F",
+    "compactMode": "Toggle compact layout",
+    "paletteTitle": "Command palette",
+    "paletteSearch": "Search actions or jump to a section…",
+    "paletteClose": "Close command palette",
+    "focusOn": "Focus mode enabled",
+    "focusOff": "Focus mode disabled",
+    "compactOn": "Compact layout enabled",
+    "compactOff": "Comfortable layout enabled",
+    "glassOn": "Glass effect enabled",
+    "glassOff": "Glass effect disabled",
+    "motionOn": "Reduced motion enabled",
+    "motionOff": "Full motion enabled"
+  }
+}
