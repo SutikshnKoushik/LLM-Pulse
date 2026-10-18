@@ -1,12 +1,11 @@
 (() => {
   "use strict";
 
-  // Personalize this workspace here. Keep upstream ownership and links separate
-  // from the local display name; leave profileUrl empty until it is verified.
+  // Keep the LLM Pulse profile and repository separate from upstream ownership.
   const brand = Object.freeze({
     projectName: "LLM Pulse — AI Usage Intelligence",
     subtitle: "AI Usage Intelligence",
-    displayName: "Ayush",
+    displayName: "SutikshnKoushik",
     profileUrl: "https://github.com/SutikshnKoushik",
     repositoryUrl: "https://github.com/SutikshnKoushik/LLM-Pulse/",
     upstreamMaintainer: "Gerhard Kollinger",
